@@ -1,0 +1,20 @@
+{
+	"name": "grail-ui",
+  "description": "A library of accessible component primitives, actions and utilities for Svelte",
+	"version": "0.0.0",
+	"private": true,
+  "author": "Tasos Bekos <tbekos@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "Svelte",
+    "Sveltekit",
+    "Components",
+    "Library",
+    "UI",
+    "Web",
+    "Accessibility",
+    "Typescript",
+    "Open source"
+  ],
+	"type": "module"
+}
