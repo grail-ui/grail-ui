@@ -1,8 +1,8 @@
 {
-	"name": "grail-ui",
+  "name": "grail-ui",
   "description": "A library of accessible component primitives, actions and utilities for Svelte",
-	"version": "0.0.0",
-	"private": true,
+  "version": "0.0.0",
+  "private": true,
   "author": "Tasos Bekos <tbekos@gmail.com>",
   "license": "MIT",
   "keywords": [
@@ -16,5 +16,17 @@
     "Typescript",
     "Open source"
   ],
-	"type": "module"
+  "type": "module",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "format": "prettier --plugin-search-dir=. --cache --write .",
+    "format:check": "prettier --plugin-search-dir=. --cache --check ."
+  },
+  "devDependencies": {
+    "prettier": "2.7.1"
+  },
+  "engines": {
+    "node": ">=16",
+    "pnpm": ">=7"
+  }
 }
