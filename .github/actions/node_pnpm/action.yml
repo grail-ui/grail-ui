@@ -1,0 +1,20 @@
+name: 'Setup Node & PNPM'
+
+inputs:
+  node-version:
+    description: 'Node version to use'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Use Node v${{ inputs.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: 7
+        run_install: true

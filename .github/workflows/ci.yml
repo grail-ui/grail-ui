@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request: {}
+
+env:
+  node-version: 16.x
+
+jobs:
+  verify:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/node_pnpm
+        with:
+          node-version: ${{ env.node-version }}
+
+      - name: Check format
+        run: pnpm format:check
