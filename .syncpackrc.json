@@ -1,0 +1,4 @@
+{
+  "sortAz": ["keywords", "dependencies", "devDependencies", "peerDependencies", "resolutions"],
+  "sortFirst": ["name", "description", "version", "private", "author", "license", "keywords", "type", "scripts"]
+}

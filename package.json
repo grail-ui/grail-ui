@@ -6,15 +6,15 @@
   "author": "Tasos Bekos <tbekos@gmail.com>",
   "license": "MIT",
   "keywords": [
-    "Svelte",
-    "Sveltekit",
+    "Accessibility",
     "Components",
     "Library",
-    "UI",
-    "Web",
-    "Accessibility",
+    "Open source",
+    "Svelte",
+    "Sveltekit",
     "Typescript",
-    "Open source"
+    "UI",
+    "Web"
   ],
   "type": "module",
   "scripts": {
@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "prettier": "2.7.1",
-    "prettier-plugin-svelte": "2.8.0"
+    "prettier-plugin-svelte": "2.8.0",
+    "syncpack": "8.3.9"
   },
   "engines": {
     "node": ">=16",

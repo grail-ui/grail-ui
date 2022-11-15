@@ -27,3 +27,6 @@ jobs:
 
       - name: Lint
         run: pnpm lint
+
+      - name: Check dependencies mismatches
+        run: pnpm syncpack list-mismatches
