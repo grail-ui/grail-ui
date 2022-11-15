@@ -20,10 +20,12 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --plugin-search-dir=. --cache --write .",
-    "format:check": "prettier --plugin-search-dir=. --cache --check ."
+    "format:check": "prettier --plugin-search-dir=. --cache --check .",
+    "lint": "pnpm --filter=* lint"
   },
   "devDependencies": {
-    "prettier": "2.7.1"
+    "prettier": "2.7.1",
+    "prettier-plugin-svelte": "2.8.0"
   },
   "engines": {
     "node": ">=16",

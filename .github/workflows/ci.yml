@@ -24,3 +24,6 @@ jobs:
 
       - name: Check format
         run: pnpm format:check
+
+      - name: Lint
+        run: pnpm lint
