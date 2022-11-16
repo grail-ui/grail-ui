@@ -30,6 +30,10 @@ What defines **"high-quality"**?
 - Clean and well-documented code that can be used as learning material.
 - Fully customizable and configurable.
 
+## 🧱 Contributing
+
+We are always looking for quality contributions! Please check our [Contributing Guide](CONTRIBUTING.md) for guidelines.
+
 ## 🙏 Thanks
 
 This project is heavily inspired by the following awesome projects.
