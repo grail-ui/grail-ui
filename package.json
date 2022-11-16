@@ -21,6 +21,7 @@
     "preinstall": "npx only-allow pnpm",
     "format": "prettier --plugin-search-dir=. --cache --write .",
     "format:check": "prettier --plugin-search-dir=. --cache --check .",
+    "test": "pnpm --filter=* test",
     "lint": "pnpm --filter=* lint"
   },
   "devDependencies": {
