@@ -1,0 +1,41 @@
+{
+  "name": "@grail-ui/svelte",
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "svelte-kit sync && svelte-package",
+    "prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
+    "test": "vitest run --coverage",
+    "tdd": "vitest",
+    "test-ct": "svelte-kit sync && playwright test -c playwright.config.ts",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "eslint --cache ."
+  },
+  "devDependencies": {
+    "@playwright/experimental-ct-svelte": "1.28.0",
+    "@playwright/test": "1.28.0",
+    "@sveltejs/kit": "1.0.0-next.548",
+    "@sveltejs/package": "1.0.0-next.1",
+    "@testing-library/dom": "8.19.0",
+    "@testing-library/jest-dom": "5.16.5",
+    "@testing-library/svelte": "3.2.2",
+    "@testing-library/user-event": "14.4.3",
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "@vitest/coverage-c8": "0.25.2",
+    "c8": "7.12.0",
+    "eslint": "8.27.0",
+    "eslint-plugin-svelte3": "4.0.0",
+    "jest-axe": "7.0.0",
+    "jsdom": "20.0.2",
+    "micromatch": "4.0.5",
+    "svelte": "3.53.1",
+    "svelte-check": "2.9.2",
+    "svelte-preprocess": "4.10.7",
+    "tslib": "2.4.1",
+    "typescript": "4.8.4",
+    "vite": "3.2.4",
+    "vitest": "0.25.2"
+  }
+}
