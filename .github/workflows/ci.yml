@@ -33,3 +33,24 @@ jobs:
 
       - name: Check dependencies mismatches
         run: pnpm syncpack list-mismatches
+
+      - name: Unit testing
+        run: pnpm test
+
+  playwright:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/node_pnpm
+        with:
+          node-version: ${{ env.node-version }}
+
+      - name: Install Playwright
+        run: pnpx playwright install --with-deps
+
+      - name: Component testing
+        run: pnpm --filter=* test-ct
