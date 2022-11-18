@@ -3,7 +3,7 @@
 Grail UI offers a set of component primitives, actions and utilities that help you build accessible and high quality Svelte applications faster, while providing a great developer experience.
 You can use it as the base of your design system and your component library, or adopt it incrementally inside your application.
 
-## ⚡Features
+## ✨Features
 
 - Accessible
 - Composable
