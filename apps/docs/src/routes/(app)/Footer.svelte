@@ -22,7 +22,7 @@
   ];
 </script>
 
-<footer>
+<footer class="mt-5">
   <div class="container mx-auto max-w-5xl px-4 pt-10 md:pt-20">
     <div class="footer">
       <div>

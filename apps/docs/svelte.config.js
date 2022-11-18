@@ -11,6 +11,10 @@ const config = {
 
   kit: {
     adapter: adapter(),
+
+    alias: {
+      '@grail-ui/svelte': `../../packages/grail-ui/src/index.ts`,
+    },
   },
 };
 
