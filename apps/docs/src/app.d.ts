@@ -6,3 +6,9 @@ declare namespace App {
   // interface Error {}
   // interface Platform {}
 }
+
+type ModuleMetadata = {
+  heading: string;
+  description: string;
+  category: string;
+};
