@@ -4,3 +4,5 @@ node_modules
 *:Zone.Identifier
 .vscode/launch.json
 .eslintcache
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*

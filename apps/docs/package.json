@@ -13,9 +13,9 @@
     "api": "svelte-kit sync && pnpm --filter=\"@grail-ui/svelte\" api --json ../../apps/docs/src/docs/api.json"
   },
   "devDependencies": {
-    "@iconify/json": "2.1.139",
+    "@iconify/json": "2.1.140",
     "@sveltejs/adapter-auto": "1.0.0-next.88",
-    "@sveltejs/kit": "1.0.0-next.548",
+    "@sveltejs/kit": "1.0.0-next.552",
     "@tailwindcss/typography": "0.5.8",
     "@types/prismjs": "1.26.0",
     "@typescript-eslint/eslint-plugin": "5.43.0",
@@ -23,7 +23,7 @@
     "autoprefixer": "10.4.13",
     "change-case": "4.1.2",
     "daisyui": "2.41.0",
-    "eslint": "8.27.0",
+    "eslint": "8.28.0",
     "eslint-plugin-svelte3": "4.0.0",
     "postcss": "8.4.19",
     "prism-svelte": "0.5.0",
