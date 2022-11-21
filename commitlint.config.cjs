@@ -14,6 +14,7 @@ module.exports = {
 				'test', // Adding missing tests or correcting existing tests
 				'perf', // A code change that improves performance
 				'revert', // Reverts a previous commit
+				'release', // A new release commit
 				'cleanup', // Everything else ¯\_(ツ)_/¯
 			],
 		],
