@@ -56,3 +56,7 @@ Use the "summary" field to provide a succinct description of the change:
 - no dot (.) at the end
 
 For the full configuration check [here](commitlint.config.cjs).
+
+## Generating CHANGELOGs
+
+For your changes to be reflected in package changelogs, run `pnpm changeset` and follow the prompts.
