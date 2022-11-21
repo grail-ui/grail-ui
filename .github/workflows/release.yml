@@ -12,6 +12,11 @@ env:
 
 jobs:
   release:
+    # prevents this action from running on forks
+    if: github.repository == 'grail-ui/grail-ui'
+    permissions:
+      contents: write # to create release (changesets/action)
+      pull-requests: write # to create pull request (changesets/action)
     name: Release
     runs-on: ubuntu-latest
     steps:
