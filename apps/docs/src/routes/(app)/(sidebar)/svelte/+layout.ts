@@ -1,3 +1,5 @@
+import type { ModuleMetadata } from '$lib/modules/modules.types';
+
 export async function load() {
   const metadata: Record<string, ModuleMetadata> = import.meta.glob('$lib/modules/*/__metadata.ts', {
     import: 'default',

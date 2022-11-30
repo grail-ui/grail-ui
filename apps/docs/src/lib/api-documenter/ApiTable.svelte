@@ -6,6 +6,8 @@
 
   export let definition: string;
 
+  export let title = definition;
+
   $: params = getParameters(data as any, definition);
 
   function getParamData(param: any) {
@@ -21,6 +23,8 @@
 </script>
 
 {#if params}
+  {#if title}<div class="my-4 font-semibold text-2xl">{title}</div>{/if}
+
   <table class="table w-full">
     <thead>
       <tr>
@@ -37,8 +41,8 @@
         {@const data = getParamData(param)}
         <tr>
           <td>{data.name}</td>
-          <td>{@html data.description}</td>
-          <td class="demo-val">{data.type}</td>
+          <td class="whitespace-normal">{@html data.description}</td>
+          <td>{data.type}</td>
           {#if !hideDefault}
             <td class="font-mono">{@html data.defaultValue || '<div class="px-1">—</div>'}</td>
           {/if}
