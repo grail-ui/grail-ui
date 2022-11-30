@@ -25,12 +25,12 @@
     "lint": "pnpm --filter=* lint"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.2.0",
-    "@commitlint/config-conventional": "17.2.0",
+    "@commitlint/cli": "17.3.0",
+    "@commitlint/config-conventional": "17.3.0",
     "commitlint-plugin-workspace-scopes": "1.1.0",
-    "prettier": "2.7.1",
+    "prettier": "2.8.0",
     "prettier-plugin-svelte": "2.8.1",
-    "syncpack": "8.3.9"
+    "syncpack": "8.4.10"
   },
   "engines": {
     "node": ">=16",

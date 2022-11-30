@@ -14,9 +14,9 @@
     "api": "svelte-kit sync && typedoc --options ./typedoc.json"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-svelte": "1.28.0",
-    "@playwright/test": "1.28.0",
-    "@sveltejs/kit": "1.0.0-next.552",
+    "@playwright/experimental-ct-svelte": "1.28.1",
+    "@playwright/test": "1.28.1",
+    "@sveltejs/kit": "1.0.0-next.567",
     "@sveltejs/package": "1.0.0-next.6",
     "@testing-library/dom": "8.19.0",
     "@testing-library/jest-dom": "5.16.5",
@@ -24,22 +24,22 @@
     "@testing-library/user-event": "14.4.3",
     "@types/jest-axe": "3.5.5",
     "@types/testing-library__jest-dom": "5.14.5",
-    "@typescript-eslint/eslint-plugin": "5.43.0",
-    "@typescript-eslint/parser": "5.43.0",
-    "@vitest/coverage-c8": "0.25.2",
+    "@typescript-eslint/eslint-plugin": "5.45.0",
+    "@typescript-eslint/parser": "5.45.0",
+    "@vitest/coverage-c8": "0.25.3",
     "c8": "7.12.0",
     "eslint": "8.28.0",
     "eslint-plugin-svelte3": "4.0.0",
     "jest-axe": "7.0.0",
-    "jsdom": "20.0.2",
+    "jsdom": "20.0.3",
     "micromatch": "4.0.5",
     "svelte": "3.53.1",
-    "svelte-check": "2.9.2",
+    "svelte-check": "2.10.0",
     "svelte-preprocess": "4.10.7",
     "tslib": "2.4.1",
     "typedoc": "0.23.21",
-    "typescript": "4.8.4",
+    "typescript": "4.9.3",
     "vite": "3.2.4",
-    "vitest": "0.25.2"
+    "vitest": "0.25.3"
   }
 }
