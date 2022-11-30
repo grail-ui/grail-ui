@@ -90,6 +90,7 @@ importers:
       c8: 7.12.0
       eslint: 8.28.0
       eslint-plugin-svelte3: 4.0.0
+      focus-trap: 7.1.0
       jest-axe: 7.0.0
       jsdom: 20.0.3
       micromatch: 4.0.5
@@ -118,6 +119,7 @@ importers:
       c8: 7.12.0
       eslint: 8.28.0
       eslint-plugin-svelte3: 4.0.0_xgu65rlhscpnxffotiaicv6m5i
+      focus-trap: 7.1.0
       jest-axe: 7.0.0
       jsdom: 20.0.3
       micromatch: 4.0.5
@@ -2354,6 +2356,12 @@ packages:
     resolution: {integrity: sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==}
     dev: true
 
+  /focus-trap/7.1.0:
+    resolution: {integrity: sha512-CuJvwUBfJCWcU6fc4xr3UwMF5vWnox4isXAixCwrPzCsPKOQjP9T+nTlYT2t+vOmQL8MOQ16eim99XhjQHAuiQ==}
+    dependencies:
+      tabbable: 6.0.1
+    dev: true
+
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
     dependencies:
@@ -4415,6 +4423,10 @@ packages:
       minimatch: 5.1.0
       read-yaml-file: 2.1.0
       semver: 7.3.8
+    dev: true
+
+  /tabbable/6.0.1:
+    resolution: {integrity: sha512-SYJSIgeyXW7EuX1ytdneO5e8jip42oHWg9xl/o3oTYhmXusZVgiA+VlPvjIN+kHii9v90AmzTZEBcsEvuAY+TA==}
     dev: true
 
   /tailwindcss/3.2.4_postcss@8.4.19:
