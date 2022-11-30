@@ -13,6 +13,14 @@
     "lint": "eslint --cache .",
     "api": "svelte-kit sync && typedoc --options ./typedoc.json"
   },
+  "peerDependencies": {
+    "focus-trap": "7.x"
+  },
+  "peerDependenciesMeta": {
+    "focus-trap": {
+      "optional": true
+    }
+  },
   "devDependencies": {
     "@playwright/experimental-ct-svelte": "1.28.1",
     "@playwright/test": "1.28.1",
@@ -30,6 +38,7 @@
     "c8": "7.12.0",
     "eslint": "8.28.0",
     "eslint-plugin-svelte3": "4.0.0",
+    "focus-trap": "7.1.0",
     "jest-axe": "7.0.0",
     "jsdom": "20.0.3",
     "micromatch": "4.0.5",
