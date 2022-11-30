@@ -1,5 +1,5 @@
 export async function load() {
-  const metadata: Record<string, ModuleMetadata> = import.meta.glob('$lib/modules/*/metadata.ts', {
+  const metadata: Record<string, ModuleMetadata> = import.meta.glob('$lib/modules/*/__metadata.ts', {
     import: 'default',
     eager: true,
   });

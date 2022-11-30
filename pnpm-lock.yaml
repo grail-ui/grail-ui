@@ -41,7 +41,7 @@ importers:
       tailwindcss: 3.2.4
       tslib: 2.4.1
       typedoc: 0.23.21
-      typedoc-json-parser: 7.0.1
+      typedoc-json-parser: 7.0.2
       typescript: 4.8.4
       unplugin-icons: 0.14.13
       vite: 3.2.4
@@ -67,7 +67,7 @@ importers:
       tailwindcss: 3.2.4_postcss@8.4.19
       tslib: 2.4.1
       typedoc: 0.23.21_typescript@4.8.4
-      typedoc-json-parser: 7.0.1_typescript@4.8.4
+      typedoc-json-parser: 7.0.2_typescript@4.8.4
       typescript: 4.8.4
       unplugin-icons: 0.14.13
       vite: 3.2.4
@@ -82,6 +82,7 @@ importers:
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/svelte': 3.2.2
       '@testing-library/user-event': 14.4.3
+      '@types/jest-axe': 3.5.5
       '@types/testing-library__jest-dom': 5.14.5
       '@typescript-eslint/eslint-plugin': 5.43.0
       '@typescript-eslint/parser': 5.43.0
@@ -109,6 +110,7 @@ importers:
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/svelte': 3.2.2_svelte@3.53.1
       '@testing-library/user-event': 14.4.3_aaq3sbffpfe3jnxzm2zngsddei
+      '@types/jest-axe': 3.5.5
       '@types/testing-library__jest-dom': 5.14.5
       '@typescript-eslint/eslint-plugin': 5.43.0_ol5heeoi7wmwb4tenztnb7jlze
       '@typescript-eslint/parser': 5.43.0_zksrc6ykdxhogxjbhb5axiabwi
@@ -783,6 +785,13 @@ packages:
       '@types/istanbul-lib-report': 3.0.0
     dev: true
 
+  /@types/jest-axe/3.5.5:
+    resolution: {integrity: sha512-b8WDIdoeKtr/JDJ2+QjFXMuS8UhfdMA6+15Z5KjjIie3jQrSXD9KZWMSQxc0nPtx7L9rIFKdiDpQk+m7s4a/8w==}
+    dependencies:
+      '@types/jest': 29.2.3
+      axe-core: 3.5.6
+    dev: true
+
   /@types/jest/29.2.3:
     resolution: {integrity: sha512-6XwoEbmatfyoCjWRX7z0fKMmgYKe9+/HrviJ5k0X/tjJWHGAezZOfYaxqQKuzG/TvQyr+ktjm4jgbk0s4/oF2w==}
     dependencies:
@@ -1185,6 +1194,11 @@ packages:
   /available-typed-arrays/1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
+    dev: true
+
+  /axe-core/3.5.6:
+    resolution: {integrity: sha512-LEUDjgmdJoA3LqklSTwKYqkjcZ4HKc4ddIYGSAiSkr46NTjzg2L9RNB+lekO9P7Dlpa87+hBtzc2Fzn/+GUWMQ==}
+    engines: {node: '>=4'}
     dev: true
 
   /axe-core/4.5.1:
@@ -4538,8 +4552,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /typedoc-json-parser/7.0.1_typescript@4.8.4:
-    resolution: {integrity: sha512-DpUlaTx9BQ88oWqLhiiIXmAF3HWKzjxCE52H4hOJoipFVLHqtzaIOuYi38L3ntdnKAL8SuuIW2OdiY5Ob+rZNg==}
+  /typedoc-json-parser/7.0.2_typescript@4.8.4:
+    resolution: {integrity: sha512-bemhoavJnWF+Pr9I+zmaDv0lLUSnBE23s48gqsFlErVA0krCFTCAHnbdRSOPJ7dCmRhnJMEk/nu3fKSpmDrjVg==}
     engines: {node: '>=16', npm: '>=6'}
     hasBin: true
     dependencies:
