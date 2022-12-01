@@ -1,3 +1,4 @@
+export * from './accordion';
 export * from './clickOutside';
 export * from './focusTrap';
 export * from './modal';

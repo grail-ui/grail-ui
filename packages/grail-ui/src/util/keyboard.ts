@@ -7,3 +7,5 @@ export const DOWN_ARROW = 'ArrowDown';
 export const HOME = 'Home';
 export const END = 'End';
 export const TAB = 'Tab';
+export const SPACE = ' ';
+export const ENTER = 'Enter';
