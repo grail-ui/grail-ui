@@ -1,5 +1,6 @@
 <script lang="ts">
   import ExternalLinkIcon from '~icons/prime/external-link';
+  import { PUBLIC_GITHUB_URL } from '$env/static/public';
 
   const footerColumns = [
     {
@@ -13,7 +14,7 @@
     {
       title: 'Community',
       links: [
-        { title: 'GitHub', url: '#todo', external: true },
+        { title: 'GitHub', url: PUBLIC_GITHUB_URL, external: true },
         { title: 'Twitter', url: '#todo', external: true },
         { title: 'Discord', url: '#todo', external: true },
         { title: 'StackOverflow', url: '#todo', external: true },

@@ -1,6 +1,7 @@
 <script lang="ts">
   import GithubIcon from '~icons/mdi/github';
   import NpmIcon from '~icons/mdi/npm';
+  import { PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 </script>
 
 <header
@@ -31,10 +32,10 @@
           </nav>
 
           <div class="flex items-center border-l border-slate-200 ml-6 pl-6 gap-6 ">
-            <a href="https://github.com/tailwindlabs/tailwindcss" class="text-slate-400 hover:text-black"
+            <a href={PUBLIC_GITHUB_URL} class="text-slate-400 hover:text-black"
               ><span class="sr-only">Grail UI on GitHub</span><GithubIcon class="text-lg" /></a
             >
-            <a href="https://github.com/tailwindlabs/tailwindcss" class="text-slate-400 hover:text-[#cb3837]"
+            <a href={PUBLIC_NPM_URL} class="text-slate-400 hover:text-[#cb3837]"
               ><span class="sr-only">Grail UI on NPM</span><NpmIcon class="text-3xl" /></a
             >
           </div>
