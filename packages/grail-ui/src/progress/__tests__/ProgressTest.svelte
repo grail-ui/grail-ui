@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { createProgress } from '../progress';
+	import { createProgress } from '../progress';
 
-  const { progressAttrs, valueLabel } = createProgress({ value: 30 });
+	const { progressAttrs, valueLabel } = createProgress({ value: 30 });
 </script>
 
 <div data-testid="progress" {...$progressAttrs}>
-  {$valueLabel}
+	{$valueLabel}
 </div>

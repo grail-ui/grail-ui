@@ -10,101 +10,101 @@ import { writableEffect } from '../util/store';
 import { addEventListener } from '../eventListener/eventListener';
 
 export const createModal = ({
-  open = true,
-  portal = 'body',
-  onOpenChange,
-  isDismissible,
-  isKeyboardDismissible = true,
-  onInteractOutside,
-  initialFocus,
+	open = true,
+	portal = 'body',
+	onOpenChange,
+	isDismissible,
+	isKeyboardDismissible = true,
+	onInteractOutside,
+	initialFocus,
 }: ModalConfig = {}): ModalReturn => {
-  const id = uniqueId('modal');
-  const titleId = uniqueId('modal-title');
+	const id = uniqueId('modal');
+	const titleId = uniqueId('modal-title');
 
-  const open$ = writableEffect(open, onOpenChange);
+	const open$ = writableEffect(open, onOpenChange);
 
-  const modalAttrs = readable({
-    id,
-    role: 'dialog',
-    tabindex: '-1',
-    'aria-modal': 'true',
-    'aria-labelledby': titleId,
-  });
+	const modalAttrs = readable({
+		id,
+		role: 'dialog',
+		tabindex: '-1',
+		'aria-modal': 'true',
+		'aria-labelledby': titleId,
+	});
 
-  const useModal = (node: HTMLElement) => {
-    const contentEl = node.id === id ? node : (node.querySelector(`#${id}`) as HTMLElement);
+	const useModal = (node: HTMLElement) => {
+		const contentEl = node.id === id ? node : (node.querySelector(`#${id}`) as HTMLElement);
 
-    const removeEvent = addEventListener(contentEl, `keydown`, (e: KeyboardEvent) => {
-      if (isKeyboardDismissible && e.key === ESCAPE) {
-        e.preventDefault();
-        open$.set(false);
-      }
-    });
+		const removeEvent = addEventListener(contentEl, `keydown`, (e: KeyboardEvent) => {
+			if (isKeyboardDismissible && e.key === ESCAPE) {
+				e.preventDefault();
+				open$.set(false);
+			}
+		});
 
-    const portalAction = portal ? usePortal(node, { target: portal }) : undefined;
+		const portalAction = portal ? usePortal(node, { target: portal }) : undefined;
 
-    const clickOutsideAction = useClickOutside(contentEl, {
-      enabled: open$,
-      handler: (e: PointerEvent) => {
-        if (!isDismissible) return;
+		const clickOutsideAction = useClickOutside(contentEl, {
+			enabled: open$,
+			handler: (e: PointerEvent) => {
+				if (!isDismissible) return;
 
-        onInteractOutside?.(e);
-        if (!e.defaultPrevented) {
-          open$.set(false);
-        }
-      },
-    });
+				onInteractOutside?.(e);
+				if (!e.defaultPrevented) {
+					open$.set(false);
+				}
+			},
+		});
 
-    const { activate, deactivate, useFocusTrap } = createFocusTrap({
-      immediate: false,
-      escapeDeactivates: false,
-      fallbackFocus: contentEl,
-      ...(initialFocus ? { initialFocus } : null),
-    });
-    const focusTrapAction = useFocusTrap(contentEl);
+		const { activate, deactivate, useFocusTrap } = createFocusTrap({
+			immediate: false,
+			escapeDeactivates: false,
+			fallbackFocus: contentEl,
+			...(initialFocus ? { initialFocus } : null),
+		});
+		const focusTrapAction = useFocusTrap(contentEl);
 
-    const unsubscribe = open$.subscribe(async (value) => {
-      if (value) {
-        await tick();
-        activate();
-      } else {
-        deactivate();
-      }
-    });
+		const unsubscribe = open$.subscribe(async (value) => {
+			if (value) {
+				await tick();
+				activate();
+			} else {
+				deactivate();
+			}
+		});
 
-    let destroyed = false;
-    return {
-      destroy() {
-        // Make sure that destroy is not called twice
-        if (destroyed) {
-          return;
-        }
-        destroyed = true;
+		let destroyed = false;
+		return {
+			destroy() {
+				// Make sure that destroy is not called twice
+				if (destroyed) {
+					return;
+				}
+				destroyed = true;
 
-        focusTrapAction?.destroy?.();
-        portalAction?.destroy?.();
-        clickOutsideAction?.destroy?.();
-        removeEvent();
-        unsubscribe();
-      },
-    };
-  };
+				focusTrapAction?.destroy?.();
+				portalAction?.destroy?.();
+				clickOutsideAction?.destroy?.();
+				removeEvent();
+				unsubscribe();
+			},
+		};
+	};
 
-  const titleAttrs = readable({
-    id: titleId,
-  });
+	const titleAttrs = readable({
+		id: titleId,
+	});
 
-  const triggerAttrs = derived(open$, (open) => ({
-    'aria-haspopup': 'dialog',
-    'aria-controls': id,
-    'aria-expanded': `${open}`,
-  }));
+	const triggerAttrs = derived(open$, (open) => ({
+		'aria-haspopup': 'dialog',
+		'aria-controls': id,
+		'aria-expanded': `${open}`,
+	}));
 
-  return {
-    useModal,
-    modalAttrs,
-    titleAttrs,
-    triggerAttrs,
-    open: open$,
-  };
+	return {
+		useModal,
+		modalAttrs,
+		titleAttrs,
+		triggerAttrs,
+		open: open$,
+	};
 };

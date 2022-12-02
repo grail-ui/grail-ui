@@ -1,39 +1,39 @@
 {
-  "name": "grail-ui",
-  "description": "A library of accessible component primitives, actions and utilities for Svelte",
-  "version": "0.0.0",
-  "private": true,
-  "author": "Tasos Bekos <tbekos@gmail.com>",
-  "license": "MIT",
-  "keywords": [
-    "Accessibility",
-    "Components",
-    "Library",
-    "Open source",
-    "Svelte",
-    "Sveltekit",
-    "Typescript",
-    "UI",
-    "Web"
-  ],
-  "type": "module",
-  "scripts": {
-    "preinstall": "npx only-allow pnpm",
-    "format": "prettier --plugin-search-dir=. --cache --write .",
-    "format:check": "prettier --plugin-search-dir=. --cache --check .",
-    "test": "pnpm --filter=* test",
-    "lint": "pnpm --filter=* lint"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "17.3.0",
-    "@commitlint/config-conventional": "17.3.0",
-    "commitlint-plugin-workspace-scopes": "1.1.0",
-    "prettier": "2.8.0",
-    "prettier-plugin-svelte": "2.8.1",
-    "syncpack": "8.4.10"
-  },
-  "engines": {
-    "node": ">=16",
-    "pnpm": ">=7"
-  }
+	"name": "grail-ui",
+	"description": "A library of accessible component primitives, actions and utilities for Svelte",
+	"version": "0.0.0",
+	"private": true,
+	"author": "Tasos Bekos <tbekos@gmail.com>",
+	"license": "MIT",
+	"keywords": [
+		"Accessibility",
+		"Components",
+		"Library",
+		"Open source",
+		"Svelte",
+		"Sveltekit",
+		"Typescript",
+		"UI",
+		"Web"
+	],
+	"type": "module",
+	"scripts": {
+		"preinstall": "npx only-allow pnpm",
+		"format": "prettier --plugin-search-dir=. --cache --write .",
+		"format:check": "prettier --plugin-search-dir=. --cache --check .",
+		"test": "pnpm --filter=* test",
+		"lint": "pnpm --filter=* lint"
+	},
+	"devDependencies": {
+		"@commitlint/cli": "17.3.0",
+		"@commitlint/config-conventional": "17.3.0",
+		"commitlint-plugin-workspace-scopes": "1.1.0",
+		"prettier": "2.8.0",
+		"prettier-plugin-svelte": "2.8.1",
+		"syncpack": "8.4.10"
+	},
+	"engines": {
+		"node": ">=16",
+		"pnpm": ">=7"
+	}
 }

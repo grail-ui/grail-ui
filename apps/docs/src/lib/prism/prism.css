@@ -6,66 +6,66 @@
 
 /*	colors --------------------------------- */
 pre[class*='language-'] {
-  --base: #545454;
-  --comment: rgb(134, 142, 150);
-  --keyword: rgb(201, 42, 42);
-  --function: #bb5525;
-  --string: rgb(54, 79, 199);
-  --attr: rgb(43, 138, 62);
-  --attr-value: rgb(54, 79, 199);
-  --number: #008000;
-  --tags: rgb(95, 61, 196);
-  --property: rgb(33, 37, 41);
-  --namespace: red;
-  --important: var(--string);
+	--base: #545454;
+	--comment: rgb(134, 142, 150);
+	--keyword: rgb(201, 42, 42);
+	--function: #bb5525;
+	--string: rgb(54, 79, 199);
+	--attr: rgb(43, 138, 62);
+	--attr-value: rgb(54, 79, 199);
+	--number: #008000;
+	--tags: rgb(95, 61, 196);
+	--property: rgb(33, 37, 41);
+	--namespace: red;
+	--important: var(--string);
 }
 
 /*	type-base ------------------------------ */
 code[class*='language-'],
 pre[class*='language-'] {
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  hyphens: none;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	hyphens: none;
 }
 
 /*	code-blocks ---------------------------- */
 pre[class*='language-'] {
-  overflow: auto;
+	overflow: auto;
 }
 
 /*	tokens --------------------------------- */
 .token.namespace {
-  color: var(--namespace);
+	color: var(--namespace);
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: var(--comment);
+	color: var(--comment);
 }
 
 .token.punctuation {
-  color: var(--base);
+	color: var(--base);
 }
 
 .token.property {
-  color: var(--property);
+	color: var(--property);
 }
 
 .token.tag,
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: var(--tags);
+	color: var(--tags);
 }
 
 .token.boolean,
 .token.number {
-  color: var(--number);
+	color: var(--number);
 }
 
 .token.selector,
@@ -73,15 +73,15 @@ pre[class*='language-'] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: var(--string);
+	color: var(--string);
 }
 
 .token.attr-name {
-  color: var(--attr);
+	color: var(--attr);
 }
 
 .token.attr-value {
-  color: var(--attr-value);
+	color: var(--attr-value);
 }
 
 .token.operator,
@@ -90,36 +90,36 @@ pre[class*='language-'] {
 .language-css .token.string,
 .style .token.string,
 .token.variable {
-  color: var(--base);
+	color: var(--base);
 }
 
 .token.atrule,
 .token.function,
 .token.class-name {
-  color: var(--function);
+	color: var(--function);
 }
 
 .token.keyword {
-  color: var(--keyword);
+	color: var(--keyword);
 }
 
 .token.regex,
 .token.important {
-  color: var(--important);
+	color: var(--important);
 }
 
 .token.important,
 .token.bold {
-  font-weight: bold;
+	font-weight: bold;
 }
 .token.italic {
-  font-style: italic;
+	font-style: italic;
 }
 .token.entity {
-  cursor: help;
+	cursor: help;
 }
 
 .line-highlight {
-  margintop: 0;
-  backgroundcolor: rgba(51, 154, 240, 0.2);
+	margintop: 0;
+	backgroundcolor: rgba(51, 154, 240, 0.2);
 }

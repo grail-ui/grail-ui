@@ -1,8 +1,8 @@
 {
-  "$schema": "https://typedoc.org/schema.json",
-  "entryPoints": ["./src/index.ts"],
-  "tsconfig": "./tsconfig.json",
-  "excludeExternals": true,
-  "excludeInternal": true,
-  "exclude": ["./src/**/tests/**", "./src/**/demos/**"]
+	"$schema": "https://typedoc.org/schema.json",
+	"entryPoints": ["./src/index.ts"],
+	"tsconfig": "./tsconfig.json",
+	"excludeExternals": true,
+	"excludeInternal": true,
+	"exclude": ["./src/**/tests/**", "./src/**/demos/**"]
 }

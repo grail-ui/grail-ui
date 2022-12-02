@@ -1,11 +1,11 @@
 <script lang="ts">
-  import { createPortal } from '../portal';
+	import { createPortal } from '../portal';
 
-  const { usePortal, target } = createPortal();
+	const { usePortal, target } = createPortal();
 
-  export let portalId = 1;
+	export let portalId = 1;
 
-  $: $target = `[data-testid="c${portalId}"]`;
+	$: $target = `[data-testid="c${portalId}"]`;
 </script>
 
 <div data-testid="c1" />

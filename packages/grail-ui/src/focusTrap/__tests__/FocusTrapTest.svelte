@@ -1,3 +1,3 @@
 <div data-testid="container">
-  <input type="text" />
+	<input type="text" />
 </div>

@@ -3,12 +3,12 @@ import type { UserConfig } from 'vite';
 import Icons from 'unplugin-icons/vite';
 
 const config: UserConfig = {
-  plugins: [
-    sveltekit(),
-    Icons({
-      compiler: 'svelte',
-    }),
-  ],
+	plugins: [
+		sveltekit(),
+		Icons({
+			compiler: 'svelte',
+		}),
+	],
 };
 
 export default config;
