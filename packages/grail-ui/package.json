@@ -14,14 +14,19 @@
 		"api": "svelte-kit sync && typedoc --options ./typedoc.json"
 	},
 	"peerDependencies": {
+		"@floating-ui/dom": "1.x",
 		"focus-trap": "7.x"
 	},
 	"peerDependenciesMeta": {
+		"@floating-ui/dom": {
+			"optional": true
+		},
 		"focus-trap": {
 			"optional": true
 		}
 	},
 	"devDependencies": {
+		"@floating-ui/dom": "1.0.7",
 		"@playwright/experimental-ct-svelte": "1.28.1",
 		"@playwright/test": "1.28.1",
 		"@sveltejs/kit": "1.0.0-next.567",

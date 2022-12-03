@@ -74,6 +74,7 @@ importers:
 
   packages/grail-ui:
     specifiers:
+      '@floating-ui/dom': 1.0.7
       '@playwright/experimental-ct-svelte': 1.28.1
       '@playwright/test': 1.28.1
       '@sveltejs/kit': 1.0.0-next.567
@@ -103,6 +104,7 @@ importers:
       vite: 3.2.4
       vitest: 0.25.3
     devDependencies:
+      '@floating-ui/dom': 1.0.7
       '@playwright/experimental-ct-svelte': 1.28.1_svelte@3.53.1
       '@playwright/test': 1.28.1
       '@sveltejs/kit': 1.0.0-next.567_svelte@3.53.1+vite@3.2.4
@@ -424,6 +426,16 @@ packages:
     engines: {node: '>=v16'}
     dependencies:
       colorette: 2.0.19
+    dev: true
+
+  /@floating-ui/core/1.0.2:
+    resolution: {integrity: sha512-Skfy0YS3NJ5nV9us0uuPN0HDk1Q4edljaOhRBJGDWs9EBa7ZVMYBHRFlhLvvmwEoaIM9BlH6QJFn9/uZg0bACg==}
+    dev: true
+
+  /@floating-ui/dom/1.0.7:
+    resolution: {integrity: sha512-6RsqvCYe0AYWtsGvuWqCm7mZytnXAZCjWtsWu1Kg8dI3INvj/DbKlDsZO+mKSaQdPT12uxIW9W2dAWJkPx4Y5g==}
+    dependencies:
+      '@floating-ui/core': 1.0.2
     dev: true
 
   /@humanwhocodes/config-array/0.11.7:
