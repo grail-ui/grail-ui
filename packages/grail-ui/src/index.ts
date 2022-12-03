@@ -1,5 +1,6 @@
 export * from './accordion';
 export * from './clickOutside';
+export * from './floating';
 export * from './focusTrap';
 export * from './modal';
 export * from './pagination';
@@ -7,3 +8,4 @@ export * from './portal';
 export * from './progress';
 export * from './tabs';
 export * from './timeout';
+export * from './tooltip';
