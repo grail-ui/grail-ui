@@ -4,6 +4,7 @@ export * from './floating';
 export * from './focusTrap';
 export * from './modal';
 export * from './pagination';
+export * from './popover';
 export * from './portal';
 export * from './progress';
 export * from './tabs';
