@@ -4,6 +4,7 @@ export * from './floating';
 export * from './focusTrap';
 export * from './keyStroke';
 export * from './modal';
+export * from './numberInput';
 export * from './pagination';
 export * from './popover';
 export * from './portal';
