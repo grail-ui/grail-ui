@@ -2,6 +2,7 @@ export * from './accordion';
 export * from './clickOutside';
 export * from './floating';
 export * from './focusTrap';
+export * from './keyStroke';
 export * from './modal';
 export * from './pagination';
 export * from './popover';
