@@ -9,4 +9,5 @@ export * from './portal';
 export * from './progress';
 export * from './tabs';
 export * from './timeout';
+export * from './toast';
 export * from './tooltip';

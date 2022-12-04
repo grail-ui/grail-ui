@@ -17,4 +17,7 @@ module.exports = {
 		es2017: true,
 		node: true,
 	},
+	rules: {
+		'no-mixed-spaces-and-tabs': ['error', 'smart-tabs'],
+	},
 };
