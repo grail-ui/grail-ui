@@ -1,5 +1,6 @@
 export * from './accordion';
 export * from './clickOutside';
+export * from './clipboard';
 export * from './floating';
 export * from './focusTrap';
 export * from './keyStroke';
