@@ -22,7 +22,8 @@
 		"format": "prettier --plugin-search-dir=. --cache --write .",
 		"format:check": "prettier --plugin-search-dir=. --cache --check .",
 		"test": "pnpm --filter=* test",
-		"lint": "pnpm --filter=* lint"
+		"lint": "pnpm --filter=* lint",
+		"check-updates": "pnpx npm-check-updates -i --deep"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "17.3.0",
