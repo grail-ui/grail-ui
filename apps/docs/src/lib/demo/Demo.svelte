@@ -5,7 +5,9 @@
 	import DemoLinkIcon from '~icons/iconoir/open-in-window';
 	import CodeIcon from '~icons/ic/outline-code';
 	import CodeOffIcon from '~icons/ic/outline-code-off';
+	import CopyIcon from '~icons/mdi/content-copy';
 	import { pascalCase } from 'change-case';
+	import { createClipboard } from '@grail-ui/svelte';
 	import Code from './Code.svelte';
 
 	export let dir = $page.data.slug;
@@ -36,6 +38,8 @@
 	onMount(() => {
 		loadSource();
 	});
+
+	const { isSupported, copy, copied } = createClipboard();
 </script>
 
 <div
@@ -52,7 +56,7 @@
 		</slot>
 	</div>
 	<div class="absolute inset-x-0 bottom-0 z-10 m-[2px]">
-		<div class="flex items-stretch justify-end px-2 py-1">
+		<div class="flex items-stretch justify-end px-2 py-1 gap-1">
 			<button
 				type="button"
 				on:click={() => (showSource = !showSource)}
@@ -60,7 +64,15 @@
 				>{#if showSource}<CodeOffIcon class="mr-1" /> Hide{:else}<CodeIcon class="mr-1" /> Show{/if}
 				code</button
 			>
-			<div class="my-2 mx-1 w-[2px] grow-0 bg-black bg-opacity-10" />
+			{#if isSupported}
+				<button
+					type="button"
+					on:click={() => copy(source)}
+					class="btn btn-sm glass normal-case font-normal text-xs w-24"
+					>{#if $copied}Copied!{:else}<CopyIcon class="mr-1" />Copy{/if}</button
+				>
+			{/if}
+			<div class="my-2 w-[2px] grow-0 bg-black bg-opacity-10" />
 			<a href={getDemoUrl()} class="btn btn-sm glass normal-case font-normal" title="View demo"
 				><DemoLinkIcon /></a
 			>
