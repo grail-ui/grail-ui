@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ModuleMetadata } from '$lib/modules/modules.types';
 	import type { LayoutData } from './$types';
+	import Section from './Section.svelte';
 
 	export let data: LayoutData;
 
@@ -23,18 +24,21 @@
 
 <div class="flex flex-grow">
 	<div class="flex flex-col gap-6 px-4 pt-4">
+		<Section
+			title="Overview"
+			links={[{ href: `/svelte/getting-started`, label: 'Introduction' }]}
+		/>
 		{#each sortedGroupKeys as groupKey}
-			<div>
-				<div class="text-sm font-bold mb-2 uppercase">{groups[groupKey].label}</div>
-				<div class="flex flex-col gap-2">
-					{#each groupedModules[groupKey] as module (module.slug)}
-						<a href="/svelte/{module.slug}" class="text-sm">{module.heading}</a>
-					{/each}
-				</div>
-			</div>
+			{@const links = groupedModules[groupKey].map((m) => ({
+				href: `/svelte/${m.slug}`,
+				label: m.heading,
+			}))}
+			<Section title={groups[groupKey].label} {links} />
 		{/each}
 	</div>
 	<div class="flex-grow pt-4">
-		<slot />
+		<div class="w-full max-w-6xl mx-auto">
+			<slot />
+		</div>
 	</div>
 </div>
