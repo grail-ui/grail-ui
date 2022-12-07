@@ -1,4 +1,5 @@
 <script lang="ts">
+	import SectionHeader from '$lib/demo/SectionHeader.svelte';
 	import data from '../../docs/api.json';
 	import { getComment, getType, getParameters } from './helpers';
 
@@ -23,7 +24,7 @@
 </script>
 
 {#if params}
-	{#if title}<div class="my-4 font-semibold text-2xl">{title}</div>{/if}
+	<SectionHeader id={definition}>{title}</SectionHeader>
 
 	<table class="table w-full">
 		<thead>

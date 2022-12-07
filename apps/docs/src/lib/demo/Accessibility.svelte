@@ -8,6 +8,8 @@
 </script>
 
 <script lang="ts">
+	import SectionHeader from './SectionHeader.svelte';
+
 	export let title = 'Accessibility';
 
 	export let keyboard: { key: string | string[]; description: string }[] = [];
@@ -17,7 +19,7 @@
 	}
 </script>
 
-{#if title}<div class="my-4 font-semibold text-2xl">{title}</div>{/if}
+{#if title}<SectionHeader id="Accessibility">{title}</SectionHeader>{/if}
 
 <slot />
 
@@ -53,7 +55,7 @@
 							{/if}
 						{/each}
 					</td>
-					<td>{description}</td>
+					<td class="whitespace-normal">{description}</td>
 				</tr>
 			{/each}
 		</tbody>
