@@ -24,9 +24,9 @@
 				<div class="relative flex items-center ml-auto">
 					<nav class="text-sm leading-6 font-semibold text-slate-700">
 						<ul class="flex space-x-8">
-							<li><a class="hover:text-sky-500" href="/docs/installation">Docs</a></li>
+							<li><a class="hover:text-sky-500" href="/svelte/getting-started">Docs</a></li>
 							<li>
-								<a href="https://tailwindui.com/?ref=top" class="hover:text-sky-500">Components</a>
+								<a href="/svelte" class="hover:text-sky-500">Components</a>
 							</li>
 						</ul>
 					</nav>

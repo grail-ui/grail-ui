@@ -7,8 +7,9 @@
 	import AccessibilityIcon from '~icons/carbon/accessibility-alt';
 	import DeveloperIcon from '~icons/mdi/emoticon-happy-outline';
 	import FreeIcon from '~icons/octicon/law-24';
+	import { PUBLIC_GITHUB_URL } from '$env/static/public';
 
-	const feautures = [
+	const features = [
 		{
 			header: 'Accessibility',
 			text: `We provide accessibility and behavior that strictly follows WAI-ARIA standards, including screen reader, focus management and keyboard navigation support.`,
@@ -56,21 +57,23 @@
 		</div>
 
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-20 max-w-7xl">
-			{#each feautures as feauture}
+			{#each features as feature}
 				<div>
 					<h3 class="flex items-center gap-1.5 text-xl font-semibold">
-						<svelte:component this={feauture.icon} />
-						{feauture.header}
+						<svelte:component this={feature.icon} />
+						{feature.header}
 					</h3>
-					<div class="mt-1.5">{feauture.text}</div>
+					<div class="mt-1.5">{feature.text}</div>
 				</div>
 			{/each}
 		</div>
 
 		<div class="flex items-center gap-2 mt-16">
-			<a href="/getting-started" class="btn btn-lg px-10 flex items-center gap-4">Get started</a>
-			<button class="btn btn-lg px-10 btn-outline flex items-center gap-2"
-				><GithubIcon /> GitHub</button
+			<a href="/svelte/getting-started" class="btn btn-lg px-10 flex items-center gap-4"
+				>Get started</a
+			>
+			<a href={PUBLIC_GITHUB_URL} class="btn btn-lg px-10 btn-outline flex items-center gap-2"
+				><GithubIcon /> GitHub</a
 			>
 		</div>
 	</div>
@@ -84,24 +87,26 @@
 				<p>
 					Today, many companies are implementing their own component libraries and design systems <i
 						>from scratch</i
-					>, in order to match their brand and support their unique use cases. Unfortunately, many
-					teams don't have the resources, expertize or time to prioritize features like
-					accessibility, keyboard navigation, touch interactions, browser inconsistencies and many
-					more.
+					>. The purpose is to make all UI elements to match their brand and support their unique
+					use cases. Unfortunately, many of these teams don't have the resources, the expertize or
+					enough time to prioritize features like accessibility, keyboard navigation, touch
+					interactions, browser inconsistencies and many more.
 				</p>
 				<p>
 					Especially in the Svelte ecosystem, the existing options that can be used as the base for
-					such effort are limited. One of them, is to use one of the fully styled component
-					libraries, like Material UI, but their components are hard to style and even harder to
-					alter their functionallity and layout to match your specific needs.
+					such effort are limited. Developers usually choose to use one of the fully styled
+					component libraries, like Material UI or something similar. In this case, the offered
+					components by these libraries are hard to style and even harder to alter their
+					functionality and layout to match their specific needs.
 				</p>
 				<p>
-					The other option is to use unstyled components (a.k.a. renderless components), like
-					Headless UI, which are mainly using wrapper components with <code>&lt;slots&gt;</code>
-					that you can provide your own HTML and styles. The problem here is that this abstraction does
-					come with <b>trade-offs</b>. Because of the wrapper components there is a need to
-					introduce new, custom ways to use actions, do transitions and achieve any kind of
-					composition, which doesn't feel "natural".
+					Another approach that has evolved in other ecosystems, and has recently found it's way in
+					Svelte, is to use unstyled components (a.k.a. renderless components). For example,
+					Headless UI, offers wrapper components with <code>&lt;slots&gt;</code>
+					that you can use to provide your own HTML and styles. The problem in this case, is that this
+					abstraction does come with a few <b>trade-offs</b>. Because of the wrapper components
+					there is a need to introduce new, custom ways to use actions, do transitions and achieve
+					any kind of composition, which doesn't feel "natural".
 				</p>
 			</div>
 		</div>
@@ -117,15 +122,14 @@
 		</div>
 
 		<div class="w-2/3">
-			<div class="text-3xl font-bold">The better apporach</div>
+			<div class="text-3xl font-bold">A better approach</div>
 			<div class="flex flex-col gap-6 mt-6">
 				<p>
-					Grail UI is a new approach to the component creation process, that helps you avoid
-					re-inventing the wheel. The goal is to provide an open-source library with component
-					primitives, actions and utilities, that the Svelte community can leverage and use as the
-					"holy grail" to build accessible components, design systems and applications from the
-					ground up. We put a lot of effort to separate behavior and accessibility from the actual
-					DOM structure.
+					Grail UI is a new approach to the component creation process. The goal is to provide a
+					library with component primitives, actions and utilities, that any Svelte developer can
+					leverage and use as the "holy grail" to build accessible components, design systems and
+					applications from the ground up, as fast as possible. We put a lot of effort to separate
+					behavior and accessibility from the actual DOM structure.
 				</p>
 				<p class="font-bold italic">
 					Developers remain in complete control over the layout, the bindings and the transitions
@@ -138,7 +142,7 @@
 					and
 					<i>composable</i>.
 				</p>
-				<p class="font-bold">Welcome to the future of building Svelte components!</p>
+				<p class="font-bold">Welcome to a new way of building Svelte components!</p>
 			</div>
 		</div>
 	</div>
