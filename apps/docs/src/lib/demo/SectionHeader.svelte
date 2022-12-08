@@ -9,5 +9,5 @@
 		class="absolute -left-6 top-1/2 -translate-y-1/2 text-lg opacity-20 group-hover:opacity-70 p-2 scroll-mt-20"
 		>#</a
 	>
-	<div class="my-4 font-semibold text-2xl"><slot /></div>
+	<div class="my-4 font-robotic font-semibold text-2xl "><slot /></div>
 </div>
