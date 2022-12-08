@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.2.0
+
+### Minor Changes
+
+- [#28](https://github.com/grail-ui/grail-ui/pull/28) [`cde99a3`](https://github.com/grail-ui/grail-ui/commit/cde99a32cf77bd283dccf8b2e4e39e83045c9193) Thanks [@bekos](https://github.com/bekos)! - timeout: support `autoStop`
+
 ## 0.1.0
 
 ### Minor Changes
