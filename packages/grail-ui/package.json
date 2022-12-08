@@ -46,6 +46,7 @@
 		"vitest": "0.25.4"
 	},
 	"peerDependencies": {
+		"svelte": "3.x",
 		"@floating-ui/dom": "1.x",
 		"focus-trap": "7.x"
 	},

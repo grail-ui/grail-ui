@@ -11,7 +11,12 @@ const config = {
 			return mm.isMatch(filepath, ['index.ts', '*/index.ts']);
 		},
 		files: (filepath) => {
-			return !mm.isMatch(filepath, ['**/tests/**']);
+			return !mm.isMatch(filepath, [
+				'**/tests/**',
+				'**/__tests__/**',
+				'**/*.test.ts',
+				'**/*.spec.ts',
+			]);
 		},
 	},
 };
