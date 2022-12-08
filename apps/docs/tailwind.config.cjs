@@ -6,7 +6,8 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
+				sans: ['Mona Sans', ...defaultTheme.fontFamily.sans],
+				robotic: ['Hubot Sans', ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},

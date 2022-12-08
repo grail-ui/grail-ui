@@ -11,7 +11,8 @@
 		<div class="py-4 border-b border-slate-900/10 lg:px-8 lg:border-0 mx-4 lg:mx-0">
 			<div class="relative flex items-center">
 				<a
-					class="mr-3 flex-none overflow-hidden md:w-auto inline-flex text-lg duration-200 md:text-3xl font-bold"
+					class="mr-3 flex-none overflow-hidden md:w-auto inline-flex text-lg duration-200 md:text-3xl font-black font-robotic"
+					style="font-stretch: extra-expanded;"
 					href="/">Grail UI</a
 				>
 				<div class="relative">
