@@ -1,6 +1,17 @@
 {
 	"name": "@grail-ui/svelte",
 	"version": "0.2.0",
+	"keywords": [
+		"Accessibility",
+		"Components",
+		"Library",
+		"Open source",
+		"Svelte",
+		"Sveltekit",
+		"Typescript",
+		"UI",
+		"Web"
+	],
 	"type": "module",
 	"scripts": {
 		"build": "svelte-kit sync && svelte-package",
@@ -45,9 +56,9 @@
 		"vitest": "0.25.4"
 	},
 	"peerDependencies": {
-		"svelte": "3.x",
 		"@floating-ui/dom": "1.x",
-		"focus-trap": "7.x"
+		"focus-trap": "7.x",
+		"svelte": "3.x"
 	},
 	"peerDependenciesMeta": {
 		"@floating-ui/dom": {
@@ -60,5 +71,6 @@
 	"publishConfig": {
 		"access": "public",
 		"directory": "./package"
-	}
+	},
+	"repository": "grail-ui/grail-ui.git"
 }
