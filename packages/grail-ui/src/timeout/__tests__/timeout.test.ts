@@ -1,6 +1,8 @@
 import { vi } from 'vitest';
 import { get } from 'svelte/store';
 import { createTimeout } from '../timeout';
+import { render } from '@testing-library/svelte';
+import TimeoutTest from './TimeoutTest.svelte';
 
 export function promiseTimeout(
 	ms: number,
@@ -111,5 +113,25 @@ describe('timeout', () => {
 		vi.advanceTimersByTime(1);
 		expect(spy).toHaveBeenCalledTimes(1);
 		expect(get(isPending)).toBe(false);
+	});
+
+	it('should stop timer if host component is destroyed', async () => {
+		const handler = vi.fn();
+		const { unmount } = render(TimeoutTest, { props: { handler } });
+
+		expect(handler).not.toHaveBeenCalled();
+		unmount();
+		vi.advanceTimersByTime(4000);
+		expect(handler).not.toHaveBeenCalled();
+	});
+
+	it('should not stop timer if host component is destroyed', async () => {
+		const handler = vi.fn();
+		const { unmount } = render(TimeoutTest, { props: { handler, autoStop: false } });
+
+		expect(handler).not.toHaveBeenCalled();
+		unmount();
+		vi.advanceTimersByTime(4000);
+		expect(handler).toHaveBeenCalledTimes(1);
 	});
 });

@@ -2,11 +2,12 @@ import type { CreateTimeoutFn, TimeoutConfig, TimeoutReturn } from './timeout.ty
 import { get, writable } from 'svelte/store';
 import { isClient } from '../util/is';
 import { toReadable } from '../util/store';
+import { tryOnDestroy } from '../util/lifecycle';
 
 export const createTimeout: typeof CreateTimeoutFn = (
 	cb,
 	ms,
-	{ immediate = true }: TimeoutConfig = {}
+	{ immediate = true, autoStop = true }: TimeoutConfig = {}
 ): TimeoutReturn => {
 	const isPending = writable(false);
 	const delay = writable(ms);
@@ -45,6 +46,10 @@ export const createTimeout: typeof CreateTimeoutFn = (
 	if (immediate) {
 		isPending.set(true);
 		if (isClient) start();
+	}
+
+	if (autoStop) {
+		tryOnDestroy(stop);
 	}
 
 	return {

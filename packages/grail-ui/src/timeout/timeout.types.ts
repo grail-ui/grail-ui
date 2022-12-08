@@ -7,6 +7,13 @@ export type TimeoutConfig = {
 	 * @defaultValue `true`
 	 */
 	immediate?: boolean;
+
+	/**
+	 * Whether to cancel timer when hosting component is destroyed.
+	 *
+	 * @defaultValue `true`
+	 */
+	autoStop?: boolean;
 };
 
 export type TimeoutReturn = {
