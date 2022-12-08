@@ -23,7 +23,8 @@
 		"format:check": "prettier --plugin-search-dir=. --cache --check .",
 		"test": "pnpm --filter=* test",
 		"lint": "pnpm --filter=* lint",
-		"check-updates": "pnpx npm-check-updates -i --deep"
+		"check-updates": "pnpx npm-check-updates -i --deep",
+		"release": "tsx scripts/release.ts"
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "0.4.7",
@@ -33,7 +34,8 @@
 		"commitlint-plugin-workspace-scopes": "1.1.0",
 		"prettier": "2.8.0",
 		"prettier-plugin-svelte": "2.8.1",
-		"syncpack": "8.4.11"
+		"syncpack": "8.4.11",
+		"tsx": "3.12.1"
 	},
 	"engines": {
 		"node": ">=16",

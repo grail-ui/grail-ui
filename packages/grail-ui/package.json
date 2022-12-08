@@ -5,7 +5,6 @@
 	"scripts": {
 		"build": "svelte-kit sync && svelte-package",
 		"prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
-		"release": "pnpm build && cd package && npm publish",
 		"test": "vitest run --coverage",
 		"tdd": "vitest",
 		"test-ct": "svelte-kit sync && playwright test -c playwright.config.ts",
@@ -59,6 +58,7 @@
 		}
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"directory": "./package"
 	}
 }
