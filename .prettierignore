@@ -5,4 +5,5 @@ pnpm-lock.yaml
 **/playwright-report/**
 **/playwright/.cache/**
 packages/**/docs/**
+packages/**/package/**
 apps/docs/src/docs/**
