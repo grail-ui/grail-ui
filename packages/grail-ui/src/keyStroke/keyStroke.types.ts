@@ -36,4 +36,11 @@ export type KeyStrokeConfig = {
 	 * @defaultValue `false`
 	 */
 	preventDefault?: boolean;
+
+	/**
+	 * Whether to remove listener when hosting component is destroyed.
+	 *
+	 * @defaultValue `true`
+	 */
+	autoStop?: boolean;
 };
