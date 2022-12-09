@@ -1,5 +1,6 @@
 import type { ClickOutsideConfig } from './clickOutside.types';
 import { get } from 'svelte/store';
+import { isFunction } from '../util/is';
 import documentClickStore from './documentClickStore';
 
 export const useClickOutside = (node: HTMLElement, config: ClickOutsideConfig = {}) => {
@@ -18,13 +19,18 @@ export const useClickOutside = (node: HTMLElement, config: ClickOutsideConfig = 
 
 		if (composedPath.includes(node)) return;
 
-		if (options.ignore && options.ignore.length > 0) {
-			if (
-				options.ignore.some((ignoreEl) => {
-					return ignoreEl && (e.target === ignoreEl || composedPath.includes(ignoreEl));
-				})
-			)
-				return;
+		if (options.ignore) {
+			if (isFunction(options.ignore)) {
+				if (options.ignore(e)) return;
+			} else if (Array.isArray(options.ignore)) {
+				if (
+					options.ignore.length > 0 &&
+					options.ignore.some((ignoreEl) => {
+						return ignoreEl && (e.target === ignoreEl || composedPath.includes(ignoreEl));
+					})
+				)
+					return;
+			}
 		}
 
 		options.handler?.(e);
