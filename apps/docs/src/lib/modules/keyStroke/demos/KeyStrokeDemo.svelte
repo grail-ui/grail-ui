@@ -1,44 +1,35 @@
 <script lang="ts">
 	import { createKeyStroke } from '@grail-ui/svelte';
 	import { writable } from 'svelte/store';
-	import { onDestroy } from 'svelte';
 
-	const translateX = writable(0);
-	const translateY = writable(0);
+	const translate = writable([0, 0]);
 
-	const removeUpEvent = createKeyStroke({
+	createKeyStroke({
 		key: ['W', 'ArrowUp'],
-		handler: () => translateY.update((value) => (value -= 10)),
+		handler: () => translate.update(([x, y]) => [x, y - 10]),
 		preventDefault: true,
 	});
-	const removeDownEvent = createKeyStroke({
+	createKeyStroke({
 		key: ['S', 'ArrowDown'],
-		handler: () => translateY.update((value) => (value += 10)),
+		handler: () => translate.update(([x, y]) => [x, y + 10]),
 		preventDefault: true,
 	});
-	const removeLeftEvent = createKeyStroke({
+	createKeyStroke({
 		key: ['A', 'ArrowLeft'],
-		handler: () => translateX.update((value) => (value -= 10)),
+		handler: () => translate.update(([x, y]) => [x - 10, y]),
 		preventDefault: true,
 	});
-	const removeRightEvent = createKeyStroke({
+	createKeyStroke({
 		key: ['D', 'ArrowRight'],
-		handler: () => translateX.update((value) => (value += 10)),
+		handler: () => translate.update(([x, y]) => [x + 10, y]),
 		preventDefault: true,
-	});
-
-	onDestroy(() => {
-		removeUpEvent();
-		removeDownEvent();
-		removeLeftEvent();
-		removeRightEvent();
 	});
 </script>
 
 <div class="bg-white w-full max-w-sm h-32 border overflow-hidden flex items-center justify-center">
 	<div
 		class="ball bg-slate-400 w-4 h-4 rounded-full"
-		style="transform: translate({$translateX}px, {$translateY}px)"
+		style="transform: translate({$translate[0]}px, {$translate[1]}px)"
 	/>
 </div>
 <div class="text-center mt-4">

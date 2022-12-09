@@ -2,6 +2,7 @@ import type { KeyStrokeConfig } from './keyStroke.types';
 import type { ActionReturn } from 'svelte/action';
 import { addEventListener } from '../eventListener/eventListener';
 import { isClient } from '../util/is';
+import { tryOnDestroy } from '../util/lifecycle';
 import { noop } from '../util/noop';
 
 const ALIAS: Record<string, string> = { plus: '+' };
@@ -16,6 +17,7 @@ export const createKeyStroke = (params: KeyStrokeConfig): VoidFunction => {
 		eventName = 'keydown',
 		passive = false,
 		preventDefault = false,
+		autoStop = true,
 	} = params;
 
 	const matches = (key: string, event: KeyboardEvent) => {
@@ -58,7 +60,13 @@ export const createKeyStroke = (params: KeyStrokeConfig): VoidFunction => {
 		}
 	};
 
-	return addEventListener(target, eventName, listener, { passive });
+	const stop = addEventListener(target, eventName, listener, { passive });
+
+	if (autoStop) {
+		tryOnDestroy(stop);
+	}
+
+	return stop;
 };
 
 export const useKeyStroke = (
