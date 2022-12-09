@@ -8,4 +8,4 @@ execSync('pnpm --filter=@grail-ui/svelte build', { stdio: 'inherit' });
 copyFileSync('./README.md', './packages/grail-ui/package/README.md');
 
 // Publish
-execSync('pnpm changeset publish');
+execSync('pnpm changeset publish', { stdio: 'inherit' });
