@@ -1,7 +1,8 @@
 import type { KeyStrokeConfig } from '../keyStroke.types';
 import { vi } from 'vitest';
-import { fireEvent } from '@testing-library/svelte';
+import { fireEvent, render } from '@testing-library/svelte';
 import { createKeyStroke, useKeyStroke } from '../keyStroke';
+import KeyStrokeDestroyTest from './KeyStrokeDestroyTest.svelte';
 
 let removeEvent: (() => void) | undefined;
 
@@ -207,5 +208,19 @@ describe('Key Stroke', () => {
 			await fireKeyEvent({ key: 'a', ctrlKey: true, shiftKey: true });
 			expect(spy).toHaveBeenCalledTimes(1);
 		});
+	});
+
+	it('should stop listening if host component is destroyed', async () => {
+		const handler = vi.fn();
+		const { unmount } = render(KeyStrokeDestroyTest, { props: { handler } });
+
+		expect(handler).toHaveBeenCalledTimes(0);
+
+		await fireKeyEvent('ArrowDown');
+		expect(handler).toHaveBeenCalledTimes(1);
+
+		unmount();
+		await fireKeyEvent('ArrowDown');
+		expect(handler).toHaveBeenCalledTimes(1);
 	});
 });
