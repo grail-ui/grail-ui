@@ -14,7 +14,7 @@ export type ClickOutsideConfig = {
 	handler?: (evt: PointerEvent) => void;
 
 	/**
-	 * List of elements that should not trigger the event.
+	 * A predicate function or a list of elements that should not trigger the event.
 	 */
-	ignore?: Element[];
+	ignore?: ((e: PointerEvent) => boolean) | Element[];
 };

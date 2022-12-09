@@ -62,4 +62,15 @@ describe('clickOutside', () => {
 		await user.click(outsideEl);
 		expect(api.handler).toHaveBeenCalled();
 	});
+
+	it('supports ignored with function', async () => {
+		const ignoreEl = document.createElement('div');
+		const api = { handler: vi.fn(), ignore: (e: PointerEvent) => e.target === ignoreEl };
+		render(ClickOutsideTest, { api });
+
+		document.body.appendChild(ignoreEl);
+
+		await user.click(ignoreEl);
+		expect(api.handler).not.toHaveBeenCalled();
+	});
 });
