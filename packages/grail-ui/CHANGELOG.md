@@ -1,5 +1,13 @@
 # @grail-ui/svelte
 
+## 0.3.0
+
+### Minor Changes
+
+- [#31](https://github.com/grail-ui/grail-ui/pull/31) [`531ea24`](https://github.com/grail-ui/grail-ui/commit/531ea240cb57e04c9fe596a7c7efd60af3294662) Thanks [@bekos](https://github.com/bekos)! - keyStroke supports `autoStop`
+
+- [`7629c5b`](https://github.com/grail-ui/grail-ui/commit/7629c5b49b63fcf0afd85e1c090483b391677b96) Thanks [@bekos](https://github.com/bekos)! - clickOutside: support predicate function for `ignored`
+
 ## 0.2.0
 
 ### Minor Changes
