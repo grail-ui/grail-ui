@@ -6,9 +6,11 @@
 	import CodeIcon from '~icons/ic/outline-code';
 	import CodeOffIcon from '~icons/ic/outline-code-off';
 	import CopyIcon from '~icons/mdi/content-copy';
+	import StackBlitzIcon from '~icons/simple-icons/stackblitz';
 	import { pascalCase } from 'change-case';
 	import { createClipboard } from '@grail-ui/svelte';
 	import Code from './Code.svelte';
+	import { open as openStackBlitz } from './stackblitz';
 
 	export let dir = $page.data.slug;
 	export let file = pascalCase($page.data.slug);
@@ -73,6 +75,12 @@
 				>
 			{/if}
 			<div class="my-2 w-[2px] grow-0 bg-black bg-opacity-10" />
+			<button
+				type="button"
+				on:click={() => openStackBlitz(source, file)}
+				class="btn btn-sm glass"
+				title="Open in StackBlitz"><StackBlitzIcon /></button
+			>
 			<a href={getDemoUrl()} class="btn btn-sm glass normal-case font-normal" title="View demo"
 				><DemoLinkIcon /></a
 			>
