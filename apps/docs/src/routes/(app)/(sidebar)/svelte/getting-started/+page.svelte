@@ -23,7 +23,7 @@
 	</div>
 
 	<div>
-		<SectionHeader id="Installation">Usage</SectionHeader>
+		<SectionHeader id="Usage">Usage</SectionHeader>
 		<p>
 			We offer a tree-shakeable package that contains all of the available functionality. This makes
 			sure that all components, actions and utilities are compatible and are updated together. In
