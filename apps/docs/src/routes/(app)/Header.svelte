@@ -1,7 +1,11 @@
 <script lang="ts">
+	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
-	import { PUBLIC_GITHUB_URL } from '$env/static/public';
+	import { PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 </script>
+
+<!-- svelte-ignore missing-declaration -->
+<svelte:head><meta name="built-at" content={__NOW__} /></svelte:head>
 
 <header
 	class="backdrop-blur flex-none transition-colors duration-500 z-50 border-b border-base-content/10 bg-base-100/90 supports-backdrop-blur:bg-white/60"
@@ -14,9 +18,11 @@
 					style="font-stretch: extra-expanded;"
 					href="/">Grail UI</a
 				>
-				<button
+				<!-- svelte-ignore missing-declaration -->
+				<a
+					href={PUBLIC_NPM_URL}
 					class="text-xs leading-5 font-semibold bg-base-content/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-base-content/20"
-					type="button">v0.0.0</button
+					>v{__APP_ENV__}</a
 				>
 
 				<div class="flex items-center ml-auto">
