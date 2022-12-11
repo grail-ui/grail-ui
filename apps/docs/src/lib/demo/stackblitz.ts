@@ -46,16 +46,14 @@ import './app.css';
 							'focus-trap': 'latest',
 							'@floating-ui/dom': 'latest',
 							'@sveltejs/adapter-auto': '1.0.0-next.90',
-							'@sveltejs/kit': '1.0.0-next.572',
-							autoprefixer: '10.4.2',
-							daisyui: '2.6.0',
-							postcss: '8.4.7',
-							'postcss-load-config': '3.1.3',
-							svelte: '3.46.0',
-							'svelte-preprocess': '4.10.7',
-							tailwindcss: '^3.0.23',
-							typescript: '4.9.3',
-							vite: '3.2.5',
+							'@sveltejs/kit': '1.0.0-next.582',
+							autoprefixer: '10.4.13',
+							daisyui: '2.43.0',
+							postcss: '8.4.20',
+							svelte: '3.54.0',
+							tailwindcss: '3.2.4',
+							typescript: '4.9.4',
+							vite: '4.0.0',
 						},
 						type: 'module',
 					},
@@ -69,12 +67,12 @@ import './app.css';
 };`,
 
 				['svelte.config.js']: `import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
+import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const config = {
 
 	preprocess: [
-		preprocess({
+		vitePreprocess({
 			postcss: true,
 		}),
 	],

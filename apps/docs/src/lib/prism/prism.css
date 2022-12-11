@@ -120,6 +120,6 @@ pre[class*='language-'] {
 }
 
 .line-highlight {
-	margintop: 0;
-	backgroundcolor: rgba(51, 154, 240, 0.2);
+	margin-top: 0;
+	background-color: rgba(51, 154, 240, 0.2);
 }
