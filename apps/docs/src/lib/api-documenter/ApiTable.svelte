@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { formatHtml } from '$lib/demo/demo.utils';
 	import SectionHeader from '$lib/demo/SectionHeader.svelte';
 	import data from '../../docs/api.json';
 	import { getComment, getType, getParameters } from './helpers';
@@ -31,7 +32,6 @@
 			<tr>
 				<th>Property</th>
 				<th>Description</th>
-				<th>Type</th>
 				{#if !hideDefault}
 					<th>Default</th>
 				{/if}
@@ -41,11 +41,15 @@
 			{#each params as param}
 				{@const data = getParamData(param)}
 				<tr>
-					<td>{data.name}</td>
-					<td class="whitespace-normal">{@html data.description}</td>
-					<td>{data.type}</td>
+					<td class="align-baseline"
+						><div class="font-robotic badge badge-primary">{data.name}</div></td
+					>
+					<td class="align-baseline whitespace-normal flex flex-col gap-2">
+						<div><code>{data.type}</code></div>
+						<div>{@html formatHtml(data.description)}</div>
+					</td>
 					{#if !hideDefault}
-						<td class="font-mono">{@html data.defaultValue || '<div class="px-1">—</div>'}</td>
+						<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
 					{/if}
 				</tr>
 			{/each}

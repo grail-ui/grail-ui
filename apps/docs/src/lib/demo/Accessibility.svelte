@@ -8,6 +8,7 @@
 </script>
 
 <script lang="ts">
+	import { formatHtml } from './demo.utils';
 	import SectionHeader from './SectionHeader.svelte';
 
 	export let title = 'Accessibility';
@@ -55,7 +56,7 @@
 							{/if}
 						{/each}
 					</td>
-					<td class="whitespace-normal">{description}</td>
+					<td class="whitespace-normal">{@html formatHtml(description)}</td>
 				</tr>
 			{/each}
 		</tbody>

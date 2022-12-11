@@ -17,3 +17,8 @@
 	font-weight: 200 900;
 	font-stretch: 75% 125%;
 }
+
+code {
+	@apply font-robotic;
+	color: #c41d7f;
+}
