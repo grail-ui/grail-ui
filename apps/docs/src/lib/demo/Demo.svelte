@@ -47,8 +47,9 @@
 <div
 	class="wrapper relative py-16 px-10 flex flex-col justify-center rounded-t-md min-h-[400px]"
 	class:rounded-b-md={!showSource}
+	data-theme="light"
 >
-	<div class="flex flex-col items-center justify-center bg-transparent" data-theme="light">
+	<div class="flex flex-col items-center justify-center bg-transparent">
 		<slot>
 			{#await loadComponent()}
 				<button class="btn btn-ghost loading">Loading...</button>

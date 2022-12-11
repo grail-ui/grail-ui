@@ -41,9 +41,7 @@
 			{#each params as param}
 				{@const data = getParamData(param)}
 				<tr>
-					<td class="align-baseline"
-						><div class="font-robotic badge badge-primary">{data.name}</div></td
-					>
+					<td class="align-baseline"><div class="font-robotic badge">{data.name}</div></td>
 					<td class="align-baseline whitespace-normal flex flex-col gap-2">
 						<div><code>{data.type}</code></div>
 						<div>{@html formatHtml(data.description)}</div>

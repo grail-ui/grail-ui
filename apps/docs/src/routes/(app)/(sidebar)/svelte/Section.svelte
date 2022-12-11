@@ -7,7 +7,7 @@
 
 <div>
 	<h5 class="text-sm font-bold mb-2 uppercase">{title}</h5>
-	<ul class="flex flex-col gap-2">
+	<ul class="flex flex-col gap-px">
 		{#each links as { href, label } (href)}
 			{@const active = $page.url.pathname.includes(href)}
 			<li>
