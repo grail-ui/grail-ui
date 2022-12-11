@@ -44,8 +44,8 @@
 	];
 </script>
 
-<div class="wrapper">
-	<div class="container mx-auto px-4 py-10 md:py-20">
+<div class="max-w-8xl mx-auto px-4 lg:px-8">
+	<div class="py-10 md:py-20">
 		<div class="flex gap-24 items-start">
 			<div class="flex flex-col gap-5 max-w-[800px]">
 				<h1 class="font-black">Put control back in developers’ hands.</h1>
@@ -57,7 +57,7 @@
 			<!-- LogoIcon -->
 		</div>
 
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-20 max-w-7xl">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-20">
 			{#each features as feature}
 				<div>
 					<h3 class="flex items-center gap-1.5 text-xl font-semibold">
@@ -78,84 +78,79 @@
 			>
 		</div>
 	</div>
-</div>
 
-<div class="container mx-auto px-4 py-10 md:py-20 flex flex-col gap-24">
-	<div class="flex gap-x-10 max-w-7xl">
-		<div class="w-2/3">
-			<div class="text-3xl font-bold">The challenge</div>
-			<div class="flex flex-col gap-6 mt-6">
-				<p>
-					Today, many companies are implementing their own component libraries and design systems <i
-						>from scratch</i
-					>. The purpose is to make all UI elements to match their brand and support their unique
-					use cases. Unfortunately, many of these teams don't have the resources, the expertize or
-					enough time to prioritize features like accessibility, keyboard navigation, touch
-					interactions, browser inconsistencies and many more.
-				</p>
-				<p>
-					Especially in the Svelte ecosystem, the existing options that can be used as the base for
-					such effort are limited. Developers usually choose to use one of the fully styled
-					component libraries, like Material UI or something similar. In this case, the offered
-					components by these libraries are hard to style and even harder to alter their
-					functionality and layout to match their specific needs.
-				</p>
-				<p>
-					Another approach that has evolved in other ecosystems, and has recently found it's way in
-					Svelte, is to use unstyled components (a.k.a. renderless components). For example,
-					Headless UI, offers wrapper components with <code>&lt;slots&gt;</code>
-					that you can use to provide your own HTML and styles. The problem in this case, is that this
-					abstraction does come with a few <b>trade-offs</b>. Because of the wrapper components
-					there is a need to introduce new, custom ways to use actions, do transitions and achieve
-					any kind of composition, which doesn't feel "natural".
-				</p>
+	<div class="py-10 md:py-20 flex flex-col gap-24">
+		<div class="flex gap-x-10">
+			<div class="w-2/3">
+				<div class="text-3xl font-bold">The challenge</div>
+				<div class="flex flex-col gap-6 mt-6">
+					<p>
+						Today, many companies are implementing their own component libraries and design systems <i
+							>from scratch</i
+						>. The purpose is to make all UI elements to match their brand and support their unique
+						use cases. Unfortunately, many of these teams don't have the resources, the expertize or
+						enough time to prioritize features like accessibility, keyboard navigation, touch
+						interactions, browser inconsistencies and many more.
+					</p>
+					<p>
+						Especially in the Svelte ecosystem, the existing options that can be used as the base
+						for such effort are limited. Developers usually choose to use one of the fully styled
+						component libraries, like Material UI or something similar. In this case, the offered
+						components by these libraries are hard to style and even harder to alter their
+						functionality and layout to match their specific needs.
+					</p>
+					<p>
+						Another approach that has evolved in other ecosystems, and has recently found it's way
+						in Svelte, is to use unstyled components (a.k.a. renderless components). For example,
+						Headless UI, offers wrapper components with <code>&lt;slots&gt;</code>
+						that you can use to provide your own HTML and styles. The problem in this case, is that this
+						abstraction does come with a few <b>trade-offs</b>. Because of the wrapper components
+						there is a need to introduce new, custom ways to use actions, do transitions and achieve
+						any kind of composition, which doesn't feel "natural".
+					</p>
+				</div>
+			</div>
+
+			<div class="w-1/3 flex justify-center">
+				<img src="/engineering_team.svg" alt="engineering team" />
 			</div>
 		</div>
 
-		<div class="w-1/3 flex justify-center">
-			<img src="/engineering_team.svg" alt="engineering team" />
-		</div>
-	</div>
+		<div class="flex gap-x-10">
+			<div class="w-1/3 flex items-center gap-10">
+				<SvelteIcon style="font-size: 180px" />
+			</div>
 
-	<div class="flex gap-x-10 max-w-7xl">
-		<div class="w-1/3 flex items-center gap-10">
-			<SvelteIcon style="font-size: 180px" />
-		</div>
-
-		<div class="w-2/3">
-			<div class="text-3xl font-bold">A better approach</div>
-			<div class="flex flex-col gap-6 mt-6">
-				<p>
-					Grail UI is a new approach to the component creation process. The goal is to provide a
-					library with component primitives, actions and utilities, that any Svelte developer can
-					leverage and use as the "holy grail" to build accessible components, design systems and
-					applications from the ground up, as fast as possible. We put a lot of effort to separate
-					behavior and accessibility from the actual DOM structure.
-				</p>
-				<p class="font-bold italic">
-					Developers remain in complete control over the layout, the bindings and the transitions
-					but also get most of the behavior and accessibility support for free.
-				</p>
-				<p>
-					Svelte is powerful framework, and we didn't want take anything away from it.<br />What we
-					add will always be
-					<i>small</i>, <i>fast</i>
-					and
-					<i>composable</i>.
-				</p>
-				<p class="font-bold">Welcome to a new way of building Svelte components!</p>
+			<div class="w-2/3">
+				<div class="text-3xl font-bold">A better approach</div>
+				<div class="flex flex-col gap-6 mt-6">
+					<p>
+						Grail UI is a new approach to the component creation process. The goal is to provide a
+						library with component primitives, actions and utilities, that any Svelte developer can
+						leverage and use as the "holy grail" to build accessible components, design systems and
+						applications from the ground up, as fast as possible. We put a lot of effort to separate
+						behavior and accessibility from the actual DOM structure.
+					</p>
+					<p class="font-bold italic">
+						Developers remain in complete control over the layout, the bindings and the transitions
+						but also get most of the behavior and accessibility support for free.
+					</p>
+					<p>
+						Svelte is powerful framework, and we didn't want take anything away from it.<br />What
+						we add will always be
+						<i>small</i>, <i>fast</i>
+						and
+						<i>composable</i>.
+					</p>
+					<p class="font-bold">Welcome to a new way of building Svelte components!</p>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
 <Footer />
 
 <style>
-	.wrapper {
-		background-image: linear-gradient(334deg, #f8f9fa 25%, rgba(0, 0, 0, 0) 95%);
-	}
-
 	h1 {
 		font-size: clamp(45px, 6.5vw, 80px);
 		line-height: 0.95;

@@ -23,8 +23,8 @@
 	];
 </script>
 
-<footer class="mt-5 border-t">
-	<div class="container mx-auto max-w-5xl px-4 pt-10 md:pt-20">
+<footer class="mt-5 border-t border-b border-base-content/10 bg-base-200/60">
+	<div class="max-w-4xl mx-auto px-4 pt-10 md:pt-20">
 		<div class="footer md:place-items-center">
 			<div>
 				<div class="flex items-center gap-2 text-lg font-bold">Grail UI</div>
@@ -43,14 +43,8 @@
 				</div>
 			{/each}
 		</div>
-		<div class="border-t mt-10 py-10 text-sm text-center">
+		<div class="border-t border-b border-base-content/10 mt-10 py-10 text-sm text-center">
 			© 2022 made with ❤ by these awesome contributors.<br />Code licensed under the MIT License.
 		</div>
 	</div>
 </footer>
-
-<style>
-	footer {
-		background-color: rgb(248, 249, 250);
-	}
-</style>
