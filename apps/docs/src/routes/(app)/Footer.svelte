@@ -23,9 +23,9 @@
 	];
 </script>
 
-<footer class="mt-5">
+<footer class="mt-5 border-t">
 	<div class="container mx-auto max-w-5xl px-4 pt-10 md:pt-20">
-		<div class="footer">
+		<div class="footer md:place-items-center">
 			<div>
 				<div class="flex items-center gap-2 text-lg font-bold">Grail UI</div>
 			</div>

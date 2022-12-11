@@ -1,44 +1,25 @@
 <script lang="ts">
-	import type { ModuleMetadata } from '$lib/modules/modules.types';
 	import type { LayoutData } from './$types';
-	import Section from './Section.svelte';
+	import QuickNav from '../../QuickNav.svelte';
+	import Fab from './Fab.svelte';
+	import Drawer from './Drawer.svelte';
+	import Sections from './Sections.svelte';
 
 	export let data: LayoutData;
-
-	const groupBy = <T, K extends keyof any>(arr: T[], key: (i: T) => K) =>
-		arr.reduce((groups, item) => {
-			(groups[key(item)] ||= []).push(item);
-			return groups;
-		}, {} as Record<K, T[]>);
-
-	const groups: Record<ModuleMetadata['category'], { sort: number; label: string }> = {
-		component: { sort: 1, label: 'Components' },
-		utility: { sort: 1, label: 'Utilities' },
-	};
-
-	$: groupedModules = groupBy(data.modules, (m) => m.category);
-	$: sortedGroupKeys = (Object.keys(groupedModules) as ModuleMetadata['category'][]).sort(
-		(a, b) => groups[a].sort - groups[b].sort || a.localeCompare(b)
-	);
 </script>
 
-<div class="flex flex-grow">
-	<div class="flex flex-col gap-6 px-4 pt-4">
-		<Section
-			title="Overview"
-			links={[{ href: `/svelte/getting-started`, label: 'Introduction' }]}
-		/>
-		{#each sortedGroupKeys as groupKey}
-			{@const links = groupedModules[groupKey].map((m) => ({
-				href: `/svelte/${m.slug}`,
-				label: m.heading,
-			}))}
-			<Section title={groups[groupKey].label} {links} />
-		{/each}
+<div class="mx-auto flex flex-1 max-w-8xl w-full px-4 sm:px-6 lg:px-8">
+	<div
+		class="hidden w-64 px-1 shrink-0 lg:block py-7 max-h-[calc(100vh-4.25rem-1px)] overflow-auto sticky top-[calc(4.25rem+1px)] overscroll-contain lg:mr-8"
+	>
+		<Sections {data} />
 	</div>
-	<div class="flex-grow pt-4">
-		<div class="w-full max-w-6xl mx-auto">
+	<main class="flex flex-1 pt-12">
+		<div class="mx-auto max-w-[800px] flex-1">
 			<slot />
 		</div>
-	</div>
+	</main>
+	<QuickNav />
+	<Fab />
+	<Drawer {data} />
 </div>
