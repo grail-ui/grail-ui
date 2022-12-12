@@ -2,9 +2,12 @@
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
 	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import Dependency from '$lib/demo/Dependency.svelte';
 </script>
 
 <Demo />
+
+<Dependency modules={['focus-trap']} />
 
 <Accessibility
 	keyboard={[
