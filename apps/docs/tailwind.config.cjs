@@ -1,4 +1,8 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const themes = require('daisyui/src/colors/themes');
+const sharedTheme = {
+	'--rounded-btn': '0.5rem',
+};
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -13,6 +17,14 @@ module.exports = {
 				'8xl': '90rem',
 			},
 		},
+	},
+	daisyui: {
+		themes: [
+			{
+				light: { ...themes['[data-theme=corporate]'], ...sharedTheme },
+				dark: { ...themes['[data-theme=night]'], ...sharedTheme },
+			},
+		],
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],
 };

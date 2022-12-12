@@ -1,9 +1,9 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
-	import QuickNav from '../../QuickNav.svelte';
-	import Fab from './Fab.svelte';
-	import Drawer from './Drawer.svelte';
-	import Sections from './Sections.svelte';
+	import type { LayoutData } from '$lib/layout/layout.types';
+	import QuickNav from '$lib/layout/QuickNav.svelte';
+	import Fab from '$lib/layout/Fab.svelte';
+	import Drawer from '$lib/layout/Drawer.svelte';
+	import Sections from '$lib/layout/Sections.svelte';
 
 	export let data: LayoutData;
 </script>
