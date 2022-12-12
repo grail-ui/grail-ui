@@ -2,13 +2,14 @@
 	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
 	import { PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
+	import ThemeSwitch from './ThemeSwitch.svelte';
 </script>
 
 <!-- svelte-ignore missing-declaration -->
 <svelte:head><meta name="built-at" content={__NOW__} /></svelte:head>
 
 <header
-	class="backdrop-blur flex-none transition-colors duration-500 z-50 border-b border-base-content/10 bg-base-100/90 supports-backdrop-blur:bg-white/60"
+	class="backdrop-blur flex-none z-50 border-b border-base-content/10 bg-base-100/90 supports-backdrop-blur:bg-white/60"
 >
 	<div class="max-w-8xl mx-auto">
 		<div class="py-4 lg:px-8 mx-4 lg:mx-0">
@@ -26,10 +27,11 @@
 				>
 
 				<div class="flex items-center ml-auto">
-					<div class="flex items-center ml-6 pl-6 gap-6 ">
+					<div class="flex items-center ml-6 pl-6 gap-4">
 						<a href={PUBLIC_GITHUB_URL} class="text-base-content/60 hover:text-base-content"
 							><span class="sr-only">Grail UI on GitHub</span><GithubIcon class="text-2xl" /></a
 						>
+						<ThemeSwitch />
 					</div>
 				</div>
 			</div>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { ModuleMetadata } from '$lib/modules/modules.types';
-	import type { LayoutData } from './$types';
+	import type { LayoutData } from './layout.types';
 	import Section from './Section.svelte';
 
 	export let data: LayoutData;

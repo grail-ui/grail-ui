@@ -8,7 +8,7 @@
 	import DeveloperIcon from '~icons/mdi/emoticon-happy-outline';
 	import FreeIcon from '~icons/octicon/law-24';
 	import { PUBLIC_GITHUB_URL } from '$env/static/public';
-	import Footer from './Footer.svelte';
+	import Footer from '$lib/layout/Footer.svelte';
 
 	const features = [
 		{

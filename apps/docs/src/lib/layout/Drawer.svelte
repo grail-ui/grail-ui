@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { LayoutData } from './$types';
+	import type { LayoutData } from './layout.types';
 	import { fly } from 'svelte/transition';
 	import { useClickOutside } from '@grail-ui/svelte';
 	import { drawerOpen } from './layout.store';
