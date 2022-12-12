@@ -48,7 +48,9 @@
 	<div class="py-10 md:py-20">
 		<div class="flex gap-24 items-start">
 			<div class="flex flex-col gap-5 max-w-[800px]">
-				<h1 class="font-black">Put control back in developers’ hands.</h1>
+				<h1 class="font-black bg-gradient-to-r from-primary via-blue-500 to-pink-500">
+					Put control back in developers’ hands.
+				</h1>
 				<h2 class="text-xl md:text-2xl font-bold">
 					A set of component primitives, actions and utilities that help you build accessible and
 					high quality Svelte applications faster, while providing a great developer experience.
@@ -69,11 +71,11 @@
 			{/each}
 		</div>
 
-		<div class="flex items-center gap-2 mt-16">
-			<a href="/svelte/getting-started" class="btn btn-lg px-10 flex items-center gap-4"
+		<div class="flex flex-col sm:flex-row sm:items-center gap-2 mt-16">
+			<a href="/svelte/getting-started" class="btn sm:btn-lg px-10 flex items-center gap-4"
 				>Get started</a
 			>
-			<a href={PUBLIC_GITHUB_URL} class="btn btn-lg px-10 btn-outline flex items-center gap-2"
+			<a href={PUBLIC_GITHUB_URL} class="btn sm:btn-lg px-10 btn-outline flex items-center gap-2"
 				><GithubIcon /> GitHub</a
 			>
 		</div>
@@ -81,7 +83,7 @@
 
 	<div class="py-10 md:py-20 flex flex-col gap-24">
 		<div class="flex gap-x-10">
-			<div class="w-2/3">
+			<div class="flex-1">
 				<div class="text-3xl font-bold">The challenge</div>
 				<div class="flex flex-col gap-6 mt-6">
 					<p>
@@ -111,17 +113,17 @@
 				</div>
 			</div>
 
-			<div class="w-1/3 flex justify-center">
+			<div class="w-1/3 hidden md:flex justify-center">
 				<img src="/engineering_team.svg" alt="engineering team" />
 			</div>
 		</div>
 
 		<div class="flex gap-x-10">
-			<div class="w-1/3 flex items-center gap-10">
+			<div class="w-1/3 hidden md:flex items-center gap-10">
 				<SvelteIcon style="font-size: 180px" />
 			</div>
 
-			<div class="w-2/3">
+			<div class="flex-1">
 				<div class="text-3xl font-bold">A better approach</div>
 				<div class="flex flex-col gap-6 mt-6">
 					<p>
@@ -155,7 +157,6 @@
 		font-size: clamp(45px, 6.5vw, 80px);
 		line-height: 0.95;
 		letter-spacing: -1px;
-		background-image: linear-gradient(45deg, #4d3ae4 0%, hsl(310, 74%, 45%) 50%, #f88644 100%);
 		box-decoration-break: clone;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;

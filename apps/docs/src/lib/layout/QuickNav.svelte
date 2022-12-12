@@ -18,14 +18,14 @@
 		<div>
 			<h2 class="text-xl font-bold mb-2">Quick Nav</h2>
 
-			<ul class="flex flex-col gap-2 border-l border-base-content/20 z-1">
+			<ul class="flex flex-col gap-2">
 				{#each links as { id, href } (id)}
 					{@const active = $page.url.hash === `#${id}`}
 					<li>
 						<a
 							{href}
-							class="whitespace-nowrap -ml-px py-2 px-6 font-medium transition-colors duration-200 text-sm border-l border-transparent hover:text-base-content hover:border-base-content {active
-								? 'text-base-content border-base-content'
+							class="whitespace-nowrap -ml-px py-2 font-medium transition-colors duration-200 text-sm hover:text-base-content {active
+								? 'text-base-content'
 								: 'text-base-content/60'}">{id}</a
 						>
 					</li>

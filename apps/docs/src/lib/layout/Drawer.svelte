@@ -37,7 +37,7 @@
 		<div class="absolute inset-0 z-40 flex translate-x-0" transition:fly={{ x: -384, opacity: 1 }}>
 			<div
 				id="drawer-content"
-				class="min-w-0 max-w-sm flex-1 border-r border-white border-opacity-10 bg-base-200/90 backdrop-blur backdrop-filter p-8 overflow-auto overscroll-contain"
+				class="min-w-0 max-w-sm flex-1 border-r border-base-content/10 bg-base-200/90 backdrop-blur backdrop-filter p-8 overflow-auto"
 			>
 				<Sections {data} />
 			</div>
