@@ -3,7 +3,7 @@
 	import Code from '$lib/demo/Code.svelte';
 	import PageHeader from '$lib/demo/PageHeader.svelte';
 	import SectionHeader from '$lib/demo/SectionHeader.svelte';
-	import PackageManager from './PackageManager.svelte';
+	import PackageManager from '$lib/demo/package-manager/PackageManager.svelte';
 </script>
 
 <PageHeader title="Getting started"
@@ -14,12 +14,7 @@
 	<div>
 		<SectionHeader id="Installation">Installation</SectionHeader>
 		<p>Install using your preferred package manager to add to your project:</p>
-		<PackageManager
-			class="max-w-xl mt-3"
-			npm="npm install @grail-ui/svelte"
-			pnpm="pnpm add @grail-ui/svelte"
-			yarn="yarn add @grail-ui/svelte"
-		/>
+		<PackageManager class="max-w-xl mt-3" command="addDev" options="@grail-ui/svelte" />
 	</div>
 
 	<div>

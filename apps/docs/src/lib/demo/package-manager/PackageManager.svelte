@@ -7,13 +7,13 @@
 	import CopiedIcon from '~icons/eva/checkmark-circle-outline';
 	import { createTabs, createClipboard } from '@grail-ui/svelte';
 	import Prism from '$lib/prism/Prism.svelte';
+	import { getPackageManagerCommands, type PackageManager } from './packageManager.utils';
 
 	export let title: string | undefined = undefined;
-	export let npm: string | undefined = undefined;
-	export let yarn: string | undefined = undefined;
-	export let pnpm: string | undefined = undefined;
+	export let command: 'add' | 'addDev';
+	export let options: any = undefined;
 
-	const frameworks = [
+	const frameworks: { label: PackageManager; icon: any }[] = [
 		{ label: 'npm', icon: NpmIcon },
 		{ label: 'pnpm', icon: PnpmIcon },
 		{ label: 'yarn', icon: YarnIcon },
@@ -25,6 +25,8 @@
 	const { isSupported, copy, copied } = createClipboard();
 
 	let sourceElement: HTMLElement;
+
+	$: source = getPackageManagerCommands($active as PackageManager)[command](options);
 </script>
 
 <div class:window={true} {...$$restProps}>
@@ -39,21 +41,11 @@
 	<div use:useTabs {...$rootAttrs}>
 		<div class="relative">
 			<div class="py-6 px-4 flex-grow text-sm" bind:this={sourceElement}>
-				{#if pnpm && $active === 'pnpm'}
-					<div {...$contentAttrs('pnpm')} in:fade>
-						<slot name="pnpm"><Prism source={pnpm} language="bash" /></slot>
-					</div>
-				{/if}
-				{#if npm && $active === 'npm'}
-					<div {...$contentAttrs('npm')} in:fade>
-						<slot name="npm"><Prism source={npm} language="bash" /></slot>
-					</div>
-				{/if}
-				{#if yarn && $active === 'yarn'}
-					<div {...$contentAttrs('yarn')} in:fade>
-						<slot name="yarn"><Prism source={yarn} language="bash" /></slot>
-					</div>
-				{/if}
+				<div {...$contentAttrs($active)}>
+					{#key $active}
+						<div in:fade><Prism {source} language="bash" /></div>
+					{/key}
+				</div>
 			</div>
 			{#if isSupported}
 				<div class="absolute right-2 top-1/2 -translate-y-1/2">
