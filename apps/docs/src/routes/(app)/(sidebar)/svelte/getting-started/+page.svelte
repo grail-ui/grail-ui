@@ -10,7 +10,7 @@
 	>This page describes how to get started to build your own component library or application
 	utilizing Grail UI.</PageHeader
 >
-<div class="flex flex-col gap-8">
+<div class="flex flex-col">
 	<div>
 		<SectionHeader id="Installation">Installation</SectionHeader>
 		<p>Install using your preferred package manager to add to your project:</p>

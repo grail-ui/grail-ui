@@ -27,7 +27,7 @@
 {#if params}
 	<SectionHeader id={definition}>{title}</SectionHeader>
 
-	<table class="table w-full">
+	<table class="table table-compact md:table-normal w-full">
 		<thead>
 			<tr>
 				<th>Property</th>

@@ -26,7 +26,7 @@
 
 {#if keyboard.length > 0}
 	<div class="my-4 font-semibold text-xl">Keyboard Interactions</div>
-	<table class="table w-full">
+	<table class="table table-compact md:table-normal w-full">
 		<thead>
 			<tr>
 				<th>Key</th>
