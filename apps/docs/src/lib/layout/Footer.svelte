@@ -1,23 +1,30 @@
 <script lang="ts">
 	import ExternalLinkIcon from '~icons/prime/external-link';
-	import { PUBLIC_GITHUB_URL } from '$env/static/public';
+	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL } from '$env/static/public';
 
 	const footerColumns = [
 		{
 			title: 'Docs',
 			links: [
-				{ title: 'Introduction', url: '#todo' },
-				{ title: 'Changelog', url: '#todo' },
-				{ title: 'Releases', url: '#todo' },
+				{ title: 'Introduction', url: '/svelte/getting-started' },
+				{
+					title: 'Changelog',
+					url: `${PUBLIC_GITHUB_URL}/blob/master/packages/grail-ui/CHANGELOG.md`,
+					external: true,
+				},
+				{ title: 'Releases', url: `${PUBLIC_GITHUB_URL}/releases`, external: true },
 			],
 		},
 		{
 			title: 'Community',
 			links: [
 				{ title: 'GitHub', url: PUBLIC_GITHUB_URL, external: true },
-				{ title: 'Twitter', url: '#todo', external: true },
-				{ title: 'Discord', url: '#todo', external: true },
-				{ title: 'StackOverflow', url: '#todo', external: true },
+				{ title: 'Discord', url: PUBLIC_DISCORD_URL, external: true },
+				{
+					title: 'StackOverflow',
+					url: 'https://stackoverflow.com/questions/tagged/grail-ui',
+					external: true,
+				},
 			],
 		},
 	];
@@ -44,7 +51,9 @@
 			{/each}
 		</div>
 		<div class="border-t border-b border-base-content/10 mt-10 py-10 text-sm text-center">
-			© 2022 made with ❤ by these awesome contributors.<br />Code licensed under the MIT License.
+			© 2022 made with ❤ by these awesome <a class="link" href={`${PUBLIC_GITHUB_URL}/contributors`}
+				>contributors</a
+			>.<br />Code licensed under the MIT License.
 		</div>
 	</div>
 </footer>

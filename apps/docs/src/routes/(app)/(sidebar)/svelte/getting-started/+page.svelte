@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { PUBLIC_GITHUB_URL } from '$env/static/public';
+	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL } from '$env/static/public';
 	import Code from '$lib/demo/Code.svelte';
 	import PageHeader from '$lib/demo/PageHeader.svelte';
 	import SectionHeader from '$lib/demo/SectionHeader.svelte';
@@ -54,8 +54,27 @@ import { createTooltip } from "@grail-ui/svelte/tooltip";`}
 	<div>
 		<SectionHeader id="Help">Need help?</SectionHeader>
 
-		If you have discovered a bug or have a feature suggestion, feel free to
-		<a class="link" href={`${PUBLIC_GITHUB_URL}/issues`}>create an issue on GitHub</a>. Otherwise,
-		you can use any of the following methods to find somenone available to answer your questions.
+		<p>
+			If you have discovered a bug or have a feature suggestion, feel free to
+			<a class="link" href={`${PUBLIC_GITHUB_URL}/issues`}>create an issue on GitHub</a>. Please
+			check the existing issues before filing a new one.
+		</p>
+
+		<p>
+			Alternatively, you can use any of the following methods to find someone available to answer
+			your questions.
+		</p>
+
+		<ul class="list-disc flex flex-col gap-1.5 mt-4 text-sm">
+			<li><a class="link" href={PUBLIC_DISCORD_URL}>Chat on Discord</a></li>
+			<li>
+				<a class="link" href={`${PUBLIC_GITHUB_URL}/discussions`}>Start a discussion on GitHub</a>
+			</li>
+			<li>
+				<a class="link" href="https://stackoverflow.com/questions/ask?tags=grail-ui"
+					>Post a question on StackOverflow</a
+				>
+			</li>
+		</ul>
 	</div>
 </div>

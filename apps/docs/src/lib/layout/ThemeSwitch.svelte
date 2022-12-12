@@ -6,6 +6,6 @@
 
 <label class="swap text-base-content/60 hover:text-base-content" title="Toggle theme">
 	<input type="checkbox" checked={$theme === Theme.Dark} on:change={toggleTheme} />
-	<NightIcon class="swap-on text-2xl" />
-	<SunIcon class="swap-off text-2xl" />
+	<NightIcon class="swap-on" />
+	<SunIcon class="swap-off" />
 </label>

@@ -1,7 +1,8 @@
 <script lang="ts">
 	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
-	import { PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
+	import DiscordIcon from '~icons/mdi/discord';
+	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 	import ThemeSwitch from './ThemeSwitch.svelte';
 </script>
 
@@ -27,9 +28,16 @@
 				>
 
 				<div class="flex items-center ml-auto">
-					<div class="flex items-center ml-6 pl-6 gap-4">
-						<a href={PUBLIC_GITHUB_URL} class="text-base-content/60 hover:text-base-content"
-							><span class="sr-only">Grail UI on GitHub</span><GithubIcon class="text-2xl" /></a
+					<div class="flex items-center ml-6 pl-6 gap-4 text-2xl">
+						<a
+							href={PUBLIC_DISCORD_URL}
+							class="text-base-content/60 hover:text-base-content"
+							title="Discord"><DiscordIcon /></a
+						>
+						<a
+							href={PUBLIC_GITHUB_URL}
+							class="text-base-content/60 hover:text-base-content"
+							title="Source code on GitHub"><GithubIcon /></a
 						>
 						<ThemeSwitch />
 					</div>
