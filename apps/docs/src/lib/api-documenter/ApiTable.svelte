@@ -22,6 +22,11 @@
 			type: getType(param),
 		};
 	}
+
+	// Remove known package types
+	function removePackageType(str: string) {
+		return str.replace(/(svelte\.)|(typescript\.)/g, () => '');
+	}
 </script>
 
 {#if params}
@@ -43,7 +48,7 @@
 				<tr>
 					<td class="align-baseline"><div class="font-robotic badge">{data.name}</div></td>
 					<td class="align-baseline whitespace-normal flex flex-col gap-2">
-						<div><code>{data.type}</code></div>
+						<div><code>{removePackageType(data.type)}</code></div>
 						<div>{@html formatHtml(data.description)}</div>
 					</td>
 					{#if !hideDefault}
