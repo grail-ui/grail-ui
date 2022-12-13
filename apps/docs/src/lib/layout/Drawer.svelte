@@ -24,6 +24,16 @@
 	beforeNavigate(close);
 </script>
 
+<svelte:head>
+	{#if $drawerOpen}
+		<style>
+			body {
+				overflow: hidden;
+			}
+		</style>
+	{/if}
+</svelte:head>
+
 {#if $drawerOpen}
 	<div class="fixed inset-0 z-40 lg:hidden" role="dialog" aria-modal="true">
 		<div

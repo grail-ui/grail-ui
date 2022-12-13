@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const themes = require('daisyui/src/colors/themes');
 const sharedTheme = {
 	'--rounded-btn': '0.5rem',
+	'color-scheme': 'light',
 };
 
 /** @type {import('tailwindcss').Config} */
