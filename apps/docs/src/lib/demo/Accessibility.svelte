@@ -30,7 +30,7 @@
 		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
 			<thead>
 				<tr>
-					<th>Key</th>
+					<th class="!static">Key</th>
 					<th>description</th>
 				</tr>
 			</thead>

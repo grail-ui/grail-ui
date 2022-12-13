@@ -36,7 +36,7 @@
 		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
 			<thead>
 				<tr>
-					<th>Property</th>
+					<th class="!static">Property</th>
 					<th>Description</th>
 					{#if !hideDefault}
 						<th>Default</th>
