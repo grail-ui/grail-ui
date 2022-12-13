@@ -11,6 +11,6 @@
 <Prism
 	{source}
 	{language}
-	class="box-border max-h-96 p-3 text-[13px] leading-5 bg-base-300 {_class}"
+	class="box-border max-h-96 p-3 text-[13px] leading-5 bg-base-300 overflow-y-auto {_class}"
 	{...$$restProps}
 />

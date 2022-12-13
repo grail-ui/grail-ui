@@ -24,10 +24,7 @@
 			sure that all components, actions and utilities are compatible and are updated together. In
 			the below example, only dependencies required for modal and tooltip will be included in your
 			final bundle:
-			<Code
-				source={`import { createModal, createTooltip } from "@grail-ui/svelte";`}
-				class="w-fit"
-			/>
+			<Code source={`import { createModal, createTooltip } from "@grail-ui/svelte";`} />
 		</p>
 		<p class="mt-6">
 			If you can't do tree shaking, you can import files directly, and only include the modules you
@@ -35,7 +32,6 @@
 			<Code
 				source={`import { createModal } from "@grail-ui/svelte/accordion";
 import { createTooltip } from "@grail-ui/svelte/tooltip";`}
-				class="w-fit"
 			/>
 		</p>
 	</div>
