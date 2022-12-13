@@ -26,39 +26,43 @@
 
 {#if keyboard.length > 0}
 	<div class="my-4 font-semibold text-xl">Keyboard Interactions</div>
-	<table class="table table-compact md:table-normal w-full">
-		<thead>
-			<tr>
-				<th>Key</th>
-				<th>description</th>
-			</tr>
-		</thead>
-		<tbody>
-			{#each keyboard as { key, description }}
+	<div class="overflow-x-auto -mx-4 sm:mx-0">
+		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
+			<thead>
 				<tr>
-					<td class="flex items-center gap-x-1">
-						{#each getKeys(key) as _key}
-							{#if _key === '+'}
-								{_key}
-							{:else}
-								{@const icon = KEY_ICONS[_key]}
-								<kbd class="kbd kbd-sm" title={icon ? _key : undefined}>
-									{#if icon}
-										{#if typeof icon === 'string'}
-											{icon}
-										{:else}
-											<svelte:component this={icon} />
-										{/if}
-									{:else}
-										{_key}
-									{/if}
-								</kbd>
-							{/if}
-						{/each}
-					</td>
-					<td class="whitespace-normal">{@html formatHtml(description)}</td>
+					<th>Key</th>
+					<th>description</th>
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#each keyboard as { key, description }}
+					<tr>
+						<th>
+							<div class="flex items-center gap-x-1">
+								{#each getKeys(key) as _key}
+									{#if _key === '+'}
+										{_key}
+									{:else}
+										{@const icon = KEY_ICONS[_key]}
+										<kbd class="kbd kbd-sm" title={icon ? _key : undefined}>
+											{#if icon}
+												{#if typeof icon === 'string'}
+													{icon}
+												{:else}
+													<svelte:component this={icon} />
+												{/if}
+											{:else}
+												{_key}
+											{/if}
+										</kbd>
+									{/if}
+								{/each}
+							</div>
+						</th>
+						<td class="whitespace-normal">{@html formatHtml(description)}</td>
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
 {/if}

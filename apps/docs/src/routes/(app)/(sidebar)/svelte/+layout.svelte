@@ -14,8 +14,8 @@
 	>
 		<Sections {data} />
 	</div>
-	<main class="flex flex-1 py-12">
-		<div class="mx-auto max-w-[800px] flex-1">
+	<main class="flex flex-1 min-w-0 py-12">
+		<div class="mx-auto min-w-0 max-w-[800px] flex-1">
 			<slot />
 		</div>
 	</main>

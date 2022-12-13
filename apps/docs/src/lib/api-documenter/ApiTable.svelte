@@ -32,30 +32,32 @@
 {#if params}
 	<SectionHeader id={definition}>{title}</SectionHeader>
 
-	<table class="table table-compact md:table-normal w-full">
-		<thead>
-			<tr>
-				<th>Property</th>
-				<th>Description</th>
-				{#if !hideDefault}
-					<th>Default</th>
-				{/if}
-			</tr>
-		</thead>
-		<tbody>
-			{#each params as param}
-				{@const data = getParamData(param)}
+	<div class="overflow-x-auto -mx-4 sm:mx-0">
+		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
+			<thead>
 				<tr>
-					<td class="align-baseline"><div class="font-robotic badge">{data.name}</div></td>
-					<td class="align-baseline whitespace-normal flex flex-col gap-2">
-						<div><code>{removePackageType(data.type)}</code></div>
-						<div>{@html formatHtml(data.description)}</div>
-					</td>
+					<th>Property</th>
+					<th>Description</th>
 					{#if !hideDefault}
-						<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
+						<th>Default</th>
 					{/if}
 				</tr>
-			{/each}
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				{#each params as param}
+					{@const data = getParamData(param)}
+					<tr>
+						<th class="align-baseline"><div class="font-robotic badge">{data.name}</div></th>
+						<td class="align-baseline whitespace-normal flex flex-col gap-2">
+							<div><code>{removePackageType(data.type)}</code></div>
+							<div>{@html formatHtml(data.description)}</div>
+						</td>
+						{#if !hideDefault}
+							<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
+						{/if}
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
 {/if}
