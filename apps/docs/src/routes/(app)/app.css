@@ -22,3 +22,11 @@ code {
 	@apply font-robotic;
 	color: #c41d7f;
 }
+
+/* Highlight */
+pre[data-language] {
+	border-radius: inherit;
+}
+pre[data-language] code.hljs {
+	border-radius: inherit;
+}

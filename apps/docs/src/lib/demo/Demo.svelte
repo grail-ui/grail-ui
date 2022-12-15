@@ -9,12 +9,11 @@
 	import StackBlitzIcon from '~icons/simple-icons/stackblitz';
 	import { pascalCase } from 'change-case';
 	import { createClipboard } from '@grail-ui/svelte';
-	import Code from './Code.svelte';
+	import Highlight from '$lib/highlight/Highlight.svelte';
 	import { open as openStackBlitz } from './stackblitz';
 
 	export let dir = $page.data.slug;
 	export let file = pascalCase($page.data.slug);
-	export let language: 'js' | 'svelte' | 'bash' = 'svelte';
 
 	let source = '';
 	let showSource = false;
@@ -91,6 +90,6 @@
 
 {#if showSource}
 	<div in:fade>
-		<Code {source} {language} />
+		<Highlight {source} class="box-border max-h-96 text-[13px] leading-5 overflow-y-auto" />
 	</div>
 {/if}

@@ -6,10 +6,9 @@
 	import CopyIcon from '~icons/ic/outline-content-copy';
 	import CopiedIcon from '~icons/eva/checkmark-circle-outline';
 	import { createTabs, createClipboard } from '@grail-ui/svelte';
-	import Prism from '$lib/prism/Prism.svelte';
+	import Highlight from '$lib/highlight/Highlight.svelte';
 	import { getPackageManagerCommands, type PackageManager } from './packageManager.utils';
 
-	export let title: string | undefined = undefined;
 	export let command: 'add' | 'addDev';
 	export let options: any = undefined;
 
@@ -30,20 +29,20 @@
 </script>
 
 <div class:window={true} {...$$restProps}>
-	<div class="py-2 px-4 flex">
-		<div class="flex items-center gap-2" aria-hidden="true">
-			{#each ['#ff5f57', '#febc2e', '#28c840'] as control}
-				<div class="w-3 h-3 rounded-full" style:background-color={control} />
-			{/each}
-		</div>
-		{#if title}<span class="mx-auto">{title}</span>{/if}
-	</div>
 	<div use:useTabs {...$rootAttrs}>
-		<div class="relative">
-			<div class="py-6 px-4 flex-grow text-sm" bind:this={sourceElement}>
+		<ul {...$listAttrs} class="frameworks flex">
+			{#each frameworks as framework}
+				<li {...$triggerAttrs(framework.label)} class="flex items-center gap-1.5 text-xs px-3 py-2">
+					<svelte:component this={framework.icon} />
+					{framework.label}
+				</li>
+			{/each}
+		</ul>
+		<div class="relative group min-h-12">
+			<div class="flex-grow text-sm" bind:this={sourceElement}>
 				<div {...$contentAttrs($active)}>
 					{#key $active}
-						<div in:fade><Prism {source} language="bash" /></div>
+						<div in:fade><Highlight {source} /></div>
 					{/key}
 				</div>
 			</div>
@@ -53,20 +52,12 @@
 						type="button"
 						title="Copy"
 						on:click={() => copy(sourceElement)}
-						class="btn btn-sm opacity-60 hover:opacity-100"
+						class="btn btn-sm opacity-50 group-hover:opacity-100"
 						>{#if $copied}<CopiedIcon />{:else}<CopyIcon />{/if}</button
 					>
 				</div>
 			{/if}
 		</div>
-		<ul {...$listAttrs} class="frameworks flex">
-			{#each frameworks as framework}
-				<li {...$triggerAttrs(framework.label)} class="flex items-center gap-1.5 text-xs px-3 py-2">
-					<svelte:component this={framework.icon} />
-					{framework.label}
-				</li>
-			{/each}
-		</ul>
 	</div>
 </div>
 
@@ -74,7 +65,6 @@
 	.window {
 		overflow: hidden;
 		flex-grow: 1;
-		background-color: #000000d9;
 		border-radius: 0.25em;
 		color: #fff;
 		box-shadow: 0 0 2em #0000004d;

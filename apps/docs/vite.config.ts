@@ -18,6 +18,19 @@ const config: UserConfig = {
 		}),
 	],
 
+	optimizeDeps: {
+		include: [
+			'focus-trap',
+			'@floating-ui/dom',
+			'change-case',
+			'@stackblitz/sdk',
+			'typedoc-json-parser',
+			'highlight.js',
+			'highlight.js/lib/core',
+			'svelte-highlight',
+		],
+	},
+
 	define: {
 		__APP_ENV__: JSON.stringify(version),
 		__NOW__: JSON.stringify(new Date().toISOString()),
