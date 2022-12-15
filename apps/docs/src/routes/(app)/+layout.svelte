@@ -28,7 +28,7 @@
 	<meta name="twitter:image" content={ogImageUrl} />
 </svelte:head>
 
-<div class="flex flex-col" data-theme={$theme}>
+<div class="flex flex-col min-h-screen" data-theme={$theme}>
 	<div class="sticky top-0 z-40"><Header /></div>
 	<div class="flex flex-col flex-grow">
 		<slot />

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL } from '$env/static/public';
-	import Code from '$lib/demo/Code.svelte';
+	import Highlight from '$lib/highlight/Highlight.svelte';
 	import PageHeader from '$lib/demo/PageHeader.svelte';
 	import SectionHeader from '$lib/demo/SectionHeader.svelte';
 	import PackageManager from '$lib/demo/package-manager/PackageManager.svelte';
@@ -24,14 +24,18 @@
 			sure that all components, actions and utilities are compatible and are updated together. In
 			the below example, only dependencies required for modal and tooltip will be included in your
 			final bundle:
-			<Code source={`import { createModal, createTooltip } from "@grail-ui/svelte";`} />
+			<Highlight
+				source={`import { createModal, createTooltip } from "@grail-ui/svelte";`}
+				class="rounded"
+			/>
 		</p>
 		<p class="mt-6">
 			If you can't do tree shaking, you can import files directly, and only include the modules you
 			need, like this:
-			<Code
+			<Highlight
 				source={`import { createModal } from "@grail-ui/svelte/accordion";
 import { createTooltip } from "@grail-ui/svelte/tooltip";`}
+				class="rounded"
 			/>
 		</p>
 	</div>
