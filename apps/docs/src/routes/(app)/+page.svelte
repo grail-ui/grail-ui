@@ -7,6 +7,7 @@
 	import AccessibilityIcon from '~icons/carbon/accessibility-alt';
 	import DeveloperIcon from '~icons/mdi/emoticon-happy-outline';
 	import FreeIcon from '~icons/octicon/law-24';
+	import Logo from '~icons/grail/logo';
 	import { PUBLIC_GITHUB_URL } from '$env/static/public';
 	import Footer from '$lib/layout/Footer.svelte';
 
@@ -46,17 +47,12 @@
 
 <div class="max-w-8xl mx-auto px-4 lg:px-8">
 	<div class="py-10 md:py-20">
-		<div class="flex gap-24 items-start">
-			<div class="flex flex-col gap-5 max-w-[800px]">
-				<h1 class="font-black bg-gradient-to-r from-primary via-blue-500 to-pink-500">
-					Put control back in developers’ hands.
-				</h1>
-				<h2 class="text-xl md:text-2xl font-bold">
-					A set of component primitives, actions and utilities that help you build accessible and
-					high quality Svelte applications faster, while providing a great developer experience.
-				</h2>
-			</div>
-			<!-- LogoIcon -->
+		<div class="flex flex-col gap-5 max-w-[800px]">
+			<h1>Put control back in developers’ hands.</h1>
+			<h2 class="text-xl md:text-2xl font-bold">
+				A set of component primitives, actions and utilities that help you build accessible and high
+				quality Svelte applications faster, while providing a great developer experience.
+			</h2>
 		</div>
 
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-20">
@@ -119,8 +115,10 @@
 		</div>
 
 		<div class="flex gap-x-10">
-			<div class="w-1/3 hidden md:flex items-center gap-10">
-				<SvelteIcon style="font-size: 180px" />
+			<div class="w-1/3 hidden md:flex items-center justify-center gap-4">
+				<Logo style="font-size: 90px" />
+				<span style="font-size: 60px">❤</span>
+				<SvelteIcon style="font-size: 90px" />
 			</div>
 
 			<div class="flex-1">
@@ -154,7 +152,9 @@
 
 <style>
 	h1 {
+		background-image: linear-gradient(45deg, #4d3ae4 0%, hsl(310, 74%, 45%) 50%, #f88644 100%);
 		font-size: clamp(45px, 6.5vw, 80px);
+		font-weight: 900;
 		line-height: 0.95;
 		letter-spacing: -1px;
 		box-decoration-break: clone;
