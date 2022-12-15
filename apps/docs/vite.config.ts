@@ -1,5 +1,6 @@
-import { sveltekit } from '@sveltejs/kit/vite';
 import type { UserConfig } from 'vite';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { promises as fs } from 'fs';
 import Icons from 'unplugin-icons/vite';
 import { version } from '../../packages/grail-ui/package.json';
 
@@ -8,6 +9,12 @@ const config: UserConfig = {
 		sveltekit(),
 		Icons({
 			compiler: 'svelte',
+			customCollections: {
+				grail: {
+					logo: () => fs.readFile('./static/grail.svg', 'utf-8'),
+					logotype: () => fs.readFile('./static/logotype.svg', 'utf-8'),
+				},
+			},
 		}),
 	],
 

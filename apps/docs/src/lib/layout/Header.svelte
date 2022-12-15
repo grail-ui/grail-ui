@@ -2,6 +2,8 @@
 	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
 	import DiscordIcon from '~icons/mdi/discord';
+	import Logo from '~icons/grail/logo';
+	import LogoType from '~icons/grail/logotype';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 	import ThemeSwitch from './ThemeSwitch.svelte';
 </script>
@@ -15,11 +17,12 @@
 	<div class="max-w-8xl mx-auto">
 		<div class="py-4 lg:px-8 mx-4 lg:mx-0">
 			<div class="flex items-center">
-				<a
-					class="mr-3 flex-none overflow-hidden md:w-auto inline-flex text-lg duration-200 md:text-3xl font-black font-robotic"
-					style="font-stretch: extra-expanded;"
-					href="/">Grail UI</a
-				>
+				<a class="mr-3 flex-none overflow-hidden md:w-auto duration-200 items-center" href="/">
+					<div class="flex items-center gap-1">
+						<Logo style="font-size: 26px;" />
+						<LogoType width="100%" height="35px" />
+					</div>
+				</a>
 				<!-- svelte-ignore missing-declaration -->
 				<a
 					href={PUBLIC_NPM_URL}

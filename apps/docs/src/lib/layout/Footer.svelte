@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ExternalLinkIcon from '~icons/prime/external-link';
+	import LogoType from '~icons/grail/logotype';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL } from '$env/static/public';
 
 	const footerColumns = [
@@ -33,8 +34,10 @@
 <footer class="mt-5 border-t border-b border-base-content/10 bg-base-200/60">
 	<div class="max-w-4xl mx-auto px-4 pt-10 md:pt-20">
 		<div class="footer md:place-items-center">
-			<div>
-				<div class="flex items-center gap-2 text-lg font-bold">Grail UI</div>
+			<div class="self-start">
+				<div class="flex items-center gap-2 text-lg font-bold">
+					<LogoType width="100%" height="25px" />
+				</div>
 			</div>
 			{#each footerColumns as column}
 				<div>
