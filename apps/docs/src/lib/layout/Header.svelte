@@ -19,7 +19,7 @@
 			<div class="flex items-center">
 				<a class="mr-3 flex-none overflow-hidden md:w-auto duration-200 items-center" href="/">
 					<div class="flex items-center gap-1">
-						<Logo style="font-size: 26px;" />
+						<Logo class="hidden sm:block" style="font-size: 26px;" />
 						<LogoType width="100%" height="35px" />
 					</div>
 				</a>
