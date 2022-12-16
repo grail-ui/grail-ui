@@ -14,7 +14,7 @@ interface AccordionBaseConfig {
 	disabled?: boolean;
 }
 
-export interface AccordionSingleConfig extends AccordionBaseConfig {
+export interface AccordionSingleConfig<T extends string> extends AccordionBaseConfig {
 	/**
 	 * Allow a single item to be opened at the same time.
 	 */
@@ -23,15 +23,15 @@ export interface AccordionSingleConfig extends AccordionBaseConfig {
 	/**
 	 * Initial value (controls expanded state of accordion items).
 	 */
-	defaultValue?: string;
+	defaultValue?: T;
 
 	/**
 	 * Event handler called when the expanded state of the accordion changes.
 	 */
-	onValueChange?: (value: string) => void;
+	onValueChange?: (value: T) => void;
 }
 
-export interface AccordionMultipleConfig extends AccordionBaseConfig {
+export interface AccordionMultipleConfig<T extends string> extends AccordionBaseConfig {
 	/**
 	 * Allow multiple items to be opened at the same time.
 	 */
@@ -40,21 +40,23 @@ export interface AccordionMultipleConfig extends AccordionBaseConfig {
 	/**
 	 * Initial value (controls expanded state of accordion items).
 	 */
-	defaultValue?: string[];
+	defaultValue?: T[];
 
 	/**
 	 * Event handler called when the expanded state of the accordion changes.
 	 */
-	onValueChange?: (value: string[]) => void;
+	onValueChange?: (value: T[]) => void;
 }
 
-export type AccordionConfig = AccordionSingleConfig | AccordionMultipleConfig;
+export type AccordionConfig<T extends string = string> =
+	| AccordionSingleConfig<T>
+	| AccordionMultipleConfig<T>;
 
-export interface AccordionItemParams {
+export interface AccordionItemParams<T extends string> {
 	/**
 	 * Unique identifier. Used to control accordion item's expanded state.
 	 */
-	value: string;
+	value: T;
 
 	/**
 	 * Whether clicking the useAccordionTrigger element should toggle the accordion item.
@@ -73,21 +75,21 @@ export interface AccordionParams {
 	disabled?: boolean;
 }
 
-export interface AccordionReturn {
+export interface AccordionReturn<T extends string> {
 	/**
 	 * Toggles a value between expanded and collapsed.
 	 */
-	toggle: (value: string) => void;
+	toggle: (value: T) => void;
 
 	/**
 	 * Expands a value or an array of values.
 	 */
-	expand: (...values: string[]) => void;
+	expand: (...values: T[]) => void;
 
 	/**
 	 * Collapses a value or an array of values.
 	 */
-	collapse: (...values: string[]) => void;
+	collapse: (...values: T[]) => void;
 
 	/**
 	 * Expands all the values.
@@ -102,7 +104,7 @@ export interface AccordionReturn {
 	/**
 	 * The expanded state of the accordion.
 	 */
-	expanded: Readable<Set<string>>;
+	expanded: Readable<Set<T>>;
 
 	/**
 	 * Action for the accordion root element.
@@ -112,15 +114,15 @@ export interface AccordionReturn {
 	/**
 	 * HTML attributes for the accordion item element.
 	 */
-	itemAttrs: Readable<(params: AccordionItemParams | string) => Record<string, string>>;
+	itemAttrs: Readable<(params: AccordionItemParams<T> | T) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the trigger element.
 	 */
-	triggerAttrs: Readable<(params: AccordionItemParams | string) => Record<string, string>>;
+	triggerAttrs: Readable<(params: AccordionItemParams<T> | T) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the content element.
 	 */
-	contentAttrs: Readable<(params: AccordionItemParams | string) => Record<string, string>>;
+	contentAttrs: Readable<(params: AccordionItemParams<T> | T) => Record<string, string>>;
 }
