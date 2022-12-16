@@ -27,7 +27,6 @@ const config: UserConfig = {
 			'typedoc-json-parser',
 			'highlight.js',
 			'highlight.js/lib/core',
-			'svelte-highlight',
 		],
 	},
 
