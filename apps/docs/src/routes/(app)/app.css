@@ -8,6 +8,7 @@
 		url('/fonts/Mona-Sans.woff2') format('woff2-variations');
 	font-weight: 200 900;
 	font-stretch: 75% 125%;
+	font-display: swap;
 }
 
 @font-face {
@@ -16,6 +17,7 @@
 		url('/fonts/Hubot-Sans.woff2') format('woff2-variations');
 	font-weight: 200 900;
 	font-stretch: 75% 125%;
+	font-display: swap;
 }
 
 code {
@@ -29,4 +31,20 @@ pre[data-language] {
 }
 pre[data-language] code.hljs {
 	border-radius: inherit;
+}
+
+/* Scrollbar */
+[data-theme] ::-webkit-scrollbar-track {
+	background-color: hsl(var(--b2) / 0.65);
+}
+[data-theme] ::-webkit-scrollbar {
+	width: 5px;
+	min-height: 20px;
+}
+[data-theme] ::-webkit-scrollbar-thumb {
+	border-radius: 5px;
+	background-color: hsl(var(--bc) / 0.35);
+}
+[data-theme] ::-webkit-scrollbar-thumb:hover {
+	background-color: hsl(var(--bc) / 0.55);
 }

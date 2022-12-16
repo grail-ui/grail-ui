@@ -14,7 +14,7 @@
 		<link rel="preload" href="/fonts/Hubot-Sans.woff2" as="font" type="font/woff2" crossorigin />
 		%sveltekit.head%
 	</head>
-	<body>
-		<div>%sveltekit.body%</div>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>
