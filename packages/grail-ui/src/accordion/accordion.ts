@@ -33,8 +33,10 @@ const getTriggers = (node: HTMLElement): HTMLElement[] =>
 		)
 		.filter(Boolean);
 
-export function createAccordion(initConfig?: AccordionConfig): AccordionReturn {
-	const defaultConfig: AccordionConfig = {
+export function createAccordion<T extends string>(
+	initConfig?: AccordionConfig<T>
+): AccordionReturn<T> {
+	const defaultConfig: AccordionConfig<T> = {
 		disabled: false,
 		type: 'single',
 	};
@@ -44,16 +46,16 @@ export function createAccordion(initConfig?: AccordionConfig): AccordionReturn {
 	const baseId = uniqueId('accordion');
 	const initiallyExpandedValues =
 		defaultValue !== undefined ? (Array.isArray(defaultValue) ? defaultValue : [defaultValue]) : [];
-	const { changed, toggle, select, deselect, clear } = selectionModel({
+	const { changed, toggle, select, deselect, clear } = selectionModel<T>({
 		multiple: type === 'multiple',
 		initiallySelectedValues: initiallyExpandedValues,
 	});
 
-	const expanded$ = derived(changed, ($changed) => $changed.selection, new Set<string>());
+	const expanded$ = derived(changed, ($changed) => $changed.selection, new Set<T>());
 
 	function toggleTrigger(trigger: HTMLElement | undefined) {
 		if (trigger && !trigger.dataset.disabled && trigger.dataset.value) {
-			toggle(trigger.dataset.value);
+			toggle(trigger.dataset.value as T);
 		}
 	}
 
@@ -73,7 +75,7 @@ export function createAccordion(initConfig?: AccordionConfig): AccordionReturn {
 		});
 
 		function getTrigger(event: Event, collection = getTriggers(node)): HTMLElement | undefined {
-			const node = event.target as HTMLElement & { dataset: { value: string } };
+			const node = event.target as HTMLElement & { dataset: { value: T } };
 			return node.hasAttribute(ACCORDION_ATTRIBUTES.trigger)
 				? collection.find((item) => item === node)
 				: undefined;
@@ -108,9 +110,9 @@ export function createAccordion(initConfig?: AccordionConfig): AccordionReturn {
 			const values = [...expanded];
 
 			if (type === 'multiple') {
-				(onValueChange as AccordionMultipleConfig['onValueChange'])?.(values);
+				(onValueChange as AccordionMultipleConfig<T>['onValueChange'])?.(values);
 			} else {
-				(onValueChange as AccordionSingleConfig['onValueChange'])?.(values[0]);
+				(onValueChange as AccordionSingleConfig<T>['onValueChange'])?.(values[0]);
 			}
 		});
 
@@ -128,14 +130,10 @@ export function createAccordion(initConfig?: AccordionConfig): AccordionReturn {
 	};
 
 	const derivedState = function (
-		fn: (data: {
-			value: string;
-			disabled: boolean;
-			state: AccordionItemState;
-		}) => Record<string, string>
+		fn: (data: { value: T; disabled: boolean; state: AccordionItemState }) => Record<string, string>
 	) {
 		return derived([expanded$, config$], () => {
-			return function (params: AccordionItemParams | string) {
+			return function (params: AccordionItemParams<T> | T) {
 				const value = typeof params === 'string' ? params : params.value;
 				const disabled = !!(
 					get(config$).disabled || (typeof params === 'string' ? false : params.disabled)
@@ -181,11 +179,11 @@ export function createAccordion(initConfig?: AccordionConfig): AccordionReturn {
 		};
 	});
 
-	const expand = (...values: string[]) => {
+	const expand = (...values: T[]) => {
 		select(...values);
 	};
 
-	const collapse = (...values: string[]) => {
+	const collapse = (...values: T[]) => {
 		deselect(...values);
 	};
 
