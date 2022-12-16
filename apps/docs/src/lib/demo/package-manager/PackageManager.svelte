@@ -7,19 +7,21 @@
 	import CopiedIcon from '~icons/eva/checkmark-circle-outline';
 	import { createTabs, createClipboard } from '@grail-ui/svelte';
 	import Highlight from '$lib/highlight/Highlight.svelte';
-	import { getPackageManagerCommands, type PackageManager } from './packageManager.utils';
+	import { getPackageManagerCommands, PackageManager } from './packageManager.utils';
+	import { packageManager, setPackageManager } from '$lib/layout/layout.store';
 
 	export let command: 'add' | 'addDev';
 	export let options: any = undefined;
 
 	const frameworks: { label: PackageManager; icon: any }[] = [
-		{ label: 'npm', icon: NpmIcon },
-		{ label: 'pnpm', icon: PnpmIcon },
-		{ label: 'yarn', icon: YarnIcon },
+		{ label: PackageManager.NPM, icon: NpmIcon },
+		{ label: PackageManager.PNPM, icon: PnpmIcon },
+		{ label: PackageManager.Yarn, icon: YarnIcon },
 	];
 
 	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs({
-		defaultValue: 'npm',
+		defaultValue: $packageManager,
+		onValueChange: setPackageManager,
 	});
 	const { isSupported, copy, copied } = createClipboard();
 

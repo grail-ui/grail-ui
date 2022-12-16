@@ -3,7 +3,7 @@ import Cookies from 'js-cookie';
 import { browser } from '$app/environment';
 import { page } from '$app/stores';
 
-export function writableCookie<T extends string>(
+export function writableCookie<T>(
 	name: string,
 	defaultValue: T
 ): Writable<T> & { reset: () => void } {
@@ -15,7 +15,7 @@ export function writableCookie<T extends string>(
 
 	const set = (value: T) => {
 		if (browser) {
-			Cookies.set(name, value as string, { expires: 365 });
+			Cookies.set(name, JSON.stringify(value), { expires: 365 });
 		}
 
 		client.set(value);
