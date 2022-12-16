@@ -1,20 +1,23 @@
 <script lang="ts">
-	import { HighlightSvelte } from 'svelte-highlight';
-	import atomOneDark from 'svelte-highlight/styles/atom-one-dark';
-	import atomOneLight from 'svelte-highlight/styles/atom-one-light';
-	import 'svelte-highlight/styles/github.css';
+	import atomOneDark from 'highlight.js/styles/atom-one-dark.css?inline';
+	import atomOneLight from 'highlight.js/styles/atom-one-light.css?inline';
 	import { Theme, theme } from '$lib/layout/layout.store';
+	import HighlightSvelte from './HighlightSvelte.svelte';
 
 	export let source: string;
+	export let lines: number[] = [];
 
 	let _class = '';
 	export { _class as class };
+
+	let themeCss: string;
+	$: themeCss = $theme === Theme.Dark ? atomOneDark : atomOneLight;
 </script>
 
 <svelte:head>
-	{@html $theme === Theme.Dark ? atomOneDark : atomOneLight}
+	{@html `<style>${themeCss}</style>`}
 </svelte:head>
 
 <div class="font-mono {_class}" {...$$restProps}>
-	<HighlightSvelte code={source} />
+	<HighlightSvelte code={source} {lines} />
 </div>
