@@ -13,7 +13,6 @@
 >
 	<div {...$listAttrs} class="flex flex-wrap border-b-2 border-gray-300">
 		<button {...$triggerAttrs('tab1')}>Recent</button>
-
 		<button {...$triggerAttrs('tab2')}>Popular</button>
 		<button {...$triggerAttrs('tab3')}>Trending</button>
 	</div>
