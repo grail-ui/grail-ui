@@ -24,13 +24,11 @@ const TABS_ATTRIBUTES = {
 const getState = (active?: boolean) => (active ? 'active' : 'inactive');
 const getTriggerId = (baseId: string, value: string) => `${baseId}-trigger-${value}`;
 const getContentId = (baseId: string, value: string) => `${baseId}-content-${value}`;
-const parseParams = <T>(params: T | string) =>
-	typeof params === 'string' ? { value: params as string } : (params as T);
 
 const getTriggers = (node: HTMLElement): HTMLElement[] =>
 	Array.from(node.querySelectorAll<HTMLElement>(`[${TABS_ATTRIBUTES.trigger}]`));
 
-export function createTabs(initConfig?: TabsConfig): TabsReturn {
+export function createTabs<T extends string>(initConfig?: TabsConfig<T>): TabsReturn<T> {
 	const defaultConfig: TabsConfig = {
 		orientation: 'horizontal',
 		activationMode: 'automatic',
@@ -39,17 +37,17 @@ export function createTabs(initConfig?: TabsConfig): TabsReturn {
 	const { orientation, defaultValue, onValueChange, ...rest } = {
 		...defaultConfig,
 		...initConfig,
-	} as Required<TabsConfig>;
-	const config$: Writable<TabsParams> = writable(rest);
-	const active$ = writableEffect(defaultValue, onValueChange);
+	} as Required<TabsConfig<T>>;
+	const config$: Writable<TabsParams<T>> = writable(rest);
+	const active$ = writableEffect<T>(defaultValue, onValueChange);
 
 	const baseId = uniqueId('tabs');
 
-	const activate = (value: string) => {
+	const activate = (value: T) => {
 		active$.set(value);
 	};
 
-	const useTabs: Action<HTMLElement, TabsParams> = (node, initParams) => {
+	const useTabs: Action<HTMLElement, TabsParams<T>> = (node, initParams) => {
 		config$.update((config) => ({ ...config, ...initParams }));
 
 		const items = writable<HTMLElement[]>(getTriggers(node));
@@ -72,7 +70,7 @@ export function createTabs(initConfig?: TabsConfig): TabsReturn {
 
 		function activateTrigger(trigger: HTMLElement | undefined) {
 			if (trigger && !trigger.dataset.disabled && trigger.dataset.value) {
-				activate(trigger.dataset.value);
+				activate(trigger.dataset.value as T);
 			}
 		}
 
@@ -133,8 +131,11 @@ export function createTabs(initConfig?: TabsConfig): TabsReturn {
 	});
 
 	const triggerAttrs = derived(active$, () => {
-		return function (initParams: TabsTriggerParams | string) {
-			const { value, disabled } = { disabled: false, ...parseParams(initParams) };
+		return function (initParams: TabsTriggerParams<T> | T) {
+			if (typeof initParams === 'string') {
+				initParams = { value: initParams as T };
+			}
+			const { value, disabled } = { disabled: false, ...initParams };
 
 			if (!get(active$)) {
 				active$.set(value);
@@ -158,8 +159,11 @@ export function createTabs(initConfig?: TabsConfig): TabsReturn {
 	});
 
 	const contentAttrs = derived(active$, () => {
-		return function (initParams: TabsContentParams | string) {
-			const { value } = parseParams(initParams);
+		return function (initParams: TabsContentParams<T> | T) {
+			if (typeof initParams === 'string') {
+				initParams = { value: initParams as T };
+			}
+			const { value } = initParams;
 			const state = getState(get(active$) === value);
 
 			return {

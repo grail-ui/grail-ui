@@ -1,16 +1,16 @@
 import type { Action } from 'svelte/action';
 import type { Readable } from 'svelte/store';
 
-export interface TabsConfig {
+export interface TabsConfig<T extends string = string> {
 	/**
 	 * Initial value (controls active state of tabs).
 	 */
-	defaultValue?: string;
+	defaultValue?: T;
 
 	/**
 	 * Event handler called when the active state of the tabs changes.
 	 */
-	onValueChange?: (value: string) => void;
+	onValueChange?: (value: T) => void;
 
 	/**
 	 * The tabs orientation. Affects arrow navigation.
@@ -27,13 +27,13 @@ export interface TabsConfig {
 	activationMode?: 'automatic' | 'manual';
 }
 
-export type TabsParams = Pick<TabsConfig, 'activationMode'>;
+export type TabsParams<T extends string> = Pick<TabsConfig<T>, 'activationMode'>;
 
-export interface TabsTriggerParams {
+export interface TabsTriggerParams<T extends string> {
 	/**
 	 * A unique identifier that associates the trigger with a content.
 	 */
-	value: string;
+	value: T;
 
 	/**
 	 * Prevents the user from interacting with the tab.
@@ -43,28 +43,28 @@ export interface TabsTriggerParams {
 	disabled?: boolean;
 }
 
-export interface TabsContentParams {
+export interface TabsContentParams<T extends string> {
 	/**
 	 * A unique identifier that associates the trigger with a content.
 	 */
-	value: string;
+	value: T;
 }
 
-export interface TabsReturn {
+export interface TabsReturn<T extends string> {
 	/**
 	 * Activates tab.
 	 */
-	activate: (value: string) => void;
+	activate: (value: T) => void;
 
 	/**
 	 * The active tab.
 	 */
-	active: Readable<string>;
+	active: Readable<T>;
 
 	/**
 	 * Action for the tabs root element.
 	 */
-	useTabs: Action<HTMLElement, TabsParams>;
+	useTabs: Action<HTMLElement, TabsParams<T>>;
 
 	/**
 	 * HTML attributes for the element that contains the trigger and content elements.
@@ -79,10 +79,10 @@ export interface TabsReturn {
 	/**
 	 * HTML attributes for the trigger element.
 	 */
-	triggerAttrs: Readable<(params: TabsTriggerParams | string) => Record<string, string>>;
+	triggerAttrs: Readable<(params: TabsTriggerParams<T> | T) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the content element.
 	 */
-	contentAttrs: Readable<(params: TabsContentParams | string) => Record<string, string>>;
+	contentAttrs: Readable<(params: TabsContentParams<T> | T) => Record<string, string>>;
 }
