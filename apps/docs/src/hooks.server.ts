@@ -1,7 +1,12 @@
 import type { Handle } from '@sveltejs/kit';
-import { THEME_KEY } from '$lib/layout/layout.store';
+import { PREFERENCES_KEY } from '$lib/layout/layout.store';
 
 export const handle: Handle = ({ event, resolve }) => {
-	event.locals[THEME_KEY] = event.cookies.get(THEME_KEY);
+	const preferences = event.cookies.get(PREFERENCES_KEY);
+	try {
+		event.locals[PREFERENCES_KEY] = JSON.parse(preferences as string);
+	} catch {
+		event.locals[PREFERENCES_KEY] = undefined;
+	}
 	return resolve(event);
 };

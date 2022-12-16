@@ -2,7 +2,7 @@
 
 declare namespace App {
 	interface Locals {
-		theme?: string;
+		preferences?: import('$lib/layout/layout.store').Preferences;
 	}
 	// interface PageData {}
 	// interface Error {}
