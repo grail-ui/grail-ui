@@ -23,7 +23,7 @@
 		"format:check": "prettier --plugin-search-dir=. --cache --check .",
 		"test": "pnpm --filter=* test",
 		"lint": "pnpm --filter=* lint",
-		"check-updates": "pnpx npm-check-updates -i --deep",
+		"upgrades": "pnpx npm-check-updates -i --deep",
 		"release": "tsx scripts/release.ts"
 	},
 	"devDependencies": {

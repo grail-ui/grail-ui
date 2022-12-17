@@ -13,10 +13,10 @@
 		"api": "svelte-kit sync && pnpm --filter=\"@grail-ui/svelte\" api --json ../../apps/docs/src/docs/api.json"
 	},
 	"devDependencies": {
-		"@iconify/json": "2.1.152",
+		"@iconify/json": "2.1.153",
 		"@stackblitz/sdk": "1.8.1",
 		"@sveltejs/adapter-auto": "1.0.0",
-		"@sveltejs/kit": "1.0.0",
+		"@sveltejs/kit": "1.0.1",
 		"@tailwindcss/typography": "0.5.8",
 		"@types/js-cookie": "3.0.2",
 		"@types/prismjs": "1.26.0",
@@ -24,8 +24,8 @@
 		"@typescript-eslint/parser": "5.46.1",
 		"autoprefixer": "10.4.13",
 		"change-case": "4.1.2",
-		"daisyui": "2.43.2",
-		"eslint": "8.29.0",
+		"daisyui": "2.45.0",
+		"eslint": "8.30.0",
 		"eslint-plugin-svelte3": "4.0.0",
 		"highlight.js": "11.7.0",
 		"postcss": "8.4.20",
