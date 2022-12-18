@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import { Api, ApiTable } from '$lib/api-documenter';
 	import Dependency from '$lib/demo/Dependency.svelte';
 </script>
 
@@ -8,6 +8,8 @@
 
 <Dependency modules={['@floating-ui/dom']} />
 
-<ApiTable definition="MenuConfig" />
-<ApiTable definition="MenuReturn" hideDefault />
-<ApiTable definition="PositioningOptions" />
+<Api>
+	<ApiTable definition="MenuConfig" />
+	<ApiTable definition="MenuReturn" hideDefault />
+	<ApiTable definition="PositioningOptions" />
+</Api>

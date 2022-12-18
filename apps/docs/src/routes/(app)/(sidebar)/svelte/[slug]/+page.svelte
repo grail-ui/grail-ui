@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { PageData } from './$types';
 	import PageHeader from '$lib/demo/PageHeader.svelte';
+	import { SectionGroup } from '$lib/demo/section';
 
 	export let data: PageData;
 
@@ -8,4 +9,7 @@
 </script>
 
 <PageHeader title={metadata.heading || data.slug}>{@html metadata.description || ''}</PageHeader>
-<svelte:component this={data.component} />
+
+<SectionGroup>
+	<svelte:component this={data.component} />
+</SectionGroup>

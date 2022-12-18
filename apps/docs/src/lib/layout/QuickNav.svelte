@@ -1,13 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { afterUpdate } from 'svelte';
-	let links: { id: string; href: string }[] = [];
+
+	let links: { id: string; label: string; href: string; depth: number }[] = [];
 
 	afterUpdate(() => {
 		links = [...document.querySelectorAll<HTMLAnchorElement>('[data-section-header]')].map(
-			({ href, id }) => ({
-				href,
+			({ href, id, dataset }) => ({
 				id,
+				href,
+				label: id.split('-').join(' '),
+				depth: +(dataset.sectionHeader as string),
 			})
 		);
 	});
@@ -19,14 +22,14 @@
 			<h2 class="text-xl font-bold mb-2">Quick Nav</h2>
 
 			<ul class="flex flex-col gap-2">
-				{#each links as { id, href } (id)}
+				{#each links as { id, label, href, depth } (id)}
 					{@const active = $page.url.hash === `#${id}`}
 					<li>
 						<a
 							{href}
-							class="whitespace-nowrap -ml-px py-2 font-medium transition-colors duration-200 text-sm hover:text-base-content {active
+							class="whitespace-nowrap -ml-px py-2 font-medium transition-colors duration-200 text-sm hover:text-base-content depth-{depth} {active
 								? 'text-base-content'
-								: 'text-base-content/60'}">{id}</a
+								: 'text-base-content/60'}">{label}</a
 						>
 					</li>
 				{/each}
@@ -34,3 +37,9 @@
 		</div>
 	</div>
 </div>
+
+<style lang="postcss">
+	.depth-2 {
+		@apply pl-4;
+	}
+</style>

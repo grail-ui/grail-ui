@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import { Api, ApiTable } from '$lib/api-documenter';
 	import Dependency from '$lib/demo/Dependency.svelte';
 </script>
 
@@ -15,17 +15,18 @@
 		{ key: 'Tab', description: 'Moves focus to the next focusable element.' },
 		{ key: 'Shift + Tab', description: 'Moves focus to the previous focusable element.' },
 	]}
-	>Adheres to the
-
-	<a
-		href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal"
-		target="_blank"
-		class="underline"
-		rel="noreferrer noopener">Dialog WAI-ARIA design pattern</a
-	>
-
-	.</Accessibility
+	><p>
+		Adheres to the
+		<a
+			href="https://www.w3.org/WAI/ARIA/apg/patterns/dialogmodal"
+			target="_blank"
+			class="underline"
+			rel="noreferrer noopener">Dialog WAI-ARIA design pattern</a
+		>.
+	</p></Accessibility
 >
 
-<ApiTable definition="ModalConfig" />
-<ApiTable definition="ModalReturn" hideDefault />
+<Api>
+	<ApiTable definition="ModalConfig" />
+	<ApiTable definition="ModalReturn" hideDefault />
+</Api>

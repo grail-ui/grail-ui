@@ -2,51 +2,52 @@
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL } from '$env/static/public';
 	import Highlight from '$lib/highlight/Highlight.svelte';
 	import PageHeader from '$lib/demo/PageHeader.svelte';
-	import SectionHeader from '$lib/demo/SectionHeader.svelte';
+	import SectionHeader from '$lib/demo/section/SectionHeader.svelte';
 	import PackageManager from '$lib/demo/package-manager/PackageManager.svelte';
+	import { Section, SectionGroup } from '$lib/demo/section';
 </script>
 
 <PageHeader title="Getting started"
 	>This page describes how to get started to build your own component library or application
 	utilizing Grail UI.</PageHeader
 >
-<div class="flex flex-col">
-	<div>
+<SectionGroup>
+	<Section>
 		<SectionHeader id="Installation">Installation</SectionHeader>
 		<p>Install using your preferred package manager to add to your project:</p>
-		<PackageManager class="max-w-xl mt-3" command="addDev" options="@grail-ui/svelte" />
-	</div>
+		<PackageManager class="max-w-xl" command="addDev" options="@grail-ui/svelte" /></Section
+	>
 
-	<div>
+	<Section>
 		<SectionHeader id="Usage">Usage</SectionHeader>
 		<p>
 			We offer a tree-shakeable package that contains all of the available functionality. This makes
 			sure that all components, actions and utilities are compatible and are updated together. In
 			the below example, only dependencies required for modal and tooltip will be included in your
 			final bundle:
-			<Highlight
-				source={`import { createModal, createTooltip } from "@grail-ui/svelte";`}
-				class="rounded"
-			/>
 		</p>
-		<p class="mt-6">
+		<Highlight
+			source={`import { createModal, createTooltip } from "@grail-ui/svelte";`}
+			class="rounded"
+		/>
+		<p class="mt-4">
 			If you can't do tree shaking, you can import files directly, and only include the modules you
 			need, like this:
-			<Highlight
-				source={`import { createModal } from "@grail-ui/svelte/accordion";
-import { createTooltip } from "@grail-ui/svelte/tooltip";`}
-				class="rounded"
-			/>
 		</p>
-	</div>
+		<Highlight
+			source={`import { createModal } from "@grail-ui/svelte/accordion";
+import { createTooltip } from "@grail-ui/svelte/tooltip";`}
+			class="rounded"
+		/>
+	</Section>
 
-	<div>
+	<Section>
 		<SectionHeader id="Documentation">Reading the documentation</SectionHeader>
 
 		Each module has API documentation, examples, and a working demo that you can edit on StackBlitz.
-	</div>
+	</Section>
 
-	<div>
+	<Section>
 		<SectionHeader id="Help">Need help?</SectionHeader>
 
 		<p>
@@ -71,5 +72,5 @@ import { createTooltip } from "@grail-ui/svelte/tooltip";`}
 				>
 			</li>
 		</ul>
-	</div>
-</div>
+	</Section>
+</SectionGroup>

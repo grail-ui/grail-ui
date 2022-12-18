@@ -1,14 +1,12 @@
 <script lang="ts">
 	import { formatHtml } from '$lib/demo/demo.utils';
-	import SectionHeader from '$lib/demo/SectionHeader.svelte';
+	import { Section, SectionHeader } from '$lib/demo/section';
 	import data from '../../docs/api.json';
 	import { getComment, getType, getParameters } from './helpers';
 
 	export let hideDefault = false;
 
 	export let definition: string;
-
-	export let title = definition;
 
 	$: params = getParameters(data as any, definition);
 
@@ -30,34 +28,36 @@
 </script>
 
 {#if params}
-	<SectionHeader id={definition}>{title}</SectionHeader>
+	<Section>
+		<SectionHeader id={definition} heading="h3">{definition}</SectionHeader>
 
-	<div class="overflow-x-auto -mx-4 sm:mx-0">
-		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
-			<thead>
-				<tr>
-					<th>Property</th>
-					<th>Description</th>
-					{#if !hideDefault}
-						<th>Default</th>
-					{/if}
-				</tr>
-			</thead>
-			<tbody>
-				{#each params as param}
-					{@const data = getParamData(param)}
+		<div class="overflow-x-auto -mx-4 sm:mx-0">
+			<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
+				<thead>
 					<tr>
-						<th class="align-baseline"><div class="font-robotic badge">{data.name}</div></th>
-						<td class="align-baseline whitespace-normal flex flex-col gap-2">
-							<div><code>{removePackageType(data.type)}</code></div>
-							<div>{@html formatHtml(data.description)}</div>
-						</td>
+						<th>Property</th>
+						<th>Description</th>
 						{#if !hideDefault}
-							<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
+							<th>Default</th>
 						{/if}
 					</tr>
-				{/each}
-			</tbody>
-		</table>
-	</div>
+				</thead>
+				<tbody>
+					{#each params as param}
+						{@const data = getParamData(param)}
+						<tr>
+							<th class="align-baseline"><div class="font-robotic badge">{data.name}</div></th>
+							<td class="align-baseline whitespace-normal flex flex-col gap-2">
+								<div><code>{removePackageType(data.type)}</code></div>
+								<div>{@html formatHtml(data.description)}</div>
+							</td>
+							{#if !hideDefault}
+								<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
+							{/if}
+						</tr>
+					{/each}
+				</tbody>
+			</table>
+		</div></Section
+	>
 {/if}

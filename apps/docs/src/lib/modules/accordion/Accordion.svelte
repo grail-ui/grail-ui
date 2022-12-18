@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import { Api, ApiTable } from '$lib/api-documenter';
 </script>
 
 <Demo />
@@ -20,7 +20,7 @@
 		{ key: 'End', description: 'Moves focus to the last `useAccordionTrigger` element.' },
 	]}
 >
-	<p class="mb-2">
+	<p>
 		Accordion keyboard interactions follows the recommendations of the <a
 			href="https://www.w3.org/WAI/ARIA/apg/patterns/accordion/"
 			target="_blank"
@@ -29,14 +29,16 @@
 		>
 		for accordions.
 	</p>
-	<p class="mb-2">
+	<p>
 		Availability of accordion content to assistive technology requires the use of aria-controls and
 		toggling aria-expanded as regions are expanded and collapsed.
 	</p>
 </Accessibility>
 
-<ApiTable definition="AccordionSingleConfig" />
-<ApiTable definition="AccordionMultipleConfig" />
-<ApiTable definition="AccordionReturn" hideDefault />
-<ApiTable definition="AccordionParams" hideDefault />
-<ApiTable definition="AccordionItemParams" hideDefault />
+<Api>
+	<ApiTable definition="AccordionSingleConfig" />
+	<ApiTable definition="AccordionMultipleConfig" />
+	<ApiTable definition="AccordionReturn" hideDefault />
+	<ApiTable definition="AccordionParams" hideDefault />
+	<ApiTable definition="AccordionItemParams" hideDefault />
+</Api>

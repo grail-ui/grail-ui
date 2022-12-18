@@ -1,9 +1,11 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import { Api, ApiTable } from '$lib/api-documenter';
 </script>
 
 <Demo />
 
-<ApiTable definition="ProgressConfig" />
-<ApiTable definition="ProgressReturn" hideDefault />
+<Api>
+	<ApiTable definition="ProgressConfig" />
+	<ApiTable definition="ProgressReturn" hideDefault />
+</Api>

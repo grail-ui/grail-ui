@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import { Api, ApiTable } from '$lib/api-documenter';
 	import Dependency from '$lib/demo/Dependency.svelte';
 </script>
 
@@ -8,6 +8,8 @@
 
 <Dependency modules={['focus-trap', '@floating-ui/dom']} />
 
-<ApiTable definition="PopoverConfig" />
-<ApiTable definition="PopoverReturn" hideDefault />
-<ApiTable definition="PositioningOptions" />
+<Api>
+	<ApiTable definition="PopoverConfig" />
+	<ApiTable definition="PopoverReturn" hideDefault />
+	<ApiTable definition="PositioningOptions" />
+</Api>
