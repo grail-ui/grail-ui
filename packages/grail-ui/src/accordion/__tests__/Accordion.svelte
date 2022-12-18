@@ -10,15 +10,16 @@
 	export let type: AccordionType;
 	export let defaultValue: string | string[] | undefined = undefined;
 	export let disabled = false;
-	export let items: AccordionItemParams[];
-	export let onValueChange: ((value: string | string[]) => void) | undefined = undefined;
+	export let items: AccordionItemParams<string>[];
+	export let onValueChange: ((value: string) => void) | ((value: string[]) => void) | undefined =
+		undefined;
 
 	const options = { type, defaultValue, disabled, onValueChange };
 
 	const { useAccordion, itemAttrs, triggerAttrs, contentAttrs } =
 		type === 'single'
-			? createAccordion(options as AccordionSingleConfig)
-			: createAccordion(options as AccordionMultipleConfig);
+			? createAccordion(options as AccordionSingleConfig<string>)
+			: createAccordion(options as AccordionMultipleConfig<string>);
 </script>
 
 <ul use:useAccordion={{ disabled }}>

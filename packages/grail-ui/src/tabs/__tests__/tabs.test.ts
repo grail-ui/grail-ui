@@ -12,7 +12,7 @@ const axe = configureAxe({
 	},
 });
 
-const defaultProps: Partial<TabsConfig> & { items?: TabsTriggerParams[] } = {
+const defaultProps: Partial<TabsConfig> & { items?: TabsTriggerParams<string>[] } = {
 	orientation: 'horizontal',
 	activationMode: 'automatic',
 	items: [{ value: 'tab-1' }, { value: 'tab-2' }, { value: 'tab-3' }],
@@ -35,7 +35,9 @@ const expectActive = (root: HTMLElement, expected: boolean[]) => {
 };
 
 describe('Tabs', () => {
-	const setup = (props: Partial<TabsConfig> & { items?: TabsTriggerParams[] } = defaultProps) => {
+	const setup = (
+		props: Partial<TabsConfig> & { items?: TabsTriggerParams<string>[] } = defaultProps
+	) => {
 		const utils = render(TabsTest, { props: { ...defaultProps, ...props } });
 
 		const root = utils.container.firstElementChild as HTMLElement;

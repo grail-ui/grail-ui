@@ -55,7 +55,9 @@ const expectDisabled = (root: HTMLElement, expected: boolean[]) => {
 
 describe('Accordion', () => {
 	const setup = (
-		props: Partial<AccordionConfig> & { items?: AccordionItemParams[] } = defaultProps
+		props: Partial<AccordionConfig<string>> & {
+			items?: AccordionItemParams<string>[];
+		} = defaultProps
 	) => {
 		const utils = render(Accordion, { props: { ...defaultProps, ...props } });
 

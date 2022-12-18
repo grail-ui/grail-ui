@@ -7,7 +7,7 @@
 	export let defaultValue: string | undefined = undefined;
 	export let disabled = false;
 	export let onValueChange: ((value: string) => void) | undefined = undefined;
-	export let items: TabsTriggerParams[] = [];
+	export let items: TabsTriggerParams<string>[] = [];
 
 	const options = { activationMode, orientation, defaultValue, disabled, onValueChange };
 
