@@ -2,7 +2,7 @@ import type { Action } from 'svelte/action';
 import type { Readable, Writable } from 'svelte/store';
 import type { PositioningOptions } from '../floating/floating.types';
 
-export type MenuConfig = {
+export type MenuConfig<T extends string = string> = {
 	/**
 	 * The open state of the popover when it is initially rendered.
 	 *
@@ -40,10 +40,10 @@ export type MenuConfig = {
 	/**
 	 * Event handler called when an item is selected.
 	 */
-	onSelect?: (value: string) => void | undefined;
+	onSelect?: (value: T) => void | undefined;
 };
 
-export type MenuReturn = {
+export type MenuReturn<T extends string> = {
 	/**
 	 * Action for the trigger element.
 	 */
@@ -67,7 +67,7 @@ export type MenuReturn = {
 	/**
 	 * HTML attributes for the menu item element.
 	 */
-	itemAttrs: Readable<(params: string | { id: string; label: string }) => Record<string, string>>;
+	itemAttrs: Readable<(params: T | { id: T; label: string }) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the element that is used to visually separate menu items.

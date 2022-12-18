@@ -1,4 +1,3 @@
-import type { MenuReturn } from '../menu.types';
 import { vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
@@ -17,7 +16,7 @@ vi.stubGlobal('ResizeObserver', ResizeObserver);
 describe('Menu', () => {
 	const user = userEvent.setup();
 
-	function setup(api: MenuReturn = createMenu()) {
+	function setup(api = createMenu()) {
 		const { container, component } = render(MenuTest, { api });
 		const trigger = screen.getByTestId('trigger');
 
