@@ -22,6 +22,7 @@ export const createMenu = ({
 	portal = null,
 	onOpenChange,
 	ariaLabel = 'Menu',
+	onSelect,
 }: MenuConfig = {}): MenuReturn => {
 	const id = uniqueId('menu');
 	const getTrigger = () => document.getElementById(id) as HTMLElement | null;
@@ -49,26 +50,28 @@ export const createMenu = ({
 	});
 
 	const items = writable<HTMLElement[]>([]);
+	const skipPredicate = (item: HTMLElement) => 'disabled' in item.dataset;
 	const keyManager = listKeyManager({
 		items,
 		typeahead: true,
 		homeAndEnd: true,
 		wrap: false,
 		vertical: true,
-		skipPredicate: (item) => 'disabled' in item.dataset,
+		skipPredicate,
 		tabOut: () => hide(),
 		onActivate: (item) => item.focus(),
 	});
 
 	const itemAttrs = derived(keyManager.activeItem, ($activeItem) => {
-		return function (attrs: string | { id: number | string; label: string }) {
-			const { id, label } = typeof attrs === 'string' ? { id: attrs, label: attrs } : attrs;
-			const itemId = `menuitem_${id}`;
+		return function (attrs: string | { id: string; label: string }) {
+			const { id: _id, label } = typeof attrs === 'string' ? { id: attrs, label: attrs } : attrs;
+			const itemId = `${id}_item_${_id}`;
 
 			return {
 				role: 'menuitem',
 				id: itemId,
 				tabindex: $activeItem?.id === itemId ? '0' : '-1',
+				'data-item-id': _id,
 				'data-label': label,
 			};
 		};
@@ -167,8 +170,21 @@ export const createMenu = ({
 			keyManager.onKeydown(event);
 		};
 
+		const handleClick = (event: PointerEvent) => {
+			if (!onSelect) return;
+
+			const { target } = event;
+			if (target instanceof HTMLElement && target.getAttribute('role') === 'menuitem') {
+				event.preventDefault();
+				if (!skipPredicate(target)) {
+					onSelect(target.getAttribute('data-item-id') as string);
+				}
+			}
+		};
+
 		const removeEvents = chain(
 			addEventListener(element, 'keydown', handleKeyDown),
+			addEventListener(element, 'click', handleClick),
 			addEventListener(element, 'pointerover', (e) => {
 				if (
 					keyManager.currentActiveItem &&

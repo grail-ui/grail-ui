@@ -1,9 +1,11 @@
-import type { ComponentProps } from 'svelte';
+import type { MenuReturn } from '../menu.types';
 import { vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import { createMenu } from '../menu';
 import MenuTest from './MenuTest.svelte';
+import { tick } from 'svelte';
 
 class ResizeObserver {
 	observe = vi.fn();
@@ -15,8 +17,8 @@ vi.stubGlobal('ResizeObserver', ResizeObserver);
 describe('Menu', () => {
 	const user = userEvent.setup();
 
-	function setup(componentOptions?: ComponentProps<MenuTest>) {
-		const { container, component } = render(MenuTest, componentOptions);
+	function setup(api: MenuReturn = createMenu()) {
+		const { container, component } = render(MenuTest, { api });
 		const trigger = screen.getByTestId('trigger');
 
 		function getMenuItems() {
@@ -72,7 +74,7 @@ describe('Menu', () => {
 
 	it('should call `onOpenChange`', async () => {
 		const spy = vi.fn();
-		const { open, close } = setup({ onOpenChange: spy });
+		const { open, close } = setup(createMenu({ onOpenChange: spy }));
 
 		expect(spy).not.toHaveBeenCalled();
 
@@ -127,7 +129,7 @@ describe('Menu', () => {
 	});
 
 	it('should close pressing `Escape` on trigger', async () => {
-		const { trigger, getMenu } = setup({ isOpen: true });
+		const { trigger, getMenu } = setup(createMenu({ open: true }));
 
 		trigger.focus();
 		await userEvent.keyboard('{escape}');
@@ -136,7 +138,7 @@ describe('Menu', () => {
 	});
 
 	it('should close pressing `Escape` inside menu', async () => {
-		const { trigger, getMenu, getMenuItems } = setup({ isOpen: true });
+		const { trigger, getMenu, getMenuItems } = setup(createMenu({ open: true }));
 
 		const item = getMenuItems()[0];
 		item.focus();
@@ -148,7 +150,7 @@ describe('Menu', () => {
 	});
 
 	it('should close pressing `Tab` inside menu', async () => {
-		const { trigger, getMenu, getMenuItems } = setup({ isOpen: true });
+		const { trigger, getMenu, getMenuItems } = setup(createMenu({ open: true }));
 
 		const item = getMenuItems()[0];
 		item.focus();
@@ -160,7 +162,7 @@ describe('Menu', () => {
 	});
 
 	it('should close on click outside', async () => {
-		const { trigger, getMenu } = setup({ isOpen: true });
+		const { trigger, getMenu } = setup(createMenu({ open: true }));
 
 		await user.click(document.body);
 		expect(getMenu()).not.toBeInTheDocument();
@@ -175,18 +177,42 @@ describe('Menu', () => {
 
 		await userEvent.keyboard('{arrowdown}');
 		expect(getMenuItems().at(0)).toHaveFocus();
-		expect(getTabIndexes()).toEqual(['0', '-1', '-1', '-1']);
+		expect(getTabIndexes()).toEqual(['0', '-1', '-1', '-1', '-1']);
 
+		// Skip disabled item
 		await userEvent.keyboard('{arrowdown}');
-		expect(getMenuItems().at(1)).toHaveFocus();
-		expect(getTabIndexes()).toEqual(['-1', '0', '-1', '-1']);
+		expect(getMenuItems().at(2)).toHaveFocus();
+		expect(getTabIndexes()).toEqual(['-1', '-1', '0', '-1', '-1']);
 
 		await userEvent.keyboard('{end}');
-		expect(getMenuItems().at(3)).toHaveFocus();
-		expect(getTabIndexes()).toEqual(['-1', '-1', '-1', '0']);
+		expect(getMenuItems().at(-1)).toHaveFocus();
+		expect(getTabIndexes()).toEqual(['-1', '-1', '-1', '-1', '0']);
 
 		await userEvent.keyboard('{home}');
 		expect(getMenuItems().at(0)).toHaveFocus();
-		expect(getTabIndexes()).toEqual(['0', '-1', '-1', '-1']);
+		expect(getTabIndexes()).toEqual(['0', '-1', '-1', '-1', '-1']);
+	});
+
+	it('removes menu if trigger is destroyed', async () => {
+		const { component, getMenu } = setup(createMenu({ open: true }));
+		expect(getMenu()).toBeInTheDocument();
+
+		component.$set({ triggerExists: false });
+		await tick();
+		expect(getMenu()).not.toBeInTheDocument();
+	});
+
+	it('should call `onSelect` when clicking', async () => {
+		const spy = vi.fn();
+		const { getMenuItems } = setup(createMenu({ open: true, onSelect: spy }));
+
+		const items = getMenuItems();
+
+		await user.click(items[0]);
+		expect(spy).toHaveBeenCalledWith('1');
+
+		// Does not fire for disabled items
+		await user.click(items[1]);
+		expect(spy).not.toHaveBeenCalledWith('2');
 	});
 });

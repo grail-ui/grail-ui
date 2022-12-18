@@ -26,7 +26,7 @@ export type MenuConfig = {
 	portal?: string | HTMLElement | null;
 
 	/**
-	 * Event handler called when the open state of the tooltip changes.
+	 * Event handler called when the open state of the menu changes.
 	 */
 	onOpenChange?: (value?: boolean) => void | undefined;
 
@@ -36,6 +36,11 @@ export type MenuConfig = {
 	 * @defaultValue `Menu`
 	 */
 	ariaLabel?: string;
+
+	/**
+	 * Event handler called when an item is selected.
+	 */
+	onSelect?: (value: string) => void | undefined;
 };
 
 export type MenuReturn = {
@@ -62,9 +67,7 @@ export type MenuReturn = {
 	/**
 	 * HTML attributes for the menu item element.
 	 */
-	itemAttrs: Readable<
-		(params: string | { id: number | string; label: string }) => Record<string, string>
-	>;
+	itemAttrs: Readable<(params: string | { id: string; label: string }) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the element that is used to visually separate menu items.
