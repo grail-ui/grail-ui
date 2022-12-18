@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { MenuReturn } from '../menu.types';
 
-	export let api: MenuReturn;
+	export let api: MenuReturn<string>;
 	export let triggerExists = true;
 
 	const { useTrigger, triggerAttrs, useMenu, menuAttrs, itemAttrs, separatorAttrs, open } = api;

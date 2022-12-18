@@ -16,14 +16,14 @@ import { writableEffect } from '../util/store';
 const getMenuItems = (parent: HTMLElement) =>
 	Array.from(parent.querySelectorAll<HTMLElement>('[role=menuitem]'));
 
-export const createMenu = ({
+export const createMenu = <T extends string>({
 	positioning = {},
 	open = false,
 	portal = null,
 	onOpenChange,
 	ariaLabel = 'Menu',
 	onSelect,
-}: MenuConfig = {}): MenuReturn => {
+}: MenuConfig<T> = {}): MenuReturn<T> => {
 	const id = uniqueId('menu');
 	const getTrigger = () => document.getElementById(id) as HTMLElement | null;
 
@@ -63,7 +63,7 @@ export const createMenu = ({
 	});
 
 	const itemAttrs = derived(keyManager.activeItem, ($activeItem) => {
-		return function (attrs: string | { id: string; label: string }) {
+		return function (attrs: T | { id: T; label: string }) {
 			const { id: _id, label } = typeof attrs === 'string' ? { id: attrs, label: attrs } : attrs;
 			const itemId = `${id}_item_${_id}`;
 
@@ -177,7 +177,7 @@ export const createMenu = ({
 			if (target instanceof HTMLElement && target.getAttribute('role') === 'menuitem') {
 				event.preventDefault();
 				if (!skipPredicate(target)) {
-					onSelect(target.getAttribute('data-item-id') as string);
+					onSelect(target.getAttribute('data-item-id') as T);
 				}
 			}
 		};

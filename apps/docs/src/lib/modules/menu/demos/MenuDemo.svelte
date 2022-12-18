@@ -3,7 +3,7 @@
 	import { fade } from 'svelte/transition';
 
 	const { useTrigger, triggerAttrs, useMenu, menuAttrs, itemAttrs, open } = createMenu({
-		onSelect(id: string) {
+		onSelect(id) {
 			$open = false;
 			alert(id);
 		},
