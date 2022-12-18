@@ -1,5 +1,17 @@
 # @grail-ui/svelte
 
+## 0.4.0
+
+### Minor Changes
+
+- [#52](https://github.com/grail-ui/grail-ui/pull/52) [`0542e11`](https://github.com/grail-ui/grail-ui/commit/0542e11586099b0a0311b3809b2f36a1965b2d28) Thanks [@bekos](https://github.com/bekos)! - Menu supports generic for item ids
+
+- [#45](https://github.com/grail-ui/grail-ui/pull/45) [`90f635c`](https://github.com/grail-ui/grail-ui/commit/90f635ca5c6308c8de977a997eadd3b3d0023ba7) Thanks [@bekos](https://github.com/bekos)! - Tabs support generic for `value`
+
+- [#51](https://github.com/grail-ui/grail-ui/pull/51) [`f4fb2c2`](https://github.com/grail-ui/grail-ui/commit/f4fb2c27ffd8f1d50c7dc3b778fe2be2d9671016) Thanks [@bekos](https://github.com/bekos)! - Menu supports `onSelect` callback
+
+- [#48](https://github.com/grail-ui/grail-ui/pull/48) [`8b1a473`](https://github.com/grail-ui/grail-ui/commit/8b1a473d4f91b8f0b353e579dea12650e62d3a9c) Thanks [@bekos](https://github.com/bekos)! - Accordion supports generic for `value`
+
 ## 0.3.0
 
 ### Minor Changes
