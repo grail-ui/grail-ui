@@ -6,13 +6,18 @@
 	import LogoType from '~icons/grail/logotype';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 	import ThemeSwitch from './ThemeSwitch.svelte';
+
+	let scrollY: number;
 </script>
 
 <!-- svelte-ignore missing-declaration -->
 <svelte:head><meta name="built-at" content={__NOW__} /></svelte:head>
 
+<svelte:window bind:scrollY />
+
 <header
-	class="backdrop-blur flex-none z-50 border-b border-base-content/10 bg-base-100/90 supports-backdrop-blur:bg-white/60"
+	class:shadow-md={scrollY > 0}
+	class="backdrop-blur flex-none z-50 bg-base-100/90 supports-backdrop-blur:bg-white/60 transition-shadow"
 >
 	<div class="max-w-8xl mx-auto">
 		<div class="py-4 lg:px-8 mx-4 lg:mx-0">
