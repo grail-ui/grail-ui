@@ -2,10 +2,10 @@
 	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
 	import DiscordIcon from '~icons/mdi/discord';
-	import Logo from '~icons/grail/logo';
 	import LogoType from '~icons/grail/logotype';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 	import ThemeSwitch from './ThemeSwitch.svelte';
+	import Logo from '$lib/Logo.svelte';
 </script>
 
 <!-- svelte-ignore missing-declaration -->
@@ -18,9 +18,9 @@
 		<div class="py-4 lg:px-8 mx-4 lg:mx-0">
 			<div class="flex items-center">
 				<a class="mr-3 flex-none overflow-hidden md:w-auto duration-200 items-center" href="/">
-					<div class="flex items-center gap-1">
-						<Logo class="hidden sm:block" style="font-size: 26px;" />
-						<LogoType width="100%" height="35px" />
+					<div class="flex items-center gap-1.5">
+						<div class="hidden sm:block"><Logo size="30" /></div>
+						<LogoType width="100%" height="30px" />
 					</div>
 				</a>
 				<!-- svelte-ignore missing-declaration -->
