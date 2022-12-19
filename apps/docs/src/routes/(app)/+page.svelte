@@ -7,8 +7,8 @@
 	import AccessibilityIcon from '~icons/carbon/accessibility-alt';
 	import DeveloperIcon from '~icons/mdi/emoticon-happy-outline';
 	import FreeIcon from '~icons/octicon/law-24';
-	import Logo from '~icons/grail/logo';
 	import { PUBLIC_GITHUB_URL } from '$env/static/public';
+	import Logo from '$lib/Logo.svelte';
 	import Footer from '$lib/layout/Footer.svelte';
 
 	const features = [
@@ -116,7 +116,7 @@
 
 		<div class="flex gap-x-10">
 			<div class="w-1/3 hidden md:flex items-center justify-center gap-4">
-				<Logo style="font-size: 90px" />
+				<Logo size="120" />
 				<span style="font-size: 60px">❤</span>
 				<SvelteIcon style="font-size: 90px" />
 			</div>
