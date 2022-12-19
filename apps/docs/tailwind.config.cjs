@@ -16,6 +16,14 @@ module.exports = {
 			maxWidth: {
 				'8xl': '90rem',
 			},
+			typography: {
+				DEFAULT: {
+					css: {
+						color: 'var(--bc)',
+						maxWidth: '100%',
+					},
+				},
+			},
 		},
 	},
 	daisyui: {

@@ -30,7 +30,7 @@
 	$: source = getPackageManagerCommands($active as PackageManager)[command](options);
 </script>
 
-<div class:window={true} {...$$restProps}>
+<div class:window={true} class:not-prose={true} {...$$restProps}>
 	<div use:useTabs {...$rootAttrs}>
 		<ul {...$listAttrs} class="frameworks flex">
 			{#each frameworks as framework}

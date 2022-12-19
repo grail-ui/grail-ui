@@ -31,7 +31,7 @@
 	];
 </script>
 
-<footer class="mt-5 border-t border-b border-base-content/10 bg-base-200/60">
+<footer class="mt-5 border-t border-base-content/10 bg-base-200/60 prose">
 	<div class="max-w-4xl mx-auto px-4 pt-10 md:pt-20">
 		<div class="footer md:place-items-center">
 			<div class="self-start">
@@ -43,7 +43,7 @@
 				<div>
 					<span class="footer-title">{column.title}</span>
 					{#each column.links as link}
-						<a href={link.url} class="link link-hover"
+						<a href={link.url}
 							>{link.title}
 							{#if 'external' in link && link.external}<ExternalLinkIcon
 									class="inline-block ml-0.5 text-xs"
@@ -53,8 +53,8 @@
 				</div>
 			{/each}
 		</div>
-		<div class="border-t border-b border-base-content/10 mt-10 py-10 text-sm text-center">
-			© 2022 made with ❤ by these awesome <a class="link" href={`${PUBLIC_GITHUB_URL}/contributors`}
+		<div class="border-t border-base-content/10 mt-10 py-10 text-sm text-center">
+			© 2022 made with ❤ by these awesome <a href={`${PUBLIC_GITHUB_URL}/contributors`}
 				>contributors</a
 			>.<br />Code licensed under the MIT License.
 		</div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import Api from '$lib/api-documenter/Api.svelte';
 	import Dependency from '$lib/demo/Dependency.svelte';
 </script>
 
@@ -27,5 +27,4 @@
 	.</Accessibility
 >
 
-<ApiTable definition="ModalConfig" />
-<ApiTable definition="ModalReturn" hideDefault />
+<Api types={[{ definition: 'ModalConfig' }, { definition: 'ModalReturn', hideDefault: true }]} />

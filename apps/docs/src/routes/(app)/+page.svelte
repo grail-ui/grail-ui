@@ -45,11 +45,11 @@
 	];
 </script>
 
-<div class="max-w-8xl mx-auto px-4 lg:px-8">
+<div class="max-w-8xl mx-auto px-4 lg:px-8 prose">
 	<div class="py-10 md:py-20">
 		<div class="flex flex-col gap-5 max-w-[800px]">
-			<h1>Put control back in developers’ hands.</h1>
-			<h2 class="text-xl md:text-2xl font-bold">
+			<h1 class="mb-0">Put control back in developers’ hands.</h1>
+			<h2 class="text-xl md:text-2xl font-bold my-0">
 				A set of component primitives, actions and utilities that help you build accessible and high
 				quality Svelte applications faster, while providing a great developer experience.
 			</h2>
@@ -58,7 +58,7 @@
 		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-20">
 			{#each features as feature}
 				<div>
-					<h3 class="flex items-center gap-1.5 text-xl font-semibold">
+					<h3 class="flex items-center gap-1.5 text-xl font-semibold my-0">
 						<svelte:component this={feature.icon} />
 						{feature.header}
 					</h3>
@@ -81,7 +81,7 @@
 		<div class="flex gap-x-10">
 			<div class="flex-1">
 				<div class="text-3xl font-bold">The challenge</div>
-				<div class="flex flex-col gap-6 mt-6">
+				<div>
 					<p>
 						Today, many companies are implementing their own component libraries and design systems <i
 							>from scratch</i
@@ -97,7 +97,7 @@
 						components by these libraries are hard to style and even harder to alter their
 						functionality and layout to match their specific needs.
 					</p>
-					<p>
+					<p class="not-prose">
 						Another approach that has evolved in other ecosystems, and has recently found it's way
 						in Svelte, is to use unstyled components (a.k.a. renderless components). For example,
 						Headless UI, offers wrapper components with <code>&lt;slots&gt;</code>
@@ -123,7 +123,7 @@
 
 			<div class="flex-1">
 				<div class="text-3xl font-bold">A better approach</div>
-				<div class="flex flex-col gap-6 mt-6">
+				<div>
 					<p>
 						Grail UI is a new approach to the component creation process. The goal is to provide a
 						library with component primitives, actions and utilities, that any Svelte developer can

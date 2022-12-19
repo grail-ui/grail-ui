@@ -30,9 +30,9 @@
 </script>
 
 {#if params}
-	<SectionHeader id={definition}>{title}</SectionHeader>
+	<SectionHeader id={definition} heading="h3">{title}</SectionHeader>
 
-	<div class="overflow-x-auto -mx-4 sm:mx-0">
+	<div class="overflow-x-auto -mx-4 sm:mx-0 not-prose">
 		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
 			<thead>
 				<tr>

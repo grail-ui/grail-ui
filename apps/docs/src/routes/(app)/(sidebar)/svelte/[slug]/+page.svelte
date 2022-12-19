@@ -7,5 +7,7 @@
 	$: metadata = data.modules[data.index];
 </script>
 
-<PageHeader title={metadata.heading || data.slug}>{@html metadata.description || ''}</PageHeader>
-<svelte:component this={data.component} />
+<div class="prose">
+	<PageHeader title={metadata.heading || data.slug}>{@html metadata.description || ''}</PageHeader>
+	<svelte:component this={data.component} />
+</div>

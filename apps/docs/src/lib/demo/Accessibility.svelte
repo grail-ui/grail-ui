@@ -25,8 +25,8 @@
 <slot />
 
 {#if keyboard.length > 0}
-	<div class="my-4 font-semibold text-xl">Keyboard Interactions</div>
-	<div class="overflow-x-auto -mx-4 sm:mx-0">
+	<SectionHeader id="Keyboard-Interactions" heading="h3">Keyboard Interactions</SectionHeader>
+	<div class="overflow-x-auto -mx-4 sm:mx-0 not-prose">
 		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
 			<thead>
 				<tr>

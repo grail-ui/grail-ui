@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import Api from '$lib/api-documenter/Api.svelte';
 </script>
 
 <Demo />
@@ -58,7 +58,11 @@
 	for tabs.</Accessibility
 >
 
-<ApiTable definition="TabsConfig" />
-<ApiTable definition="TabsReturn" hideDefault />
-<ApiTable definition="TabsTriggerParams" hideDefault />
-<ApiTable definition="TabsContentParams" hideDefault />
+<Api
+	types={[
+		{ definition: 'TabsConfig' },
+		{ definition: 'TabsReturn', hideDefault: true },
+		{ definition: 'TabsTriggerParams', hideDefault: true },
+		{ definition: 'TabsContentParams', hideDefault: true },
+	]}
+/>

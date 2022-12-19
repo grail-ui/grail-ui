@@ -44,7 +44,7 @@
 </script>
 
 <div
-	class="bg-gradient-to-r from-primary to-blue-500 relative py-16 px-10 flex flex-col justify-center rounded-t-md min-h-[400px]"
+	class="bg-gradient-to-r from-primary to-blue-500 not-prose relative py-16 px-10 flex flex-col justify-center rounded-t-md min-h-[400px]"
 	class:rounded-b-md={!showSource}
 	data-theme="light"
 >
