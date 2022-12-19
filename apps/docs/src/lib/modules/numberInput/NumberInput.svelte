@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import Api from '$lib/api-documenter/Api.svelte';
 </script>
 
 <Demo />
@@ -23,5 +23,9 @@
 	]}
 />
 
-<ApiTable definition="NumberInputConfig" />
-<ApiTable definition="NumberInputReturn" hideDefault />
+<Api
+	types={[
+		{ definition: 'NumberInputConfig' },
+		{ definition: 'NumberInputReturn', hideDefault: true },
+	]}
+/>

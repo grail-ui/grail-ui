@@ -1,9 +1,10 @@
 <script lang="ts">
 	import Demo from '$lib/demo/Demo.svelte';
-	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
+	import Api from '$lib/api-documenter/Api.svelte';
 </script>
 
 <Demo />
 
-<ApiTable definition="ClipboardConfig" />
-<ApiTable definition="ClipboardReturn" hideDefault />
+<Api
+	types={[{ definition: 'ClipboardConfig' }, { definition: 'ClipboardReturn', hideDefault: true }]}
+/>
