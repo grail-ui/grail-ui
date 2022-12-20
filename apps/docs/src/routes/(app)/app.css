@@ -33,6 +33,10 @@ pre[data-language] code.hljs {
 	border-radius: inherit;
 }
 
+p pre[data-language] {
+	margin-top: 8px;
+}
+
 /* Scrollbar */
 [data-theme] ::-webkit-scrollbar-track {
 	background-color: hsl(var(--b2) / 0.65);

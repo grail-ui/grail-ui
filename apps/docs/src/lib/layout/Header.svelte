@@ -31,7 +31,7 @@
 				>
 
 				<div class="flex items-center ml-auto">
-					<div class="flex items-center ml-6 pl-6 gap-4 text-2xl">
+					<div class="flex items-center ml-6 pl-6 gap-4 text-xl">
 						<a
 							href={PUBLIC_DISCORD_URL}
 							class="text-base-content/60 hover:text-base-content"

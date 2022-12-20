@@ -23,7 +23,14 @@
 </script>
 
 <div class="flex flex-col gap-5">
-	<Section title="Overview" links={[{ href: `/svelte/getting-started`, label: 'Introduction' }]} />
+	<Section
+		title="Overview"
+		links={[
+			{ href: `/svelte/getting-started`, label: 'Introduction' },
+			{ href: `/svelte/architecture`, label: 'Architecture' },
+			{ href: `/svelte/guidelines`, label: 'Guidelines' },
+		]}
+	/>
 	{#each sortedGroupKeys as groupKey}
 		{@const links = groupedModules[groupKey].map((m) => ({
 			href: `/svelte/${m.slug}`,

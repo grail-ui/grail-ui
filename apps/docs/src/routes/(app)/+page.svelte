@@ -14,32 +14,32 @@
 	const features = [
 		{
 			header: 'Accessibility',
-			text: `We provide accessibility and behavior that strictly follows WAI-ARIA standards, including screen reader, focus management and keyboard navigation support.`,
+			text: `Built with accessibility in mind, that strictly adheres to WAI-ARIA standards. This includes comprehensive support for screen readers, focus management, and keyboard navigation, ensuring that our components are usable and accessible to all users.`,
 			icon: AccessibilityIcon,
 		},
 		{
 			header: 'Composable',
-			text: `Everything is built from the ground up with composition in mind. We focus on development flexibility and seamless integration with your application’s requirements and branding.`,
+			text: `Composition is at the core of everything we build. Everything is designed to offer maximum flexibility and seamless integration with your application's requirements and branding. We focus on providing developers with the tools they need to create custom, user-friendly components that fit seamlessly into their projects.`,
 			icon: ComposableIcon,
 		},
 		{
 			header: 'Customizable',
-			text: `We just configure behavior, interactions and event listeners. We don’t impose any DOM structure. Bring your own styles and transitions.`,
+			text: `We provide configurable behaviors, interactions, and event listeners, but we don't dictate the DOM structure of your components. This allows you to bring your own styles and transitions, giving you full control over the appearance and functionality of your components.`,
 			icon: CustomizableIcon,
 		},
 		{
 			header: 'No trade-offs',
-			text: `Everything will feel "natural" without depending on prior experience, knowledge and taste. No wrapper components, no new APIs to learn.`,
+			text: `Designed to be intuitive and easy to use, without requiring prior experience, knowledge, or taste. We don't introduce any wrapper components or new APIs to learn, so everything will feel natural and familiar. This means that you can focus on building great applications without being bogged down by unnecessary complexity.`,
 			icon: DeveloperIcon,
 		},
 		{
 			header: 'Robust',
-			text: `Everything is fully documented with examples, API references, Typescript support and tested across a wide variety of devices and browsers. We are not cutting corners.`,
+			text: `Fully documented, with comprehensive examples, API references, and TypeScript support. Tested across a wide range of devices and browsers to ensure that it is reliable and performs well in a variety of environments. We are committed to providing developers with a high-quality, well-supported library that meets their needs and exceeds their expectations.`,
 			icon: RobustIcon,
 		},
 		{
 			header: 'SSR',
-			text: `Works perfectly with server-side rendering. No more flashing of unstyled content.`,
+			text: `Seamlessly integrates with server-side rendering, eliminating the annoying issue of unstyled content flashing on the page.`,
 			icon: FreeIcon,
 		},
 	];
@@ -83,28 +83,26 @@
 				<div class="text-3xl font-bold">The challenge</div>
 				<div>
 					<p>
-						Today, many companies are implementing their own component libraries and design systems <i
-							>from scratch</i
-						>. The purpose is to make all UI elements to match their brand and support their unique
-						use cases. Unfortunately, many of these teams don't have the resources, the expertize or
-						enough time to prioritize features like accessibility, keyboard navigation, touch
-						interactions, browser inconsistencies and many more.
+						Many companies today are creating their own component libraries and design systems from
+						scratch in order to align with their brand and meet the specific needs of their users.
+						However, building and maintaining these libraries can be resource-intensive and require
+						expertise in areas such as accessibility, keyboard navigation, touch interactions, and
+						browser inconsistencies.
 					</p>
 					<p>
-						Especially in the Svelte ecosystem, the existing options that can be used as the base
-						for such effort are limited. Developers usually choose to use one of the fully styled
-						component libraries, like Material UI or something similar. In this case, the offered
-						components by these libraries are hard to style and even harder to alter their
-						functionality and layout to match their specific needs.
+						In the Svelte ecosystem, there are limited options available that can be used as the
+						base for building such custom component libraries. Some developers choose to wrap fully
+						styled component libraries such as Material UI, but their components can be difficult to
+						style and customize to fit specific needs.
 					</p>
 					<p class="not-prose">
-						Another approach that has evolved in other ecosystems, and has recently found it's way
-						in Svelte, is to use unstyled components (a.k.a. renderless components). For example,
-						Headless UI, offers wrapper components with <code>&lt;slots&gt;</code>
-						that you can use to provide your own HTML and styles. The problem in this case, is that this
-						abstraction does come with a few <b>trade-offs</b>. Because of the wrapper components
-						there is a need to introduce new, custom ways to use actions, do transitions and achieve
-						any kind of composition, which doesn't feel "natural".
+						In recent years, the use of unstyled components (also known as "renderless components")
+						has gained popularity in other ecosystems and has now made its way to Svelte. One
+						example of this approach is Headless UI, which provides wrapper components with <code
+							>&lt;slots&gt;</code
+						> for custom HTML and styles. However, this approach has its drawbacks, as the wrapper components
+						require the use of custom, non-standard methods for actions, transitions, and composition,
+						which may not feel intuitive to Svelte developers.
 					</p>
 				</div>
 			</div>
@@ -115,9 +113,9 @@
 		</div>
 
 		<div class="flex gap-x-10">
-			<div class="w-1/3 hidden md:flex items-center justify-center gap-4">
-				<Logo size="120" />
-				<span style="font-size: 60px">❤</span>
+			<div class="w-1/3 hidden md:flex items-center justify-center gap-3">
+				<Logo size="110" class="mr-2" />
+				<span class="font-extrabold" style="font-size: 60px">+</span>
 				<SvelteIcon style="font-size: 90px" />
 			</div>
 
@@ -125,27 +123,42 @@
 				<div class="text-3xl font-bold">A better approach</div>
 				<div>
 					<p>
-						Grail UI is a new approach to the component creation process. The goal is to provide a
-						library with component primitives, actions and utilities, that any Svelte developer can
-						leverage and use as the "holy grail" to build accessible components, design systems and
-						applications from the ground up, as fast as possible. We put a lot of effort to separate
-						behavior and accessibility from the actual DOM structure.
+						Grail UI introduces a fresh approach to building components in Svelte. Our goal is to
+						provide developers with a comprehensive library of component primitives, actions, and
+						utilities that can serve as the "holy grail" for constructing accessible components,
+						design systems, and applications from the ground up with speed and efficiency. We've put
+						significant effort into decoupling behavior and accessibility from the DOM structure,
+						allowing developers to focus on creating intuitive and user-friendly web experiences.
 					</p>
-					<p class="font-bold italic">
-						Developers remain in complete control over the layout, the bindings and the transitions
-						but also get most of the behavior and accessibility support for free.
+					<p class="font-semibold">
+						Grail UI allows developers to retain full control over layout, bindings, and
+						transitions, while providing built-in support for behaviors and accessibility. This
+						means that you can customize the appearance and functionality of your components to meet
+						the needs of your application, while benefiting from the time-saving and user-friendly
+						features of our library.
 					</p>
 					<p>
-						Svelte is powerful framework, and we didn't want take anything away from it.<br />What
-						we add will always be
-						<i>small</i>, <i>fast</i>
-						and
-						<i>composable</i>.
+						Svelte is a powerful framework, and we wanted to enhance it rather than detract from it.
+						Grail UI is designed to be lightweight, fast, and easy to compose with other components.
+						We believe that our library represents a new and improved way of building components in
+						Svelte, and we welcome you to try it out and see the difference it can make for your
+						projects.
 					</p>
-					<p class="font-bold">Welcome to a new way of building Svelte components!</p>
 				</div>
 			</div>
 		</div>
+	</div>
+
+	<div
+		class="bg-base-200/30 shadow-xl max-w-2xl mx-auto flex flex-col items-center gap-8 my-12 p-10"
+	>
+		<div class="text-4xl font-extrabold text-center">
+			Start building your design system with Grail UI now.
+		</div>
+
+		<a href="/svelte/getting-started" class="btn sm:btn-lg btn-wide flex items-center gap-4"
+			>Go to docs</a
+		>
 	</div>
 </div>
 <Footer />

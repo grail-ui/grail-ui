@@ -8,8 +8,7 @@
 
 <div class="prose">
 	<PageHeader title="Getting started"
-		>This page describes how to get started to build your own component library or application
-		utilizing Grail UI.</PageHeader
+		>This page provides instructions on how to get started with Grail UI.</PageHeader
 	>
 	<SectionHeader id="Installation">Installation</SectionHeader>
 	<p>Install using your preferred package manager to add to your project:</p>
@@ -17,46 +16,49 @@
 
 	<SectionHeader id="Usage">Usage</SectionHeader>
 	<p>
-		We offer a tree-shakeable package that contains all of the available functionality. This makes
-		sure that all components, actions and utilities are compatible and are updated together. In the
-		below example, only dependencies required for modal and tooltip will be included in your final
-		bundle:
+		Our tree-shakeable package includes all of the available functionality, ensuring that all
+		components, actions, and utilities are compatible and kept up-to-date. By using this package,
+		you can selectively include only the dependencies that are required for specific features in
+		your final bundle, reducing the overall size and improving performance. In the below example,
+		only dependencies required for modal and tooltip will be included in your final bundle:
+		<Highlight
+			source={`import { createModal, createTooltip } from "@grail-ui/svelte";`}
+			class="rounded"
+		/>
 	</p>
-	<Highlight
-		source={`import { createModal, createTooltip } from "@grail-ui/svelte";`}
-		class="rounded"
-	/>
+
 	<p>
-		If you can't do tree shaking, you can import files directly, and only include the modules you
-		need, like this:
-	</p>
-	<Highlight
-		source={`import { createModal } from "@grail-ui/svelte/accordion";
+		If you are unable to use tree shaking, you can still selectively include only the specific
+		modules that you need by importing them directly, like this:
+		<Highlight
+			source={`import { createModal } from "@grail-ui/svelte/accordion";
 import { createTooltip } from "@grail-ui/svelte/tooltip";`}
-		class="rounded"
-	/>
+			class="rounded"
+		/>
+	</p>
 
 	<SectionHeader id="Documentation">Reading the documentation</SectionHeader>
 
 	<p>
-		Each module has API documentation, examples, and a working demo that you can edit on StackBlitz.
+		Our API documentation for each module includes examples and a live demo that you can edit and
+		experiment with using StackBlitz.
 	</p>
 
 	<SectionHeader id="Help">Need help?</SectionHeader>
 
 	<p>
-		If you have discovered a bug or have a feature suggestion, feel free to
-		<a href={`${PUBLIC_GITHUB_URL}/issues`}>create an issue on GitHub</a>. Please check the existing
-		issues before filing a new one.
+		If you have found a bug or have a suggestion for a new feature, you can
+		<a href={`${PUBLIC_GITHUB_URL}/issues`}>create an issue on GitHub</a>. Please take a moment to
+		check if the issue has already been reported before submitting a new one.
 	</p>
 
 	<p>
-		Alternatively, you can use any of the following methods to find someone available to answer your
-		questions.
+		If you prefer, you can also get in touch with us using any of the following methods to ask
+		questions or get assistance:
 	</p>
 
 	<ul>
-		<li><a href={PUBLIC_DISCORD_URL}>Chat on Discord</a></li>
+		<li><a href={PUBLIC_DISCORD_URL}>Chat with us on Discord</a></li>
 		<li>
 			<a href={`${PUBLIC_GITHUB_URL}/discussions`}>Start a discussion on GitHub</a>
 		</li>
