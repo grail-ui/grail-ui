@@ -31,7 +31,7 @@
 	];
 </script>
 
-<footer class="mt-5 border-t border-base-content/10 bg-base-200/60 prose">
+<footer class="border-t border-base-content/10 bg-base-200/60 prose">
 	<div class="max-w-4xl mx-auto px-4 pt-10 md:pt-20">
 		<div class="footer md:place-items-center">
 			<div class="self-start">

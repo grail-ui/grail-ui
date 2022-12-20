@@ -90,6 +90,6 @@
 
 {#if showSource}
 	<div in:fade>
-		<Highlight {source} class="box-border max-h-96 text-[13px] overflow-y-auto" />
+		<Highlight {source} class="box-border max-h-96 overflow-y-auto" />
 	</div>
 {/if}
