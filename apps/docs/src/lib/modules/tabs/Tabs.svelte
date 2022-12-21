@@ -2,9 +2,18 @@
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
 	import Api from '$lib/api-documenter/Api.svelte';
+	import Features from '$lib/demo/Features.svelte';
 </script>
 
 <Demo />
+
+<Features
+	list={[
+		'Follows the ARIA pattern for tabs, semantically linking tabs and their associated tab panels.',
+		'Full keyboard navigation & focus management for improved accessibility.',
+		'Support for disabled tabs.',
+	]}
+/>
 
 <Accessibility
 	keyboard={[

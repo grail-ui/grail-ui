@@ -3,15 +3,24 @@
 	import Accessibility from '$lib/demo/Accessibility.svelte';
 	import Api from '$lib/api-documenter/Api.svelte';
 	import Dependency from '$lib/demo/Dependency.svelte';
+	import Features from '$lib/demo/Features.svelte';
 </script>
 
 <Demo />
+
+<Features
+	list={[
+		'Focus is moved and contained within the modal while it is open, and returned to the trigger element when it is closed.',
+		'Manages screen reader announcements for improved accessibility.',
+		'Modal can be closed by interacting outside of it or pressing the`Escape` key.',
+	]}
+/>
 
 <Dependency modules={['focus-trap']} />
 
 <Accessibility
 	keyboard={[
-		{ key: 'Esc', description: 'Closes the dialog and moves focus to trigger element.' },
+		{ key: 'Esc', description: 'Closes the modal and moves focus to trigger element.' },
 		{ key: 'Tab', description: 'Moves focus to the next focusable element.' },
 		{ key: 'Shift + Tab', description: 'Moves focus to the previous focusable element.' },
 	]}
