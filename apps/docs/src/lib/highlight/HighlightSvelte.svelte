@@ -5,7 +5,9 @@
 	import css from 'highlight.js/lib/languages/css';
 
 	export let code: string | undefined = undefined;
-	export let lines: number[] = [];
+	export let lines: number[] | string = [];
+
+	$: highlightLines = typeof lines === 'string' ? lines.split(',').map(Number) : lines;
 
 	hljs.registerLanguage('xml', xml);
 	hljs.registerLanguage('javascript', javascript);
@@ -15,13 +17,16 @@
 	$: {
 		const html = code ? hljs.highlightAuto(code).value : '';
 
-		if (lines.length === 0) {
+		if (highlightLines.length === 0) {
 			highlighted = html;
 		} else {
 			let i = 0;
 			highlighted = html.replace(/([ \S]*\n|[ \S]*$)/gm, function (match) {
+				if (!match) return '';
 				i++;
-				return `<div class="code-line">${match}${lines.includes(i) ? '<div class="highlight-line" />' : ''}</div>`;
+				return `<div class="code-line${
+					highlightLines.includes(i) ? ' highlight-line' : ''
+				}">${match}</div>`;
 			});
 		}
 	}
@@ -35,7 +40,7 @@
 		display: inline;
 	}
 
-	:global(.highlight-line)::after {
+	:global(.highlight-line)::before {
 		content: ' ';
 		position: absolute;
 		left: 0;

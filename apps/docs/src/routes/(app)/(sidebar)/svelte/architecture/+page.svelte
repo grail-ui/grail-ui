@@ -63,7 +63,7 @@
 	<p>
 		5. Optionally, you can apply custom transitions.
 		<Highlight
-			lines={[2, 10]}
+			lines="3, 11"
 			source={`<scr` +
 				`ipt>
 	import { createModal } from '@grail-ui/svelte';

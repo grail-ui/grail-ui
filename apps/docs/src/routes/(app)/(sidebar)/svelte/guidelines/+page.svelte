@@ -15,7 +15,7 @@
 		ES6's object destructuring syntax to easily extract the specific stores and actions you need.
 		This way you can leverage Svelte's auto-subscription syntax. For example:
 		<Highlight
-			lines={[3]}
+			lines="4"
 			source={`<scr` +
 				`ipt>
  	import { createModal } from '@grail-ui/svelte';
@@ -38,7 +38,7 @@
 		<code>triggerAttrs</code>
 		contain DOM attributes that adhere to the WAI-ARIA guidelines.
 		<Highlight
-			lines={[6, 9, 10]}
+			lines="7, 10, 11"
 			source={`<scr` +
 				`ipt>
 	import { createModal } from '@grail-ui/svelte';
@@ -67,7 +67,7 @@
 	<p>
 		For example:
 		<Highlight
-			lines={[3, 6, 8]}
+			lines="4, 7, 9"
 			source={`<scr` +
 				`ipt>
 	import { createModal } from '@grail-ui/svelte';
@@ -94,7 +94,7 @@
 		element. For example, in the below component, <code>useAccordion</code> will "listen" to all the
 		keyboard and pointer events for all the triggers and the sections.
 		<Highlight
-			lines={[6]}
+			lines="7"
 			source={`<scr` +
 				`ipt>
 	import { createAccordion } from '@grail-ui/svelte';

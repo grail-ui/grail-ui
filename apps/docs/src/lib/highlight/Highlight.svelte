@@ -5,7 +5,7 @@
 	import HighlightSvelte from './HighlightSvelte.svelte';
 
 	export let source: string;
-	export let lines: number[] = [];
+	export let lines: number[] | string = [];
 
 	let _class = '';
 	export { _class as class };
