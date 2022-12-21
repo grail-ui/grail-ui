@@ -2,9 +2,18 @@
 	import Demo from '$lib/demo/Demo.svelte';
 	import Accessibility from '$lib/demo/Accessibility.svelte';
 	import Api from '$lib/api-documenter/Api.svelte';
+	import Features from '$lib/demo/Features.svelte';
 </script>
 
 <Demo />
+
+<Features
+	list={[
+		'Full keyboard navigation support for accessibility.',
+		'Ability to expand one or multiple items.',
+		'Support for disabled items.',
+	]}
+/>
 
 <Accessibility
 	keyboard={[
