@@ -80,16 +80,19 @@ export type ToastParams = {
 
 	/**
 	 * The creation timestamp in ms.
+	 * @private
 	 */
 	createdAt: number;
 
 	/**
 	 * The remaining duration in ms.
+	 * @private
 	 */
 	remaining: number;
 
 	/**
 	 * The state of the toast.
+	 * @private
 	 *
 	 * @defaultValue `active`
 	 */

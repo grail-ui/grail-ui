@@ -13,6 +13,8 @@
 	$: params = getParameters(data as any, definition);
 
 	function getParamData(param: any) {
+		if (param.flags.isPrivate) return;
+
 		const { description = '', blockTags = [] } = getComment(param) || {};
 
 		return {
@@ -46,16 +48,18 @@
 			<tbody>
 				{#each params as param}
 					{@const data = getParamData(param)}
-					<tr>
-						<th class="align-baseline"><div class="font-robotic badge">{data.name}</div></th>
-						<td class="align-baseline whitespace-normal flex flex-col gap-2">
-							<div><code>{removePackageType(data.type)}</code></div>
-							<div>{@html formatHtml(data.description)}</div>
-						</td>
-						{#if !hideDefault}
-							<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
-						{/if}
-					</tr>
+					{#if data}
+						<tr>
+							<th class="align-baseline"><div class="font-robotic badge">{data.name}</div></th>
+							<td class="align-baseline whitespace-normal flex flex-col gap-2">
+								<div><code>{removePackageType(data.type)}</code></div>
+								<div>{@html formatHtml(data.description)}</div>
+							</td>
+							{#if !hideDefault}
+								<td class="align-baseline">{@html formatHtml(data.defaultValue) || '—'}</td>
+							{/if}
+						</tr>
+					{/if}
 				{/each}
 			</tbody>
 		</table>
