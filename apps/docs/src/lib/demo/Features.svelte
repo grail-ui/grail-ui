@@ -7,7 +7,7 @@
 
 <SectionHeader id="Features">Features</SectionHeader>
 
-<ul class="not-prose">
+<ul>
 	{#each list as feature}
 		<li>{@html formatHtml(feature)}</li>
 	{/each}
