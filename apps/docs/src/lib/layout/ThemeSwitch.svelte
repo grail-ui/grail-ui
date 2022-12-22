@@ -4,8 +4,13 @@
 	import { Theme, theme, toggleTheme } from './layout.store';
 </script>
 
-<label class="swap text-base-content/60 hover:text-base-content" title="Toggle theme">
-	<input type="checkbox" checked={$theme === Theme.Dark} on:change={toggleTheme} />
+<button
+	type="button"
+	class="swap text-base-content/60 hover:text-base-content"
+	class:swap-active={$theme === Theme.Dark}
+	title="Toggle theme"
+	on:click={toggleTheme}
+>
 	<SunIcon class="swap-on" />
 	<NightIcon class="swap-off" />
-</label>
+</button>
