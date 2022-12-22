@@ -26,8 +26,8 @@
 	},
 	"devDependencies": {
 		"@floating-ui/dom": "1.0.12",
-		"@playwright/experimental-ct-svelte": "1.29.0",
-		"@playwright/test": "1.29.0",
+		"@playwright/experimental-ct-svelte": "1.29.1",
+		"@playwright/test": "1.29.1",
 		"@sveltejs/kit": "1.0.1",
 		"@sveltejs/package": "1.0.1",
 		"@testing-library/dom": "8.19.0",

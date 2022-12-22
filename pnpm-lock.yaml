@@ -82,8 +82,8 @@ importers:
   packages/grail-ui:
     specifiers:
       '@floating-ui/dom': 1.0.12
-      '@playwright/experimental-ct-svelte': 1.29.0
-      '@playwright/test': 1.29.0
+      '@playwright/experimental-ct-svelte': 1.29.1
+      '@playwright/test': 1.29.1
       '@sveltejs/kit': 1.0.1
       '@sveltejs/package': 1.0.1
       '@testing-library/dom': 8.19.0
@@ -111,8 +111,8 @@ importers:
       vitest: 0.26.2
     devDependencies:
       '@floating-ui/dom': 1.0.12
-      '@playwright/experimental-ct-svelte': 1.29.0_svelte@3.55.0
-      '@playwright/test': 1.29.0
+      '@playwright/experimental-ct-svelte': 1.29.1_svelte@3.55.0
+      '@playwright/test': 1.29.1
       '@sveltejs/kit': 1.0.1_svelte@3.55.0+vite@4.0.3
       '@sveltejs/package': 1.0.1_niwyv7xychq2ag6arq5eqxbomm
       '@testing-library/dom': 8.19.0
@@ -1001,11 +1001,11 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@playwright/experimental-ct-svelte/1.29.0_svelte@3.55.0:
-    resolution: {integrity: sha512-B5fKMARA2IV9UhhmPbnCs9COTIaAtM5VvR4YO6pOPUWUJ0OcKE7637FYSF55NbyEXo5a8rwYJJhfT7yaAhkXNg==}
+  /@playwright/experimental-ct-svelte/1.29.1_svelte@3.55.0:
+    resolution: {integrity: sha512-nOaij65x1c8sAJ87VUBxplAKBEAOI3TgCHHuC36D3ES6TS6RCweG+BXcCs+v1qLF+0eF17xcO5LtlcEsiyuOSA==}
     engines: {node: '>=14'}
     dependencies:
-      '@playwright/test': 1.29.0
+      '@playwright/test': 1.29.1
       '@sveltejs/vite-plugin-svelte': 1.1.1_svelte@3.55.0+vite@3.2.5
       vite: 3.2.5
     transitivePeerDependencies:
@@ -1020,13 +1020,13 @@ packages:
       - terser
     dev: true
 
-  /@playwright/test/1.29.0:
-    resolution: {integrity: sha512-gp5PVBenxTJsm2bATWDNc2CCnrL5OaA/MXQdJwwkGQtqTjmY+ZOqAdLqo49O9MLTDh2vYh+tHWDnmFsILnWaeA==}
+  /@playwright/test/1.29.1:
+    resolution: {integrity: sha512-iQxk2DX5U9wOGV3+/Jh9OHPsw5H3mleUL2S4BgQuwtlAfK3PnKvn38m4Rg9zIViGHVW24opSm99HQm/UFLEy6w==}
     engines: {node: '>=14'}
     hasBin: true
     dependencies:
       '@types/node': 18.11.9
-      playwright-core: 1.29.0
+      playwright-core: 1.29.1
     dev: true
 
   /@polka/url/1.0.0-next.21:
@@ -4478,8 +4478,8 @@ packages:
       pathe: 1.0.0
     dev: true
 
-  /playwright-core/1.29.0:
-    resolution: {integrity: sha512-pboOm1m0RD6z1GtwAbEH60PYRfF87vKdzOSRw2RyO0Y0a7utrMyWN2Au1ojGvQr4umuBMODkKTv607YIRypDSQ==}
+  /playwright-core/1.29.1:
+    resolution: {integrity: sha512-20Ai3d+lMkWpI9YZYlxk8gxatfgax5STW8GaMozAHwigLiyiKQrdkt7gaoT9UQR8FIVDg6qVXs9IoZUQrDjIIg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
