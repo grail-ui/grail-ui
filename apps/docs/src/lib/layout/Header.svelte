@@ -6,6 +6,11 @@
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 	import ThemeSwitch from './ThemeSwitch.svelte';
 	import Logo from '$lib/Logo.svelte';
+
+	const navLinks = [
+		{ href: '/svelte/getting-started', label: 'Docs' },
+		{ href: '/svelte', label: 'Components' },
+	];
 </script>
 
 <!-- svelte-ignore missing-declaration -->
@@ -31,6 +36,15 @@
 				>
 
 				<div class="flex items-center ml-auto">
+					<nav class="hidden md:block text-sm leading-6 font-semibold">
+						<ul class="flex space-x-8">
+							{#each navLinks as { href, label } (href)}
+								<li>
+									<a class="hover:text-sky-500" {href}>{label}</a>
+								</li>
+							{/each}
+						</ul>
+					</nav>
 					<div class="flex items-center ml-6 pl-6 gap-4 text-xl">
 						<a
 							href={PUBLIC_DISCORD_URL}
