@@ -5,8 +5,10 @@
 	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
 	import SectionHeader from './SectionHeader.svelte';
 	import { formatHtml } from './demo.utils';
+	import PackageManager from './package-manager/PackageManager.svelte';
 
 	export let features: string[] = [];
+	export let dependencies: ('focus-trap' | '@floating-ui/dom')[] = [];
 	export let examples: { component: ComponentType; header?: string }[] = [];
 	export let keyboard: { key: string | string[]; description: string }[] = [];
 
@@ -23,6 +25,18 @@
 			<li>{@html formatHtml(feature)}</li>
 		{/each}
 	</ul>
+{/if}
+
+{#if dependencies.length > 0}
+	<SectionHeader id="Dependencies">Dependencies</SectionHeader>
+
+	<p>
+		In order for this module to work you have to install {@html dependencies
+			.map((m) => `<a href="https://www.npmjs.com/package/${m}">${m}</a>`)
+			.join(', ')}.
+	</p>
+
+	<PackageManager class="max-w-xl" command="add" options={dependencies} />
 {/if}
 
 {#if $$slots.anatomy}
