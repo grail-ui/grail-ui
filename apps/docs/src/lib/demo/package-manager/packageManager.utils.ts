@@ -1,8 +1,5 @@
-export enum PackageManager {
-	NPM = 'npm',
-	PNPM = 'pnpm',
-	Yarn = 'yarn',
-}
+export type PackageManager = 'npm' | 'pnpm' | 'yarn';
+
 export interface PackageManagerCommands {
 	add: (pkg: string | string[]) => string;
 	addDev: (pkg: string | string[]) => string;

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import atomOneDark from 'highlight.js/styles/atom-one-dark.css?inline';
 	import atomOneLight from 'highlight.js/styles/atom-one-light.css?inline';
-	import { Theme, theme } from '$lib/layout/layout.store';
+	import { theme } from '$lib/layout/layout.store';
 	import HighlightSvelte from './HighlightSvelte.svelte';
 
 	export let source: string;
@@ -11,7 +11,7 @@
 	export { _class as class };
 
 	let themeCss: string;
-	$: themeCss = $theme === Theme.Dark ? atomOneDark : atomOneLight;
+	$: themeCss = $theme === 'dark' ? atomOneDark : atomOneLight;
 </script>
 
 <svelte:head>
