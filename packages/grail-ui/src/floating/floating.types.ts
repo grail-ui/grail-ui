@@ -61,7 +61,7 @@ export type PositioningOptions = {
 	sameWidth?: boolean;
 
 	/**
-	 * Whether the popover should fit the viewport.
+	 * Whether the floating element should fit the viewport.
 	 * @defaultValue `false`
 	 */
 	fitViewport?: boolean;
