@@ -24,6 +24,8 @@ export type ProgressConfig = {
 
 	/**
 	 * The formatter to display the value's label.
+	 *
+	 * @defaultValue Formatted percentage
 	 */
 	formatValueLabel?: (data: {
 		value: number;
@@ -40,7 +42,7 @@ export type ProgressReturn = {
 	value: Writable<number | null>;
 
 	/**
-	 * The controlled value of the progress.
+	 * The calculated percentage of the progress.
 	 */
 	percentage: Readable<number>;
 
