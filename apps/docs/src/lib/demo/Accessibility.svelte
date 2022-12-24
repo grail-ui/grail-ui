@@ -11,18 +11,12 @@
 	import { formatHtml } from './demo.utils';
 	import SectionHeader from './SectionHeader.svelte';
 
-	export let title = 'Accessibility';
-
 	export let keyboard: { key: string | string[]; description: string }[] = [];
 
 	function getKeys(key: string | string[]): string[] {
 		return Array.isArray(key) ? key : key.split(' ').map((s) => s.trim());
 	}
 </script>
-
-{#if title}<SectionHeader id="Accessibility">{title}</SectionHeader>{/if}
-
-<slot />
 
 {#if keyboard.length > 0}
 	<SectionHeader id="Keyboard-Interactions" heading="h3">Keyboard Interactions</SectionHeader>

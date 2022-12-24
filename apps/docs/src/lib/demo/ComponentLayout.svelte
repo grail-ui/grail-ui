@@ -63,9 +63,8 @@
 {#if $$slots.accessibility || keyboard.length > 0}
 	<SectionHeader id="Accessibility">Accessibility</SectionHeader>
 
-	<Accessibility {keyboard} title="">
-		<slot name="accessibility" />
-	</Accessibility>
+	<slot name="accessibility" />
+	<Accessibility {keyboard} />
 {/if}
 
 {#if api.length > 0}

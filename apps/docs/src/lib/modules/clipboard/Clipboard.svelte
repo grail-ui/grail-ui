@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Demo from '$lib/demo/Demo.svelte';
-	import Api from '$lib/api-documenter/Api.svelte';
+	import ComponentLayout from '$lib/demo/ComponentLayout.svelte';
+
+	const api = [
+		{ definition: 'ClipboardConfig' },
+		{ definition: 'ClipboardReturn', hideDefault: true },
+	];
 </script>
 
-<Demo />
-
-<Api
-	types={[{ definition: 'ClipboardConfig' }, { definition: 'ClipboardReturn', hideDefault: true }]}
-/>
+<ComponentLayout {api} />
