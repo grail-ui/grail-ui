@@ -5,7 +5,7 @@
 	const { toasts, toaster, useToast, rootAttrs, groupAttrs, progress } = createToast();
 </script>
 
-<div class="toast w-96 z-10" {...$groupAttrs}>
+<div class="toast w-96 z-20" {...$groupAttrs}>
 	{#each $toasts as toast (toast.id)}
 		<div>
 			<div in:fly={{ y: 500 }} out:scale={{ duration: 500 }}>
