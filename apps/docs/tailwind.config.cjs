@@ -35,4 +35,9 @@ module.exports = {
 		],
 	},
 	plugins: [require('@tailwindcss/typography'), require('daisyui')],
+	safelist: [
+		{
+			pattern: /(progress|alert)-/,
+		},
+	],
 };
