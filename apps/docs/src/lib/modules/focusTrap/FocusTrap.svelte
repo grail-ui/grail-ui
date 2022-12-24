@@ -1,13 +1,10 @@
 <script lang="ts">
-	import Demo from '$lib/demo/Demo.svelte';
-	import Api from '$lib/api-documenter/Api.svelte';
-	import Dependency from '$lib/demo/Dependency.svelte';
+	import ComponentLayout from '$lib/demo/ComponentLayout.svelte';
+
+	const api = [
+		{ definition: 'FocusTrapConfig' },
+		{ definition: 'FocusTrapReturn', hideDefault: true },
+	];
 </script>
 
-<Demo />
-
-<Dependency modules={['focus-trap']} />
-
-<Api
-	types={[{ definition: 'FocusTrapConfig' }, { definition: 'FocusTrapReturn', hideDefault: true }]}
-/>
+<ComponentLayout {api} dependencies={['focus-trap']} />
