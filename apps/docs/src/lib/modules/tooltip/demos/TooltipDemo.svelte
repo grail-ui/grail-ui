@@ -9,7 +9,7 @@
 <button type="button" class="btn" use:useTooltipTrigger {...$triggerAttrs}>Button</button>
 
 {#if $open}
-	<div use:useTooltip {...$tooltipAttrs} class="tip" transition:fade={{ duration: 200 }}>
+	<div use:useTooltip {...$tooltipAttrs} class="tip" in:fade={{ duration: 150 }}>
 		Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat aliquid nesciunt laudantium ab!
 		<div {...$arrowAttrs} />
 	</div>
