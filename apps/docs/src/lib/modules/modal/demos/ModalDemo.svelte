@@ -4,7 +4,7 @@
 
 	const { useModal, modalAttrs, titleAttrs, triggerAttrs, open } = createModal({
 		portal: null,
-		isDismissible: true,
+		dismissible: true,
 	});
 </script>
 

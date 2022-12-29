@@ -31,14 +31,14 @@ export type ModalConfig = {
 	/**
 	 * Event handler called when the open state changes.
 	 */
-	onOpenChange?: (value?: boolean) => void | undefined;
+	onOpenChange?: (value: boolean) => void | undefined;
 
 	/**
 	 * Whether to close the modal when the user interacts outside it.
 	 *
 	 * @defaultValue `false`
 	 */
-	isDismissible?: boolean;
+	dismissible?: boolean;
 
 	/**
 	 * Whether pressing the Escape key to close the modal should be disabled.
@@ -78,4 +78,9 @@ export type ModalReturn = {
 	 * HTML attributes for the trigger element.
 	 */
 	triggerAttrs: Readable<Record<string, string>>;
+
+	/**
+	 * The controlled state of the dismissible property.
+	 */
+	dismissible: Writable<boolean>;
 };

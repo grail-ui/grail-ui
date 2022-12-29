@@ -1,4 +1,4 @@
-import type { Writable } from 'svelte/store';
+import type { Readable } from 'svelte/store';
 
 export type ClickOutsideConfig = {
 	/**
@@ -6,7 +6,7 @@ export type ClickOutsideConfig = {
 	 *
 	 * @defaultValue `true`
 	 */
-	enabled?: boolean | Writable<boolean>;
+	enabled?: boolean | Readable<boolean>;
 
 	/**
 	 * Callback when user clicks outside a given element.

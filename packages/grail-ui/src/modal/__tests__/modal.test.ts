@@ -36,7 +36,7 @@ describe('Modal', () => {
 		const api = createModal({
 			portal: null,
 			open: false,
-			isDismissible: true,
+			dismissible: true,
 			onInteractOutside,
 		});
 		render(ModalTest, { api });
@@ -81,5 +81,20 @@ describe('Modal', () => {
 			await userEvent.keyboard('{escape}');
 			expect(screen.queryByTestId('modal')).toBeVisible();
 		});
+	});
+
+	it('should update dismissible', async () => {
+		const api = createModal({ open: true, dismissible: true });
+		render(ModalTest, { api });
+
+		expect(screen.queryByTestId('modal')).toBeVisible();
+
+		api.dismissible.set(false);
+		await user.click(document.body);
+		expect(screen.queryByTestId('modal')).toBeVisible();
+
+		api.dismissible.set(true);
+		await user.click(document.body);
+		expect(screen.queryByTestId('modal')).not.toBeVisible();
 	});
 });

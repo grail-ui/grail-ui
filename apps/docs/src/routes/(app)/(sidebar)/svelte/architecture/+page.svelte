@@ -27,7 +27,7 @@
 	<p>
 		2. Create the component instance with the desired configuration & initial state.
 		<Highlight
-			source={`const {...} = createModal ({ open: false, portal: 'body', isDismissible: true });`}
+			source={`const {...} = createModal ({ open: false, portal: 'body', dismissible: true });`}
 		/>
 	</p>
 	<p>
