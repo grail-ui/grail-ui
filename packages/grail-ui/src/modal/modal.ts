@@ -1,5 +1,5 @@
 import type { ModalConfig, ModalReturn } from './modal.types';
-import { derived, readable } from 'svelte/store';
+import { derived, readable, writable } from 'svelte/store';
 import { tick } from 'svelte';
 import { uniqueId } from '../util/id';
 import { createFocusTrap } from '../focusTrap';
@@ -13,7 +13,7 @@ export const createModal = ({
 	open = true,
 	portal = 'body',
 	onOpenChange,
-	isDismissible,
+	dismissible = false,
 	isKeyboardDismissible = true,
 	onInteractOutside,
 	initialFocus,
@@ -22,6 +22,7 @@ export const createModal = ({
 	const titleId = uniqueId('modal-title');
 
 	const open$ = writableEffect(open, onOpenChange);
+	const dismissible$ = writable(dismissible);
 
 	const modalAttrs = readable({
 		id,
@@ -44,10 +45,8 @@ export const createModal = ({
 		const portalAction = portal ? usePortal(node, { target: portal }) : undefined;
 
 		const clickOutsideAction = useClickOutside(contentEl, {
-			enabled: open$,
+			enabled: derived([open$, dismissible$], ([$open, $dismissible]) => $open && $dismissible),
 			handler: (e: PointerEvent) => {
-				if (!isDismissible) return;
-
 				onInteractOutside?.(e);
 				if (!e.defaultPrevented) {
 					open$.set(false);
@@ -106,5 +105,6 @@ export const createModal = ({
 		titleAttrs,
 		triggerAttrs,
 		open: open$,
+		dismissible: dismissible$,
 	};
 };
