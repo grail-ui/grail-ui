@@ -1,5 +1,5 @@
 import type { ModalConfig, ModalReturn } from './modal.types';
-import { derived, readable, writable } from 'svelte/store';
+import { derived, get, readable, writable } from 'svelte/store';
 import { tick } from 'svelte';
 import { uniqueId } from '../util/id';
 import { createFocusTrap } from '../focusTrap';
@@ -14,7 +14,7 @@ export const createModal = ({
 	portal = 'body',
 	onOpenChange,
 	dismissible = false,
-	isKeyboardDismissible = true,
+	keyboardDismissible = true,
 	onInteractOutside,
 	initialFocus,
 }: ModalConfig = {}): ModalReturn => {
@@ -23,6 +23,7 @@ export const createModal = ({
 
 	const open$ = writableEffect(open, onOpenChange);
 	const dismissible$ = writable(dismissible);
+	const keyboardDismissible$ = writable(keyboardDismissible);
 
 	const modalAttrs = readable({
 		id,
@@ -36,7 +37,7 @@ export const createModal = ({
 		const contentEl = node.id === id ? node : (node.querySelector(`#${id}`) as HTMLElement);
 
 		const removeEvent = addEventListener(contentEl, `keydown`, (e: KeyboardEvent) => {
-			if (isKeyboardDismissible && e.key === ESCAPE) {
+			if (e.key === ESCAPE && get(keyboardDismissible$)) {
 				e.preventDefault();
 				open$.set(false);
 			}
@@ -106,5 +107,6 @@ export const createModal = ({
 		triggerAttrs,
 		open: open$,
 		dismissible: dismissible$,
+		keyboardDismissible: keyboardDismissible$,
 	};
 };
