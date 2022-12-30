@@ -10,7 +10,6 @@
 			<button
 				{...$pageAttrs(item)}
 				class="btn"
-				class:btn-disabled={item.disabled}
 				class:btn-active={item.selected}
 				on:click={() => ($page = item.page || $page)}
 			>

@@ -1,5 +1,6 @@
 import type { PaginationConfig, PaginationItem, PaginationReturn } from './pagination.types';
-import { derived, get, readable, writable, type Writable } from 'svelte/store';
+import { derived, readable, writable } from 'svelte/store';
+import { writableEffect } from '../util/store';
 
 export const createPagination = ({
 	boundaryCount = 1,
@@ -15,16 +16,13 @@ export const createPagination = ({
 	getPageAriaLabel = (page: number) => `Goto Page ${page}`,
 	onChange,
 }: PaginationConfig = {}): PaginationReturn => {
-	const page$ = writable(page);
+	const page$ = writableEffect(page, onChange);
 	const total$ = writable(total);
 	const perPage$ = writable(perPage);
 
-	const count$ = derived<[Writable<number>, Writable<number>], number>(
-		[total$, perPage$],
-		([$total, $perPage]) => {
-			return Math.ceil(+$total / +$perPage);
-		}
-	);
+	const count$ = derived([total$, perPage$], ([$total, $perPage]) => {
+		return Math.ceil(+$total / +$perPage);
+	});
 
 	const items = derived([page$, count$], ([$page, $count]) => {
 		const itemList = getItems({
@@ -47,7 +45,7 @@ export const createPagination = ({
 		return function (item: PaginationItem) {
 			return {
 				...(item.page && !item.disabled
-					? { 'aria-label': getPageAriaLabel(item.page, item.selected) }
+					? { 'aria-label': getPageAriaLabel(item.page, !!item.selected) }
 					: {}),
 				...(item.selected ? { 'aria-current': 'page' } : {}),
 				...(item.disabled ? { disabled: 'true' } : {}),
@@ -55,33 +53,19 @@ export const createPagination = ({
 		};
 	});
 
-	const setPage = (value: number) => {
-		if (value === get(page$)) {
-			return;
-		}
-		page$.set(value);
-		if (onChange) {
-			onChange(value);
-		}
-	};
+	const start = derived([page$, perPage$, total$], ([$page, $perPage, $total]) =>
+		Math.min(Math.max(1 + ((+$page || 1) - 1) * +$perPage, 0), +$total)
+	);
 
-	const start = derived([page$, perPage$, total$], ([$page, $perPage, $total]) => {
-		return Math.min(Math.max(1 + ((+$page || 1) - 1) * +$perPage, 0), +$total);
-	});
-
-	const end = derived([start, perPage$, total$], ([$start, $perPage, $total]) => {
-		return Math.min($start + (+$perPage - 1), +$total);
-	});
+	const end = derived([start, perPage$, total$], ([$start, $perPage, $total]) =>
+		Math.min($start + (+$perPage - 1), +$total)
+	);
 
 	return {
 		navAttrs,
 		pageAttrs,
 		items,
-		page: {
-			subscribe: page$.subscribe,
-			set: setPage,
-			update: (fn) => setPage(fn(get(page$))),
-		},
+		page: page$,
 		start,
 		end,
 		total: total$,

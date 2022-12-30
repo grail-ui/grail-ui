@@ -39,7 +39,7 @@ export type PaginationConfig = {
 	/**
 	 * Callback fired when the page is changed.
 	 */
-	onChange?: (page?: number) => void;
+	onChange?: (page: number) => void;
 
 	/**
 	 * A unique accessible name.
@@ -53,7 +53,7 @@ export type PaginationConfig = {
 	 *
 	 * @defaultValue `(page) => "Goto Page ${page}"`
 	 */
-	getPageAriaLabel?: (page: number, selected?: boolean) => string;
+	getPageAriaLabel?: (page: number, selected: boolean) => string;
 
 	/**
 	 * Initial current page.
@@ -92,12 +92,12 @@ export type PaginationReturn = {
 	navAttrs: Readable<Record<string, string>>;
 
 	/**
-	 * HTML attributes for the wrapper navigation element.
+	 * HTML attributes for the pagination element.
 	 */
 	pageAttrs: Readable<(params: PaginationItem) => Record<string, string>>;
 
 	/**
-	 * Action for the trigger element.
+	 * An array of pagination properties used to render pagination.
 	 */
 	items: Readable<PaginationItem[]>;
 
