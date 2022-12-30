@@ -45,7 +45,7 @@ export type ModalConfig = {
 	 *
 	 * @defaultValue `true`
 	 */
-	isKeyboardDismissible?: boolean;
+	keyboardDismissible?: boolean;
 
 	/**
 	 * Event handler called when a pointer event occurs outside the bounds of the dialog. It can be prevented by calling event.preventDefault.
@@ -83,4 +83,9 @@ export type ModalReturn = {
 	 * The controlled state of the dismissible property.
 	 */
 	dismissible: Writable<boolean>;
+
+	/**
+	 * The controlled state of the keyboardDismissible property.
+	 */
+	keyboardDismissible: Writable<boolean>;
 };

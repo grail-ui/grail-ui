@@ -75,7 +75,7 @@ describe('Modal', () => {
 		});
 
 		it('should not close if desired', async () => {
-			const api = createModal({ portal: null, open: true, isKeyboardDismissible: false });
+			const api = createModal({ portal: null, open: true, keyboardDismissible: false });
 			await render(ModalTest, { api });
 
 			await userEvent.keyboard('{escape}');
@@ -95,6 +95,20 @@ describe('Modal', () => {
 
 		api.dismissible.set(true);
 		await user.click(document.body);
+		expect(screen.queryByTestId('modal')).not.toBeVisible();
+	});
+
+	it('should update keyboard dismissible', async () => {
+		const api = createModal({ open: true, keyboardDismissible: true });
+		render(ModalTest, { api });
+		expect(screen.queryByTestId('modal')).toBeVisible();
+
+		api.keyboardDismissible.set(false);
+		await userEvent.keyboard('{escape}');
+		expect(screen.queryByTestId('modal')).toBeVisible();
+
+		api.keyboardDismissible.set(true);
+		await userEvent.keyboard('{escape}');
 		expect(screen.queryByTestId('modal')).not.toBeVisible();
 	});
 });
