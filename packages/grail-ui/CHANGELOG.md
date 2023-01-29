@@ -1,5 +1,15 @@
 # @grail-ui/svelte
 
+## 0.6.0
+
+### Minor Changes
+
+- [#80](https://github.com/grail-ui/grail-ui/pull/80) [`ebefa9b`](https://github.com/grail-ui/grail-ui/commit/ebefa9b4ee09970c7f08baab86886741340475c6) Thanks [@bekos](https://github.com/bekos)! - Rename accordion's `defaultValue` to `value`
+
+- [#80](https://github.com/grail-ui/grail-ui/pull/80) [`0de803f`](https://github.com/grail-ui/grail-ui/commit/0de803fddae63f7d5fee53ea03e9efb01f983a0d) Thanks [@bekos](https://github.com/bekos)! - Rename pagination's `onChange` to `onPageChange`
+
+- [#80](https://github.com/grail-ui/grail-ui/pull/80) [`e5e0fb5`](https://github.com/grail-ui/grail-ui/commit/e5e0fb55632e2a9abf288e6823c84b721da96d85) Thanks [@bekos](https://github.com/bekos)! - Rename tab's `defaultValue` to `value`
+
 ## 0.5.0
 
 ### Minor Changes
