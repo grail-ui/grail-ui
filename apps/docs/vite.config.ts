@@ -3,6 +3,7 @@ import { sveltekit } from '@sveltejs/kit/vite';
 import { promises as fs } from 'fs';
 import Icons from 'unplugin-icons/vite';
 import { version } from '../../packages/grail-ui/package.json';
+import pkg from './package.json';
 
 const config: UserConfig = {
 	plugins: [
@@ -33,6 +34,7 @@ const config: UserConfig = {
 	define: {
 		__APP_ENV__: JSON.stringify(version),
 		__NOW__: JSON.stringify(new Date().toISOString()),
+		__PKG__: JSON.stringify(pkg),
 	},
 };
 
