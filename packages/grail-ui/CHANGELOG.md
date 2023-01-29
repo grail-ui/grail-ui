@@ -1,5 +1,13 @@
 # @grail-ui/svelte
 
+## 0.5.0
+
+### Minor Changes
+
+- [#73](https://github.com/grail-ui/grail-ui/pull/73) [`d4cd013`](https://github.com/grail-ui/grail-ui/commit/d4cd013e09e1fb7d267c35862b2fbbaa724ca94c) Thanks [@bekos](https://github.com/bekos)! - Support configurable `dismissible` for modal
+
+- [#75](https://github.com/grail-ui/grail-ui/pull/75) [`e4ed213`](https://github.com/grail-ui/grail-ui/commit/e4ed21384c708a8338b5f8602f257c589d1e8b91) Thanks [@bekos](https://github.com/bekos)! - Support configurable `keyboardDismissible` for modal
+
 ## 0.4.0
 
 ### Minor Changes
