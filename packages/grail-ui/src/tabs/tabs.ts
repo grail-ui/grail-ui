@@ -34,12 +34,12 @@ export function createTabs<T extends string>(initConfig?: TabsConfig<T>): TabsRe
 		activationMode: 'automatic',
 	};
 
-	const { orientation, defaultValue, onValueChange, ...rest } = {
+	const { orientation, value, onValueChange, ...rest } = {
 		...defaultConfig,
 		...initConfig,
 	} as Required<TabsConfig<T>>;
 	const config$: Writable<TabsParams<T>> = writable(rest);
-	const active$ = writableEffect<T>(defaultValue, onValueChange);
+	const active$ = writableEffect<T>(value, onValueChange);
 
 	const baseId = uniqueId('tabs');
 

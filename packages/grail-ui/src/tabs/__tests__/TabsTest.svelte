@@ -4,12 +4,12 @@
 
 	export let activationMode: 'automatic' | 'manual' | undefined = undefined;
 	export let orientation: 'horizontal' | 'vertical' | undefined = undefined;
-	export let defaultValue: string | undefined = undefined;
+	export let value: string | undefined = undefined;
 	export let disabled = false;
 	export let onValueChange: ((value: string) => void) | undefined = undefined;
 	export let items: TabsTriggerParams<string>[] = [];
 
-	const options = { activationMode, orientation, defaultValue, disabled, onValueChange };
+	const options = { activationMode, orientation, value, disabled, onValueChange };
 
 	const { useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs(options);
 </script>
