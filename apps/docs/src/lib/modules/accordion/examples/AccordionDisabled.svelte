@@ -24,7 +24,7 @@
 	<Highlight
 		source={`createAccordion({
 	type: 'multiple',
-	defaultValue: ['item-1'],
+	value: ['item-1'],
 	disabled: true,
 })`}
 		lines={[4]}

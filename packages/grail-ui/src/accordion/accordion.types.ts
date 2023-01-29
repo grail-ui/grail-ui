@@ -23,7 +23,7 @@ export interface AccordionSingleConfig<T extends string> extends AccordionBaseCo
 	/**
 	 * Initial value (controls expanded state of accordion items).
 	 */
-	defaultValue?: T;
+	value?: T;
 
 	/**
 	 * Event handler called when the expanded state of the accordion changes.
@@ -40,7 +40,7 @@ export interface AccordionMultipleConfig<T extends string> extends AccordionBase
 	/**
 	 * Initial value (controls expanded state of accordion items).
 	 */
-	defaultValue?: T[];
+	value?: T[];
 
 	/**
 	 * Event handler called when the expanded state of the accordion changes.

@@ -41,11 +41,11 @@ export function createAccordion<T extends string>(
 		type: 'single',
 	};
 
-	const { type, defaultValue, onValueChange, ...rest } = { ...defaultConfig, ...initConfig };
+	const { type, value, onValueChange, ...rest } = { ...defaultConfig, ...initConfig };
 	const config$: Writable<AccordionParams> = writable(rest);
 	const baseId = uniqueId('accordion');
 	const initiallyExpandedValues =
-		defaultValue !== undefined ? (Array.isArray(defaultValue) ? defaultValue : [defaultValue]) : [];
+		value !== undefined ? (Array.isArray(value) ? value : [value]) : [];
 	const { changed, toggle, select, deselect, clear } = selectionModel<T>({
 		multiple: type === 'multiple',
 		initiallySelectedValues: initiallyExpandedValues,

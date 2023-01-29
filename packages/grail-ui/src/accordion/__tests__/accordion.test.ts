@@ -92,7 +92,7 @@ describe('Accordion', () => {
 	});
 
 	it('should render correctly open and closed items', () => {
-		const { root } = setup({ defaultValue: ['item-2'] });
+		const { root } = setup({ value: ['item-2'] });
 		expectOpen(root, [false, true, false]);
 	});
 
