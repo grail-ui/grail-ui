@@ -21,7 +21,7 @@
 	];
 
 	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs({
-		defaultValue: $packageManager,
+		value: $packageManager,
 		onValueChange: setPackageManager,
 	});
 	const { isSupported, copy, copied } = createClipboard();

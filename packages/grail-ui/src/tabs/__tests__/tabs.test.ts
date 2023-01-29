@@ -80,7 +80,7 @@ describe('Tabs', () => {
 	});
 
 	it('should render active tab based on tab value', () => {
-		const { root } = setup({ defaultValue: 'tab-2' });
+		const { root } = setup({ value: 'tab-2' });
 		expectActive(root, [false, true, false]);
 	});
 

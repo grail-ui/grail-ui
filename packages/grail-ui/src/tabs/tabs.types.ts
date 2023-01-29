@@ -5,7 +5,7 @@ export interface TabsConfig<T extends string = string> {
 	/**
 	 * Initial value (controls active state of tabs).
 	 */
-	defaultValue?: T;
+	value?: T;
 
 	/**
 	 * Event handler called when the active state of the tabs changes.
