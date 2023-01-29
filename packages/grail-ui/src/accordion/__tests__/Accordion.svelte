@@ -8,13 +8,13 @@
 	import { createAccordion } from '../accordion';
 
 	export let type: AccordionType;
-	export let defaultValue: string | string[] | undefined = undefined;
+	export let value: string | string[] | undefined = undefined;
 	export let disabled = false;
 	export let items: AccordionItemParams<string>[];
 	export let onValueChange: ((value: string) => void) | ((value: string[]) => void) | undefined =
 		undefined;
 
-	const options = { type, defaultValue, disabled, onValueChange };
+	const options = { type, value, disabled, onValueChange };
 
 	const { useAccordion, itemAttrs, triggerAttrs, contentAttrs } =
 		type === 'single'
