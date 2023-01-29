@@ -56,9 +56,9 @@ describe('Pagination', () => {
 		expect(buttons[5]).toHaveAccessibleName('Goto Page 3');
 	});
 
-	it('should call `onChange` only when page changes', () => {
+	it('should call `onPageChange` only when page changes', () => {
 		const spy = vi.fn();
-		setup({ onChange: spy });
+		setup({ onPageChange: spy });
 
 		const buttons = getButtons();
 		buttons[2].click();
@@ -75,7 +75,7 @@ describe('Pagination', () => {
 
 	it('should move to the requested page when clicking on `Previous` and `Next`', () => {
 		const spy = vi.fn();
-		setup({ onChange: spy });
+		setup({ onPageChange: spy });
 
 		const buttons = getButtons();
 

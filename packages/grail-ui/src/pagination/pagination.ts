@@ -14,9 +14,9 @@ export const createPagination = ({
 	siblingCount = 1,
 	ariaLabel = 'Pagination Navigation',
 	getPageAriaLabel = (page: number) => `Goto Page ${page}`,
-	onChange,
+	onPageChange,
 }: PaginationConfig = {}): PaginationReturn => {
-	const page$ = writableEffect(page, onChange);
+	const page$ = writableEffect(page, onPageChange);
 	const total$ = writable(total);
 	const perPage$ = writable(perPage);
 
