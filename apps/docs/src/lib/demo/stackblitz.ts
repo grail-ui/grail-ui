@@ -1,6 +1,9 @@
 import StackBlitzSDK from '@stackblitz/sdk';
 
 export function open(source: string, componentName: string) {
+	/*global __PKG__*/
+	const { devDependencies } = __PKG__;
+
 	StackBlitzSDK.openProject(
 		{
 			files: {
@@ -25,7 +28,6 @@ import './app.css';
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
 		%sveltekit.head%
 	</head>
@@ -39,21 +41,24 @@ import './app.css';
 						name: 'grailui-sveltekit-template',
 						version: '0.0.0',
 						scripts: {
-							dev: 'vite dev',
+							dev: 'svelte-kit sync && vite dev',
 						},
 						devDependencies: {
 							'@grail-ui/svelte': 'latest',
 							'focus-trap': 'latest',
 							'@floating-ui/dom': 'latest',
-							'@sveltejs/adapter-auto': '1.0.0-next.90',
-							'@sveltejs/kit': '1.0.0-next.582',
-							autoprefixer: '10.4.13',
-							daisyui: '2.43.0',
-							postcss: '8.4.20',
-							svelte: '3.54.0',
-							tailwindcss: '3.2.4',
-							typescript: '4.9.4',
-							vite: '4.0.0',
+							...Object.fromEntries(
+								[
+									'@sveltejs/kit',
+									'autoprefixer',
+									'daisyui',
+									'postcss',
+									'svelte',
+									'tailwindcss',
+									'typescript',
+									'vite',
+								].map((pkg) => [pkg, devDependencies[pkg]])
+							),
 						},
 						type: 'module',
 					},
@@ -66,8 +71,7 @@ import './app.css';
   require('autoprefixer')],
 };`,
 
-				['svelte.config.js']: `import adapter from '@sveltejs/adapter-auto';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+				['svelte.config.js']: `import { vitePreprocess } from '@sveltejs/kit/vite';
 
 const config = {
 
@@ -77,9 +81,7 @@ const config = {
 		}),
 	],
 
-  kit: {
-    adapter: adapter(),
-  },
+  kit: {},
 };
 
 export default config;`,

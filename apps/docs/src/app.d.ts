@@ -11,3 +11,4 @@ declare namespace App {
 
 declare const __APP_ENV__;
 declare const __NOW__;
+declare const __PKG__: { devDependencies: Record<string, string> };
