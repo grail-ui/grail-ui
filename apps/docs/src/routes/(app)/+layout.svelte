@@ -6,7 +6,7 @@
 	const title = 'Grail UI';
 	const description =
 		'A library of accessible component primitives, actions and utilities for Svelte.';
-	const domain = 'grail-ui-docs.vercel.app';
+	const domain = 'grail-ui.vercel.app';
 	const deployUrl = `https://${domain}/`;
 	const ogImageUrl = `${deployUrl}og.png`;
 </script>
