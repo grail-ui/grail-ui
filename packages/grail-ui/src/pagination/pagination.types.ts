@@ -39,7 +39,7 @@ export type PaginationConfig = {
 	/**
 	 * Callback fired when the page is changed.
 	 */
-	onChange?: (page: number) => void;
+	onPageChange?: (page: number) => void;
 
 	/**
 	 * A unique accessible name.
