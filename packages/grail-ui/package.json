@@ -25,10 +25,10 @@
 		"api": "svelte-kit sync && typedoc --options ./typedoc.json"
 	},
 	"devDependencies": {
-		"@floating-ui/dom": "1.1.1",
+		"@floating-ui/dom": "1.2.0",
 		"@playwright/experimental-ct-svelte": "1.30.0",
 		"@playwright/test": "1.30.0",
-		"@sveltejs/kit": "1.3.2",
+		"@sveltejs/kit": "1.5.0",
 		"@sveltejs/package": "1.0.2",
 		"@testing-library/dom": "8.20.0",
 		"@testing-library/jest-dom": "5.16.5",
@@ -36,9 +36,9 @@
 		"@testing-library/user-event": "14.4.3",
 		"@types/jest-axe": "3.5.5",
 		"@types/testing-library__jest-dom": "5.14.5",
-		"@typescript-eslint/eslint-plugin": "5.49.0",
-		"@typescript-eslint/parser": "5.49.0",
-		"@vitest/coverage-c8": "0.28.3",
+		"@typescript-eslint/eslint-plugin": "5.51.0",
+		"@typescript-eslint/parser": "5.51.0",
+		"@vitest/coverage-c8": "0.28.4",
 		"c8": "7.12.0",
 		"eslint": "8.33.0",
 		"eslint-plugin-svelte3": "4.0.0",
@@ -50,9 +50,9 @@
 		"svelte-check": "3.0.3",
 		"tslib": "2.5.0",
 		"typedoc": "0.23.24",
-		"typescript": "4.9.4",
-		"vite": "4.0.4",
-		"vitest": "0.28.3"
+		"typescript": "4.9.5",
+		"vite": "4.1.1",
+		"vitest": "0.28.4"
 	},
 	"peerDependencies": {
 		"@floating-ui/dom": "1.x",

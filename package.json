@@ -35,7 +35,7 @@
 		"prettier": "2.8.3",
 		"prettier-plugin-svelte": "2.9.0",
 		"syncpack": "8.4.11",
-		"tsx": "3.12.2"
+		"tsx": "3.12.3"
 	},
 	"engines": {
 		"node": ">=16",
