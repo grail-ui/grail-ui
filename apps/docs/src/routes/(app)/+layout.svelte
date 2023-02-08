@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
+	import type { LayoutData } from '$lib/layout/layout.types';
 	import './app.css';
 	import Header from '$lib/layout/Header.svelte';
 	import { theme } from '$lib/layout/layout.store';
+	import Fab from '$lib/layout/Fab.svelte';
+	import Drawer from '$lib/layout/Drawer.svelte';
+
+	export let data: LayoutData;
 
 	const title = 'Grail UI';
 	const description =
@@ -33,4 +38,6 @@
 	<div class="flex flex-col flex-grow">
 		<slot />
 	</div>
+	<Fab />
+	<Drawer {data} />
 </div>
