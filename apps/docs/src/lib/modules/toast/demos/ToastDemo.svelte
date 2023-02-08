@@ -3,6 +3,10 @@
 	import { scale, fly } from 'svelte/transition';
 
 	const { toasts, toaster, useToast, rootAttrs, groupAttrs, progress } = createToast();
+
+	function addToast() {
+		toaster.create({ title: 'New message!', description: 'You have 1 unread message' });
+	}
 </script>
 
 <div class="toast w-96 z-20" {...$groupAttrs}>
@@ -36,11 +40,4 @@
 	{/each}
 </div>
 
-<button
-	class="btn"
-	on:click={() =>
-		toaster.create({
-			title: 'New message!',
-			description: 'You have 1 unread message',
-		})}>Show toast</button
->
+<button class="btn" on:click={() => addToast()}>Show toast</button>
