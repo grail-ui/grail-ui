@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.6.1
+
+### Patch Changes
+
+- [#83](https://github.com/grail-ui/grail-ui/pull/83) [`07ceb0d`](https://github.com/grail-ui/grail-ui/commit/07ceb0dcf7b9a21ec1ddc57c462491325ecc3b56) Thanks [@bekos](https://github.com/bekos)! - Move `focus-trap` and `@floating-ui/dom` to `dependencies` from `peerDependencies`
+
 ## 0.6.0
 
 ### Minor Changes
