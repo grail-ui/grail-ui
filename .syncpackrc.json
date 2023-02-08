@@ -1,5 +1,6 @@
 {
 	"peer": false,
+	"prod": false,
 	"sortAz": ["keywords", "dependencies", "devDependencies", "peerDependencies", "resolutions"],
 	"sortFirst": [
 		"name",

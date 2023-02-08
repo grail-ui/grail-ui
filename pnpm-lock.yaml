@@ -81,7 +81,7 @@ importers:
 
   packages/grail-ui:
     specifiers:
-      '@floating-ui/dom': 1.2.0
+      '@floating-ui/dom': ^1.0.0
       '@playwright/experimental-ct-svelte': 1.30.0
       '@playwright/test': 1.30.0
       '@sveltejs/kit': 1.5.0
@@ -98,7 +98,7 @@ importers:
       c8: 7.12.0
       eslint: 8.33.0
       eslint-plugin-svelte3: 4.0.0
-      focus-trap: 7.2.0
+      focus-trap: ^7.0.0
       jest-axe: 7.0.0
       jsdom: 21.1.0
       micromatch: 4.0.5
@@ -109,8 +109,10 @@ importers:
       typescript: 4.9.5
       vite: 4.1.1
       vitest: 0.28.4
-    devDependencies:
+    dependencies:
       '@floating-ui/dom': 1.2.0
+      focus-trap: 7.2.0
+    devDependencies:
       '@playwright/experimental-ct-svelte': 1.30.0_svelte@3.55.1
       '@playwright/test': 1.30.0
       '@sveltejs/kit': 1.5.0_svelte@3.55.1+vite@4.1.1
@@ -127,7 +129,6 @@ importers:
       c8: 7.12.0
       eslint: 8.33.0
       eslint-plugin-svelte3: 4.0.0_4omm2ewoudhgnmf7aocafatnc4
-      focus-trap: 7.2.0
       jest-axe: 7.0.0
       jsdom: 21.1.0
       micromatch: 4.0.5
@@ -850,13 +851,13 @@ packages:
 
   /@floating-ui/core/1.2.0:
     resolution: {integrity: sha512-GHUXPEhMEmTpnpIfesFA2KAoMJPb1SPQw964tToQwt+BbGXdhqTCWT1rOb0VURGylsxsYxiGMnseJ3IlclVpVA==}
-    dev: true
+    dev: false
 
   /@floating-ui/dom/1.2.0:
     resolution: {integrity: sha512-QXzg57o1cjLz3cGETzKXjI3kx1xyS49DW9l7kV2jw2c8Yftd434t2hllX0sVGn2Q8MtcW/4pNm8bfE1/4n6mng==}
     dependencies:
       '@floating-ui/core': 1.2.0
-    dev: true
+    dev: false
 
   /@humanwhocodes/config-array/0.11.8:
     resolution: {integrity: sha512-UybHIJzJnR5Qc/MsD9Kr+RpO2h+/P1GhOwdiLPXK5TWk5sgTdu88bTD9UP+CKbPPh5Rni1u0GjAdYQLemG8g+g==}
@@ -3059,7 +3060,7 @@ packages:
     resolution: {integrity: sha512-v4wY6HDDYvzkBy4735kW5BUEuw6Yz9ABqMYLuTNbzAFPcBOGiGHwwcNVMvUz4G0kgSYh13wa/7TG3XwTeT4O/A==}
     dependencies:
       tabbable: 6.0.1
-    dev: true
+    dev: false
 
   /for-each/0.3.3:
     resolution: {integrity: sha512-jqYfLp7mo9vIyQf8ykW2v7A+2N4QjeCeI5+Dz9XraiO1ign81wjiH7Fb9vSOWvQfNtmSa4H2RoQTrrXivdUZmw==}
@@ -5435,7 +5436,7 @@ packages:
 
   /tabbable/6.0.1:
     resolution: {integrity: sha512-SYJSIgeyXW7EuX1ytdneO5e8jip42oHWg9xl/o3oTYhmXusZVgiA+VlPvjIN+kHii9v90AmzTZEBcsEvuAY+TA==}
-    dev: true
+    dev: false
 
   /tailwindcss/3.2.4_postcss@8.4.21:
     resolution: {integrity: sha512-AhwtHCKMtR71JgeYDaswmZXhPcW9iuI9Sp2LvZPo9upDZ7231ZJ7eA9RaURbhpXGVlrjX4cFNlB4ieTetEb7hQ==}

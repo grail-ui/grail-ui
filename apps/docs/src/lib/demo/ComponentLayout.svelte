@@ -32,12 +32,12 @@
 
 	{@const links = dependencies.map((m) => `<a href="https://www.npmjs.com/package/${m}">${m}</a>`)}
 	<p>
-		In order for this module to work you have to install {@html links.length < 3
+		This module depends on {@html links.length < 3
 			? links.join(' and ')
 			: `${links.slice(0, -1).join(', ')}, and ${links.at(-1)}`}.
 	</p>
 
-	<PackageManager class="max-w-xl" command="add" options={dependencies} />
+	<!-- <PackageManager class="max-w-xl" command="add" options={dependencies} /> -->
 {/if}
 
 {#if $$slots.anatomy}

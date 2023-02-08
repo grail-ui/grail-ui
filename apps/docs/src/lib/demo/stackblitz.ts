@@ -45,8 +45,6 @@ import './app.css';
 						},
 						devDependencies: {
 							'@grail-ui/svelte': 'latest',
-							'focus-trap': 'latest',
-							'@floating-ui/dom': 'latest',
 							...Object.fromEntries(
 								[
 									'@sveltejs/kit',
