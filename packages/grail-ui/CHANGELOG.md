@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.6.2
+
+### Patch Changes
+
+- [#85](https://github.com/grail-ui/grail-ui/pull/85) [`9e0a51f`](https://github.com/grail-ui/grail-ui/commit/9e0a51f57c0fd9fbf617e04c6bbbe692d84dc59f) Thanks [@bekos](https://github.com/bekos)! - Add absolute position for floating arrow to avoid initial "jump"
+
 ## 0.6.1
 
 ### Patch Changes
