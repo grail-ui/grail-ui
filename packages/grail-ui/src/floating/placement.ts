@@ -31,7 +31,7 @@ const ARROW_TRANSFORM = {
 export const arrowAttrs = (arrowSize = 8) =>
 	readable({
 		'data-arrow': 'true',
-		style: `width: var(--arrow-size, ${arrowSize}px); height: var(--arrow-size, ${arrowSize}px);`,
+		style: `position: absolute; width: var(--arrow-size, ${arrowSize}px); height: var(--arrow-size, ${arrowSize}px);`,
 	});
 
 export function getPlacement(
