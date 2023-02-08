@@ -59,13 +59,9 @@
 		"focus-trap": "7.x",
 		"svelte": "3.x"
 	},
-	"peerDependenciesMeta": {
-		"@floating-ui/dom": {
-			"optional": true
-		},
-		"focus-trap": {
-			"optional": true
-		}
+	"dependencies": {
+		"@floating-ui/dom": "^1.0.0",
+		"focus-trap": "^7.0.0"
 	},
 	"publishConfig": {
 		"access": "public",
