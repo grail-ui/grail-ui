@@ -7,8 +7,8 @@ when a tab is selected. This callback is invoked with the <code>id</code> of the
 
 <Highlight
 	source={`createTabs({
-	onValueChange(id) {
-		console.log(id);
+	onValueChange(value) {
+		console.log(value);
 	},
 })`}
 	lines={[2, 3, 4]}
