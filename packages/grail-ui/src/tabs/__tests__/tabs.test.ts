@@ -1,4 +1,4 @@
-import type { TabsConfig, TabsTriggerParams } from '../tabs.types';
+import type { TabsConfig } from '../tabs.types';
 import { tick } from 'svelte';
 import { describe, beforeEach, expect, it, vi } from 'vitest';
 import { render, screen, within } from '@testing-library/svelte';
@@ -12,15 +12,10 @@ const axe = configureAxe({
 	},
 });
 
-const defaultProps: Partial<TabsConfig> & { items?: TabsTriggerParams<string>[] } = {
-	orientation: 'horizontal',
-	activationMode: 'automatic',
-	items: [{ value: 'tab-1' }, { value: 'tab-2' }, { value: 'tab-3' }],
-};
-
 const expectActive = (root: HTMLElement, expected: boolean[]) => {
 	const triggers = within(root).getAllByRole('tab');
 	const contents = within(root).getAllByRole('tabpanel', { hidden: true });
+
 	triggers.forEach((trigger, index) => {
 		const content = contents[index];
 		const isActive = expected[index];
@@ -34,11 +29,22 @@ const expectActive = (root: HTMLElement, expected: boolean[]) => {
 	});
 };
 
+const expectDisabled = (root: HTMLElement, expected: boolean[]) => {
+	const triggers = within(root).getAllByRole('tab');
+	triggers.forEach((trigger, index) => {
+		const isDisabled = expected[index];
+
+		if (isDisabled) {
+			expect(trigger).toBeDisabled();
+		}
+	});
+};
+
 describe('Tabs', () => {
-	const setup = (
-		props: Partial<TabsConfig> & { items?: TabsTriggerParams<string>[] } = defaultProps
-	) => {
-		const utils = render(TabsTest, { props: { ...defaultProps, ...props } });
+	const setup = (props: Partial<TabsConfig> & { items?: string[] } = {}) => {
+		const utils = render(TabsTest, {
+			props: { value: 'tab-1', items: ['tab-1', 'tab-2', 'tab-3'], ...props },
+		});
 
 		const root = utils.container.firstElementChild as HTMLElement;
 		const triggers = screen.getAllByRole('tab');
@@ -84,17 +90,22 @@ describe('Tabs', () => {
 		expectActive(root, [false, true, false]);
 	});
 
-	it('should render correctly disabled triggers', () => {
-		const { triggers } = setup({ items: [{ value: 'tab-1', disabled: true }, { value: 'tab-2' }] });
+	it('should render correctly disabled tabs', () => {
+		const { root } = setup({ disabled: true });
 
-		triggers.forEach((trigger, index) => {
-			const isDisabled = index === 0;
+		expectDisabled(root, [true, true, true]);
+	});
 
-			if (isDisabled) {
-				expect(trigger).toHaveAttribute('data-disabled');
-				expect(trigger).toBeDisabled();
-			}
-		});
+	it('should render correctly single disabled tab', () => {
+		const { root } = setup({ disabled: 'tab-2' });
+
+		expectDisabled(root, [false, true, false]);
+	});
+
+	it('should render correctly multiple disabled tabs', () => {
+		const { root } = setup({ disabled: ['tab-1', 'tab-2'] });
+
+		expectDisabled(root, [true, true, false]);
 	});
 
 	describe('keyboard navigation', () => {
@@ -166,7 +177,9 @@ describe('Tabs', () => {
 		describe('automatic', () => {
 			describe('when focusing a trigger', () => {
 				beforeEach(() => {
-					({ container, root, triggers } = setup({ onValueChange: onValueChangeSpy }));
+					({ container, root, triggers } = setup({
+						onValueChange: onValueChangeSpy,
+					}));
 					triggers[1].focus();
 				});
 

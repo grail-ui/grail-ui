@@ -5,7 +5,7 @@
 	export let value: string | string[] | undefined = undefined;
 	export let disabled: boolean | string | string[] = false;
 	export let items: string[];
-	export let onValueChange: ((value: string | string[]) => void) | undefined = undefined;
+	export let onValueChange: ((value?: string | string[]) => void) | undefined = undefined;
 
 	const options = { multiple, value, disabled, onValueChange };
 

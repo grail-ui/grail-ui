@@ -1,37 +1,41 @@
 <script lang="ts">
 	import { createTabs } from '@grail-ui/svelte';
-	import { fly } from 'svelte/transition';
 
-	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs();
+	type TabType = 'recent' | 'popular' | 'trending';
+
+	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs<TabType>(
+		{
+			value: 'recent',
+		}
+	);
+
+	const data: { key: TabType; title: string; content: string }[] = [
+		{
+			key: 'recent',
+			title: 'Recent',
+			content: 'Recent tab content',
+		},
+		{
+			key: 'popular',
+			title: 'Popular',
+			content: 'Popular tab content',
+		},
+		{
+			key: 'trending',
+			title: 'Trending',
+			content: 'Trending tab content',
+		},
+	];
 </script>
 
-<div
-	use:useTabs
-	{...$rootAttrs}
-	class="flex flex-col max-w-sm w-full bg-slate-100 p-4 rounded-lg"
-	style="min-height: 150px"
->
-	<div {...$listAttrs} class="flex flex-wrap border-b-2 border-gray-300">
-		<button {...$triggerAttrs('tab1')}>Recent</button>
-		<button {...$triggerAttrs('tab2')}>Popular</button>
-		<button {...$triggerAttrs('tab3')}>Trending</button>
+<div use:useTabs class="flex flex-col bg-slate-100 p-4 rounded-lg" {...$rootAttrs}>
+	<div {...$listAttrs} class="tabs tabs-boxed">
+		{#each data as { key, title } (key)}
+			<button class="tab" class:tab-active={$active === key} {...$triggerAttrs(key)}>{title}</button
+			>
+		{/each}
 	</div>
-	<div {...$contentAttrs('tab1')} class="py-3 text-sm">Recent tab content</div>
-	<div {...$contentAttrs('tab2')} class="py-3 text-sm">Popular tab content</div>
-	<div {...$contentAttrs('tab3')} class="py-3 text-sm">
-		{#if $active === 'tab3'}
-			<p in:fly={{ duration: 500, x: 200 }}>Trending tab content</p>
-		{/if}
-	</div>
+	{#each data as { key, content } (key)}
+		<div {...$contentAttrs(key)} class="pt-4 text-sm">{content}</div>
+	{/each}
 </div>
-
-<style lang="postcss">
-	button {
-		@apply h-8 px-4 text-gray-500;
-	}
-
-	button:global([data-state='active']) {
-		color: #000;
-		box-shadow: inset 0 -1px 0 0 currentColor, 0 1px 0 0 currentColor;
-	}
-</style>

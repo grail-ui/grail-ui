@@ -96,9 +96,9 @@
 	const { useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs();
 
 	const data = [
-		{ id: "item-1", title: "Item 1", content: "Content for one." },
-		{ id: "item-2", title: "Item 2", content: "Content for two." },
-		{ id: "item-3", title: "Item 3", content: "Content for three." },
+		{ key: "item-1", title: "Item 1", content: "Content for one." },
+		{ key: "item-2", title: "Item 2", content: "Content for two." },
+		{ key: "item-3", title: "Item 3", content: "Content for three." },
 	];
 </scr` +
 				`ipt>
@@ -106,11 +106,11 @@
 <div use:useTabs {...$rootAttrs}>
 	<div {...$listAttrs}>
 		{#each data as item}
-			<button {...$triggerAttrs(item.id)}>{item.title}</button>
+			<button {...$triggerAttrs(item.key)}>{item.title}</button>
 		{/each}
 	</div>
 	{#each data as item}
-		<div {...$contentAttrs(item.id)}>{item.content}</div>
+		<div {...$contentAttrs(item.key)}>{item.content}</div>
 	{/each}
 </div>`}
 		/>
