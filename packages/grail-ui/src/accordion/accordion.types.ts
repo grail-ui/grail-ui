@@ -1,103 +1,55 @@
 import type { Action } from 'svelte/action';
-import type { Readable } from 'svelte/store';
+import type { Readable, Writable } from 'svelte/store';
 
 export type AccordionItemState = 'open' | 'closed';
 
-export type AccordionType = 'single' | 'multiple';
-
-interface AccordionBaseConfig {
-	/**
-	 * Whether clicking any useAccordionTrigger element should toggle the respective accordion item.
-	 *
-	 * @defaultValue `false`
-	 */
-	disabled?: boolean;
-}
-
-export interface AccordionSingleConfig<T extends string> extends AccordionBaseConfig {
-	/**
-	 * Allow a single item to be opened at the same time.
-	 */
-	type?: 'single';
-
-	/**
-	 * Initial value (controls expanded state of accordion items).
-	 */
-	value?: T;
-
-	/**
-	 * Event handler called when the expanded state of the accordion changes.
-	 */
-	onValueChange?: (value: T) => void;
-}
-
-export interface AccordionMultipleConfig<T extends string> extends AccordionBaseConfig {
+export interface AccordionConfig<T extends string> {
 	/**
 	 * Allow multiple items to be opened at the same time.
 	 */
-	type?: 'multiple';
+	multiple?: boolean;
 
 	/**
-	 * Initial value (controls expanded state of accordion items).
+	 * Initially expanded items.
 	 */
-	value?: T[];
+	value?: T | T[];
+
+	/**
+	 * The disabled keys of the accordion. Pass to true to disable all the accordion items.
+	 *
+	 * @defaultValue `false`
+	 */
+	disabled?: boolean | T | T[];
 
 	/**
 	 * Event handler called when the expanded state of the accordion changes.
 	 */
-	onValueChange?: (value: T[]) => void;
-}
-
-export type AccordionConfig<T extends string = string> =
-	| AccordionSingleConfig<T>
-	| AccordionMultipleConfig<T>;
-
-export interface AccordionItemParams<T extends string> {
-	/**
-	 * Unique identifier. Used to control accordion item's expanded state.
-	 */
-	value: T;
-
-	/**
-	 * Whether clicking the useAccordionTrigger element should toggle the accordion item.
-	 *
-	 * @defaultValue `false`
-	 */
-	disabled?: boolean;
-}
-
-export interface AccordionParams {
-	/**
-	 * Whether clicking any useAccordionTrigger element should toggle the respective accordion item.
-	 *
-	 * @defaultValue `false`
-	 */
-	disabled?: boolean;
+	onValueChange?: (value: T | T[] | undefined) => void;
 }
 
 export interface AccordionReturn<T extends string> {
 	/**
-	 * Toggles a value between expanded and collapsed.
+	 * Toggles a key between expanded and collapsed.
 	 */
-	toggle: (value: T) => void;
+	toggle: (key: T) => void;
 
 	/**
-	 * Expands a value or an array of values.
+	 * Expands a key or an array of keys.
 	 */
-	expand: (...values: T[]) => void;
+	expand: (...keys: T[]) => void;
 
 	/**
-	 * Collapses a value or an array of values.
+	 * Collapses a key or an array of keys.
 	 */
-	collapse: (...values: T[]) => void;
+	collapse: (...keys: T[]) => void;
 
 	/**
-	 * Expands all the values.
+	 * Expands all the keys.
 	 */
 	expandAll: () => void;
 
 	/**
-	 * Collapses all the values.
+	 * Collapses all the keys.
 	 */
 	collapseAll: () => void;
 
@@ -107,22 +59,27 @@ export interface AccordionReturn<T extends string> {
 	expanded: Readable<Set<T>>;
 
 	/**
+	 * The disabled keys of the accordion.
+	 */
+	disabled: Writable<boolean | T | T[]>;
+
+	/**
 	 * Action for the accordion root element.
 	 */
-	useAccordion: Action<HTMLElement, AccordionParams>;
+	useAccordion: Action<HTMLElement, void>;
 
 	/**
 	 * HTML attributes for the accordion item element.
 	 */
-	itemAttrs: Readable<(params: AccordionItemParams<T> | T) => Record<string, string>>;
+	itemAttrs: Readable<(key: T) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the trigger element.
 	 */
-	triggerAttrs: Readable<(params: AccordionItemParams<T> | T) => Record<string, string>>;
+	triggerAttrs: Readable<(key: T) => Record<string, string>>;
 
 	/**
 	 * HTML attributes for the content element.
 	 */
-	contentAttrs: Readable<(params: AccordionItemParams<T> | T) => Record<string, string>>;
+	contentAttrs: Readable<(key: T) => Record<string, string>>;
 }

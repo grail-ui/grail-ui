@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Highlight from '$lib/highlight/Highlight.svelte';
 </script>
 
 <p>To update a toast programmatically, you need access to the unique identifier of the toast.</p>
