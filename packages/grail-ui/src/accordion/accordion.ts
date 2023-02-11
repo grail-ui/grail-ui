@@ -1,13 +1,5 @@
 import type { Action } from 'svelte/action';
-import type {
-	AccordionConfig,
-	AccordionReturn,
-	AccordionParams,
-	AccordionItemState,
-	AccordionItemParams,
-	AccordionMultipleConfig,
-	AccordionSingleConfig,
-} from './accordion.types';
+import type { AccordionConfig, AccordionReturn, AccordionItemState } from './accordion.types';
 import { derived, get, writable, type Writable } from 'svelte/store';
 import { uniqueId } from '../util/id';
 import { listKeyManager } from '../keyManager/listKeyManager';
@@ -33,37 +25,33 @@ const getTriggers = (node: HTMLElement): HTMLElement[] =>
 		)
 		.filter(Boolean);
 
-export function createAccordion<T extends string>(
-	initConfig?: AccordionConfig<T>
-): AccordionReturn<T> {
-	const defaultConfig: AccordionConfig<T> = {
+export function createAccordion<T extends string>(config?: AccordionConfig<T>): AccordionReturn<T> {
+	const { multiple, value, onValueChange, disabled } = {
 		disabled: false,
-		type: 'single',
+		multiple: false,
+		...config,
 	};
 
-	const { type, value, onValueChange, ...rest } = { ...defaultConfig, ...initConfig };
-	const config$: Writable<AccordionParams> = writable(rest);
+	const disabled$: Writable<boolean | T | T[]> = writable(disabled);
 	const baseId = uniqueId('accordion');
-	const initiallyExpandedValues =
-		value !== undefined ? (Array.isArray(value) ? value : [value]) : [];
+	const initiallyExpandedKeys = value !== undefined ? (Array.isArray(value) ? value : [value]) : [];
 	const { changed, toggle, select, deselect, clear } = selectionModel<T>({
-		multiple: type === 'multiple',
-		initiallySelectedValues: initiallyExpandedValues,
+		multiple: multiple as boolean,
+		initiallySelectedValues: initiallyExpandedKeys,
 	});
 
 	const expanded$ = derived(changed, ($changed) => $changed.selection, new Set<T>());
 
 	function toggleTrigger(trigger: HTMLElement | undefined) {
-		if (trigger && !trigger.dataset.disabled && trigger.dataset.value) {
-			toggle(trigger.dataset.value as T);
+		if (trigger && !trigger.dataset.disabled && trigger.dataset.accordionTrigger) {
+			toggle(trigger.dataset.accordionTrigger as T);
 		}
 	}
 
 	let rootNode: HTMLElement | undefined;
 
-	const useAccordion: Action<HTMLElement, AccordionParams> = (node, initParams) => {
+	const useAccordion: Action<HTMLElement, void> = (node) => {
 		rootNode = node;
-		config$.update((config) => ({ ...config, ...initParams }));
 
 		const items = writable<HTMLElement[]>([]);
 		const keyManager = listKeyManager({
@@ -74,16 +62,17 @@ export function createAccordion<T extends string>(
 			onActivate: (item) => item.focus(),
 		});
 
-		function getTrigger(event: Event, collection = getTriggers(node)): HTMLElement | undefined {
-			const node = event.target as HTMLElement & { dataset: { value: T } };
-			return node.hasAttribute(ACCORDION_ATTRIBUTES.trigger)
-				? collection.find((item) => item === node)
-				: undefined;
+		function getTrigger(event: Event): HTMLElement | undefined {
+			const path = event.composedPath();
+			const node = path.find((element) =>
+				(element as HTMLElement).hasAttribute(ACCORDION_ATTRIBUTES.trigger)
+			);
+			return node as HTMLElement;
 		}
 
 		const handleKeyDown = (event: KeyboardEvent) => {
 			const triggerCollection = getTriggers(node);
-			const trigger = getTrigger(event, triggerCollection);
+			const trigger = getTrigger(event);
 			if (!trigger) return;
 
 			if ([SPACE, ENTER].includes(event.key)) {
@@ -107,19 +96,11 @@ export function createAccordion<T extends string>(
 		);
 
 		const unsubscribe = expanded$.subscribe((expanded) => {
-			const values = [...expanded];
-
-			if (type === 'multiple') {
-				(onValueChange as AccordionMultipleConfig<T>['onValueChange'])?.(values);
-			} else {
-				(onValueChange as AccordionSingleConfig<T>['onValueChange'])?.(values[0]);
-			}
+			const keys = [...expanded];
+			onValueChange?.(multiple ? keys : keys[0]);
 		});
 
 		return {
-			update(newParams: AccordionParams) {
-				config$.update((config) => ({ ...config, ...newParams }));
-			},
 			destroy() {
 				rootNode = undefined;
 				keyManager.destroy();
@@ -130,61 +111,49 @@ export function createAccordion<T extends string>(
 	};
 
 	const derivedState = function (
-		fn: (data: { value: T; disabled: boolean; state: AccordionItemState }) => Record<string, string>
+		fn: (data: { key: T; disabled: boolean; state: AccordionItemState }) => Record<string, string>
 	) {
-		return derived([expanded$, config$], () => {
-			return function (params: AccordionItemParams<T> | T) {
-				const value = typeof params === 'string' ? params : params.value;
-				const disabled = !!(
-					get(config$).disabled || (typeof params === 'string' ? false : params.disabled)
-				);
-				const state = getState(get(expanded$).has(value));
+		return derived([expanded$, disabled$], () => {
+			return function (key: T) {
+				const _disabled = get(disabled$);
+				const disabled = Array.isArray(_disabled)
+					? _disabled.includes(key)
+					: typeof _disabled === 'string'
+					? _disabled === key
+					: _disabled;
+				const state = getState(get(expanded$).has(key));
 
-				return fn({ value, disabled, state });
+				return fn({ key, disabled, state });
 			};
 		});
 	};
 
-	const itemAttrs = derivedState(({ value, disabled, state }) => {
-		return {
-			[ACCORDION_ATTRIBUTES.item]: value,
-			'data-state': state,
-			'data-value': value,
-			...(disabled ? { 'data-disabled': '', disabled: 'true' } : {}),
-		};
-	});
+	const itemAttrs = derivedState(({ key }) => ({
+		[ACCORDION_ATTRIBUTES.item]: key,
+	}));
 
-	const triggerAttrs = derivedState(({ value, disabled, state }) => {
-		return {
-			[ACCORDION_ATTRIBUTES.trigger]: value,
-			'data-state': state,
-			'data-value': value,
-			id: getTriggerId(baseId, value),
-			'aria-controls': getContentId(baseId, value),
-			'aria-expanded': `${state === 'open'}`,
-			...(disabled ? { 'data-disabled': '', disabled: 'true' } : {}),
-		};
-	});
+	const triggerAttrs = derivedState(({ key, disabled, state }) => ({
+		[ACCORDION_ATTRIBUTES.trigger]: key,
+		id: getTriggerId(baseId, key),
+		'aria-controls': getContentId(baseId, key),
+		'aria-expanded': `${state === 'open'}`,
+		...(disabled ? { disabled: 'true', 'data-disabled': 'true' } : {}),
+	}));
 
-	const contentAttrs = derivedState(({ value, disabled, state }) => {
-		return {
-			[ACCORDION_ATTRIBUTES.content]: value,
-			'data-state': state,
-			'data-value': value,
-			role: 'region',
-			id: getContentId(baseId, value),
-			'aria-labelledby': getTriggerId(baseId, value),
-			...(disabled ? { 'data-disabled': '' } : {}),
-			...(state === 'closed' ? { inert: 'true' } : {}),
-		};
-	});
+	const contentAttrs = derivedState(({ key, state }) => ({
+		[ACCORDION_ATTRIBUTES.content]: key,
+		role: 'region',
+		id: getContentId(baseId, key),
+		'aria-labelledby': getTriggerId(baseId, key),
+		...(state === 'closed' ? { inert: 'true' } : {}),
+	}));
 
-	const expand = (...values: T[]) => {
-		select(...values);
+	const expand = (...keys: T[]) => {
+		select(...keys);
 	};
 
-	const collapse = (...values: T[]) => {
-		deselect(...values);
+	const collapse = (...keys: T[]) => {
+		deselect(...keys);
 	};
 
 	const expandAll = () => {
@@ -199,6 +168,7 @@ export function createAccordion<T extends string>(
 
 	return {
 		expanded: expanded$,
+		disabled: disabled$,
 		toggle,
 		expand,
 		collapse,

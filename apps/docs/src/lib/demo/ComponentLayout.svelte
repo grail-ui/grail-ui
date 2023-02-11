@@ -5,7 +5,6 @@
 	import ApiTable from '$lib/api-documenter/ApiTable.svelte';
 	import SectionHeader from './SectionHeader.svelte';
 	import { formatHtml } from './demo.utils';
-	import PackageManager from './package-manager/PackageManager.svelte';
 
 	export let features: string[] = [];
 	export let dependencies: ('focus-trap' | '@floating-ui/dom')[] = [];

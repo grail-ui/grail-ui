@@ -2,10 +2,10 @@
 	import Highlight from '$lib/highlight/Highlight.svelte';
 </script>
 
-Set the <code>type</code> prop to <code>multiple</code> to enable opening multiple items at once.
+Pass <code>multiple: true</code> to enable opening multiple items at once.
 <Highlight
 	source={`createAccordion({
-	type: 'multiple',
+	multiple: true,
 })`}
 	lines={[2]}
 />

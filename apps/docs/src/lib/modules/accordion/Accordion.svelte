@@ -4,6 +4,7 @@
 	import AccordionMultiple from './examples/AccordionMultiple.svelte';
 	import AccordionExpandedDefault from './examples/AccordionExpandedDefault.svelte';
 	import AccordionDisabled from './examples/AccordionDisabled.svelte';
+	import AccordionOnExpand from './examples/AccordionOnExpand.svelte';
 
 	const features = [
 		'Full keyboard navigation support for accessibility.',
@@ -12,17 +13,15 @@
 	];
 
 	const api = [
-		{ definition: 'AccordionSingleConfig' },
-		{ definition: 'AccordionMultipleConfig' },
+		{ definition: 'AccordionConfig' },
 		{ definition: 'AccordionReturn', hideDefault: true },
-		{ definition: 'AccordionParams', hideDefault: true },
-		{ definition: 'AccordionItemParams', hideDefault: true },
 	];
 
 	const examples = [
 		{ component: AccordionMultiple, header: 'Multiple items open at the same time' },
 		{ component: AccordionExpandedDefault, header: 'Expanded by default' },
 		{ component: AccordionDisabled, header: 'Disabling specific items' },
+		{ component: AccordionOnExpand, header: 'Listening to state changes' },
 	];
 
 	const keyboard = [
@@ -49,8 +48,8 @@
 				<li>
 					<b>Item:</b> The container for each accordion item. Each accordion item consists of:
 					<ul>
-						<li><b>Trigger:</b> The trigger for the accordion item</li>
-						<li><b>Content:</b> The content area that is revealed when the trigger is clicked</li>
+						<li><b>Trigger:</b> The trigger for the accordion item.</li>
+						<li><b>Content:</b> The content area that is revealed when the trigger is clicked.</li>
 					</ul>
 				</li>
 			</ul>
@@ -64,18 +63,18 @@
 	const { useAccordion, itemAttrs, triggerAttrs, contentAttrs } = createAccordion();
 
 	const data = [
-		{ id: "item-1", title: "Button 1", content: "Content for one." },
-		{ id: "item-2", title: "Button 2", content: "Content for two." },
-		{ id: "item-3", title: "Button 3", content: "Content for three." },
+		{ key: "item-1", title: "Button 1", content: "Content for one." },
+		{ key: "item-2", title: "Button 2", content: "Content for two." },
+		{ key: "item-3", title: "Button 3", content: "Content for three." },
 	];
 </scr` +
 				`ipt>
 
 <ul use:useAccordion>
 	{#each data as item}
-		<li {...$itemAttrs(item.id)}>
-			<button {...$triggerAttrs(item.id)}>{item.title}</button>
-			<div {...$contentAttrs(item.id)}>{item.content}</div>
+		<li {...$itemAttrs(item.key)}>
+			<button {...$triggerAttrs(item.key)}>{item.title}</button>
+			<div {...$contentAttrs(item.key)}>{item.content}</div>
 		</li>
 	{/each}
 </ul>`}
