@@ -3,7 +3,7 @@
 
 	const { expanded, useAccordion, itemAttrs, triggerAttrs, contentAttrs } = createAccordion();
 
-	const data: { key: string; title: string; content: string }[] = [
+	const data = [
 		{
 			key: 'accessibility',
 			title: 'Accessibility',

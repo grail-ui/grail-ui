@@ -1,6 +1,6 @@
 import type { Action } from 'svelte/action';
 import type { AccordionConfig, AccordionReturn, AccordionItemState } from './accordion.types';
-import { derived, get, writable, type Writable } from 'svelte/store';
+import { derived, get, writable } from 'svelte/store';
 import { uniqueId } from '../util/id';
 import { listKeyManager } from '../keyManager/listKeyManager';
 import { selectionModel } from '../collections/selectionModel';
@@ -25,22 +25,24 @@ const getTriggers = (node: HTMLElement): HTMLElement[] =>
 		)
 		.filter(Boolean);
 
-export function createAccordion<T extends string>(config?: AccordionConfig<T>): AccordionReturn<T> {
+export function createAccordion<T extends string = string>(
+	config?: AccordionConfig<T>
+): AccordionReturn<T> {
 	const { multiple, value, onValueChange, disabled } = {
 		disabled: false,
 		multiple: false,
 		...config,
 	};
 
-	const disabled$: Writable<boolean | T | T[]> = writable(disabled);
+	const disabled$ = writable(disabled);
 	const baseId = uniqueId('accordion');
 	const initiallyExpandedKeys = value !== undefined ? (Array.isArray(value) ? value : [value]) : [];
-	const { changed, toggle, select, deselect, clear } = selectionModel<T>({
+	const { changed, toggle, select, deselect, clear } = selectionModel<Partial<T>>({
 		multiple: multiple as boolean,
 		initiallySelectedValues: initiallyExpandedKeys,
 	});
 
-	const expanded$ = derived(changed, ($changed) => $changed.selection, new Set<T>());
+	const expanded$ = derived(changed, ($changed) => $changed.selection, new Set<Partial<T>>());
 
 	function toggleTrigger(trigger: HTMLElement | undefined) {
 		if (trigger && !trigger.dataset.disabled && trigger.dataset.accordionTrigger) {
@@ -118,9 +120,9 @@ export function createAccordion<T extends string>(config?: AccordionConfig<T>): 
 				const _disabled = get(disabled$);
 				const disabled = Array.isArray(_disabled)
 					? _disabled.includes(key)
-					: typeof _disabled === 'string'
-					? _disabled === key
-					: _disabled;
+					: typeof _disabled === 'boolean'
+					? _disabled
+					: _disabled === key;
 				const state = getState(get(expanded$).has(key));
 
 				return fn({ key, disabled, state });
@@ -148,11 +150,11 @@ export function createAccordion<T extends string>(config?: AccordionConfig<T>): 
 		...(state === 'closed' ? { inert: 'true' } : {}),
 	}));
 
-	const expand = (...keys: T[]) => {
+	const expand = (...keys: Partial<T>[]) => {
 		select(...keys);
 	};
 
-	const collapse = (...keys: T[]) => {
+	const collapse = (...keys: Partial<T>[]) => {
 		deselect(...keys);
 	};
 
