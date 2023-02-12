@@ -5,6 +5,7 @@
 	import AccordionExpandedDefault from './examples/AccordionExpandedDefault.svelte';
 	import AccordionDisabled from './examples/AccordionDisabled.svelte';
 	import AccordionOnExpand from './examples/AccordionOnExpand.svelte';
+	import AccordionTypeSafety from './examples/AccordionTypeSafety.svelte';
 
 	const features = [
 		'Full keyboard navigation support for accessibility.',
@@ -22,6 +23,7 @@
 		{ component: AccordionExpandedDefault, header: 'Expanded by default' },
 		{ component: AccordionDisabled, header: 'Disabling specific items' },
 		{ component: AccordionOnExpand, header: 'Listening to state changes' },
+		{ component: AccordionTypeSafety, header: 'Value type safety' },
 	];
 
 	const keyboard = [

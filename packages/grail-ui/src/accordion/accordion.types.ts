@@ -12,36 +12,36 @@ export interface AccordionConfig<T extends string> {
 	/**
 	 * Initially expanded items.
 	 */
-	value?: T | T[];
+	value?: Partial<T> | Partial<T>[];
 
 	/**
 	 * The disabled keys of the accordion. Pass to true to disable all the accordion items.
 	 *
 	 * @defaultValue `false`
 	 */
-	disabled?: boolean | T | T[];
+	disabled?: boolean | Partial<T> | Partial<T>[];
 
 	/**
 	 * Event handler called when the expanded state of the accordion changes.
 	 */
-	onValueChange?: (value: T | T[] | undefined) => void;
+	onValueChange?: (value: Partial<T> | Partial<T>[] | undefined) => void;
 }
 
 export interface AccordionReturn<T extends string> {
 	/**
 	 * Toggles a key between expanded and collapsed.
 	 */
-	toggle: (key: T) => void;
+	toggle: (key: Partial<T>) => void;
 
 	/**
 	 * Expands a key or an array of keys.
 	 */
-	expand: (...keys: T[]) => void;
+	expand: (...keys: Partial<T>[]) => void;
 
 	/**
 	 * Collapses a key or an array of keys.
 	 */
-	collapse: (...keys: T[]) => void;
+	collapse: (...keys: Partial<T>[]) => void;
 
 	/**
 	 * Expands all the keys.
@@ -56,12 +56,12 @@ export interface AccordionReturn<T extends string> {
 	/**
 	 * The expanded state of the accordion.
 	 */
-	expanded: Readable<Set<T>>;
+	expanded: Readable<Set<Partial<T>>>;
 
 	/**
 	 * The disabled keys of the accordion.
 	 */
-	disabled: Writable<boolean | T | T[]>;
+	disabled: Writable<boolean | Partial<T> | Partial<T>[]>;
 
 	/**
 	 * Action for the accordion root element.
