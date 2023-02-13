@@ -1,12 +1,12 @@
 import type { Action } from 'svelte/action';
 import type { TabsConfig, TabsReturn, TabItemState } from './tabs.types';
-import { derived, get, readable, writable, type Writable } from 'svelte/store';
+import { derived, get, readable, writable } from 'svelte/store';
 import { uniqueId } from '../util/id';
 import { listKeyManager } from '../keyManager/listKeyManager';
 import { addEventListener } from '../eventListener/eventListener';
 import { chain } from '../util/chain';
 import { ENTER, SPACE } from '../util/keyboard';
-import { writableEffect } from '../util/store';
+import { toReadable, writableEffect } from '../util/store';
 
 const TABS_ATTRIBUTES = {
 	root: 'data-tabs-root',
@@ -22,7 +22,7 @@ const getContentId = (baseId: string, value: string) => `${baseId}-content-${val
 const getTriggers = (node: HTMLElement): HTMLElement[] =>
 	Array.from(node.querySelectorAll<HTMLElement>(`[${TABS_ATTRIBUTES.trigger}]`));
 
-export function createTabs<T extends string>(config?: TabsConfig<T>): TabsReturn<T> {
+export function createTabs<T extends string = string>(config?: TabsConfig<T>): TabsReturn<T> {
 	const { orientation, value, activationMode, disabled, onValueChange } = {
 		orientation: 'horizontal',
 		activationMode: 'automatic',
@@ -30,9 +30,9 @@ export function createTabs<T extends string>(config?: TabsConfig<T>): TabsReturn
 		...config,
 	};
 
-	const disabled$: Writable<boolean | T | T[]> = writable(disabled);
+	const disabled$ = writable(disabled);
 	const baseId = uniqueId('tabs');
-	const active$ = writableEffect<T | undefined>(value, onValueChange);
+	const active$ = writableEffect(value, onValueChange);
 
 	const activate = (value: T) => {
 		active$.set(value);
@@ -112,9 +112,9 @@ export function createTabs<T extends string>(config?: TabsConfig<T>): TabsReturn
 				const _disabled = get(disabled$);
 				const disabled = Array.isArray(_disabled)
 					? _disabled.includes(key)
-					: typeof _disabled === 'string'
-					? _disabled === key
-					: _disabled;
+					: typeof _disabled === 'boolean'
+					? _disabled
+					: _disabled === key;
 				const state = getState(get(active$) === key);
 
 				return fn({ key, disabled, state });
@@ -153,7 +153,7 @@ export function createTabs<T extends string>(config?: TabsConfig<T>): TabsReturn
 	}));
 
 	return {
-		active: { subscribe: active$.subscribe },
+		active: toReadable(active$),
 		disabled: disabled$,
 		activate,
 		useTabs,

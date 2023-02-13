@@ -1,15 +1,11 @@
 <script lang="ts">
 	import { createTabs } from '@grail-ui/svelte';
 
-	type TabType = 'recent' | 'popular' | 'trending';
+	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs({
+		value: 'recent',
+	});
 
-	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs<TabType>(
-		{
-			value: 'recent',
-		}
-	);
-
-	const data: { key: TabType; title: string; content: string }[] = [
+	const data = [
 		{
 			key: 'recent',
 			title: 'Recent',

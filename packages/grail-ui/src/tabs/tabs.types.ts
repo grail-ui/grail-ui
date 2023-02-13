@@ -3,16 +3,16 @@ import type { Readable, Writable } from 'svelte/store';
 
 export type TabItemState = 'active' | 'inactive';
 
-export interface TabsConfig<T extends string = string> {
+export interface TabsConfig<T extends string> {
 	/**
 	 * Initial value (controls active state of tabs).
 	 */
-	value?: T;
+	value?: Partial<T>;
 
 	/**
 	 * Event handler called when the active state of the tabs changes.
 	 */
-	onValueChange?: (value: T | undefined) => void;
+	onValueChange?: (value: Partial<T> | undefined) => void;
 
 	/**
 	 * The tabs orientation. Affects arrow navigation.
@@ -33,7 +33,7 @@ export interface TabsConfig<T extends string = string> {
 	 *
 	 * @defaultValue `false`
 	 */
-	disabled?: boolean | T | T[];
+	disabled?: boolean | Partial<T> | Partial<T>[];
 }
 
 export interface TabsReturn<T extends string> {
@@ -45,12 +45,12 @@ export interface TabsReturn<T extends string> {
 	/**
 	 * The active tab.
 	 */
-	active: Readable<T | undefined>;
+	active: Readable<Partial<T> | undefined>;
 
 	/**
 	 * The disabled keys of the tabs.
 	 */
-	disabled: Writable<boolean | T | T[]>;
+	disabled: Writable<boolean | Partial<T> | Partial<T>[]>;
 
 	/**
 	 * Action for the tabs root element.

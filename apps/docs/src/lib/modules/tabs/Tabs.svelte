@@ -6,6 +6,7 @@
 	import TabsDisabled from './examples/TabsDisabled.svelte';
 	import TabsActivation from './examples/TabsActivation.svelte';
 	import TabsOnSelect from './examples/TabsOnSelect.svelte';
+	import TabsTypeSafety from './examples/TabsTypeSafety.svelte';
 
 	const features = [
 		'Follows the ARIA pattern for tabs, semantically linking tabs and their associated tab panels.',
@@ -13,12 +14,7 @@
 		'Support for disabled tabs.',
 	];
 
-	const api = [
-		{ definition: 'TabsConfig' },
-		{ definition: 'TabsReturn', hideDefault: true },
-		{ definition: 'TabsTriggerParams', hideDefault: true },
-		{ definition: 'TabsContentParams', hideDefault: true },
-	];
+	const api = [{ definition: 'TabsConfig' }, { definition: 'TabsReturn', hideDefault: true }];
 
 	const examples = [
 		{ component: TabsSelectedByDefault, header: 'Selected by default' },
@@ -26,6 +22,7 @@
 		{ component: TabsDisabled, header: 'Disabling specific tabs' },
 		{ component: TabsActivation, header: 'Manual tab activation' },
 		{ component: TabsOnSelect, header: 'Listening to tab selection' },
+		{ component: TabsTypeSafety, header: 'Value type safety' },
 	];
 
 	const keyboard = [

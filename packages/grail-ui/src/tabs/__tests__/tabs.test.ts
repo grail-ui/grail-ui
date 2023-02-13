@@ -41,7 +41,7 @@ const expectDisabled = (root: HTMLElement, expected: boolean[]) => {
 };
 
 describe('Tabs', () => {
-	const setup = (props: Partial<TabsConfig> & { items?: string[] } = {}) => {
+	const setup = (props: Partial<TabsConfig<string>> & { items?: string[] } = {}) => {
 		const utils = render(TabsTest, {
 			props: { value: 'tab-1', items: ['tab-1', 'tab-2', 'tab-3'], ...props },
 		});
