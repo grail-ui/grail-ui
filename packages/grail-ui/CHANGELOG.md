@@ -1,5 +1,29 @@
 # @grail-ui/svelte
 
+## 0.7.0
+
+### Minor Changes
+
+- [#88](https://github.com/grail-ui/grail-ui/pull/88) [`727336e`](https://github.com/grail-ui/grail-ui/commit/727336eb3c8a8130327a799b803d2dd67426bd5a) Thanks [@ihym](https://github.com/ihym)! - Revise accordion API to simplify & improve consistency
+
+  - `useAccordion` does not take parameters.
+  - Removed `data-*` attributes.
+  - High level `disabled` configuration & writable store.
+  - `multiple` is now a `boolean`.
+
+- [#88](https://github.com/grail-ui/grail-ui/pull/88) [`8f626a1`](https://github.com/grail-ui/grail-ui/commit/8f626a164f7e4b8bfdfe0e28185623cc474f3847) Thanks [@ihym](https://github.com/ihym)! - Revise tabs API to simplify & improve consistency
+
+  - `useTabs` does not take parameters.
+  - Removed `data-*` attributes.
+  - High level `disabled` configuration & writable store.
+  - Remove default initial value.
+
+### Patch Changes
+
+- [#91](https://github.com/grail-ui/grail-ui/pull/91) [`879ab7a`](https://github.com/grail-ui/grail-ui/commit/879ab7a200b341aa3dfb2354edec8e04ba9abfec) Thanks [@bekos](https://github.com/bekos)! - Loose type checking for tabs
+
+- [#90](https://github.com/grail-ui/grail-ui/pull/90) [`ff605e0`](https://github.com/grail-ui/grail-ui/commit/ff605e03154483cf11646d4167d37d624a527368) Thanks [@bekos](https://github.com/bekos)! - Loose type checking for accordion
+
 ## 0.6.2
 
 ### Patch Changes
