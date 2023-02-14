@@ -25,7 +25,7 @@
 				<a class="mr-3 flex-none overflow-hidden md:w-auto duration-200 items-center" href="/">
 					<div class="flex items-center gap-1.5">
 						<div class="hidden sm:block"><Logo size="30" /></div>
-						<LogoType width="100%" height="30px" />
+						<LogoType height="30px" />
 					</div>
 				</a>
 				<!-- svelte-ignore missing-declaration -->
@@ -43,7 +43,7 @@
 							{/each}
 						</ul>
 					</nav>
-					<div class="flex items-center ml-6 pl-6 gap-4 text-xl">
+					<div class="flex items-center ml-6 gap-4 text-xl">
 						<a
 							href={PUBLIC_DISCORD_URL}
 							class="text-base-content/60 hover:text-base-content"
