@@ -29,12 +29,12 @@
 	"devDependencies": {
 		"@changesets/changelog-github": "0.4.8",
 		"@changesets/cli": "2.26.0",
-		"@commitlint/cli": "17.4.2",
-		"@commitlint/config-conventional": "17.4.2",
+		"@commitlint/cli": "17.4.3",
+		"@commitlint/config-conventional": "17.4.3",
 		"commitlint-plugin-workspace-scopes": "1.1.0",
-		"prettier": "2.8.3",
+		"prettier": "2.8.4",
 		"prettier-plugin-svelte": "2.9.0",
-		"syncpack": "8.4.11",
+		"syncpack": "9.0.0",
 		"tsx": "3.12.3"
 	},
 	"engines": {
