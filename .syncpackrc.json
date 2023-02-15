@@ -1,6 +1,5 @@
 {
-	"peer": false,
-	"prod": false,
+	"dependencyTypes": ["dev", "workspace"],
 	"sortAz": ["keywords", "dependencies", "devDependencies", "peerDependencies", "resolutions"],
 	"sortFirst": [
 		"name",

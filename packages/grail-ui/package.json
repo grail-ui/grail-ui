@@ -28,7 +28,7 @@
 		"@floating-ui/dom": "1.2.0",
 		"@playwright/experimental-ct-svelte": "1.30.0",
 		"@playwright/test": "1.30.0",
-		"@sveltejs/kit": "1.5.0",
+		"@sveltejs/kit": "1.6.0",
 		"@sveltejs/package": "1.0.2",
 		"@testing-library/dom": "8.20.0",
 		"@testing-library/jest-dom": "5.16.5",
@@ -36,11 +36,11 @@
 		"@testing-library/user-event": "14.4.3",
 		"@types/jest-axe": "3.5.5",
 		"@types/testing-library__jest-dom": "5.14.5",
-		"@typescript-eslint/eslint-plugin": "5.51.0",
-		"@typescript-eslint/parser": "5.51.0",
-		"@vitest/coverage-c8": "0.28.4",
+		"@typescript-eslint/eslint-plugin": "5.52.0",
+		"@typescript-eslint/parser": "5.52.0",
+		"@vitest/coverage-c8": "0.28.5",
 		"c8": "7.12.0",
-		"eslint": "8.33.0",
+		"eslint": "8.34.0",
 		"eslint-plugin-svelte3": "4.0.0",
 		"focus-trap": "7.2.0",
 		"jest-axe": "7.0.0",
@@ -49,14 +49,12 @@
 		"svelte": "3.55.1",
 		"svelte-check": "3.0.3",
 		"tslib": "2.5.0",
-		"typedoc": "0.23.24",
+		"typedoc": "0.23.25",
 		"typescript": "4.9.5",
 		"vite": "4.1.1",
-		"vitest": "0.28.4"
+		"vitest": "0.28.5"
 	},
 	"peerDependencies": {
-		"@floating-ui/dom": "1.x",
-		"focus-trap": "7.x",
 		"svelte": "3.x"
 	},
 	"dependencies": {
