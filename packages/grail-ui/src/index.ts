@@ -1,4 +1,5 @@
 export * from './accordion';
+export * from './activeElement';
 export * from './clickOutside';
 export * from './clipboard';
 export * from './floating';
