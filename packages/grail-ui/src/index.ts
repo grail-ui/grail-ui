@@ -16,3 +16,4 @@ export * from './tabs';
 export * from './timeout';
 export * from './toast';
 export * from './tooltip';
+export * from './rangeSlider';
