@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ExternalLinkIcon from '~icons/prime/external-link';
-	import LogoType from '~icons/grail/logotype';
+	import LogoType from '$lib/LogoType.svelte';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL } from '$env/static/public';
 
 	const footerColumns = [
@@ -36,7 +36,7 @@
 		<div class="footer md:place-items-center">
 			<div class="self-start">
 				<div class="flex items-center gap-2 text-lg font-bold">
-					<LogoType width="100%" height="25px" />
+					<LogoType height={25} />
 				</div>
 			</div>
 			{#each footerColumns as column}

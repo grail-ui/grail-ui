@@ -2,10 +2,10 @@
 	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
 	import DiscordIcon from '~icons/mdi/discord';
-	import LogoType from '~icons/grail/logotype';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';
 	import ThemeSwitch from './ThemeSwitch.svelte';
 	import Logo from '$lib/Logo.svelte';
+	import LogoType from '$lib/LogoType.svelte';
 
 	const navLinks = [
 		{ href: '/svelte/getting-started', label: 'Docs' },
@@ -25,7 +25,7 @@
 				<a class="mr-3 flex-none overflow-hidden md:w-auto duration-200 items-center" href="/">
 					<div class="flex items-center gap-1.5">
 						<div class="hidden sm:block"><Logo size="30" /></div>
-						<LogoType height="30px" />
+						<LogoType height={30} />
 					</div>
 				</a>
 				<!-- svelte-ignore missing-declaration -->
