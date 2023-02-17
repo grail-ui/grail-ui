@@ -13,6 +13,7 @@ export * from './popover';
 export * from './portal';
 export * from './progress';
 export * from './tabs';
+export * from './scriptTag';
 export * from './timeout';
 export * from './toast';
 export * from './tooltip';
