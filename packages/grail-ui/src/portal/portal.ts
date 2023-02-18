@@ -1,5 +1,5 @@
 import type { Action } from 'svelte/action';
-import type { PortalConfig, PortalReturn } from './portal.types';
+import type { PortalConfig, PortalReturn } from './portal.types.js';
 import { tick } from 'svelte';
 import { writable } from 'svelte/store';
 

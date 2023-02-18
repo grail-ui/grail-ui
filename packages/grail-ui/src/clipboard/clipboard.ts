@@ -1,6 +1,6 @@
 import type { ClipboardConfig, ClipboardReturn } from './clipboard.types';
 import { writable } from 'svelte/store';
-import { isClient } from '../util/is';
+import { isClient } from '../util/is.js';
 
 export const createClipboard = ({
 	onCopy,

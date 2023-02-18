@@ -1,2 +1,2 @@
-export * from './numberInput';
-export * from './numberInput.types';
+export * from './numberInput.js';
+export * from './numberInput.types.js';

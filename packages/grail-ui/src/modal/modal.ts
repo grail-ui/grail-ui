@@ -1,13 +1,13 @@
 import type { ModalConfig, ModalReturn } from './modal.types';
 import { derived, get, readable, writable } from 'svelte/store';
 import { tick } from 'svelte';
-import { uniqueId } from '../util/id';
-import { createFocusTrap } from '../focusTrap';
-import { usePortal } from '../portal';
-import { ESCAPE } from '../util/keyboard';
-import { useClickOutside } from '../clickOutside';
-import { writableEffect } from '../util/store';
-import { addEventListener } from '../eventListener/eventListener';
+import { uniqueId } from '../util/id.js';
+import { createFocusTrap } from '../focusTrap/focusTrap.js';
+import { usePortal } from '../portal/portal.js';
+import { ESCAPE } from '../util/keyboard.js';
+import { useClickOutside } from '../clickOutside/clickOutside.js';
+import { writableEffect } from '../util/store.js';
+import { addEventListener } from '../eventListener/eventListener.js';
 
 export const createModal = ({
 	open = true,

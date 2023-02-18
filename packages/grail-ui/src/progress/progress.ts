@@ -1,6 +1,6 @@
 import type { ProgressConfig, ProgressReturn } from './progress.types';
 import { derived, writable } from 'svelte/store';
-import { clamp } from '../util/number';
+import { clamp } from '../util/number.js';
 
 export const createProgress = ({
 	minValue = 0,

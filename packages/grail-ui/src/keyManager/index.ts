@@ -1,2 +1,2 @@
-export * from './listKeyManager';
-export * from './listKeyManager.types';
+export * from './listKeyManager.js';
+export * from './listKeyManager.types.js';

@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
 import { get } from 'svelte/store';
-import { createTimeout } from '../timeout';
 import { render } from '@testing-library/svelte';
+import { createTimeout } from '../timeout';
 import TimeoutTest from './TimeoutTest.svelte';
 
 export function promiseTimeout(

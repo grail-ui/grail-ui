@@ -8,11 +8,11 @@ import type {
 	ToastReturn,
 } from './toast.types';
 import { derived, get, readable, writable } from 'svelte/store';
-import { chain } from '../util/chain';
-import { uniqueId } from '../util/id';
-import { ESCAPE } from '../util/keyboard';
-import { addEventListener } from '../eventListener/eventListener';
-import { getToastDuration, msTime$, runIfFn } from './toast.utils';
+import { chain } from '../util/chain.js';
+import { uniqueId } from '../util/id.js';
+import { ESCAPE } from '../util/keyboard.js';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { getToastDuration, msTime$, runIfFn } from './toast.utils.js';
 
 const normalizeOptions = (options: ToastOptions): ToastParams => {
 	const { id = uniqueId('toast'), type = 'info', duration, ...rest } = options;

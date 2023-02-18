@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import type { ScriptTagConfig, ScriptTagReturn } from './scriptTag.types';
 import { get, writable } from 'svelte/store';
-import { noop } from '../util/noop';
-import { isClient } from '../util/is';
-import { toReadable } from '../util/store';
+import { noop } from '../util/noop.js';
+import { isClient } from '../util/is.js';
+import { toReadable } from '../util/store.js';
 
 export const createScriptTag = (options: ScriptTagConfig): ScriptTagReturn => {
 	const defaultDocument = isClient ? window.document : undefined;

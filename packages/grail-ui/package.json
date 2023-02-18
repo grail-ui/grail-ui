@@ -41,6 +41,7 @@
 		"@vitest/coverage-c8": "0.28.5",
 		"c8": "7.12.0",
 		"eslint": "8.34.0",
+		"eslint-plugin-import": "2.27.5",
 		"eslint-plugin-svelte3": "4.0.0",
 		"focus-trap": "7.2.0",
 		"jest-axe": "7.0.0",

@@ -1,16 +1,16 @@
 import type { Action } from 'svelte/action';
 import type { PopoverConfig, PopoverReturn } from './popover.types';
 import { derived, readable, writable } from 'svelte/store';
-import { usePortal } from '../portal';
-import { addEventListener } from '../eventListener/eventListener';
-import { getPlacement, arrowAttrs } from '../floating/placement';
-import { createFocusTrap } from '../focusTrap';
-import { useClickOutside } from '../clickOutside';
-import { chain } from '../util/chain';
-import { uniqueId } from '../util/id';
-import { ESCAPE } from '../util/keyboard';
-import { noop } from '../util/noop';
-import { writableEffect } from '../util/store';
+import { usePortal } from '../portal/portal.js';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { getPlacement, arrowAttrs } from '../floating/placement.js';
+import { createFocusTrap } from '../focusTrap/focusTrap.js';
+import { useClickOutside } from '../clickOutside/clickOutside.js';
+import { chain } from '../util/chain.js';
+import { uniqueId } from '../util/id.js';
+import { ESCAPE } from '../util/keyboard.js';
+import { noop } from '../util/noop.js';
+import { writableEffect } from '../util/store.js';
 
 export const createPopover = ({
 	positioning = {},

@@ -1,7 +1,7 @@
 import type { ClickOutsideConfig } from './clickOutside.types';
 import { get } from 'svelte/store';
-import { isFunction } from '../util/is';
-import documentClickStore from './documentClickStore';
+import { isFunction } from '../util/is.js';
+import documentClickStore from './documentClickStore.js';
 
 export const useClickOutside = (node: HTMLElement, config: ClickOutsideConfig = {}) => {
 	let options = { enabled: true, ...config };

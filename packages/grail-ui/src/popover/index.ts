@@ -1,2 +1,2 @@
-export * from './popover';
-export * from './popover.types';
+export * from './popover.js';
+export * from './popover.types.js';

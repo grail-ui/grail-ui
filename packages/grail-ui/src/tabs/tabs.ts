@@ -1,12 +1,12 @@
 import type { Action } from 'svelte/action';
 import type { TabsConfig, TabsReturn, TabItemState } from './tabs.types';
 import { derived, get, readable, writable } from 'svelte/store';
-import { uniqueId } from '../util/id';
-import { listKeyManager } from '../keyManager/listKeyManager';
-import { addEventListener } from '../eventListener/eventListener';
-import { chain } from '../util/chain';
-import { ENTER, SPACE } from '../util/keyboard';
-import { toReadable, writableEffect } from '../util/store';
+import { uniqueId } from '../util/id.js';
+import { listKeyManager } from '../keyManager/listKeyManager.js';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { chain } from '../util/chain.js';
+import { ENTER, SPACE } from '../util/keyboard.js';
+import { toReadable, writableEffect } from '../util/store.js';
 
 const TABS_ATTRIBUTES = {
 	root: 'data-tabs-root',

@@ -1,8 +1,8 @@
 import type { CreateTimeoutFn, TimeoutConfig, TimeoutReturn } from './timeout.types';
 import { get, writable } from 'svelte/store';
-import { isClient } from '../util/is';
-import { toReadable } from '../util/store';
-import { tryOnDestroy } from '../util/lifecycle';
+import { isClient } from '../util/is.js';
+import { toReadable } from '../util/store.js';
+import { tryOnDestroy } from '../util/lifecycle.js';
 
 export const createTimeout: typeof CreateTimeoutFn = (
 	cb,

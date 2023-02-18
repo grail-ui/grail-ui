@@ -2,9 +2,9 @@ import { vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import { tick } from 'svelte';
 import { createMenu } from '../menu';
 import MenuTest from './MenuTest.svelte';
-import { tick } from 'svelte';
 
 class ResizeObserver {
 	observe = vi.fn();

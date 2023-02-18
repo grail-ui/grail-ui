@@ -1,2 +1,2 @@
-export * from './accordion';
-export * from './accordion.types';
+export * from './accordion.js';
+export * from './accordion.types.js';

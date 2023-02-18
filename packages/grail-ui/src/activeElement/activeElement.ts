@@ -1,8 +1,8 @@
 import type { ActiveElement } from './activeElement.types';
 import { get, readable } from 'svelte/store';
-import { addEventListener } from '../eventListener/eventListener';
-import { noop } from '../util/noop';
-import { isClient } from '../util/is';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { noop } from '../util/noop.js';
+import { isClient } from '../util/is.js';
 
 export const activeElement = readable<HTMLElement | null>(null, (set) => {
 	if (!isClient) return noop;

@@ -1,7 +1,7 @@
 import type { ListKeyManagerConfig, ListKeyManagerReturn } from './listKeyManager.types';
 import { get, writable, type Unsubscriber } from 'svelte/store';
-import { DOWN_ARROW, END, HOME, LEFT_ARROW, RIGHT_ARROW, TAB, UP_ARROW } from '../util/keyboard';
-import typeaheadStore from './typeahead';
+import { DOWN_ARROW, END, HOME, LEFT_ARROW, RIGHT_ARROW, TAB, UP_ARROW } from '../util/keyboard.js';
+import typeaheadStore from './typeahead.js';
 
 export function listKeyManager<T>(options: ListKeyManagerConfig<T>): ListKeyManagerReturn<T> {
 	const {

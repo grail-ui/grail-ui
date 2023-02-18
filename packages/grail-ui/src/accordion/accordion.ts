@@ -1,12 +1,12 @@
 import type { Action } from 'svelte/action';
 import type { AccordionConfig, AccordionReturn, AccordionItemState } from './accordion.types';
 import { derived, get, writable } from 'svelte/store';
-import { uniqueId } from '../util/id';
-import { listKeyManager } from '../keyManager/listKeyManager';
-import { selectionModel } from '../collections/selectionModel';
-import { chain } from '../util/chain';
-import { addEventListener } from '../eventListener/eventListener';
-import { ENTER, SPACE } from '../util/keyboard';
+import { uniqueId } from '../util/id.js';
+import { listKeyManager } from '../keyManager/listKeyManager.js';
+import { selectionModel } from '../collections/selectionModel.js';
+import { chain } from '../util/chain.js';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { ENTER, SPACE } from '../util/keyboard.js';
 
 const ACCORDION_ATTRIBUTES = {
 	item: 'data-accordion-item',

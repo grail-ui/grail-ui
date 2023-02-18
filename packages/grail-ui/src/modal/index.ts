@@ -1,2 +1,2 @@
-export * from './modal';
-export * from './modal.types';
+export * from './modal.js';
+export * from './modal.types.js';

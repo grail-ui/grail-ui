@@ -1,2 +1,2 @@
-export * from './keyStroke.types';
-export * from './keyStroke';
+export * from './keyStroke.types.js';
+export * from './keyStroke.js';
