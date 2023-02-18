@@ -72,6 +72,13 @@ export type ScriptTagConfig = {
 	 * Add custom attribute to the script tag.
 	 */
 	attrs?: Record<string, string>;
+
+	/**
+	 * Whether unload script tag element from the page when component is destroyed.
+	 *
+	 * @defaultValue `true`
+	 */
+	autoUnload?: boolean;
 };
 
 export type ScriptTagReturn = {

@@ -4,6 +4,7 @@ import { get, writable } from 'svelte/store';
 import { noop } from '../util/noop.js';
 import { isClient } from '../util/is.js';
 import { toReadable } from '../util/store.js';
+import { tryOnDestroy, tryOnMount } from '../util/lifecycle.js';
 
 export const createScriptTag = (options: ScriptTagConfig): ScriptTagReturn => {
 	const defaultDocument = isClient ? window.document : undefined;
@@ -19,11 +20,16 @@ export const createScriptTag = (options: ScriptTagConfig): ScriptTagReturn => {
 		defer,
 		document = defaultDocument,
 		attrs = {},
+		autoUnload = true,
 		onLoaded = noop,
 		onError = noop,
 	} = options;
 
-	const scriptTag = writable<HTMLScriptElement | null>(null);
+	function queryScript() {
+		return document?.querySelector<HTMLScriptElement>(`script[src="${url}"]`) ?? null;
+	}
+
+	const scriptTag = writable<HTMLScriptElement | null>(queryScript());
 
 	let _promise: Promise<HTMLScriptElement | false> | null = null;
 
@@ -45,7 +51,7 @@ export const createScriptTag = (options: ScriptTagConfig): ScriptTagReturn => {
 			// Local variable defining if the <script> tag should be appended or not.
 			let shouldAppend = false;
 
-			let script = document.querySelector<HTMLScriptElement>(`script[src="${url}"]`);
+			let script = queryScript();
 
 			// Script tag not found, preparing the element for appending
 			if (!script) {
@@ -117,11 +123,15 @@ export const createScriptTag = (options: ScriptTagConfig): ScriptTagReturn => {
 
 		if (get(scriptTag)) scriptTag.set(null);
 
-		const el = document.querySelector<HTMLScriptElement>(`script[src="${url}"]`);
+		const el = queryScript();
 		if (el) document.head.removeChild(el);
 	};
 
-	if (immediate) load();
+	if (immediate) tryOnMount(load);
+
+	if (autoUnload) {
+		tryOnDestroy(unload);
+	}
 
 	return { scriptTag: toReadable(scriptTag), load, unload };
 };
