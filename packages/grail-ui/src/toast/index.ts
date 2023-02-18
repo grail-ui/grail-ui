@@ -1,2 +1,2 @@
-export * from './toast';
-export * from './toast.types';
+export * from './toast.js';
+export * from './toast.types.js';

@@ -1,9 +1,9 @@
 import type { KeyStrokeConfig } from './keyStroke.types';
 import type { ActionReturn } from 'svelte/action';
-import { addEventListener } from '../eventListener/eventListener';
-import { isClient } from '../util/is';
-import { tryOnDestroy } from '../util/lifecycle';
-import { noop } from '../util/noop';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { isClient } from '../util/is.js';
+import { tryOnDestroy } from '../util/lifecycle.js';
+import { noop } from '../util/noop.js';
 
 const ALIAS: Record<string, string> = { plus: '+' };
 

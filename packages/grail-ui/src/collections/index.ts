@@ -1,2 +1,2 @@
-export * from './selectionModel';
-export * from './selectionModel.types';
+export * from './selectionModel.js';
+export * from './selectionModel.types.js';

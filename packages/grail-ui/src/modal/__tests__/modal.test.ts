@@ -2,8 +2,8 @@ import { vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
-import ModalTest from './ModalTest.svelte';
 import { createModal } from '../modal';
+import ModalTest from './ModalTest.svelte';
 
 describe('Modal', () => {
 	const user = userEvent.setup();

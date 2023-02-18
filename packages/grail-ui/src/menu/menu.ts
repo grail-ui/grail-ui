@@ -2,16 +2,16 @@ import type { Action } from 'svelte/action';
 import type { MenuConfig, MenuReturn } from './menu.types';
 import { tick } from 'svelte';
 import { derived, get, readable, writable } from 'svelte/store';
-import { addEventListener } from '../eventListener/eventListener';
-import { usePortal } from '../portal';
-import { getPlacement } from '../floating/placement';
-import { useClickOutside } from '../clickOutside';
-import { listKeyManager } from '../keyManager/listKeyManager';
-import { chain } from '../util/chain';
-import { uniqueId } from '../util/id';
-import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from '../util/keyboard';
-import { noop } from '../util/noop';
-import { writableEffect } from '../util/store';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { usePortal } from '../portal/portal.js';
+import { getPlacement } from '../floating/placement.js';
+import { useClickOutside } from '../clickOutside/clickOutside.js';
+import { listKeyManager } from '../keyManager/listKeyManager.js';
+import { chain } from '../util/chain.js';
+import { uniqueId } from '../util/id.js';
+import { DOWN_ARROW, ENTER, ESCAPE, SPACE, TAB, UP_ARROW } from '../util/keyboard.js';
+import { noop } from '../util/noop.js';
+import { writableEffect } from '../util/store.js';
 
 const getMenuItems = (parent: HTMLElement) =>
 	Array.from(parent.querySelectorAll<HTMLElement>('[role=menuitem]'));

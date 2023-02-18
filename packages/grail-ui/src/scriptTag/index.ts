@@ -1,2 +1,2 @@
-export * from './scriptTag.types';
-export * from './scriptTag';
+export * from './scriptTag.types.js';
+export * from './scriptTag.js';

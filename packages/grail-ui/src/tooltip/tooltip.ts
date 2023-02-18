@@ -1,14 +1,14 @@
 import type { Action } from 'svelte/action';
 import type { TooltipConfig, TooltipReturn } from './tooltip.types';
 import { derived, readable, writable } from 'svelte/store';
-import { usePortal } from '../portal';
-import { addEventListener } from '../eventListener/eventListener';
-import { getPlacement, arrowAttrs } from '../floating/placement';
-import { createTimeout } from '../timeout';
-import { chain } from '../util/chain';
-import { uniqueId } from '../util/id';
-import { writableEffect } from '../util/store';
-import { noop } from '../util/noop';
+import { usePortal } from '../portal/portal.js';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { getPlacement, arrowAttrs } from '../floating/placement.js';
+import { createTimeout } from '../timeout/timeout.js';
+import { chain } from '../util/chain.js';
+import { uniqueId } from '../util/id.js';
+import { writableEffect } from '../util/store.js';
+import { noop } from '../util/noop.js';
 
 export const createTooltip = ({
 	positioning = {},

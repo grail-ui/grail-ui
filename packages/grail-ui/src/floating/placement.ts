@@ -10,7 +10,7 @@ import {
 	shift,
 	size,
 } from '@floating-ui/dom';
-import { noop } from '../util/noop';
+import { noop } from '../util/noop.js';
 
 const defaultOptions: PositioningOptions = {
 	strategy: 'absolute',

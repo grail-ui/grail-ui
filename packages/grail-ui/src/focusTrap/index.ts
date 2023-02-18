@@ -1,2 +1,2 @@
-export * from './focusTrap.types';
-export * from './focusTrap';
+export * from './focusTrap.types.js';
+export * from './focusTrap.js';

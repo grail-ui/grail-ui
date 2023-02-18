@@ -1,5 +1,5 @@
 import { readable } from 'svelte/store';
-import { addEventListener } from '../eventListener/eventListener';
+import { addEventListener } from '../eventListener/eventListener.js';
 
 export default readable<PointerEvent | undefined>(undefined, (set): (() => void) => {
 	function clicked(event: PointerEvent | undefined) {

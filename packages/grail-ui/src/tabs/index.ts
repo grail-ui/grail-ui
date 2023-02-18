@@ -1,2 +1,2 @@
-export * from './tabs';
-export * from './tabs.types';
+export * from './tabs.js';
+export * from './tabs.types.js';

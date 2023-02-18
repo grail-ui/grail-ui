@@ -1,2 +1,2 @@
-export * from './clipboard';
-export * from './clipboard.types';
+export * from './clipboard.js';
+export * from './clipboard.types.js';

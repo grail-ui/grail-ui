@@ -2,7 +2,7 @@ import type { ActivateOptions, DeactivateOptions, FocusTrap } from 'focus-trap';
 import type { FocusTrapConfig, FocusTrapReturn } from './focusTrap.types';
 import { writable } from 'svelte/store';
 import { createFocusTrap as _createFocusTrap } from 'focus-trap';
-import { toReadable } from '../util/store';
+import { toReadable } from '../util/store.js';
 
 export const createFocusTrap = (config: FocusTrapConfig = {}): FocusTrapReturn => {
 	let trap: undefined | FocusTrap;

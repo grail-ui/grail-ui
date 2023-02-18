@@ -1,15 +1,15 @@
 import type { NumberInputConfig, NumberInputReturn } from './numberInput.types';
 import type { Action } from 'svelte/action';
 import { derived, get, readable, writable } from 'svelte/store';
-import { createKeyStroke } from '../keyStroke/keyStroke';
-import { coerceNumber } from '../coercion/number';
-import { addEventListener } from '../eventListener/eventListener';
-import { chain } from '../util/chain';
-import { noop } from '../util/noop';
-import { uniqueId } from '../util/id';
-import { isClient } from '../util/is';
-import { snapValueToStep } from '../util/number';
-import { observeElement } from './numberInput.utils';
+import { createKeyStroke } from '../keyStroke/keyStroke.js';
+import { coerceNumber } from '../coercion/number.js';
+import { addEventListener } from '../eventListener/eventListener.js';
+import { chain } from '../util/chain.js';
+import { noop } from '../util/noop.js';
+import { uniqueId } from '../util/id.js';
+import { isClient } from '../util/is.js';
+import { snapValueToStep } from '../util/number.js';
+import { observeElement } from './numberInput.utils.js';
 
 const defaultReg = /^[0-9+\-.]$/;
 const defaultPasteReg = /^-?(0|[1-9]\d*)(\.\d+)?$/;

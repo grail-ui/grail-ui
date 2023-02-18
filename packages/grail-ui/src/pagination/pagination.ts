@@ -1,6 +1,6 @@
 import type { PaginationConfig, PaginationItem, PaginationReturn } from './pagination.types';
 import { derived, readable, writable } from 'svelte/store';
-import { writableEffect } from '../util/store';
+import { writableEffect } from '../util/store.js';
 
 export const createPagination = ({
 	boundaryCount = 1,
