@@ -1,5 +1,19 @@
 # @grail-ui/svelte
 
+## 0.8.0
+
+### Minor Changes
+
+- [#95](https://github.com/grail-ui/grail-ui/pull/95) [`7fa21de`](https://github.com/grail-ui/grail-ui/commit/7fa21de12a56cd63c8774f3d4f82b6e13118c26d) Thanks [@bekos](https://github.com/bekos)! - Add active element module
+
+- [#98](https://github.com/grail-ui/grail-ui/pull/98) [`2122939`](https://github.com/grail-ui/grail-ui/commit/212293926c9817cc6a156dde39026249519281e2) Thanks [@tkotsopoulos](https://github.com/tkotsopoulos)! - Add script tag module
+
+- [#100](https://github.com/grail-ui/grail-ui/pull/100) [`35db393`](https://github.com/grail-ui/grail-ui/commit/35db3934261fd45d07a78ebe9899a68724b30b2d) Thanks [@bekos](https://github.com/bekos)! - Support `autoUnload` for script tag
+
+### Patch Changes
+
+- [#99](https://github.com/grail-ui/grail-ui/pull/99) [`96aaa99`](https://github.com/grail-ui/grail-ui/commit/96aaa9946527d94f1098aca252f656c7359d94ea) Thanks [@bekos](https://github.com/bekos)! - Enforce fully specified relative imports as per Node ESM algorithm
+
 ## 0.7.0
 
 ### Minor Changes
