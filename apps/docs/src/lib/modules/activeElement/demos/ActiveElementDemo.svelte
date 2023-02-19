@@ -4,7 +4,7 @@
 	$: activeInputKey = $activeElement?.dataset.key;
 </script>
 
-<div class="min-w-[400px] flex flex-col gap-1">
+<div class="flex flex-col gap-1">
 	<p>Focus the inputs below to see the changes</p>
 	<div class="grid grid-cols-1 md:grid-cols-3 gap-2">
 		{#each [1, 2, 3, 4, 5, 6] as index}
