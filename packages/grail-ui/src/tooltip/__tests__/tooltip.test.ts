@@ -1,6 +1,7 @@
 import { vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/svelte';
 import { axe } from 'jest-axe';
+import userEvent from '@testing-library/user-event';
 import { tick, type ComponentProps } from 'svelte';
 import { advanceTimersAndTick, hover, unhover } from './helpers';
 import TooltipTest from './TooltipTest.svelte';
@@ -195,5 +196,18 @@ describe('tooltip', () => {
 			expect(getTooltip()).not.toBeInTheDocument();
 			expect(spy).not.toHaveBeenCalled();
 		});
+	});
+
+	it('should close on `Escape`', async () => {
+		const { open, getTooltip } = setup();
+
+		await open();
+		expect(getTooltip()).toBeInTheDocument();
+
+		const user = userEvent.setup({ advanceTimers: advanceTimersAndTick });
+		await user.keyboard('{escape}');
+
+		await advanceTimersAndTick(500);
+		expect(getTooltip()).not.toBeInTheDocument();
 	});
 });

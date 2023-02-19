@@ -7,7 +7,7 @@
 
 	const features = [
 		'Show tooltip on hover and focus.',
-		'Hide pointer down.',
+		'Hide on pointer down or by pressing the `Escape` key.',
 		'Labeling support for screen readers.',
 		'Custom delay support.',
 	];

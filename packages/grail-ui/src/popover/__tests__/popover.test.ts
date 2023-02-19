@@ -111,7 +111,7 @@ describe('Popover', () => {
 		const { input } = getOverlayElements();
 		input.focus();
 		expect(input).toHaveFocus();
-		await userEvent.keyboard('{escape}');
+		await user.keyboard('{escape}');
 		expect(getOverlay()).not.toBeInTheDocument();
 		expect(button).toHaveFocus();
 	});
