@@ -28,7 +28,7 @@ function expectStartEnd(expectation: string): void {
 	expect(screen.getByTestId('show').innerHTML).toEqual(expectation);
 }
 
-async function updatePage(component: any, value: number) {
+async function updatePage(component: PaginationTest, value: number) {
 	component.updatePage(value);
 	await tick();
 }

@@ -2,7 +2,7 @@
 	import { formatHtml } from '$lib/demo/demo.utils';
 	import SectionHeader from '$lib/demo/SectionHeader.svelte';
 	import data from '../../docs/api.json';
-	import { getComment, getType, getParameters } from './helpers';
+	import { getParamData, getParameters } from './helpers';
 
 	export let hideDefault = false;
 
@@ -10,20 +10,7 @@
 
 	export let title = definition;
 
-	$: params = getParameters(data as any, definition);
-
-	function getParamData(param: any) {
-		if (param.flags.isPrivate) return;
-
-		const { description = '', blockTags = [] } = getComment(param) || {};
-
-		return {
-			name: `${param.name}${param.flags.isOptional ? '?' : ''}`,
-			description: description ?? '—',
-			defaultValue: blockTags.find((t) => t.name === 'defaultValue')?.text,
-			type: getType(param),
-		};
-	}
+	$: params = getParameters(data, definition);
 
 	// Remove known package types
 	function removePackageType(str: string) {

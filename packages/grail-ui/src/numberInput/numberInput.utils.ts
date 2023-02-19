@@ -16,7 +16,7 @@ export function observeElement(
 			set: function () {
 				const oldValue = this[property];
 				// eslint-disable-next-line prefer-rest-params
-				descriptor?.set?.apply(this, arguments as unknown as [v: any]);
+				descriptor?.set?.apply(this, arguments as unknown as [v: unknown]);
 				const newValue = this[property];
 				if (typeof callback == 'function') {
 					setTimeout(callback.bind(this, oldValue, newValue), delay);

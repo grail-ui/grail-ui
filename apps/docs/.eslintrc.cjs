@@ -19,5 +19,7 @@ module.exports = {
 	},
 	globals: {
 		Twitch: true,
+		__APP_ENV__: true,
+		__NOW__: true,
 	},
 };
