@@ -12,7 +12,20 @@ export function getParameters(data: any, definition: string): string {
 	return params;
 }
 
-export function getComment(node: any): ReturnType<typeof parseComment> | undefined {
+export function getParamData(param: any) {
+	if (param.flags.isPrivate) return;
+
+	const { description = '', blockTags = [] } = getComment(param) || {};
+
+	return {
+		name: `${param.name}${param.flags.isOptional ? '?' : ''}`,
+		description: description ?? '—',
+		defaultValue: blockTags.find((t) => t.name === 'defaultValue')?.text,
+		type: getType(param),
+	};
+}
+
+function getComment(node: any): ReturnType<typeof parseComment> | undefined {
 	let comment;
 	if (node.comment) {
 		comment = node.comment;
@@ -48,7 +61,7 @@ function parseComment(comment: JSONOutput.Comment) {
 	};
 }
 
-export function getType(node: any): string {
+function getType(node: any): string {
 	const typeParser = TypeParser.generateFromTypeDoc(node.type);
 	const typeString = typeParser.toString();
 

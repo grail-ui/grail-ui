@@ -1,5 +1,4 @@
 <script lang="ts">
-	/*global __NOW__, __APP_ENV__*/
 	import GithubIcon from '~icons/mdi/github';
 	import DiscordIcon from '~icons/mdi/discord';
 	import { PUBLIC_DISCORD_URL, PUBLIC_GITHUB_URL, PUBLIC_NPM_URL } from '$env/static/public';

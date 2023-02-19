@@ -12,9 +12,12 @@
 	import { packageManager, setPackageManager } from '$lib/layout/layout.store';
 
 	export let command: 'add' | 'addDev';
-	export let options: any = undefined;
+	export let options: string | string[];
 
-	const frameworks: { label: PackageManager; icon: any }[] = [
+	const frameworks: {
+		label: PackageManager;
+		icon: typeof NpmIcon | typeof PnpmIcon | typeof YarnIcon;
+	}[] = [
 		{ label: 'npm', icon: NpmIcon },
 		{ label: 'pnpm', icon: PnpmIcon },
 		{ label: 'yarn', icon: YarnIcon },

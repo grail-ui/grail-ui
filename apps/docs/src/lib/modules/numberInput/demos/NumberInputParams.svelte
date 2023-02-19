@@ -20,6 +20,7 @@
 
 	/* Firefox */
 	input[type='number'] {
+		appearance: textfield;
 		-moz-appearance: textfield;
 	}
 </style>

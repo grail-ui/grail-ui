@@ -251,6 +251,7 @@ export const createNumberInput = (initConfig: NumberInputConfig = {}): NumberInp
 			target: node,
 		});
 
+		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		observeElement(getInputEl()!, 'value', function () {
 			inputValueChange.update((value) => ++value);
 		});

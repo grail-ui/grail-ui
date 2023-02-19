@@ -5,11 +5,14 @@
 
 	export let data: LayoutData;
 
-	const groupBy = <T, K extends keyof any>(arr: T[], key: (i: T) => K) =>
-		arr.reduce((groups, item) => {
-			(groups[key(item)] ||= []).push(item);
-			return groups;
-		}, {} as Record<K, T[]>);
+	function groupBy<T>(arr: T[], fn: (item: T) => string) {
+		return arr.reduce<Record<string, T[]>>((prev, curr) => {
+			const groupKey = fn(curr);
+			const group = prev[groupKey] || [];
+			group.push(curr);
+			return { ...prev, [groupKey]: group };
+		}, {});
+	}
 
 	const groups: Record<ModuleMetadata['category'], { sort: number; label: string }> = {
 		component: { sort: 1, label: 'Components' },

@@ -3,3 +3,5 @@ export type ModuleMetadata = {
 	description: string;
 	category: 'component' | 'utility';
 };
+
+export type ModuleMetadataWithSlug = ModuleMetadata & { slug: string };

@@ -1,4 +1,4 @@
-import type { ModuleMetadata } from '$lib/modules/modules.types';
+import type { ModuleMetadata, ModuleMetadataWithSlug } from '$lib/modules/modules.types';
 
 export async function load() {
 	const metadata: Record<string, ModuleMetadata> = import.meta.glob(
@@ -9,12 +9,10 @@ export async function load() {
 		}
 	);
 
-	const modules: (ModuleMetadata & { slug: string })[] = Object.entries(metadata).map(
-		([key, value]) => {
-			const slug = key.split('/')[4];
-			return { ...value, slug };
-		}
-	);
+	const modules: ModuleMetadataWithSlug[] = Object.entries(metadata).map(([key, value]) => {
+		const slug = key.split('/')[4];
+		return { ...value, slug };
+	});
 
 	return { modules };
 }

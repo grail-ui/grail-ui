@@ -1,5 +1,5 @@
 <script lang="ts" context="module">
-	const KEY_ICONS: Record<string, any> = {
+	const KEY_ICONS: Record<string, string> = {
 		ArrowDown: '▼',
 		ArrowUp: '▲',
 		ArrowLeft: '◀︎',
@@ -42,8 +42,8 @@
 											{#if icon}
 												{#if typeof icon === 'string'}
 													{icon}
-												{:else}
-													<svelte:component this={icon} />
+													<!-- {:else}
+													<svelte:component this={icon} /> -->
 												{/if}
 											{:else}
 												{_key}
