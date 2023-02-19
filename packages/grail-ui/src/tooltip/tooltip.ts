@@ -7,6 +7,7 @@ import { getPlacement, arrowAttrs } from '../floating/placement.js';
 import { createTimeout } from '../timeout/timeout.js';
 import { chain } from '../util/chain.js';
 import { uniqueId } from '../util/id.js';
+import { ESCAPE } from '../util/keyboard.js';
 import { writableEffect } from '../util/store.js';
 import { noop } from '../util/noop.js';
 
@@ -82,7 +83,13 @@ export const createTooltip = ({
 
 		const removeEvents = chain(
 			addEventListener(element, 'pointerenter', () => show()),
-			addEventListener(element, 'pointerleave', hide)
+			addEventListener(element, 'pointerleave', hide),
+			addEventListener(document, 'keydown', (e: KeyboardEvent) => {
+				if (!e.defaultPrevented && e.key === ESCAPE) {
+					e.preventDefault();
+					hide();
+				}
+			})
 		);
 
 		return {
