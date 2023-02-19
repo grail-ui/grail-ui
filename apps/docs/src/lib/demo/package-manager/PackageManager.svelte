@@ -20,10 +20,11 @@
 		{ label: 'yarn', icon: YarnIcon },
 	];
 
-	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } = createTabs({
-		value: $packageManager,
-		onValueChange: setPackageManager,
-	});
+	const { active, useTabs, rootAttrs, listAttrs, triggerAttrs, contentAttrs } =
+		createTabs<PackageManager>({
+			value: $packageManager,
+			onValueChange: (value) => value && setPackageManager(value),
+		});
 	const { isSupported, copy, copied } = createClipboard();
 
 	let sourceElement: HTMLElement;
@@ -31,16 +32,20 @@
 	$: source = getPackageManagerCommands($active as PackageManager)[command](options);
 </script>
 
-<div class:window={true} class:not-prose={true} {...$$restProps}>
-	<div use:useTabs {...$rootAttrs}>
-		<ul {...$listAttrs} class="frameworks flex">
-			{#each frameworks as framework}
-				<li {...$triggerAttrs(framework.label)} class="flex items-center gap-1.5 text-xs px-3 py-2">
-					<svelte:component this={framework.icon} />
-					{framework.label}
-				</li>
-			{/each}
-		</ul>
+<div use:useTabs class:not-prose={true} {...$rootAttrs} {...$$restProps}>
+	<div {...$listAttrs} class="flex border-b-2 border-base-content/20">
+		{#each frameworks as { label, icon } (label)}
+			<button
+				{...$triggerAttrs(label)}
+				class="tab gap-2 -mb-0.5 border-b-2 border-transparent"
+				class:tab-active={$active === label}
+			>
+				<svelte:component this={icon} />
+				{label}
+			</button>
+		{/each}
+	</div>
+	{#if $active}
 		<div class="relative group min-h-12">
 			<div class="flex-grow text-sm" bind:this={sourceElement}>
 				<div {...$contentAttrs($active)}>
@@ -61,34 +66,5 @@
 				</div>
 			{/if}
 		</div>
-	</div>
+	{/if}
 </div>
-
-<style lang="postcss">
-	.window {
-		overflow: hidden;
-		flex-grow: 1;
-		border-radius: 0.25em;
-		color: #fff;
-		box-shadow: 0 0 2em #0000004d;
-		display: flex;
-		flex-direction: column;
-	}
-
-	.frameworks {
-		background-color: #414339;
-	}
-
-	.frameworks li {
-		cursor: pointer;
-	}
-
-	.frameworks li:hover {
-		background-color: #878787;
-	}
-
-	.frameworks li:global([data-state='active']) {
-		background-color: #ffffff1a;
-		cursor: default;
-	}
-</style>
