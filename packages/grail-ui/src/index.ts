@@ -4,6 +4,7 @@ export * from './clickOutside/index.js';
 export * from './clipboard/index.js';
 export * from './floating/index.js';
 export * from './focusTrap/index.js';
+export * from './hoverCard/index.js';
 export * from './keyStroke/index.js';
 export * from './menu/index.js';
 export * from './modal/index.js';
