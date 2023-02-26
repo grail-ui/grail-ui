@@ -13,7 +13,7 @@
 	<Highlight
 		source={`type TabsKey = 'recent' | 'popular' | 'trending';
 
-const {...} = createAccordion<TabsKey>({ value: 'recent' });
+const {...} = createTabs<TabsKey>({ value: 'recent' });
 
 const data: { key: TabsKey, ... }[] = [
 	...

@@ -10,11 +10,6 @@ export interface TabsConfig<T extends string> {
 	value?: Partial<T>;
 
 	/**
-	 * Event handler called when the active state of the tabs changes.
-	 */
-	onValueChange?: (value: Partial<T> | undefined) => void;
-
-	/**
 	 * The tabs orientation. Affects arrow navigation.
 	 *
 	 * @defaultValue `horizontal`
@@ -34,6 +29,11 @@ export interface TabsConfig<T extends string> {
 	 * @defaultValue `false`
 	 */
 	disabled?: boolean | Partial<T> | Partial<T>[];
+
+	/**
+	 * Event handler called when the active state of the tabs changes.
+	 */
+	onValueChange?: (value: Partial<T> | undefined) => void;
 }
 
 export interface TabsReturn<T extends string> {
