@@ -17,3 +17,4 @@ export * from './scriptTag/index.js';
 export * from './timeout/index.js';
 export * from './toast/index.js';
 export * from './tooltip/index.js';
+export * from './toggle-group/index.js';
