@@ -29,14 +29,13 @@
 	const keyboard = [
 		{
 			key: ['Space', 'Enter'],
-			description: 'When focus is on an `useAccordionTrigger` element, toggles the section.',
+			description: 'When focus is on a `triggerAttrs` element, toggles the section.',
 		},
 		{ key: 'Tab', description: 'Moves focus to the next focusable element.' },
-		{ key: 'Shift + Tab', description: 'Moves focus to the previous focusable element.' },
-		{ key: 'ArrowDown', description: 'Moves focus to the next `useAccordionTrigger` element.' },
-		{ key: 'ArrowUp', description: 'Moves focus to the previous `useAccordionTrigger` element.' },
-		{ key: 'Home', description: 'Moves focus to the first `useAccordionTrigger` element.' },
-		{ key: 'End', description: 'Moves focus to the last `useAccordionTrigger` element.' },
+		{ key: 'ArrowDown', description: 'Moves focus to the next `triggerAttrs` element.' },
+		{ key: 'ArrowUp', description: 'Moves focus to the previous `triggerAttrs` element.' },
+		{ key: 'Home', description: 'Moves focus to the first `triggerAttrs` element.' },
+		{ key: 'End', description: 'Moves focus to the last `triggerAttrs` element.' },
 	];
 </script>
 

@@ -6,6 +6,8 @@ export type AccordionItemState = 'open' | 'closed';
 export interface AccordionConfig<T extends string> {
 	/**
 	 * Allow multiple items to be opened at the same time.
+	 *
+	 * @defaultValue `false`
 	 */
 	multiple?: boolean;
 

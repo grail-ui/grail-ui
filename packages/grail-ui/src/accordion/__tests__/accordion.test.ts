@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import type { AccordionConfig } from '../accordion.types';
 import { describe, beforeEach, expect, it, vi } from 'vitest';
 import { render, within } from '@testing-library/svelte';
