@@ -44,11 +44,10 @@
 </script>
 
 <div
-	class="bg-gradient-to-r from-primary to-blue-500 not-prose relative py-16 px-10 flex flex-col justify-center rounded-t-md min-h-[400px]"
+	class="bg-gradient-to-r from-primary to-blue-500 not-prose relative py-16 px-10 flex flex-col justify-center items-center rounded-t-md min-h-[400px]"
 	class:rounded-b-md={!showSource}
-	data-theme="light"
 >
-	<div class="flex flex-col items-center justify-center bg-transparent">
+	<div class="flex flex-col items-center justify-center bg-transparent max-w-sm w-full">
 		<slot>
 			{#await loadComponent()}
 				<button class="btn btn-ghost loading">Loading...</button>

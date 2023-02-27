@@ -1,10 +1,12 @@
 <script lang="ts">
 	import type { LayoutData } from '$lib/layout/layout.types';
+	import type { Theme } from '$lib/layout/layout.store';
 	import './app.css';
 	import Header from '$lib/layout/Header.svelte';
-	import { theme } from '$lib/layout/layout.store';
+	import { theme, setTheme } from '$lib/layout/layout.store';
 	import Fab from '$lib/layout/Fab.svelte';
 	import Drawer from '$lib/layout/Drawer.svelte';
+	import { browser } from '$app/environment';
 
 	export let data: LayoutData;
 
@@ -14,6 +16,19 @@
 	const domain = 'grail-ui.vercel.app';
 	const deployUrl = `https://${domain}/`;
 	const ogImageUrl = `${deployUrl}og.png`;
+
+	$: if (browser) {
+		if (
+			$theme === 'dark' ||
+			(!$theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			setTheme('dark');
+		} else {
+			setTheme('light');
+		}
+
+		document.documentElement.setAttribute('data-theme', $theme as Theme);
+	}
 </script>
 
 <svelte:head>
@@ -33,7 +48,7 @@
 	<meta name="twitter:image" content={ogImageUrl} />
 </svelte:head>
 
-<div class="flex flex-col min-h-screen {$theme}" data-theme={$theme}>
+<div class="flex flex-col min-h-screen">
 	<div class="sticky top-0 z-40"><Header /></div>
 	<div class="flex flex-col flex-grow">
 		<slot />

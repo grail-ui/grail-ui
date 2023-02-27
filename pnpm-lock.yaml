@@ -36,6 +36,7 @@ importers:
       '@typescript-eslint/parser': 5.52.0
       autoprefixer: 10.4.13
       change-case: 4.1.2
+      clsx: 1.2.1
       daisyui: 2.50.1
       eslint: 8.34.0
       eslint-plugin-svelte3: 4.0.0
@@ -64,6 +65,7 @@ importers:
       '@typescript-eslint/parser': 5.52.0_7kw3g6rralp5ps6mg3uyzz6azm
       autoprefixer: 10.4.13_postcss@8.4.21
       change-case: 4.1.2
+      clsx: 1.2.1
       daisyui: 2.50.1_gbtt6ss3tbiz4yjtvdr6fbrj44
       eslint: 8.34.0
       eslint-plugin-svelte3: 4.0.0_dbthnr4b2bdkhyiebwn7su3hnq
@@ -2008,6 +2010,11 @@ packages:
   /clone/1.0.4:
     resolution: {integrity: sha512-JQHZ2QMW6l3aH/j6xCqQThY/9OH4D/9ls34cgkUBiEeocRTU04tHfKPBsUK1PqZCUQM7GiA0IIXJSuXHI64Kbg==}
     engines: {node: '>=0.8'}
+    dev: true
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
     dev: true
 
   /color-convert/1.9.3:
