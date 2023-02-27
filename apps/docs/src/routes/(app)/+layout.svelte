@@ -22,12 +22,10 @@
 			$theme === 'dark' ||
 			(!$theme && window.matchMedia('(prefers-color-scheme: dark)').matches)
 		) {
-			setTheme('dark');
+			document.documentElement.setAttribute('data-theme', 'dark');
 		} else {
-			setTheme('light');
+			document.documentElement.setAttribute('data-theme', 'light');
 		}
-
-		document.documentElement.setAttribute('data-theme', $theme as Theme);
 	}
 </script>
 
