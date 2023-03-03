@@ -20,16 +20,16 @@
 	let value = '';
 </script>
 
-<div class="flex gap-5 items-center justify-center flex-wrap">
+<div class="flex flex-wrap items-center justify-center gap-5">
 	<div use:useNumberInput class="flex flex-col gap-1">
 		<div class="flex flex-col">
 			<!-- svelte-ignore a11y-label-has-associated-control -->
 			<label class="text-center" {...$labelAttrs}>Enter number:</label>
-			<div class="flex gap-1 scale-90">
+			<div class="flex scale-90 gap-1">
 				<button class="btn text-xl" {...$decrementAttrs}>-</button>
 				<input
-					class="input input-bordered text-xl w-44 text-center {$invalid
-						? 'border-red-600 border-4'
+					class="input input-bordered w-44 text-center text-xl {$invalid
+						? 'border-4 border-red-600'
 						: ''}"
 					type="text"
 					{...$inputAttrs}

@@ -36,11 +36,11 @@
 </script>
 
 <div use:useTabs class:not-prose={true} {...$rootAttrs} {...$$restProps}>
-	<div {...$listAttrs} class="flex border-b-2 border-base-content/20">
+	<div {...$listAttrs} class="border-base-content/20 flex border-b-2">
 		{#each frameworks as { label, icon } (label)}
 			<button
 				{...$triggerAttrs(label)}
-				class="tab gap-2 -mb-0.5 border-b-2 border-transparent"
+				class="tab -mb-0.5 gap-2 border-b-2 border-transparent"
 				class:tab-active={$active === label}
 			>
 				<svelte:component this={icon} />
@@ -49,7 +49,7 @@
 		{/each}
 	</div>
 	{#if $active}
-		<div class="relative group min-h-12">
+		<div class="min-h-12 group relative">
 			<div class="flex-grow text-sm" bind:this={sourceElement}>
 				<div {...$contentAttrs($active)}>
 					{#key $active}

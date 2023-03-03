@@ -15,6 +15,6 @@
 
 <style lang="postcss">
 	.box {
-		@apply w-64 h-44 border border-black flex items-center justify-center text-center p-2 bg-white rounded whitespace-nowrap;
+		@apply flex h-44 w-64 items-center justify-center whitespace-nowrap rounded border border-black bg-white p-2 text-center;
 	}
 </style>

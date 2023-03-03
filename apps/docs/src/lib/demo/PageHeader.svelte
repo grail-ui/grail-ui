@@ -2,5 +2,5 @@
 	export let title: string;
 </script>
 
-<h1 class="font-robotic font-bold mb-4">{title}</h1>
-<div class="text-lg mb-10"><slot /></div>
+<h1 class="font-robotic mb-4 font-bold">{title}</h1>
+<div class="mb-10 text-lg"><slot /></div>

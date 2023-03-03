@@ -5,9 +5,9 @@
 	const uid = `number-input-param-${name}`;
 </script>
 
-<div class="flex gap-1.5 items-center w-full justify-between">
+<div class="flex w-full items-center justify-between gap-1.5">
 	<label for={uid}>{name}:</label>
-	<input id={uid} class="input input-bordered w-20 h-7 text-center" type="number" bind:value />
+	<input id={uid} class="input input-bordered h-7 w-20 text-center" type="number" bind:value />
 </div>
 
 <style>

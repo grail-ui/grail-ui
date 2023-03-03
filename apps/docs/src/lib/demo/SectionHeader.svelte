@@ -4,9 +4,9 @@
 </script>
 
 <svelte:element this={heading} class="group">
-	<a class="relative group mb-4 mt-10" {id} href="#{id}" data-section-header={+heading[1]}
+	<a class="group relative mb-4 mt-10" {id} href="#{id}" data-section-header={+heading[1]}
 		><span
-			class="absolute -left-6 top-1/2 -translate-y-1/2 text-lg opacity-0 group-hover:opacity-70 p-2"
+			class="absolute -left-6 top-1/2 -translate-y-1/2 p-2 text-lg opacity-0 group-hover:opacity-70"
 			>#</span
 		></a
 	>

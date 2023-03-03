@@ -9,12 +9,12 @@
 	}
 </script>
 
-<div class="toast w-96 z-20" {...$groupAttrs}>
+<div class="toast z-20 w-96" {...$groupAttrs}>
 	{#each $toasts as toast (toast.id)}
 		<div>
 			<div in:fly={{ y: 500 }} out:scale={{ duration: 500 }}>
 				<div
-					class="alert alert-{toast.type} shadow-lg relative overflow-hidden"
+					class="alert alert-{toast.type} relative overflow-hidden shadow-lg"
 					use:useToast={toast}
 					{...$rootAttrs(toast)}
 				>
@@ -25,7 +25,7 @@
 							{#if isFinite(toast.duration)}
 								<progress
 									value={$progress(toast)}
-									class="progress progress-{toast.type} w-full absolute left-0 right-0 bottom-0"
+									class="progress progress-{toast.type} absolute left-0 right-0 bottom-0 w-full"
 									max={toast.duration}
 								/>
 							{/if}

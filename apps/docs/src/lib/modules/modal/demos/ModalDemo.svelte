@@ -15,7 +15,7 @@
 		use:useModal
 		{...$modalAttrs}
 		transition:scale={{ duration: 200 }}
-		class="absolute inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl"
+		class="absolute my-8 inline-block w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
 	>
 		<h3 {...$titleAttrs} class="text-lg font-medium leading-6 text-gray-900">Payment successful</h3>
 		<div class="mt-2">
@@ -29,7 +29,7 @@
 			<button
 				type="button"
 				on:click={() => ($open = false)}
-				class="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+				class="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
 				>Got it, thanks!</button
 			>
 		</div>

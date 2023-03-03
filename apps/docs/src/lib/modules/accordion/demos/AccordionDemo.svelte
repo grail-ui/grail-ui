@@ -28,7 +28,7 @@
 		{@const isExpanded = $expanded.has(key)}
 		<li
 			{...$itemAttrs(key)}
-			class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
+			class="collapse-arrow border-base-300 bg-base-100 rounded-box collapse border"
 			class:collapse-open={isExpanded}
 		>
 			<button {...$triggerAttrs(key)} class="collapse-title text-lg font-medium">{title} </button>

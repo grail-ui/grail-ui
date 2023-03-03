@@ -21,8 +21,8 @@
 {#if params}
 	<SectionHeader id={definition} heading="h3">{title}</SectionHeader>
 
-	<div class="overflow-x-auto -mx-4 sm:mx-0 not-prose">
-		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
+	<div class="not-prose -mx-4 overflow-x-auto sm:mx-0">
+		<table class="table-compact md:table-normal table w-full min-w-[540px] sm:min-w-full">
 			<thead>
 				<tr>
 					<th>Property</th>
@@ -38,7 +38,7 @@
 					{#if data}
 						<tr>
 							<th class="align-baseline"><div class="font-robotic badge">{data.name}</div></th>
-							<td class="align-baseline whitespace-normal flex flex-col gap-2">
+							<td class="flex flex-col gap-2 whitespace-normal align-baseline">
 								<div><code>{removePackageType(data.type)}</code></div>
 								<div>{@html formatHtml(data.description)}</div>
 							</td>

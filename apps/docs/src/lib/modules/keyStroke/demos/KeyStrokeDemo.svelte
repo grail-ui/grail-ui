@@ -26,12 +26,12 @@
 	});
 </script>
 
-<div class="bg-white w-full max-w-sm h-32 border overflow-hidden flex items-center justify-center">
+<div class="flex h-32 w-full max-w-sm items-center justify-center overflow-hidden border bg-white">
 	<div
-		class="ball bg-slate-400 w-4 h-4 rounded-full"
+		class="ball h-4 w-4 rounded-full bg-slate-400"
 		style="transform: translate({$translate[0]}px, {$translate[1]}px)"
 	/>
 </div>
-<div class="text-center mt-4">
+<div class="mt-4 text-center">
 	Use the arrow keys or <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd> to control the ball.
 </div>

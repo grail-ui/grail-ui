@@ -45,20 +45,20 @@
 	];
 </script>
 
-<div class="max-w-8xl mx-auto px-4 lg:px-8 prose">
+<div class="max-w-8xl prose mx-auto px-4 lg:px-8">
 	<div class="py-10 md:py-20">
-		<div class="flex flex-col gap-5 max-w-[800px]">
+		<div class="flex max-w-[800px] flex-col gap-5">
 			<h1 class="mb-0">Put control back in developers’ hands.</h1>
-			<h2 class="text-xl md:text-2xl font-bold my-0">
+			<h2 class="my-0 text-xl font-bold md:text-2xl">
 				A set of component primitives, actions and utilities that help you build accessible and high
 				quality Svelte applications faster, while providing a great developer experience.
 			</h2>
 		</div>
 
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 mt-20">
+		<div class="mt-20 grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
 			{#each features as feature}
 				<div>
-					<h3 class="flex items-center gap-1.5 text-xl font-semibold my-0">
+					<h3 class="my-0 flex items-center gap-1.5 text-xl font-semibold">
 						<svelte:component this={feature.icon} />
 						{feature.header}
 					</h3>
@@ -67,17 +67,17 @@
 			{/each}
 		</div>
 
-		<div class="flex flex-col sm:flex-row sm:items-center gap-2 mt-16">
-			<a href="/svelte/getting-started" class="btn sm:btn-lg px-10 flex items-center gap-4"
+		<div class="mt-16 flex flex-col gap-2 sm:flex-row sm:items-center">
+			<a href="/svelte/getting-started" class="btn sm:btn-lg flex items-center gap-4 px-10"
 				>Get started</a
 			>
-			<a href={PUBLIC_GITHUB_URL} class="btn sm:btn-lg px-10 btn-outline flex items-center gap-2"
+			<a href={PUBLIC_GITHUB_URL} class="btn sm:btn-lg btn-outline flex items-center gap-2 px-10"
 				><GithubIcon /> GitHub</a
 			>
 		</div>
 	</div>
 
-	<div class="py-10 md:py-20 flex flex-col gap-24">
+	<div class="flex flex-col gap-24 py-10 md:py-20">
 		<div class="flex gap-x-10">
 			<div class="flex-1">
 				<div class="text-3xl font-bold">The challenge</div>
@@ -107,13 +107,13 @@
 				</div>
 			</div>
 
-			<div class="w-1/3 hidden md:flex justify-center">
-				<img src="/engineering_team.svg" alt="engineering team" class="w-full aspect-[867/443]" />
+			<div class=" hidden w-1/3 justify-center md:flex">
+				<img src="/engineering_team.svg" alt="engineering team" class="aspect-[867/443] w-full" />
 			</div>
 		</div>
 
 		<div class="flex gap-x-10">
-			<div class="w-1/3 hidden md:flex items-center justify-center gap-3">
+			<div class="hidden w-1/3 items-center justify-center gap-3 md:flex">
 				<Logo size="110" class="mr-2" />
 				<span class="font-extrabold" style="font-size: 60px">+</span>
 				<SvelteIcon style="font-size: 90px" />
@@ -150,9 +150,9 @@
 	</div>
 
 	<div
-		class="bg-base-200/30 shadow-xl max-w-2xl mx-auto flex flex-col items-center gap-8 my-12 p-10"
+		class="bg-base-200/30 mx-auto my-12 flex max-w-2xl flex-col items-center gap-8 p-10 shadow-xl"
 	>
-		<div class="text-4xl font-extrabold text-center">
+		<div class="text-center text-4xl font-extrabold">
 			Start building your design system with Grail UI now.
 		</div>
 

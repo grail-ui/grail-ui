@@ -30,6 +30,6 @@
 
 <style lang="postcss">
 	.menu {
-		@apply border bg-base-100 w-56 p-2 rounded-box outline-0 z-20;
+		@apply bg-base-100 rounded-box z-20 w-56 border p-2 outline-0;
 	}
 </style>

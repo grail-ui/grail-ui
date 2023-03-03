@@ -6,14 +6,14 @@
 </script>
 
 <div>
-	<h5 class="text-sm font-bold mb-2 uppercase">{title}</h5>
-	<ul class="flex flex-col gap-px border-l border-base-content/20 z-1">
+	<h5 class="mb-2 text-sm font-bold uppercase">{title}</h5>
+	<ul class="border-base-content/20 z-1 flex flex-col gap-px border-l">
 		{#each links as { href, label } (href)}
 			{@const active = $page.url.pathname.includes(href)}
 			<li>
 				<a
 					{href}
-					class="whitespace-nowrap -ml-px w-full inline-block py-2 px-6 font-medium transition-colors duration-200 text-base-content lg:text-sm rounded-r-sm border-l hover:bg-base-content/10 {active
+					class="text-base-content hover:bg-base-content/10 -ml-px inline-block w-full whitespace-nowrap rounded-r-sm border-l py-2 px-6 font-medium transition-colors duration-200 lg:text-sm {active
 						? 'bg-base-content/10 border-primary'
 						: 'border-transparent'}">{label}</a
 				>
