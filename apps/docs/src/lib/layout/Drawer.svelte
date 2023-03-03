@@ -37,7 +37,7 @@
 {#if $drawerOpen}
 	<div class="fixed inset-0 z-40 lg:hidden" role="dialog" aria-modal="true">
 		<div
-			class="absolute inset-0 bg-base-100/50 backdrop-blur backdrop-filter"
+			class="bg-base-100/50 absolute inset-0 backdrop-blur backdrop-filter"
 			aria-hidden="true"
 			use:useClickOutside={{
 				handler: close,
@@ -47,7 +47,7 @@
 		<div class="absolute inset-0 z-40 flex translate-x-0" transition:fly={{ x: -384, opacity: 1 }}>
 			<div
 				id="drawer-content"
-				class="min-w-0 max-w-sm flex-1 border-r border-base-content/10 bg-base-200/90 backdrop-blur backdrop-filter p-8 overflow-auto"
+				class="border-base-content/10 bg-base-200/90 min-w-0 max-w-sm flex-1 overflow-auto border-r p-8 backdrop-blur backdrop-filter"
 			>
 				<Sections {data} />
 			</div>

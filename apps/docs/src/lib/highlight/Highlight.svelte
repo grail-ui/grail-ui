@@ -18,6 +18,6 @@
 	{@html `<style>${themeCss}</style>`}
 </svelte:head>
 
-<div class="font-mono text-sm not-prose {_class}" {...$$restProps}>
+<div class="not-prose font-mono text-sm {_class}" {...$$restProps}>
 	<HighlightSvelte code={source} {lines} />
 </div>

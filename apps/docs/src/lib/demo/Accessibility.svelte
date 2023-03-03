@@ -20,8 +20,8 @@
 
 {#if keyboard.length > 0}
 	<SectionHeader id="Keyboard-Interactions" heading="h3">Keyboard Interactions</SectionHeader>
-	<div class="overflow-x-auto -mx-4 sm:mx-0 not-prose">
-		<table class="table table-compact md:table-normal w-full min-w-[540px] sm:min-w-full">
+	<div class="not-prose -mx-4 overflow-x-auto sm:mx-0">
+		<table class="table-compact md:table-normal table w-full min-w-[540px] sm:min-w-full">
 			<thead>
 				<tr>
 					<th>Key</th>

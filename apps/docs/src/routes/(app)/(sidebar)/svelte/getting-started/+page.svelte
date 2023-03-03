@@ -12,7 +12,7 @@
 	>
 	<SectionHeader id="Installation">Installation</SectionHeader>
 	<p>Install using your preferred package manager to add to your project:</p>
-	<PackageManager class="max-w-xl mt-3" command="addDev" options="@grail-ui/svelte" />
+	<PackageManager class="mt-3 max-w-xl" command="addDev" options="@grail-ui/svelte" />
 
 	<SectionHeader id="Usage">Usage</SectionHeader>
 	<p>

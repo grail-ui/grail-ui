@@ -19,7 +19,7 @@
 	<section
 		use:usePopover
 		{...$popoverAttrs}
-		class="w-96 bg-base-100 border p-5 shadow-lg z-10"
+		class="bg-base-100 z-10 w-96 border p-5 shadow-lg"
 		transition:fade={{ duration: 200 }}
 	>
 		<div>
@@ -27,7 +27,7 @@
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo possimus praesentium mollitia
 				vero tempore beatae modi sequi!
 			</p>
-			<div class="flex gap-2 justify-end mt-4">
+			<div class="mt-4 flex justify-end gap-2">
 				<button type="button" on:click={() => ($open = false)} class="btn btn-primary">Close</button
 				>
 			</div>

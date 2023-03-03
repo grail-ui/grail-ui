@@ -31,8 +31,8 @@
 	];
 </script>
 
-<footer class="border-t border-base-content/10 bg-base-200/60 prose">
-	<div class="max-w-4xl mx-auto px-4 pt-10 md:pt-20">
+<footer class="border-base-content/10 bg-base-200/60 prose border-t">
+	<div class="mx-auto max-w-4xl px-4 pt-10 md:pt-20">
 		<div class="footer md:place-items-center">
 			<div class="self-start">
 				<div class="flex items-center gap-2 text-lg font-bold">
@@ -46,14 +46,14 @@
 						<a href={link.url}
 							>{link.title}
 							{#if 'external' in link && link.external}<ExternalLinkIcon
-									class="inline-block ml-0.5 text-xs"
+									class="ml-0.5 inline-block text-xs"
 								/>{/if}</a
 						>
 					{/each}
 				</div>
 			{/each}
 		</div>
-		<div class="border-t border-base-content/10 mt-10 py-10 text-sm text-center">
+		<div class="border-base-content/10 mt-10 border-t py-10 text-center text-sm">
 			© 2022 made with ❤ by these awesome <a href={`${PUBLIC_GITHUB_URL}/contributors`}
 				>contributors</a
 			>.<br />Code licensed under the MIT License.

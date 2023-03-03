@@ -34,6 +34,7 @@
 		"commitlint-plugin-workspace-scopes": "1.1.0",
 		"prettier": "2.8.4",
 		"prettier-plugin-svelte": "2.9.0",
+		"prettier-plugin-tailwindcss": "0.2.4",
 		"syncpack": "9.8.4",
 		"tsx": "3.12.3"
 	},

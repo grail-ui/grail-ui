@@ -9,7 +9,7 @@
 	const { usePortal, target } = createPortal({ target: '#c1' });
 </script>
 
-<div class="bg-white p-10 rounded flex flex-col gap-5 w-full max-w-sm">
+<div class="flex w-full max-w-sm flex-col gap-5 rounded bg-white p-10">
 	<div id="c1" class="container">
 		<div class="font-bold">Container 1</div>
 	</div>
@@ -25,7 +25,7 @@
 	{/if}
 </div>
 
-<div class="flex gap-2 mt-4">
+<div class="mt-4 flex gap-2">
 	<button class="btn" type="button" on:click={() => ($target = $target === `#c1` ? `#c2` : `#c1`)}
 		>Move</button
 	>

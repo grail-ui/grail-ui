@@ -44,7 +44,7 @@
 </script>
 
 <div
-	class="bg-gradient-to-r from-primary to-blue-500 not-prose relative py-16 px-10 flex flex-col justify-center rounded-t-md min-h-[400px]"
+	class="from-primary not-prose relative flex min-h-[400px] flex-col justify-center rounded-t-md bg-gradient-to-r to-blue-500 py-16 px-10"
 	class:rounded-b-md={!showSource}
 	data-theme="light"
 >
@@ -58,11 +58,11 @@
 		</slot>
 	</div>
 	<div class="absolute inset-x-0 bottom-0 z-10 m-[2px]">
-		<div class="flex items-stretch justify-end px-2 py-1 gap-1">
+		<div class="flex items-stretch justify-end gap-1 px-2 py-1">
 			<button
 				type="button"
 				on:click={() => (showSource = !showSource)}
-				class="btn btn-sm glass normal-case font-normal text-xs"
+				class="btn btn-sm glass text-xs font-normal normal-case"
 				>{#if showSource}<CodeOffIcon class="mr-1" /> Hide{:else}<CodeIcon class="mr-1" /> Show{/if}
 				code</button
 			>
@@ -70,7 +70,7 @@
 				<button
 					type="button"
 					on:click={() => copy(source)}
-					class="btn btn-sm glass normal-case font-normal text-xs w-24"
+					class="btn btn-sm glass w-24 text-xs font-normal normal-case"
 					>{#if $copied}Copied!{:else}<CopyIcon class="mr-1" />Copy{/if}</button
 				>
 			{/if}
@@ -81,7 +81,7 @@
 				class="btn btn-sm glass"
 				title="Open in StackBlitz"><StackBlitzIcon /></button
 			>
-			<a href={getDemoUrl()} class="btn btn-sm glass normal-case font-normal" title="View demo"
+			<a href={getDemoUrl()} class="btn btn-sm glass font-normal normal-case" title="View demo"
 				><DemoLinkIcon /></a
 			>
 		</div>

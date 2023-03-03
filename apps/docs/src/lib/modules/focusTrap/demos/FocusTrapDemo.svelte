@@ -12,7 +12,7 @@
 
 <form
 	use:useFocusTrap
-	class="shadow-lg border-2 bg-white bg-opacity-5 rounded max-w-96 mx-auto p-8 mt-8"
+	class="max-w-96 mx-auto mt-8 rounded border-2 bg-white bg-opacity-5 p-8 shadow-lg"
 >
 	<input type="text" class="input input-bordered" placeholder="Username" />
 	<input type="email" class="input input-bordered" placeholder="Email" />

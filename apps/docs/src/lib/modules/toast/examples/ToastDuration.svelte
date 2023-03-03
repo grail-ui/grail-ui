@@ -6,7 +6,7 @@
 	Every toast has a default visible duration depending on the <code>type</code> set.
 </p>
 
-<table class="table table-compact">
+<table class="table-compact table">
 	<thead><tr><th>type</th><th>duration</th></tr></thead><tbody
 		><tr><td>info</td><td>5000</td></tr><tr><td>error</td><td>5000</td></tr><tr
 			><td>success</td><td>2000</td></tr

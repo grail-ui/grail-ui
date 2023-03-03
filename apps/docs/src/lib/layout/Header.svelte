@@ -16,12 +16,12 @@
 <svelte:head><meta name="built-at" content={__NOW__} /></svelte:head>
 
 <header
-	class="backdrop-blur flex-none z-50 border-b border-base-content/10 bg-base-100/90 supports-backdrop-blur:bg-white/60"
+	class="border-base-content/10 bg-base-100/90 supports-backdrop-blur:bg-white/60 z-50 flex-none border-b backdrop-blur"
 >
 	<div class="max-w-8xl mx-auto">
-		<div class="py-4 lg:px-8 mx-4 lg:mx-0">
+		<div class="mx-4 py-4 lg:mx-0 lg:px-8">
 			<div class="flex items-center">
-				<a class="mr-3 flex-none overflow-hidden md:w-auto duration-200 items-center" href="/">
+				<a class="mr-3 flex-none items-center overflow-hidden duration-200 md:w-auto" href="/">
 					<div class="flex items-center gap-1.5">
 						<div class="hidden sm:block"><Logo size="30" /></div>
 						<LogoType height={30} />
@@ -30,19 +30,19 @@
 				<!-- svelte-ignore missing-declaration -->
 				<a
 					href={PUBLIC_NPM_URL}
-					class="text-xs leading-5 font-semibold bg-base-content/10 rounded-full py-1 px-3 flex items-center space-x-2 hover:bg-base-content/20"
+					class="bg-base-content/10 hover:bg-base-content/20 flex items-center space-x-2 rounded-full py-1 px-3 text-xs font-semibold leading-5"
 					>v{__APP_ENV__}</a
 				>
 
-				<div class="flex items-center ml-auto">
-					<nav class="hidden md:block text-sm leading-6 font-semibold">
+				<div class="ml-auto flex items-center">
+					<nav class="hidden text-sm font-semibold leading-6 md:block">
 						<ul class="flex space-x-8">
 							{#each navLinks as { href, label } (href)}
 								<li><a class="link-hover" {href}>{label}</a></li>
 							{/each}
 						</ul>
 					</nav>
-					<div class="flex items-center ml-6 gap-4 text-xl">
+					<div class="ml-6 flex items-center gap-4 text-xl">
 						<a
 							href={PUBLIC_DISCORD_URL}
 							class="text-base-content/60 hover:text-base-content"
