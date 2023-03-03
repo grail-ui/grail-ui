@@ -1,10 +1,9 @@
-import type { PlaywrightTestConfig } from '@playwright/experimental-ct-svelte';
-import { devices } from '@playwright/experimental-ct-svelte';
+import { defineConfig, devices } from '@playwright/experimental-ct-svelte';
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
+export default defineConfig({
 	testDir: './src',
 	testMatch: ['*.spec.ts'],
 
@@ -29,6 +28,4 @@ const config: PlaywrightTestConfig = {
 			},
 		},
 	],
-};
-
-export default config;
+});
