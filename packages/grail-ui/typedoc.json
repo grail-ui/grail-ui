@@ -4,5 +4,6 @@
 	"tsconfig": "./tsconfig.json",
 	"excludeExternals": true,
 	"excludeInternal": true,
-	"exclude": ["./src/**/tests/**", "./src/**/__tests__/**", "./src/**/demos/**"]
+	"exclude": ["./src/**/tests/**", "./src/**/__tests__/**", "./src/**/demos/**"],
+	"sort": ["required-first", "source-order", "alphabetical"]
 }
