@@ -8,3 +8,4 @@ packages/**/docs/**
 packages/**/package/**
 apps/docs/src/docs/**
 apps/**/build/**
+.vercel

@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"@iconify/json": "2.2.30",
 		"@stackblitz/sdk": "1.8.2",
-		"@sveltejs/adapter-static": "2.0.1",
+		"@sveltejs/adapter-vercel": "2.3.0",
 		"@sveltejs/kit": "1.9.3",
 		"@tailwindcss/typography": "0.5.9",
 		"@types/js-cookie": "3.0.3",
