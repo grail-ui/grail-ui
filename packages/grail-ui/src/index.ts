@@ -12,6 +12,7 @@ export * from './pagination/index.js';
 export * from './popover/index.js';
 export * from './portal/index.js';
 export * from './progress/index.js';
+export * from './resizeObserver/index.js';
 export * from './tabs/index.js';
 export * from './scriptTag/index.js';
 export * from './timeout/index.js';
