@@ -1,5 +1,15 @@
 # @grail-ui/svelte
 
+## 0.9.0
+
+### Minor Changes
+
+- [#101](https://github.com/grail-ui/grail-ui/pull/101) [`9cbe7e1`](https://github.com/grail-ui/grail-ui/commit/9cbe7e1c326c62af9500762558276fdda1e4baa8) Thanks [@bekos](https://github.com/bekos)! - Tooltip hides on `Escape`
+
+- [#115](https://github.com/grail-ui/grail-ui/pull/115) [`7568ea4`](https://github.com/grail-ui/grail-ui/commit/7568ea40011c88612d839517e00d73f06f3468c9) Thanks [@ihym](https://github.com/ihym)! - Add textarea autosize module
+
+- [#114](https://github.com/grail-ui/grail-ui/pull/114) [`8e51b58`](https://github.com/grail-ui/grail-ui/commit/8e51b585036d41f395b4a853fb0e68da5479eb31) Thanks [@bekos](https://github.com/bekos)! - Add resize observer module
+
 ## 0.8.0
 
 ### Minor Changes
