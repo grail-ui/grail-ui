@@ -1,4 +1,3 @@
-import type { Action } from 'svelte/action';
 import type { Readable } from 'svelte/store';
 
 export type ResizeObserverConfig = {
@@ -45,5 +44,8 @@ export type ResizeObserverReturn = {
 	/**
 	 * Action for the element that needs to be observed.
 	 */
-	useResizeObserver: Action<HTMLElement, ResizeObserverUseConfig>;
+	useResizeObserver: (
+		node: HTMLElement,
+		config?: ResizeObserverUseConfig
+	) => { destroy: VoidFunction };
 };
