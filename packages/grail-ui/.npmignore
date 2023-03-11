@@ -1,4 +1,3 @@
-**/tests/**
-**/__tests__/**
-*.test.ts
-*.spec.ts
+*/__tests__
+*.test.**
+*.spec.**
