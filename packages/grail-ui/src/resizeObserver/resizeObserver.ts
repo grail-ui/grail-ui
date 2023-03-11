@@ -14,19 +14,22 @@ export const createResizeObserver = (config: ResizeObserverConfig = {}): ResizeO
 
 	let uid = 0;
 	const useResizeObserver = (node: HTMLElement, _config: ResizeObserverUseConfig = {}) => {
-		if (!isSupported) return;
+		let observer: ResizeObserver | undefined;
 
 		const localId = `${uid++}`;
 		const { handler: _handler, ..._observerOptions } = _config;
-		const observer = new ResizeObserver(([entry]) => {
-			entries.update((_entries) => ({ ..._entries, [localId]: entry }));
-			_handler?.(entry);
-		});
-		observer.observe(node, { ...observerOptions, ..._observerOptions });
+
+		if (isSupported) {
+			observer = new ResizeObserver(([entry]) => {
+				entries.update((_entries) => ({ ..._entries, [localId]: entry }));
+				_handler?.(entry);
+			});
+			observer.observe(node, { ...observerOptions, ..._observerOptions });
+		}
 
 		return {
 			destroy() {
-				observer.disconnect();
+				observer?.disconnect();
 			},
 		};
 	};
