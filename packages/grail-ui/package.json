@@ -14,8 +14,8 @@
 	],
 	"type": "module",
 	"scripts": {
-		"build": "svelte-kit sync && svelte-package",
-		"prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
+		"build": "svelte-kit sync && svelte-package -i src && publint",
+		"prepublishOnly": "echo 'We cannot publish yet' && exit 1",
 		"test": "vitest run --coverage",
 		"tdd": "vitest",
 		"test-ct": "svelte-kit sync && playwright test -c playwright.config.ts",
@@ -29,7 +29,7 @@
 		"@playwright/experimental-ct-svelte": "1.31.2",
 		"@playwright/test": "1.31.2",
 		"@sveltejs/kit": "1.9.3",
-		"@sveltejs/package": "1.0.2",
+		"@sveltejs/package": "2.0.2",
 		"@testing-library/dom": "9.0.0",
 		"@testing-library/jest-dom": "5.16.5",
 		"@testing-library/svelte": "3.2.2",
@@ -46,7 +46,7 @@
 		"focus-trap": "7.2.0",
 		"jest-axe": "7.0.0",
 		"jsdom": "21.1.0",
-		"micromatch": "4.0.5",
+		"publint": "0.1.10",
 		"svelte": "3.55.1",
 		"svelte-check": "3.0.4",
 		"tslib": "2.5.0",
@@ -63,8 +63,218 @@
 		"focus-trap": "^7.0.0"
 	},
 	"publishConfig": {
-		"access": "public",
-		"directory": "./package"
+		"access": "public"
 	},
-	"repository": "grail-ui/grail-ui.git"
+	"repository": "grail-ui/grail-ui.git",
+	"exports": {
+		"./package.json": "./package.json",
+		"./accordion": {
+			"types": "./dist/accordion/index.d.ts",
+			"svelte": "./dist/accordion/index.js",
+			"default": "./dist/accordion/index.js"
+		},
+		"./activeElement": {
+			"types": "./dist/activeElement/index.d.ts",
+			"svelte": "./dist/activeElement/index.js",
+			"default": "./dist/activeElement/index.js"
+		},
+		"./clickOutside": {
+			"types": "./dist/clickOutside/index.d.ts",
+			"svelte": "./dist/clickOutside/index.js",
+			"default": "./dist/clickOutside/index.js"
+		},
+		"./clipboard": {
+			"types": "./dist/clipboard/index.d.ts",
+			"svelte": "./dist/clipboard/index.js",
+			"default": "./dist/clipboard/index.js"
+		},
+		"./coercion": {
+			"types": "./dist/coercion/index.d.ts",
+			"svelte": "./dist/coercion/index.js",
+			"default": "./dist/coercion/index.js"
+		},
+		"./collections": {
+			"types": "./dist/collections/index.d.ts",
+			"svelte": "./dist/collections/index.js",
+			"default": "./dist/collections/index.js"
+		},
+		"./floating": {
+			"types": "./dist/floating/index.d.ts",
+			"svelte": "./dist/floating/index.js",
+			"default": "./dist/floating/index.js"
+		},
+		"./focusTrap": {
+			"types": "./dist/focusTrap/index.d.ts",
+			"svelte": "./dist/focusTrap/index.js",
+			"default": "./dist/focusTrap/index.js"
+		},
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js",
+			"default": "./dist/index.js"
+		},
+		"./keyManager": {
+			"types": "./dist/keyManager/index.d.ts",
+			"svelte": "./dist/keyManager/index.js",
+			"default": "./dist/keyManager/index.js"
+		},
+		"./keyStroke": {
+			"types": "./dist/keyStroke/index.d.ts",
+			"svelte": "./dist/keyStroke/index.js",
+			"default": "./dist/keyStroke/index.js"
+		},
+		"./menu": {
+			"types": "./dist/menu/index.d.ts",
+			"svelte": "./dist/menu/index.js",
+			"default": "./dist/menu/index.js"
+		},
+		"./modal": {
+			"types": "./dist/modal/index.d.ts",
+			"svelte": "./dist/modal/index.js",
+			"default": "./dist/modal/index.js"
+		},
+		"./numberInput": {
+			"types": "./dist/numberInput/index.d.ts",
+			"svelte": "./dist/numberInput/index.js",
+			"default": "./dist/numberInput/index.js"
+		},
+		"./pagination": {
+			"types": "./dist/pagination/index.d.ts",
+			"svelte": "./dist/pagination/index.js",
+			"default": "./dist/pagination/index.js"
+		},
+		"./popover": {
+			"types": "./dist/popover/index.d.ts",
+			"svelte": "./dist/popover/index.js",
+			"default": "./dist/popover/index.js"
+		},
+		"./portal": {
+			"types": "./dist/portal/index.d.ts",
+			"svelte": "./dist/portal/index.js",
+			"default": "./dist/portal/index.js"
+		},
+		"./progress": {
+			"types": "./dist/progress/index.d.ts",
+			"svelte": "./dist/progress/index.js",
+			"default": "./dist/progress/index.js"
+		},
+		"./resizeObserver": {
+			"types": "./dist/resizeObserver/index.d.ts",
+			"svelte": "./dist/resizeObserver/index.js",
+			"default": "./dist/resizeObserver/index.js"
+		},
+		"./scriptTag": {
+			"types": "./dist/scriptTag/index.d.ts",
+			"svelte": "./dist/scriptTag/index.js",
+			"default": "./dist/scriptTag/index.js"
+		},
+		"./tabs": {
+			"types": "./dist/tabs/index.d.ts",
+			"svelte": "./dist/tabs/index.js",
+			"default": "./dist/tabs/index.js"
+		},
+		"./textareaAutosize": {
+			"types": "./dist/textareaAutosize/index.d.ts",
+			"svelte": "./dist/textareaAutosize/index.js",
+			"default": "./dist/textareaAutosize/index.js"
+		},
+		"./timeout": {
+			"types": "./dist/timeout/index.d.ts",
+			"svelte": "./dist/timeout/index.js",
+			"default": "./dist/timeout/index.js"
+		},
+		"./toast": {
+			"types": "./dist/toast/index.d.ts",
+			"svelte": "./dist/toast/index.js",
+			"default": "./dist/toast/index.js"
+		},
+		"./tooltip": {
+			"types": "./dist/tooltip/index.d.ts",
+			"svelte": "./dist/tooltip/index.js",
+			"default": "./dist/tooltip/index.js"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"svelte": "./dist/index.js",
+	"typesVersions": {
+		">4.0": {
+			"accordion": [
+				"./dist/accordion/index.d.ts"
+			],
+			"activeElement": [
+				"./dist/activeElement/index.d.ts"
+			],
+			"clickOutside": [
+				"./dist/clickOutside/index.d.ts"
+			],
+			"clipboard": [
+				"./dist/clipboard/index.d.ts"
+			],
+			"coercion": [
+				"./dist/coercion/index.d.ts"
+			],
+			"collections": [
+				"./dist/collections/index.d.ts"
+			],
+			"floating": [
+				"./dist/floating/index.d.ts"
+			],
+			"focusTrap": [
+				"./dist/focusTrap/index.d.ts"
+			],
+			"index": [
+				"./dist/index.d.ts"
+			],
+			"keyManager": [
+				"./dist/keyManager/index.d.ts"
+			],
+			"keyStroke": [
+				"./dist/keyStroke/index.d.ts"
+			],
+			"menu": [
+				"./dist/menu/index.d.ts"
+			],
+			"modal": [
+				"./dist/modal/index.d.ts"
+			],
+			"numberInput": [
+				"./dist/numberInput/index.d.ts"
+			],
+			"pagination": [
+				"./dist/pagination/index.d.ts"
+			],
+			"popover": [
+				"./dist/popover/index.d.ts"
+			],
+			"portal": [
+				"./dist/portal/index.d.ts"
+			],
+			"progress": [
+				"./dist/progress/index.d.ts"
+			],
+			"resizeObserver": [
+				"./dist/resizeObserver/index.d.ts"
+			],
+			"scriptTag": [
+				"./dist/scriptTag/index.d.ts"
+			],
+			"tabs": [
+				"./dist/tabs/index.d.ts"
+			],
+			"textareaAutosize": [
+				"./dist/textareaAutosize/index.d.ts"
+			],
+			"timeout": [
+				"./dist/timeout/index.d.ts"
+			],
+			"toast": [
+				"./dist/toast/index.d.ts"
+			],
+			"tooltip": [
+				"./dist/tooltip/index.d.ts"
+			]
+		}
+	}
 }

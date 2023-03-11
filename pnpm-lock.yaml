@@ -87,7 +87,7 @@ importers:
       '@playwright/experimental-ct-svelte': 1.31.2
       '@playwright/test': 1.31.2
       '@sveltejs/kit': 1.9.3
-      '@sveltejs/package': 1.0.2
+      '@sveltejs/package': 2.0.2
       '@testing-library/dom': 9.0.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/svelte': 3.2.2
@@ -104,7 +104,7 @@ importers:
       focus-trap: ^7.0.0
       jest-axe: 7.0.0
       jsdom: 21.1.0
-      micromatch: 4.0.5
+      publint: 0.1.10
       svelte: 3.55.1
       svelte-check: 3.0.4
       tslib: 2.5.0
@@ -119,7 +119,7 @@ importers:
       '@playwright/experimental-ct-svelte': 1.31.2_svelte@3.55.1
       '@playwright/test': 1.31.2
       '@sveltejs/kit': 1.9.3_svelte@3.55.1+vite@4.1.4
-      '@sveltejs/package': 1.0.2_4x7phaipmicbaooxtnresslofa
+      '@sveltejs/package': 2.0.2_4x7phaipmicbaooxtnresslofa
       '@testing-library/dom': 9.0.0
       '@testing-library/jest-dom': 5.16.5
       '@testing-library/svelte': 3.2.2_svelte@3.55.1
@@ -135,7 +135,7 @@ importers:
       eslint-plugin-svelte3: 4.0.0_n4ieifq2d7jq3sqoe474cgqlim
       jest-axe: 7.0.0
       jsdom: 21.1.0
-      micromatch: 4.0.5
+      publint: 0.1.10
       svelte: 3.55.1
       svelte-check: 3.0.4_svelte@3.55.1
       tslib: 2.5.0
@@ -143,7 +143,6 @@ importers:
       typescript: 4.9.5
       vite: 4.1.4
       vitest: 0.29.2_jsdom@21.1.0
-    publishDirectory: ./package
 
 packages:
 
@@ -1126,8 +1125,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/package/1.0.2_4x7phaipmicbaooxtnresslofa:
-    resolution: {integrity: sha512-VY9U+05d9uNFDj7ScKRlHORYlfPSHwJewBjV+V2RsnViexpLFPUrboC9SiPYDCpLnbeqwXerxhO6twGHUBGeIA==}
+  /@sveltejs/package/2.0.2_4x7phaipmicbaooxtnresslofa:
+    resolution: {integrity: sha512-cCOCcO8yMHnhHyaR51nQtvKZ3o/vSU9UYI1EXLT1j2CKNPMuH1/g6JNwKcNNrtQGwwquudc69ZeYy8D/TDNwEw==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     peerDependencies:
@@ -3658,6 +3657,13 @@ packages:
       safer-buffer: 2.1.2
     dev: true
 
+  /ignore-walk/5.0.1:
+    resolution: {integrity: sha512-yemi4pMf51WKT7khInJqAvsIGzoqYXblnsz0ql8tM+yi1EKYTY1evX4NAbJrLL/Aanr2HyZeluqU+Oi7MGHokw==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dependencies:
+      minimatch: 5.1.2
+    dev: true
+
   /ignore/5.2.0:
     resolution: {integrity: sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==}
     engines: {node: '>= 4'}
@@ -4581,6 +4587,29 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
+  /npm-bundled/2.0.1:
+    resolution: {integrity: sha512-gZLxXdjEzE/+mOstGDqR6b0EkhJ+kM6fxM6vUuckuctuVPh80Q6pw/rSZj9s4Gex9GxWtIicO1pc8DB9KZWudw==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dependencies:
+      npm-normalize-package-bin: 2.0.0
+    dev: true
+
+  /npm-normalize-package-bin/2.0.0:
+    resolution: {integrity: sha512-awzfKUO7v0FscrSpRoogyNm0sajikhBWpU0QMrW09AMi9n1PoKU6WaIqUzuJSQnpciZZmJ/jMZ2Egfmb/9LiWQ==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    dev: true
+
+  /npm-packlist/5.1.3:
+    resolution: {integrity: sha512-263/0NGrn32YFYi4J533qzrQ/krmmrWwhKkzwTuM4f/07ug51odoaNjUexxO4vxlzURHcmYMH1QjvHjsNDKLVg==}
+    engines: {node: ^12.13.0 || ^14.15.0 || >=16.0.0}
+    hasBin: true
+    dependencies:
+      glob: 8.1.0
+      ignore-walk: 5.0.1
+      npm-bundled: 2.0.1
+      npm-normalize-package-bin: 2.0.0
+    dev: true
+
   /npm-run-path/4.0.1:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
@@ -5054,6 +5083,16 @@ packages:
 
   /psl/1.9.0:
     resolution: {integrity: sha512-E/ZsdU4HLs/68gYzgGTkMicWTLPdAftJLfJFlLUAAKZGkStNU72sZjT66SnMDVOfOWY/YAoiD7Jxa9iHvngcag==}
+    dev: true
+
+  /publint/0.1.10:
+    resolution: {integrity: sha512-maW+K+S1cN7//l3dfZjgVKczDRyytMNeFryp7TyFJMmqAq6dQRycTyT9x5/Nc8N5yIeSc6G2H96iOShKW1M4mQ==}
+    engines: {node: '>=16'}
+    hasBin: true
+    dependencies:
+      npm-packlist: 5.1.3
+      picocolors: 1.0.0
+      sade: 1.8.1
     dev: true
 
   /punycode/2.1.1:
