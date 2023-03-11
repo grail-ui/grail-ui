@@ -5,7 +5,7 @@ import { copyFileSync } from 'fs';
 execSync('pnpm --filter=@grail-ui/svelte build', { stdio: 'inherit' });
 
 // Copy README
-copyFileSync('./README.md', './packages/grail-ui/package/README.md');
+copyFileSync('./README.md', './packages/grail-ui/README.md');
 
 // Publish
 execSync('pnpm changeset publish', { stdio: 'inherit' });
