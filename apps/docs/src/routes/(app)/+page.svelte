@@ -107,7 +107,7 @@
 				</div>
 			</div>
 
-			<div class=" hidden w-1/3 justify-center md:flex">
+			<div class="hidden w-1/3 justify-center md:flex">
 				<img src="/engineering_team.svg" alt="engineering team" class="aspect-[867/443] w-full" />
 			</div>
 		</div>

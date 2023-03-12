@@ -43,6 +43,7 @@ p pre[data-language] {
 }
 [data-theme] ::-webkit-scrollbar {
 	width: 5px;
+	height: 5px;
 }
 [data-theme] ::-webkit-scrollbar-thumb {
 	border-radius: 5px;

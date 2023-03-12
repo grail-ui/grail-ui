@@ -8,5 +8,8 @@ export const handle: Handle = ({ event, resolve }) => {
 	} catch {
 		event.locals[PREFERENCES_KEY] = undefined;
 	}
-	return resolve(event);
+	return resolve(event, {
+		transformPageChunk: ({ html }) =>
+			html.replace('%theme%', event.locals[PREFERENCES_KEY]?.theme ?? ''),
+	});
 };

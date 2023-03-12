@@ -24,5 +24,3 @@
 		{/each}
 	</div>
 </nav>
-
-<div>{$start} - {$end} of {$total}</div>

@@ -6,10 +6,14 @@
 	let input: string;
 </script>
 
-<div class="min-w-[400px] rounded bg-white p-5">
-	<p>Current copied: <code class="bg-gray-300 p-1 text-sm">{$text || 'none'}</code></p>
-	<input bind:value={input} type="text" class="input input-bordered mt-4" />
-	<button on:click={() => copy(input)} class="btn">
-		{$copied ? 'Copied!' : 'Copy'}
-	</button>
+<div class="border-base-content/20 bg-base-100 w-full rounded border p-8">
+	<div class="flex flex-col gap-3">
+		<p>Current copied: {$text || '-'}</p>
+		<div class="flex gap-4">
+			<input bind:value={input} type="text" class="input input-bordered flex-1" />
+			<button on:click={() => copy(input)} class="btn">
+				{$copied ? 'Copied!' : 'Copy'}
+			</button>
+		</div>
+	</div>
 </div>

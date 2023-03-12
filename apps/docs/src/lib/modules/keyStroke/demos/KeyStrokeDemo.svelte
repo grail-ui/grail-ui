@@ -26,12 +26,14 @@
 	});
 </script>
 
-<div class="flex h-32 w-full max-w-sm items-center justify-center overflow-hidden border bg-white">
-	<div
-		class="ball h-4 w-4 rounded-full bg-slate-400"
-		style="transform: translate({$translate[0]}px, {$translate[1]}px)"
-	/>
-</div>
-<div class="mt-4 text-center">
-	Use the arrow keys or <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd> to control the ball.
+<div class="border-base-content/20 bg-base-100 flex flex-col rounded border">
+	<div class="flex h-32 w-full max-w-sm items-center justify-center overflow-hidden">
+		<div
+			class="ball h-4 w-4 rounded-full bg-slate-400"
+			style="transform: translate({$translate[0]}px, {$translate[1]}px)"
+		/>
+	</div>
+	<div class="border-base-content/20 border-t p-2 text-center text-sm">
+		Use the arrow keys or <kbd>W</kbd>, <kbd>A</kbd>, <kbd>S</kbd>, <kbd>D</kbd> to control the ball.
+	</div>
 </div>

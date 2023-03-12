@@ -44,11 +44,10 @@
 </script>
 
 <div
-	class="from-primary not-prose relative flex min-h-[400px] flex-col justify-center rounded-t-md bg-gradient-to-r to-blue-500 py-16 px-10"
+	class="not-prose from-primary relative flex min-h-[400px] flex-col items-center justify-center rounded-t-md bg-gradient-to-r to-blue-500 py-16 px-10"
 	class:rounded-b-md={!showSource}
-	data-theme="light"
 >
-	<div class="flex flex-col items-center justify-center bg-transparent">
+	<div class="flex w-full max-w-sm flex-col items-center justify-center bg-transparent">
 		<slot>
 			{#await loadComponent()}
 				<button class="btn btn-ghost loading">Loading...</button>
@@ -90,6 +89,6 @@
 
 {#if showSource}
 	<div in:fade>
-		<Highlight {source} class="box-border max-h-96 overflow-y-auto" />
+		<Highlight {source} class="box-border overflow-x-auto" />
 	</div>
 {/if}

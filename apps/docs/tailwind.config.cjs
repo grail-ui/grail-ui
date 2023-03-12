@@ -2,10 +2,13 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 const themes = require('daisyui/src/colors/themes');
 const sharedTheme = {
 	'--rounded-btn': '0.5rem',
+	'--rounded-box': '0.25rem',
+	'--rounded-badge': '0.125rem',
 };
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+	darkMode: ['class', '[data-theme="dark"]'],
 	content: ['./src/**/*.{html,js,svelte,ts}'],
 	theme: {
 		extend: {

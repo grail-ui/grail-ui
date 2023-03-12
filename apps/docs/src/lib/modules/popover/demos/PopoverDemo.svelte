@@ -19,7 +19,7 @@
 	<section
 		use:usePopover
 		{...$popoverAttrs}
-		class="bg-base-100 z-10 w-96 border p-5 shadow-lg"
+		class="bg-base-100 z-10 w-96 p-5 shadow-lg"
 		transition:fade={{ duration: 200 }}
 	>
 		<div>
