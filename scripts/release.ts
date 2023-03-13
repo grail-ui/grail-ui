@@ -6,7 +6,7 @@ execSync('pnpm --filter=@grail-ui/svelte build', { stdio: 'inherit' });
 
 // Copy files before publish
 copyFileSync('./README.md', './packages/grail-ui/README.md');
-copyFileSync('./.npmignore', './packages/grail-ui/dist/.npmignore');
+copyFileSync('./packages/grail-ui/.npmignore', './packages/grail-ui/dist/.npmignore');
 
 // Publish
 execSync('pnpm changeset publish', { stdio: 'inherit' });
