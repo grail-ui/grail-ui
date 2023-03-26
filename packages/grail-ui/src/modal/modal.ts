@@ -73,15 +73,8 @@ export const createModal = ({
 			}
 		});
 
-		let destroyed = false;
 		return {
 			destroy() {
-				// Make sure that destroy is not called twice
-				if (destroyed) {
-					return;
-				}
-				destroyed = true;
-
 				focusTrapAction?.destroy?.();
 				portalAction?.destroy?.();
 				clickOutsideAction?.destroy?.();
