@@ -65,8 +65,9 @@ export const createModal = ({
 
 		const unsubscribe = open$.subscribe(async (value) => {
 			if (value) {
+				// Delay activating trap, for DOM structure to settle
 				await tick();
-				activate();
+				setTimeout(async () => activate(), 50);
 			} else {
 				deactivate();
 			}
