@@ -196,6 +196,7 @@
 	"files": [
 		"dist"
 	],
+	"main": "./dist/index.js",
 	"svelte": "./dist/index.js",
 	"typesVersions": {
 		">4.0": {
