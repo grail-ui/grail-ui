@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.9.1
+
+### Patch Changes
+
+- [#118](https://github.com/grail-ui/grail-ui/pull/118) [`3965687`](https://github.com/grail-ui/grail-ui/commit/3965687515beaaa745424d2e44ece05120ad12cd) Thanks [@bekos](https://github.com/bekos)! - Popover closes when clicking any descendant
+
 ## 0.9.0
 
 ### Minor Changes
