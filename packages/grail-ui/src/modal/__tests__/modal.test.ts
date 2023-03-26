@@ -2,14 +2,27 @@ import { vi } from 'vitest';
 import { render, screen } from '@testing-library/svelte';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
+import { tick } from 'svelte';
 import { createModal } from '../modal';
 import ModalTest from './ModalTest.svelte';
 
 describe('Modal', () => {
 	const user = userEvent.setup();
 
+	async function advanceOpenDelay<T = unknown>(fn: () => T) {
+		vi.useFakeTimers();
+		const result = fn();
+		await tick();
+		vi.runAllTimers();
+		vi.useRealTimers();
+
+		return result;
+	}
+
 	async function triggerOpen() {
-		await user.click(screen.getByTestId('trigger'));
+		await advanceOpenDelay(() => {
+			screen.getByTestId('trigger').click();
+		});
 	}
 
 	it('should show/hide & have no accessibility violations', async () => {
@@ -66,8 +79,10 @@ describe('Modal', () => {
 			const spy = vi.fn();
 			document.addEventListener('keydown', spy);
 
-			const api = createModal({ portal: null, open: true });
-			await render(ModalTest, { api });
+			advanceOpenDelay(async () => {
+				const api = createModal({ portal: null, open: true });
+				await render(ModalTest, { api });
+			});
 
 			await userEvent.keyboard('{escape}');
 			expect(screen.queryByTestId('modal')).not.toBeVisible();
@@ -75,8 +90,10 @@ describe('Modal', () => {
 		});
 
 		it('should not close if desired', async () => {
-			const api = createModal({ portal: null, open: true, keyboardDismissible: false });
-			await render(ModalTest, { api });
+			advanceOpenDelay(async () => {
+				const api = createModal({ portal: null, open: true, keyboardDismissible: false });
+				await render(ModalTest, { api });
+			});
 
 			await userEvent.keyboard('{escape}');
 			expect(screen.queryByTestId('modal')).toBeVisible();
@@ -99,8 +116,12 @@ describe('Modal', () => {
 	});
 
 	it('should update keyboard dismissible', async () => {
-		const api = createModal({ open: true, keyboardDismissible: true });
-		render(ModalTest, { api });
+		const api = await advanceOpenDelay(async () => {
+			const api = createModal({ open: true, keyboardDismissible: true });
+			render(ModalTest, { api });
+			return api;
+		});
+
 		expect(screen.queryByTestId('modal')).toBeVisible();
 
 		api.keyboardDismissible.set(false);
