@@ -28,15 +28,15 @@
 	},
 	"devDependencies": {
 		"@changesets/changelog-github": "0.4.8",
-		"@changesets/cli": "2.26.0",
-		"@commitlint/cli": "17.4.4",
+		"@changesets/cli": "2.26.1",
+		"@commitlint/cli": "17.5.0",
 		"@commitlint/config-conventional": "17.4.4",
 		"commitlint-plugin-workspace-scopes": "1.1.0",
-		"prettier": "2.8.4",
-		"prettier-plugin-svelte": "2.9.0",
-		"prettier-plugin-tailwindcss": "0.2.4",
+		"prettier": "2.8.7",
+		"prettier-plugin-svelte": "2.10.0",
+		"prettier-plugin-tailwindcss": "0.2.5",
 		"syncpack": "9.8.4",
-		"tsx": "3.12.3"
+		"tsx": "3.12.6"
 	},
 	"engines": {
 		"node": ">=16",
