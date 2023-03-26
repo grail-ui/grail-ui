@@ -34,7 +34,7 @@
 		<div use:usePopover {...$popoverAttrs} data-testid="overlay">
 			Popover
 			<input type="text" data-testid="input" />
-			<div data-testid="close" {...$closeButtonAttrs} />
+			<div data-testid="close" {...$closeButtonAttrs}><span>X</span></div>
 			{#if hasArrow}
 				<div data-testid="arrow" {...$arrowAttrs} />
 			{/if}
