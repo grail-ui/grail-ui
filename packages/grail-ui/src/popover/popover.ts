@@ -32,7 +32,8 @@ export const createPopover = ({
 		'aria-controls': id,
 	}));
 	const popoverAttrs = readable({ id: id, role: 'dialog', tabindex: '-1' });
-	const closeButtonAttrs = readable({ id: `${id}-close` });
+	const closeId = `${id}-close`;
+	const closeButtonAttrs = readable({ id: closeId });
 
 	function setupPlacement(triggerElement: HTMLElement, overlayElement: HTMLElement) {
 		cleanup();
@@ -103,7 +104,8 @@ export const createPopover = ({
 				}
 			}),
 			addEventListener(element, 'click', async (e: MouseEvent) => {
-				if (!e.defaultPrevented && (e.target as Element).id === `${id}-close`) {
+				if (e.defaultPrevented || !(e.target instanceof Element)) return;
+				if (e.target.id === closeId || element.querySelector(`#${closeId}`)?.contains(e.target)) {
 					hide(true);
 				}
 			})

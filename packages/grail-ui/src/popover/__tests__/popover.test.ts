@@ -104,6 +104,15 @@ describe('Popover', () => {
 		expect(button).toHaveFocus();
 	});
 
+	it('should support close button and descendants', async () => {
+		const { button, getOverlayElements, getOverlay } = setup({ isOpen: true });
+
+		const { closeButton } = getOverlayElements();
+		await user.click(closeButton.querySelector('span') as HTMLElement);
+		expect(getOverlay()).not.toBeInTheDocument();
+		expect(button).toHaveFocus();
+	});
+
 	it('should close on `Escape`', async () => {
 		const { button, getOverlayElements, getOverlay, open } = setup();
 
