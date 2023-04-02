@@ -1,5 +1,13 @@
 # @grail-ui/svelte
 
+## 0.9.2
+
+### Patch Changes
+
+- [#121](https://github.com/grail-ui/grail-ui/pull/121) [`de9f9e3`](https://github.com/grail-ui/grail-ui/commit/de9f9e35cf591684ecd440250c61a0040d070572) Thanks [@bekos](https://github.com/bekos)! - Modal: delay focus trap activation to prevent edge case issues
+
+- [#125](https://github.com/grail-ui/grail-ui/pull/125) [`adb8657`](https://github.com/grail-ui/grail-ui/commit/adb86570711a124b9934911c50d6f31689ea7046) Thanks [@bekos](https://github.com/bekos)! - Menu item triggers when clicking any descendant
+
 ## 0.9.1
 
 ### Patch Changes
