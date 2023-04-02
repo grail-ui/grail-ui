@@ -174,10 +174,11 @@ export const createMenu = <T extends string>({
 			if (!onSelect) return;
 
 			const { target } = event;
-			if (target instanceof HTMLElement && target.getAttribute('role') === 'menuitem') {
+			const menuItem = target instanceof Element && target.closest('[role=menuitem]');
+			if (menuItem instanceof HTMLElement) {
 				event.preventDefault();
-				if (!skipPredicate(target)) {
-					onSelect(target.getAttribute('data-item-id') as T);
+				if (!skipPredicate(menuItem)) {
+					onSelect(menuItem.getAttribute('data-item-id') as T);
 				}
 			}
 		};

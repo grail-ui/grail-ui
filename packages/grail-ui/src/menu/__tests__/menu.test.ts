@@ -214,4 +214,14 @@ describe('Menu', () => {
 		await user.click(items[1]);
 		expect(spy).not.toHaveBeenCalledWith('2');
 	});
+
+	it('should call `onSelect` when clicking any descendant', async () => {
+		const spy = vi.fn();
+		const { getMenuItems } = setup(createMenu({ open: true, onSelect: spy }));
+
+		const items = getMenuItems();
+
+		await user.click(items[4].querySelector('span') as HTMLElement);
+		expect(spy).toHaveBeenCalledWith('5');
+	});
 });

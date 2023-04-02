@@ -20,7 +20,7 @@
 			<li role="presentation"><a href="/3" {...$itemAttrs('3')}>Item 2</a></li>
 			<li {...$separatorAttrs} />
 			<li role="presentation"><a href="/4" {...$itemAttrs('4')}>Item 4</a></li>
-			<li role="presentation"><a href="/5" {...$itemAttrs('5')}>Item 5</a></li>
+			<li role="presentation"><a href="/5" {...$itemAttrs('5')}><span>Icon</span> Item 5</a></li>
 		</ul>
 	{/if}
 </div>
