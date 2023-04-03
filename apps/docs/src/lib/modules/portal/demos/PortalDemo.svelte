@@ -9,13 +9,13 @@
 	const { usePortal, target } = createPortal({ target: '#c1' });
 </script>
 
-<div class="flex w-full max-w-sm flex-col gap-5 rounded bg-white p-10">
-	<div id="c1" class="container">
-		<div class="font-bold">Container 1</div>
+<div class="bg-base-100 border-base-content/20 flex w-full max-w-sm flex-col rounded border p-8">
+	<div id="c1" class="border-base-content/20 h-16 border p-2">
+		<div>Container 1</div>
 	</div>
 	<div class="divider" />
-	<div id="c2" class="container">
-		<div class="font-bold">Container 2</div>
+	<div id="c2" class="border-base-content/20 h-16 border p-2">
+		<div>Container 2</div>
 	</div>
 
 	{#if visible}
@@ -31,9 +31,3 @@
 	>
 	<button class="btn" type="button" on:click={() => (visible = !visible)}>Toggle</button>
 </div>
-
-<style lang="postcss">
-	.container {
-		@apply h-16 border-2 p-2;
-	}
-</style>

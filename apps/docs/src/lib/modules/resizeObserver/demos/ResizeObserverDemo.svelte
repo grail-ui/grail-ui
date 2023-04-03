@@ -8,13 +8,11 @@
 	}
 </script>
 
-<textarea use:useResizeObserver readonly>{printDimensions($entries[0])}</textarea>
-<textarea use:useResizeObserver readonly>{printDimensions($entries[1])}</textarea>
-
-<style>
-	textarea {
-		resize: both;
-		border: 2px solid black;
-		margin-bottom: 10px;
-	}
-</style>
+<div class="flex flex-col gap-4">
+	<textarea class="textarea textarea-bordered resize" use:useResizeObserver readonly
+		>{printDimensions($entries[0])}</textarea
+	>
+	<textarea class="textarea textarea-bordered resize" use:useResizeObserver readonly
+		>{printDimensions($entries[1])}</textarea
+	>
+</div>

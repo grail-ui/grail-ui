@@ -13,5 +13,7 @@
 	};
 </script>
 
-<p class="my-6">{text}</p>
-<button type="button" class="btn" disabled={$isPending} on:click={restart}>Start again</button>
+<div class="border-base-content/20 bg-base-100 flex w-full flex-col gap-6 rounded border p-8">
+	<p>{text}</p>
+	<button type="button" class="btn" disabled={$isPending} on:click={restart}>Start again</button>
+</div>

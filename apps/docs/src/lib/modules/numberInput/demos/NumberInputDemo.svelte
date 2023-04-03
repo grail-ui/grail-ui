@@ -20,7 +20,9 @@
 	let value = '';
 </script>
 
-<div class="flex flex-wrap items-center justify-center gap-5">
+<div
+	class="border-base-content/20 bg-base-100 flex flex-wrap items-center justify-center gap-5 rounded border p-8"
+>
 	<div use:useNumberInput class="flex flex-col gap-1">
 		<div class="flex flex-col">
 			<!-- svelte-ignore a11y-label-has-associated-control -->

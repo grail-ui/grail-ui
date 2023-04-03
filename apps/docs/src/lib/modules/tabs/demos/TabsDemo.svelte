@@ -24,7 +24,7 @@
 	];
 </script>
 
-<div use:useTabs class="flex flex-col rounded-lg bg-slate-100 p-4" {...$rootAttrs}>
+<div use:useTabs class="bg-base-100 flex flex-col rounded-lg p-4" {...$rootAttrs}>
 	<div {...$listAttrs} class="tabs tabs-boxed">
 		{#each data as { key, title } (key)}
 			<button class="tab" class:tab-active={$active === key} {...$triggerAttrs(key)}>{title}</button
