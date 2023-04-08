@@ -36,7 +36,7 @@ describe('tooltip', () => {
 				await hover(button);
 				return screen.getByTestId('tooltip');
 			},
-			async close(ms = 500) {
+			async close(ms = 0) {
 				unhover(button);
 				await advanceTimersAndTick(ms);
 			},
@@ -63,7 +63,7 @@ describe('tooltip', () => {
 		expect(tooltip).toHaveTextContent('My tooltip');
 		await expectNoViolations();
 
-		await close();
+		await close(500);
 		expect(getTooltip()).not.toBeInTheDocument();
 	});
 
@@ -122,7 +122,7 @@ describe('tooltip', () => {
 		const tooltip = await open();
 		expect(button).toHaveAttribute('aria-describedby', tooltip.id);
 
-		await close();
+		await close(500);
 		expect(button).not.toHaveAttribute('aria-describedby');
 	});
 
@@ -136,7 +136,7 @@ describe('tooltip', () => {
 		expect(spy).toHaveBeenCalledTimes(1);
 		expect(spy).toHaveBeenLastCalledWith(true);
 
-		await close();
+		await close(500);
 		expect(spy).toHaveBeenLastCalledWith(false);
 	});
 
@@ -196,18 +196,25 @@ describe('tooltip', () => {
 			expect(getTooltip()).not.toBeInTheDocument();
 			expect(spy).not.toHaveBeenCalled();
 		});
+
+		it('close', async () => {
+			const { open, close, getTooltip } = setup({ closeDelay: 50 });
+
+			await open();
+			expect(getTooltip()).toBeInTheDocument();
+
+			await close(50);
+			expect(getTooltip()).not.toBeInTheDocument();
+		});
 	});
 
 	it('should close on `Escape`', async () => {
 		const { open, getTooltip } = setup();
-
 		await open();
 		expect(getTooltip()).toBeInTheDocument();
 
 		const user = userEvent.setup({ advanceTimers: advanceTimersAndTick });
 		await user.keyboard('{escape}');
-
-		await advanceTimersAndTick(500);
 		expect(getTooltip()).not.toBeInTheDocument();
 	});
 });

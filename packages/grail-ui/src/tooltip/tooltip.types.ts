@@ -18,6 +18,13 @@ export type TooltipConfig = {
 	openDelay?: number;
 
 	/**
+	 * The duration from when the mouse leaves a trigger until hide is triggered.
+	 *
+	 * @defaultValue `500`
+	 */
+	closeDelay?: number;
+
+	/**
 	 * Where to place the floating element relative to its reference element.
 	 */
 	positioning?: Partial<PositioningOptions>;
