@@ -30,7 +30,7 @@
 				<!-- svelte-ignore missing-declaration -->
 				<a
 					href={PUBLIC_NPM_URL}
-					class="bg-base-content/10 hover:bg-base-content/20 flex items-center space-x-2 rounded-full py-1 px-3 text-xs font-semibold leading-5"
+					class="bg-base-content/10 hover:bg-base-content/20 flex items-center space-x-2 rounded-full px-3 py-1 text-xs font-semibold leading-5"
 					>v{__APP_ENV__}</a
 				>
 

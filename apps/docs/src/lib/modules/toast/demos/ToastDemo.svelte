@@ -25,7 +25,7 @@
 							{#if isFinite(toast.duration)}
 								<progress
 									value={$progress(toast)}
-									class="progress progress-{toast.type} absolute left-0 right-0 bottom-0 w-full"
+									class="progress progress-{toast.type} absolute bottom-0 left-0 right-0 w-full"
 									max={toast.duration}
 								/>
 							{/if}
