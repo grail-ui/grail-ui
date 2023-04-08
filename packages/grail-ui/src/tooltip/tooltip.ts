@@ -15,6 +15,7 @@ export const createTooltip = ({
 	positioning = {},
 	open = false,
 	openDelay = 1000,
+	closeDelay = 500,
 	portal = 'body',
 	onOpenChange,
 }: TooltipConfig = {}): TooltipReturn => {
@@ -38,13 +39,13 @@ export const createTooltip = ({
 		delay: delayShowTimer,
 	} = createTimeout(() => open$.set(true), 0, { immediate: false });
 
-	const { start: startHideTimer, stop: stopHideTimer } = createTimeout(
-		() => open$.set(false),
-		500,
-		{
-			immediate: false,
-		}
-	);
+	const {
+		start: startHideTimer,
+		stop: stopHideTimer,
+		delay: delayHideTimer,
+	} = createTimeout(() => open$.set(false), closeDelay, {
+		immediate: false,
+	});
 
 	const tooltipElement$ = writable<HTMLElement | null>(null);
 
@@ -53,7 +54,7 @@ export const createTooltip = ({
 			addEventListener(element, 'focus', () => show()),
 			addEventListener(element, 'blur', hide),
 			addEventListener(element, 'pointerenter', () => show(openDelay)),
-			addEventListener(element, 'pointerleave', hide),
+			addEventListener(element, 'pointerleave', () => hide(closeDelay)),
 			addEventListener(element, 'click', hide)
 		);
 
@@ -106,8 +107,9 @@ export const createTooltip = ({
 		delayShowTimer.set(delay);
 		startShowTimer();
 	};
-	const hide = () => {
+	const hide = (delay = 0) => {
 		stopShowTimer();
+		delayHideTimer.set(delay);
 		startHideTimer();
 	};
 	const toggle = () => open$.update((value) => !value);

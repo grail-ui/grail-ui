@@ -5,6 +5,7 @@
 	export let onOpenChange: (() => void) | undefined = undefined;
 	export let isOpen = false;
 	export let openDelay = 0;
+	export let closeDelay: number | undefined = undefined;
 	export let hasArrow = true;
 	export let triggerExists = true;
 	export let portal: TooltipConfig['portal'] = undefined;
@@ -13,6 +14,7 @@
 		createTooltip({
 			open: isOpen,
 			openDelay,
+			closeDelay,
 			onOpenChange,
 			portal,
 		});
