@@ -47,5 +47,6 @@
 		right: 0;
 		background: hsl(var(--bc) / 0.1);
 		border-left: 2px solid #48bb78;
+		pointer-events: none;
 	}
 </style>
