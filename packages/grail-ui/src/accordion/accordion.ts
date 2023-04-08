@@ -64,16 +64,15 @@ export function createAccordion<T extends string = string>(
 			onActivate: (item) => item.focus(),
 		});
 
-		function getTrigger(event: Event): HTMLElement | undefined {
+		function getTrigger(event: Event) {
 			const path = event.composedPath();
-			const node = path.find((element) =>
-				(element as HTMLElement).hasAttribute(ACCORDION_ATTRIBUTES.trigger)
+			const node = path.find(
+				(el) => el instanceof HTMLElement && el.hasAttribute(ACCORDION_ATTRIBUTES.trigger)
 			);
-			return node as HTMLElement;
+			return node as HTMLElement | undefined;
 		}
 
 		const handleKeyDown = (event: KeyboardEvent) => {
-			const triggerCollection = getTriggers(node);
 			const trigger = getTrigger(event);
 			if (!trigger) return;
 
@@ -83,6 +82,7 @@ export function createAccordion<T extends string = string>(
 				return;
 			}
 
+			const triggerCollection = getTriggers(node);
 			items.set(triggerCollection);
 			keyManager.setActiveItem(triggerCollection.indexOf(trigger));
 			keyManager.onKeydown(event);
