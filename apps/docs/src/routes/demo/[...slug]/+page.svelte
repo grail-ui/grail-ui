@@ -4,5 +4,5 @@
 	export let data: PageData;
 </script>
 
-<a class="link link-hover fixed top-2 left-2" href="/svelte/{data.slug}">Back</a>
+<a class="link link-hover fixed left-2 top-2" href="/svelte/{data.slug}">Back</a>
 <svelte:component this={data.component} />

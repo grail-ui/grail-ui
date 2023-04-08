@@ -13,7 +13,7 @@
 			<li>
 				<a
 					{href}
-					class="text-base-content hover:bg-base-content/10 -ml-px inline-block w-full whitespace-nowrap rounded-r-sm border-l py-2 px-6 font-medium transition-colors duration-200 lg:text-sm {active
+					class="text-base-content hover:bg-base-content/10 -ml-px inline-block w-full whitespace-nowrap rounded-r-sm border-l px-6 py-2 font-medium transition-colors duration-200 lg:text-sm {active
 						? 'bg-base-content/10 border-primary'
 						: 'border-transparent'}">{label}</a
 				>
