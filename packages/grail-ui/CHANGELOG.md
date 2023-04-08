@@ -1,5 +1,13 @@
 # @grail-ui/svelte
 
+## 0.9.3
+
+### Patch Changes
+
+- [#126](https://github.com/grail-ui/grail-ui/pull/126) [`57ac83e`](https://github.com/grail-ui/grail-ui/commit/57ac83e83941c68660d134562cc56c30465983ad) Thanks [@bekos](https://github.com/bekos)! - Tooltip: support custom close delay & improve accessibility for keyboard triggered ones
+
+- [#128](https://github.com/grail-ui/grail-ui/pull/128) [`918ded2`](https://github.com/grail-ui/grail-ui/commit/918ded296f6a70af3b81942f4c121421261562c1) Thanks [@bekos](https://github.com/bekos)! - Accordion: prevent error when clicking inside content
+
 ## 0.9.2
 
 ### Patch Changes
