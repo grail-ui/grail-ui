@@ -3,6 +3,13 @@ import type { Readable, Writable } from 'svelte/store';
 
 export type ModalConfig = {
 	/**
+	 * A unique ID for the modal instance.
+	 *
+	 * @defaultValue Generated
+	 */
+	id?: string;
+
+	/**
 	 * The open state of the dialog when it is initially rendered.
 	 *
 	 * @defaultValue `true`

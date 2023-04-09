@@ -9,7 +9,10 @@ import { useClickOutside } from '../clickOutside/clickOutside.js';
 import { writableEffect } from '../util/store.js';
 import { addEventListener } from '../eventListener/eventListener.js';
 
+const modalState: Record<string, Pick<ModalReturn, 'open' | 'triggerAttrs'>> = {};
+
 export const createModal = ({
+	id = uniqueId('modal'),
 	open = true,
 	portal = 'body',
 	onOpenChange,
@@ -18,8 +21,7 @@ export const createModal = ({
 	onInteractOutside,
 	initialFocus,
 }: ModalConfig = {}): ModalReturn => {
-	const id = uniqueId('modal');
-	const titleId = uniqueId('modal-title');
+	const titleId = `${id}-title`;
 
 	const open$ = writableEffect(open, onOpenChange);
 	const dismissible$ = writable(dismissible);
@@ -75,6 +77,7 @@ export const createModal = ({
 
 		return {
 			destroy() {
+				delete modalState[id];
 				focusTrapAction?.destroy?.();
 				portalAction?.destroy?.();
 				clickOutsideAction?.destroy?.();
@@ -94,6 +97,8 @@ export const createModal = ({
 		'aria-expanded': `${open}`,
 	}));
 
+	modalState[id] = { open: open$, triggerAttrs };
+
 	return {
 		useModal,
 		modalAttrs,
@@ -104,3 +109,7 @@ export const createModal = ({
 		keyboardDismissible: keyboardDismissible$,
 	};
 };
+
+export function getModalTrigger(id: string) {
+	return modalState[id];
+}
