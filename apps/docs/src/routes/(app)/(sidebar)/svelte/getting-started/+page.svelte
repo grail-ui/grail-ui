@@ -31,7 +31,7 @@
 		If you are unable to use tree shaking, you can still selectively include only the specific
 		modules that you need by importing them directly, like this:
 		<Highlight
-			source={`import { createModal } from "@grail-ui/svelte/accordion";
+			source={`import { createModal } from "@grail-ui/svelte/modal";
 import { createTooltip } from "@grail-ui/svelte/tooltip";`}
 			class="rounded"
 		/>
