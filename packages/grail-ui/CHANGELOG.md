@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.9.4
+
+### Patch Changes
+
+- [#132](https://github.com/grail-ui/grail-ui/pull/132) [`844c70e`](https://github.com/grail-ui/grail-ui/commit/844c70eaa68592ee8d98d99e1e753e0413751d50) Thanks [@bekos](https://github.com/bekos)! - ClickOutside: listener should not be passive to allow `preventDefault`
+
 ## 0.9.3
 
 ### Patch Changes
