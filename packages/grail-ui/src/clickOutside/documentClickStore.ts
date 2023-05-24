@@ -9,5 +9,5 @@ export default readable<PointerEvent | undefined>(undefined, (set): (() => void)
 		set(undefined);
 	}
 
-	return addEventListener(document, 'pointerdown', clicked, { passive: true, capture: true });
+	return addEventListener(document, 'pointerdown', clicked, { passive: false, capture: true });
 });
