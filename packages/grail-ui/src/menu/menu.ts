@@ -155,7 +155,7 @@ export const createMenu = <T extends string>({
 		const clickOutsideAction = useClickOutside(element, {
 			enabled: open$,
 			handler: (e: PointerEvent) => {
-				if (!e.defaultPrevented && (e.target as Element).id !== id) {
+				if (!e.defaultPrevented && !(e.target as Element).closest(`#${id}`)) {
 					hide();
 				}
 			},
