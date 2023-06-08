@@ -8,7 +8,7 @@ Before you start, you must install and configure the following on your developme
 
 - [Node.js](https://nodejs.org) (version specified in the [.nvmrc](.nvmrc)). Optional: use a Node Version Manager, like [NVM](https://github.com/nvm-sh/nvm).
 
-- [PNPM](https://pnpm.io) (version `7`) which is used to install dependencies.
+- [PNPM](https://pnpm.io) which is used to install dependencies.
 
 ## Installing dependencies
 

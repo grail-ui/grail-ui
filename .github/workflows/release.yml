@@ -8,7 +8,7 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 env:
-  node-version: 16.x
+  node-version: 18.x
 
 jobs:
   release:
