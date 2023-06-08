@@ -10,7 +10,7 @@
 <div data-testid="container">
 	{#if triggerExists}
 		<button type="button" class="btn" use:useTrigger {...$triggerAttrs} data-testid="trigger"
-			>Menu</button
+			><span>Menu</span></button
 		>
 	{/if}
 	{#if $open}

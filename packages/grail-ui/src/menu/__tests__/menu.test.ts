@@ -224,4 +224,11 @@ describe('Menu', () => {
 		await user.click(items[4].querySelector('span') as HTMLElement);
 		expect(spy).toHaveBeenCalledWith('5');
 	});
+
+	it('should hide clicking any descendant of the trigger', async () => {
+		const { trigger, getMenu } = setup(createMenu({ open: true }));
+
+		await user.click(trigger.querySelector('span') as HTMLElement);
+		expect(getMenu()).not.toBeInTheDocument();
+	});
 });
