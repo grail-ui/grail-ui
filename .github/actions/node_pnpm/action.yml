@@ -8,13 +8,17 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: Install PNPM
+      uses: pnpm/action-setup@v2
+      with:
+        version: 8
+
     - name: Use Node v${{ inputs.node-version }}
       uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node-version }}
+        cache: pnpm
 
-    - name: Install PNPM
-      uses: pnpm/action-setup@v2
-      with:
-        version: 7
-        run_install: true
+    - name: Install Dependencies
+      shell: bash
+      run: pnpm install --frozen-lockfile
