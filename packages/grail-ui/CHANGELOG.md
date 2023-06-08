@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.9.5
+
+### Patch Changes
+
+- [#136](https://github.com/grail-ui/grail-ui/pull/136) [`e9d9a98`](https://github.com/grail-ui/grail-ui/commit/e9d9a9832522a1392b252f7cc7b5534b1786f0d1) Thanks [@bekos](https://github.com/bekos)! - Menu closes when clicking any descendant of trigger
+
 ## 0.9.4
 
 ### Patch Changes
