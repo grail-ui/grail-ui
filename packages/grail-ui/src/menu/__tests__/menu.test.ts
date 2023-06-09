@@ -231,4 +231,18 @@ describe('Menu', () => {
 		await user.click(trigger.querySelector('span') as HTMLElement);
 		expect(getMenu()).not.toBeInTheDocument();
 	});
+
+	it('should focus menu item on hover', async () => {
+		const { getMenuItems } = setup(createMenu({ open: true }));
+
+		let item = getMenuItems().at(0);
+		expect(item).not.toHaveFocus();
+		await user.hover(item as HTMLElement);
+		expect(item).toHaveFocus();
+
+		item = getMenuItems().at(1);
+		expect(item).not.toHaveFocus();
+		await user.hover(item as HTMLElement);
+		expect(item).toHaveFocus();
+	});
 });
