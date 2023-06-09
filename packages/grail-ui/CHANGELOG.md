@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.9.6
+
+### Patch Changes
+
+- [#140](https://github.com/grail-ui/grail-ui/pull/140) [`863e635`](https://github.com/grail-ui/grail-ui/commit/863e635ebecbb781dc439af05b8bdf6a2a6c03bf) Thanks [@bekos](https://github.com/bekos)! - Menu: always focus menu items on hover
+
 ## 0.9.5
 
 ### Patch Changes
