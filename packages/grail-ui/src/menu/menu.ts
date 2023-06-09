@@ -187,10 +187,8 @@ export const createMenu = <T extends string>({
 			addEventListener(element, 'keydown', handleKeyDown),
 			addEventListener(element, 'click', handleClick),
 			addEventListener(element, 'pointerover', (e) => {
-				if (
-					keyManager.currentActiveItem &&
-					(e.target as HTMLElement).getAttribute('role') === 'menuitem'
-				) {
+				const target = e.target;
+				if (target instanceof Element && target.getAttribute('role') === 'menuitem') {
 					keyManager.setActiveItem(e.target as HTMLElement);
 				}
 			})
