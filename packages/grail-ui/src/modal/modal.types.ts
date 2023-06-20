@@ -48,9 +48,9 @@ export type ModalConfig = {
 	keyboardDismissible?: boolean;
 
 	/**
-	 * Event handler called when a pointer event occurs outside the bounds of the dialog. It can be prevented by calling event.preventDefault.
+	 * Event handler called when a pointer event occurs outside the bounds of the dialog. Closing can be prevented by calling `event.preventDefault()` or by returning `false`.
 	 */
-	onInteractOutside?: (e?: PointerEvent) => void;
+	onInteractOutside?: (e?: PointerEvent) => void | boolean;
 };
 
 export type ModalReturn = {

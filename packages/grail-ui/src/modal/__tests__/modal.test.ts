@@ -65,6 +65,20 @@ describe('Modal', () => {
 		expect(onInteractOutside).toHaveBeenCalledTimes(1);
 	});
 
+	it('should prevent closing on clicks outside', async () => {
+		const onInteractOutside = vi.fn().mockReturnValue(false);
+		const api = createModal({
+			portal: null,
+			open: true,
+			dismissible: true,
+			onInteractOutside,
+		});
+		render(ModalTest, { api });
+
+		await user.click(document.body);
+		expect(screen.queryByTestId('modal')).toBeVisible();
+	});
+
 	it('should handle custom initial focus', async () => {
 		const api = createModal({ portal: null, open: false, initialFocus: '[data-testid=focus]' });
 		render(ModalTest, { api });
