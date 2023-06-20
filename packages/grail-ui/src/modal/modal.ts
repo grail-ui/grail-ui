@@ -48,8 +48,8 @@ export const createModal = ({
 		const clickOutsideAction = useClickOutside(contentEl, {
 			enabled: derived([open$, dismissible$], ([$open, $dismissible]) => $open && $dismissible),
 			handler: (e: PointerEvent) => {
-				onInteractOutside?.(e);
-				if (!e.defaultPrevented) {
+				const shouldClose = onInteractOutside?.(e);
+				if (shouldClose !== false && !e.defaultPrevented) {
 					open$.set(false);
 				}
 			},
