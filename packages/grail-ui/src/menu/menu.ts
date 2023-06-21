@@ -148,6 +148,22 @@ export const createMenu = <T extends string>({
 		};
 	};
 
+	function handleSelectFromEvent(event: PointerEvent | KeyboardEvent) {
+		if (!onSelect) return;
+
+		const { target } = event;
+		const menuItem = target instanceof Element && target.closest('[role=menuitem]');
+		if (menuItem instanceof HTMLElement) {
+			event.preventDefault();
+			if (!skipPredicate(menuItem)) {
+				const shouldClose = onSelect(menuItem.getAttribute('data-item-id') as T);
+				if (shouldClose !== false) {
+					hide(true);
+				}
+			}
+		}
+	}
+
 	const useMenu: Action<HTMLElement, void> = (element) => {
 		const portalAction = portal ? usePortal(element, { target: portal }) : undefined;
 		overlayElement$.set(element);
@@ -165,22 +181,15 @@ export const createMenu = <T extends string>({
 			if (event.key === ESCAPE) {
 				hide(true);
 				return;
+			} else if (event.key === ENTER) {
+				handleSelectFromEvent(event);
 			}
 
 			keyManager.onKeydown(event);
 		};
 
 		const handleClick = (event: PointerEvent) => {
-			if (!onSelect) return;
-
-			const { target } = event;
-			const menuItem = target instanceof Element && target.closest('[role=menuitem]');
-			if (menuItem instanceof HTMLElement) {
-				event.preventDefault();
-				if (!skipPredicate(menuItem)) {
-					onSelect(menuItem.getAttribute('data-item-id') as T);
-				}
-			}
+			handleSelectFromEvent(event);
 		};
 
 		const removeEvents = chain(

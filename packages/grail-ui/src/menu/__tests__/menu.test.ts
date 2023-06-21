@@ -203,16 +203,35 @@ describe('Menu', () => {
 
 	it('should call `onSelect` when clicking', async () => {
 		const spy = vi.fn();
-		const { getMenuItems } = setup(createMenu({ open: true, onSelect: spy }));
+		const { getMenu, getMenuItems } = setup(createMenu({ open: true, onSelect: spy }));
 
 		const items = getMenuItems();
 
 		await user.click(items[0]);
 		expect(spy).toHaveBeenCalledWith('1');
+		expect(getMenu()).not.toBeInTheDocument();
+	});
+
+	it('should not call `onSelect` when clicking disabled items', async () => {
+		const spy = vi.fn();
+		const { getMenu, getMenuItems } = setup(createMenu({ open: true, onSelect: spy }));
+
+		const items = getMenuItems();
 
 		// Does not fire for disabled items
 		await user.click(items[1]);
 		expect(spy).not.toHaveBeenCalledWith('2');
+		expect(getMenu()).toBeInTheDocument();
+	});
+
+	it('can prevent close if `onSelect` returns `false`', async () => {
+		const spy = vi.fn().mockReturnValue(false);
+		const { getMenu, getMenuItems } = setup(createMenu({ open: true, onSelect: spy }));
+
+		const items = getMenuItems();
+
+		await user.click(items[0]);
+		expect(getMenu()).toBeInTheDocument();
 	});
 
 	it('should call `onSelect` when clicking any descendant', async () => {
