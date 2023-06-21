@@ -2,7 +2,7 @@ module.exports = {
 	extends: ['@commitlint/config-conventional'],
 	plugins: ['workspace-scopes'],
 	rules: {
-		'header-max-length': [2, 'always', 80],
+		'header-max-length': [2, 'always', 90],
 		'type-enum': [
 			2,
 			'always',
