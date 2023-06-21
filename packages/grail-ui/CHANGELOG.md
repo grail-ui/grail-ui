@@ -1,5 +1,13 @@
 # @grail-ui/svelte
 
+## 0.10.0
+
+### Minor Changes
+
+- [#144](https://github.com/grail-ui/grail-ui/pull/144) [`aaacd6c`](https://github.com/grail-ui/grail-ui/commit/aaacd6c73fb70ac5e38e0e9c4631bab03fd0fd99) Thanks [@bekos](https://github.com/bekos)! - Modal: prevent closing by returning `false` from `onInteractOutside`
+
+- [#146](https://github.com/grail-ui/grail-ui/pull/146) [`f96eb1d`](https://github.com/grail-ui/grail-ui/commit/f96eb1d4eb534f4606b211bcca02defd713821e3) Thanks [@bekos](https://github.com/bekos)! - Menu: handle keyboard selection & auto-close on select
+
 ## 0.9.6
 
 ### Patch Changes
