@@ -35,7 +35,7 @@
 		"prettier": "2.8.8",
 		"prettier-plugin-svelte": "2.10.1",
 		"prettier-plugin-tailwindcss": "0.3.0",
-		"syncpack": "10.5.1",
+		"syncpack": "10.6.1",
 		"tsx": "3.12.7"
 	},
 	"engines": {
