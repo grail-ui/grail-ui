@@ -4,7 +4,6 @@
 
 	const { useTrigger, triggerAttrs, useMenu, menuAttrs, itemAttrs, open } = createMenu({
 		onSelect(id) {
-			$open = false;
 			alert(id);
 		},
 	});

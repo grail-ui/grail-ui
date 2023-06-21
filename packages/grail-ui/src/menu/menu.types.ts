@@ -39,8 +39,9 @@ export type MenuConfig<T extends string = string> = {
 
 	/**
 	 * Event handler called when an item is selected.
+	 * Return `false` to prevent closing of the menu.
 	 */
-	onSelect?: (value: T) => void | undefined;
+	onSelect?: (value: T) => void | undefined | boolean;
 };
 
 export type MenuReturn<T extends string> = {

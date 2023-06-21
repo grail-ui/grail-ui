@@ -6,7 +6,7 @@ Pass <code>onSelect</code> to the <code>createMenu</code> function to perform so
 an item is selected. This callback is invoked with the <code>id</code> of the item.
 <Highlight
 	source={`createMenu({
-		onSelect(id) {
+	onSelect(id) {
 		console.log(id);
 	},
 })`}
