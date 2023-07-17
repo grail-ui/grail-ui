@@ -13,10 +13,10 @@
 		"api": "svelte-kit sync && pnpm --filter=\"@grail-ui/svelte\" api --json ../../apps/docs/src/docs/api.json"
 	},
 	"devDependencies": {
-		"@iconify/json": "2.2.81",
+		"@iconify/json": "2.2.91",
 		"@stackblitz/sdk": "1.9.0",
-		"@sveltejs/adapter-vercel": "3.0.1",
-		"@sveltejs/kit": "1.20.4",
+		"@sveltejs/adapter-vercel": "3.0.2",
+		"@sveltejs/kit": "1.22.3",
 		"@tailwindcss/typography": "0.5.9",
 		"@types/js-cookie": "3.0.3",
 		"@typescript-eslint/eslint-plugin": "5.60.0",
@@ -24,19 +24,19 @@
 		"autoprefixer": "10.4.14",
 		"change-case": "4.1.2",
 		"daisyui": "2.51.6",
-		"eslint": "8.43.0",
+		"eslint": "8.45.0",
 		"eslint-plugin-svelte3": "4.0.0",
 		"highlight.js": "11.8.0",
-		"postcss": "8.4.24",
+		"postcss": "8.4.26",
 		"svelte": "3.59.2",
-		"svelte-check": "3.4.3",
-		"tailwindcss": "3.3.2",
-		"tslib": "2.5.3",
+		"svelte-check": "3.4.6",
+		"tailwindcss": "3.3.3",
+		"tslib": "2.6.0",
 		"typedoc": "0.23.28",
 		"typedoc-json-parser": "7.2.0",
-		"typescript": "5.1.3",
-		"unplugin-icons": "0.16.3",
-		"vite": "4.3.9"
+		"typescript": "5.1.6",
+		"unplugin-icons": "0.16.5",
+		"vite": "4.4.4"
 	},
 	"dependencies": {
 		"js-cookie": "3.0.5"
