@@ -1,5 +1,11 @@
 # @grail-ui/svelte
 
+## 0.10.1
+
+### Patch Changes
+
+- [#148](https://github.com/grail-ui/grail-ui/pull/148) [`07a2c5e`](https://github.com/grail-ui/grail-ui/commit/07a2c5ef33a9efcd1e3c294fd2b730f5b3c759f2) Thanks [@bekos](https://github.com/bekos)! - Number imput: handle correctly event on button descendants
+
 ## 0.10.0
 
 ### Minor Changes
