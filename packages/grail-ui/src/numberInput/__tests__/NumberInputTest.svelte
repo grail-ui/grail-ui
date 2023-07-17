@@ -9,6 +9,6 @@
 <div data-testid="root" use:useNumberInput>
 	<div data-testid="label" {...$labelAttrs}>Enter number:</div>
 	<input data-testid="input" type="text" {...$inputAttrs} />
-	<button data-testid="increment" {...$incrementAttrs}>+</button>
-	<button data-testid="decrement" {...$decrementAttrs}>-</button>
+	<button data-testid="increment" {...$incrementAttrs}><span>+</span></button>
+	<button data-testid="decrement" {...$decrementAttrs}><span>-</span></button>
 </div>

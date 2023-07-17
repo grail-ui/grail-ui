@@ -135,8 +135,23 @@ export const createNumberInput = (initConfig: NumberInputConfig = {}): NumberInp
 
 		let interval: ReturnType<typeof setInterval>;
 		let timeout: ReturnType<typeof setTimeout>;
+
+		function getModeButton(e: PointerEvent) {
+			const target = e.target;
+			if (!target || !(target instanceof HTMLElement)) return;
+
+			if (target.dataset.mode) return target.dataset.mode;
+
+			const button = [...document.querySelectorAll(`[aria-controls="${id}"]`)].find((b) =>
+				b.contains(target)
+			);
+			if (button && button instanceof HTMLElement) {
+				return button.dataset.mode;
+			}
+		}
+
 		removePointerDownEvent = addEventListener(node, 'pointerdown', (e: PointerEvent) => {
-			const mode = (e.target as HTMLElement).dataset.mode;
+			const mode = getModeButton(e);
 			if (!mode) return;
 
 			const handleAction = mode === '+' ? increment : decrement;

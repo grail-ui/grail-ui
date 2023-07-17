@@ -79,6 +79,15 @@ describe('Number Input', () => {
 		expect(input).toHaveValue('0');
 	});
 
+	it('should increment/decrement correctly with  inc/dec buttons and keyboard arrow up/arrow down-page up/page down(shift multiples step ten times)', async () => {
+		const { input, increment, decrement } = setup();
+
+		await user.click(increment.querySelector('span') as HTMLElement);
+		expect(input).toHaveValue('1');
+		await user.click(decrement.querySelector('span') as HTMLElement);
+		expect(input).toHaveValue('0');
+	});
+
 	it('should be able to change min, max, pattern, inputMode parameters for input', async () => {
 		const { input } = setup({ min: 20, max: 30, pattern: 'test-pattern', inputMode: 'numeric' });
 
