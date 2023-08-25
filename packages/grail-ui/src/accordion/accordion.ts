@@ -160,7 +160,8 @@ export function createAccordion<T extends string = string>(
 
 	const expandAll = () => {
 		if (rootNode) {
-			getTriggers(rootNode).forEach(toggleTrigger);
+			const keys = getTriggers(rootNode).map((trigger) => trigger.dataset.accordionTrigger as T);
+			select(...keys);
 		}
 	};
 
