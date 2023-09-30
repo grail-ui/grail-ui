@@ -112,6 +112,22 @@ describe('Modal', () => {
 			await userEvent.keyboard('{escape}');
 			expect(screen.queryByTestId('modal')).toBeVisible();
 		});
+
+		it('could be prevent closing', async () => {
+			const onKeyboardDismiss = vi.fn().mockReturnValue(false);
+			advanceOpenDelay(async () => {
+				const api = createModal({
+					portal: null,
+					open: true,
+					keyboardDismissible: true,
+					onKeyboardDismiss,
+				});
+				await render(ModalTest, { api });
+			});
+
+			await userEvent.keyboard('{escape}');
+			expect(screen.queryByTestId('modal')).toBeVisible();
+		});
 	});
 
 	it('should update dismissible', async () => {

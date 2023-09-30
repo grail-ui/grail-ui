@@ -51,6 +51,11 @@ export type ModalConfig = {
 	 * Event handler called when a pointer event occurs outside the bounds of the dialog. Closing can be prevented by calling `event.preventDefault()` or by returning `false`.
 	 */
 	onInteractOutside?: (e?: PointerEvent) => void | boolean;
+
+	/**
+	 * Event handler called when the escape key is pressed. Closing can be prevented by calling `event.preventDefault()` or by returning `false`.
+	 */
+	onKeyboardDismiss?: (e?: KeyboardEvent) => void | boolean;
 };
 
 export type ModalReturn = {

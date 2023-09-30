@@ -16,6 +16,7 @@ export const createModal = ({
 	dismissible = false,
 	keyboardDismissible = true,
 	onInteractOutside,
+	onKeyboardDismiss,
 	initialFocus,
 }: ModalConfig = {}): ModalReturn => {
 	const id = uniqueId('modal');
@@ -38,8 +39,11 @@ export const createModal = ({
 
 		const removeEvent = addEventListener(contentEl, `keydown`, (e: KeyboardEvent) => {
 			if (e.key === ESCAPE && get(keyboardDismissible$)) {
-				e.preventDefault();
-				open$.set(false);
+				const shouldClose = onKeyboardDismiss?.(e);
+				if (shouldClose !== false && !e.defaultPrevented) {
+					e.preventDefault();
+					open$.set(false);
+				}
 			}
 		});
 
