@@ -1,5 +1,15 @@
 # @grail-ui/svelte
 
+## 0.11.0
+
+### Minor Changes
+
+- [#154](https://github.com/grail-ui/grail-ui/pull/154) [`ad721fe`](https://github.com/grail-ui/grail-ui/commit/ad721febb33e36d74fba2525e68e2b7673d8e16a) Thanks [@bekos](https://github.com/bekos)! - Modal: suppport callback when closing with keyboard
+
+### Patch Changes
+
+- [`775dac6`](https://github.com/grail-ui/grail-ui/commit/775dac6c0f3709b12d193dd2c228dac07670fb75) Thanks [@brad426](https://github.com/brad426)! - Accordion: `expandAll` selects all trigger keys
+
 ## 0.10.1
 
 ### Patch Changes
